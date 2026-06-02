@@ -1,0 +1,37 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { pages, type PageKey } from "../../data/site";
+import { isLang, languages } from "../../lib/i18n";
+
+const pageKeys = ["status", "method-boundary", "privacy", "transparency"] satisfies PageKey[];
+
+export function getStaticPaths() {
+  const staticPageKeys = ["status", "method-boundary", "privacy", "transparency"] satisfies PageKey[];
+  return languages.flatMap((lang) => staticPageKeys.map((page) => ({ params: { lang, page } })));
+}
+
+const lang = Astro.params.lang;
+const page = Astro.params.page as PageKey;
+
+if (!isLang(lang) || !pageKeys.includes(page)) {
+  throw new Error(`Unsupported route: ${lang}/${page}`);
+}
+
+const copy = pages[lang][page];
+---
+
+<BaseLayout lang={lang} title={copy.title} description={copy.description}>
+  <section class="page-heading">
+    <p class="eyebrow">{copy.eyebrow}</p>
+    <h1>{copy.title}</h1>
+    <p>{copy.description}</p>
+  </section>
+  <section class="article-flow">
+    {copy.blocks.map((block) => (
+      <article>
+        <h2>{block.heading}</h2>
+        {block.body.map((paragraph) => <p>{paragraph}</p>)}
+      </article>
+    ))}
+  </section>
+</BaseLayout>

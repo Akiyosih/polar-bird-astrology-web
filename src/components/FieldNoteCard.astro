@@ -1,0 +1,23 @@
+---
+import type { Lang } from "../lib/i18n";
+import { localizedPath } from "../lib/i18n";
+
+type Props = {
+  lang: Lang;
+  slug: string;
+  title: string;
+  eyebrow: string;
+  status: string;
+  summary: string;
+};
+
+const { lang, slug, title, eyebrow, status, summary } = Astro.props;
+---
+
+<article class="field-note-card">
+  <p class="eyebrow">{eyebrow}</p>
+  <h2><a href={localizedPath(lang, `core-field-notes/${slug}`)}>{title}</a></h2>
+  <p>{summary}</p>
+  <span class="status-pill">{status}</span>
+</article>
+

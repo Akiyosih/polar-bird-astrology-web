@@ -1,0 +1,27 @@
+---
+import { languageLabels, languages, localizedPath } from "../lib/i18n";
+import "../styles/global.css";
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Choose a language for Polar Bird Astrology Core Field Notes." />
+    <title>Polar Bird Astrology</title>
+  </head>
+  <body class="root-choice">
+    <main class="language-choice" aria-labelledby="language-title">
+      <img src="/images/watercolor/polar-field-wash.png" width="960" height="540" alt="" />
+      <div>
+        <p class="eyebrow">Polar Bird Astrology</p>
+        <h1 id="language-title">Core Field Notes</h1>
+        <p>Choose a language. Japanese, English, and German are maintained as first-class public surfaces.</p>
+        <nav aria-label="Language">
+          {languages.map((lang) => <a href={localizedPath(lang)}>{languageLabels[lang]}</a>)}
+        </nav>
+      </div>
+    </main>
+  </body>
+</html>

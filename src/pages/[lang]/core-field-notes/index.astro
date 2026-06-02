@@ -1,0 +1,30 @@
+---
+import FieldNoteCard from "../../../components/FieldNoteCard.astro";
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+import { uiCopy } from "../../../data/site";
+import { getFieldNotes } from "../../../lib/fieldNotes";
+import { isLang, languages } from "../../../lib/i18n";
+
+export function getStaticPaths() {
+  return languages.map((lang) => ({ params: { lang } }));
+}
+
+const lang = Astro.params.lang;
+if (!isLang(lang)) {
+  throw new Error(`Unsupported language: ${lang}`);
+}
+
+const notes = getFieldNotes(lang);
+const ui = uiCopy[lang];
+---
+
+<BaseLayout lang={lang} title={ui.fieldNotesTitle} description={ui.fieldNotesDescription}>
+  <section class="page-heading">
+    <p class="eyebrow">{ui.fieldNotesTitle}</p>
+    <h1>{ui.fieldNotesTitle}</h1>
+    <p>{ui.fieldNotesDescription}</p>
+  </section>
+  <section class="card-list">
+    {notes.map((note) => <FieldNoteCard {...note} />)}
+  </section>
+</BaseLayout>

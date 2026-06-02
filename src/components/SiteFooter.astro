@@ -1,0 +1,21 @@
+---
+import { localizedPath, type Lang } from "../lib/i18n";
+import { repoUrl, uiCopy } from "../data/site";
+
+type Props = {
+  lang: Lang;
+};
+
+const { lang } = Astro.props;
+const copy = uiCopy[lang];
+---
+
+<footer class="site-footer">
+  <p>{copy.footerNotice}</p>
+  <div class="footer-links">
+    <a href={localizedPath(lang, "method-boundary")}>{copy.footerLinks.method}</a>
+    <a href={localizedPath(lang, "privacy")}>{copy.footerLinks.privacy}</a>
+    <a href={localizedPath(lang, "transparency")}>{copy.footerLinks.transparency}</a>
+    <a href={repoUrl}>{copy.footerLinks.github}</a>
+  </div>
+</footer>

@@ -1,0 +1,53 @@
+---
+import BoundaryBox from "../../../components/BoundaryBox.astro";
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+import { uiCopy } from "../../../data/site";
+import { getFieldNote, getFieldNoteStaticPaths } from "../../../lib/fieldNotes";
+import { isLang } from "../../../lib/i18n";
+
+export function getStaticPaths() {
+  return getFieldNoteStaticPaths();
+}
+
+const lang = Astro.params.lang;
+const slug = Astro.params.slug;
+
+if (!isLang(lang)) {
+  throw new Error(`Unsupported language: ${lang}`);
+}
+
+const note = getFieldNote(lang, slug);
+if (!note) {
+  throw new Error(`Unknown field note: ${slug}`);
+}
+const ui = uiCopy[lang];
+---
+
+<BaseLayout lang={lang} title={note.title} description={note.summary}>
+  <article class="field-note">
+    <header class="page-heading">
+      <p class="eyebrow">{note.eyebrow}</p>
+      <h1>{note.title}</h1>
+      <p>{note.summary}</p>
+      <span class="status-pill">{note.status}</span>
+    </header>
+
+    <BoundaryBox title={ui.publicationBoundaryTitle}>
+      <p>{ui.publicationBoundaryText}</p>
+    </BoundaryBox>
+
+    <section class="article-flow">
+      {note.intro.length > 0 && (
+        <article>
+          {note.intro.map((paragraph) => <p>{paragraph}</p>)}
+        </article>
+      )}
+      {note.sections.map((section) => (
+        <article>
+          <h2>{section.heading}</h2>
+          {section.body.map((paragraph) => <p>{paragraph}</p>)}
+        </article>
+      ))}
+    </section>
+  </article>
+</BaseLayout>

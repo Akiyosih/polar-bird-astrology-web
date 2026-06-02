@@ -1,0 +1,25 @@
+{
+  "name": "polar-bird-astrology-web",
+  "version": "0.1.0",
+  "private": false,
+  "type": "module",
+  "scripts": {
+    "dev": "astro dev",
+    "check": "astro check && npm run scan:public-boundary && npm run test",
+    "build": "astro build",
+    "preview": "astro preview",
+    "scan:public-boundary": "node scripts/scan-public-boundary.mjs",
+    "test": "node tests/publicContentBoundary.test.mjs && node tests/publicClaims.test.mjs"
+  },
+  "dependencies": {
+    "astro": "6.4.2"
+  },
+  "devDependencies": {
+    "@astrojs/check": "0.9.9",
+    "typescript": "6.0.3"
+  },
+  "overrides": {
+    "volar-service-yaml": "0.0.71",
+    "yaml-language-server": "1.23.0"
+  }
+}

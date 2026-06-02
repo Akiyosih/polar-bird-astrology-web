@@ -1,0 +1,13 @@
+---
+type Props = {
+  title: string;
+};
+
+const { title } = Astro.props;
+---
+
+<aside class="boundary-box">
+  <h2>{title}</h2>
+  <slot />
+</aside>
+

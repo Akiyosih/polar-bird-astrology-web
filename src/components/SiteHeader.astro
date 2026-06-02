@@ -1,0 +1,32 @@
+---
+import { languageLabels, languages, localizedPath, type Lang } from "../lib/i18n";
+import { navItems } from "../data/site";
+
+type Props = {
+  lang: Lang;
+};
+
+const { lang } = Astro.props;
+const suffix = Astro.url.pathname.replace(/^\/(en|ja|de)/, "") || "";
+---
+
+<header class="site-header">
+  <a class="brand" href={localizedPath(lang)}>
+    <span class="brand-mark" aria-hidden="true">PB</span>
+    <span>
+      <strong>Polar Bird Astrology</strong>
+      <small>Core Field Notes</small>
+    </span>
+  </a>
+  <nav class="primary-nav" aria-label="Primary">
+    {navItems[lang].map((item) => <a href={localizedPath(lang, item.href)}>{item.label}</a>)}
+  </nav>
+  <nav class="language-nav" aria-label="Language">
+    {languages.map((code) => (
+      <a class:list={{ active: code === lang }} href={`${localizedPath(code, suffix)}`}>
+        {languageLabels[code]}
+      </a>
+    ))}
+  </nav>
+</header>
+
