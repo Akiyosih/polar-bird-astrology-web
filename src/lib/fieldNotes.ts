@@ -14,8 +14,14 @@ export type FieldNote = {
   eyebrow: string;
   status: string;
   summary: string;
+  pdfUrl?: string;
+  chartImage?: string;
+  chartAlt?: string;
+  coverImage?: string;
+  period?: string;
   intro: string[];
   sections: FieldNoteSection[];
+  bodyHtml: string;
 };
 
 const reportTypeKeys = ["natal", "solar-return", "new-moon"] as const;
@@ -56,6 +62,73 @@ function markdownParagraphs(markdown: string): string[] {
     .map((block) => block.replace(/\n/g, " "));
 }
 
+function escapeHtml(value: string): string {
+  return value
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;");
+}
+
+function renderInlineMarkdown(value: string): string {
+  return escapeHtml(value).replace(/\*\*([^*]+)\*\*/g, "<strong>$1</strong>");
+}
+
+function markdownToHtml(markdown: string): string {
+  const withoutTitle = markdown.replace(/^# .*(?:\n|$)/, "").trim();
+  const html: string[] = [];
+  let paragraph: string[] = [];
+  let listItems: string[] = [];
+
+  const flushParagraph = () => {
+    if (paragraph.length === 0) {
+      return;
+    }
+    html.push(`<p>${renderInlineMarkdown(paragraph.join(" "))}</p>`);
+    paragraph = [];
+  };
+
+  const flushList = () => {
+    if (listItems.length === 0) {
+      return;
+    }
+    html.push(`<ul>${listItems.map((item) => `<li>${renderInlineMarkdown(item)}</li>`).join("")}</ul>`);
+    listItems = [];
+  };
+
+  for (const rawLine of withoutTitle.split("\n")) {
+    const line = rawLine.trim();
+    if (!line) {
+      flushParagraph();
+      flushList();
+      continue;
+    }
+
+    const heading = line.match(/^(#{2,3})\s+(.+)$/);
+    if (heading) {
+      flushParagraph();
+      flushList();
+      const level = heading[1].length;
+      html.push(`<h${level}>${renderInlineMarkdown(heading[2])}</h${level}>`);
+      continue;
+    }
+
+    const listItem = line.match(/^-\s+(.+)$/);
+    if (listItem) {
+      flushParagraph();
+      listItems.push(listItem[1]);
+      continue;
+    }
+
+    flushList();
+    paragraph.push(line);
+  }
+
+  flushParagraph();
+  flushList();
+  return html.join("\n");
+}
+
 function parseSections(markdown: string): { intro: string[]; sections: FieldNoteSection[] } {
   const withoutTitle = markdown.replace(/^# .*(?:\n|$)/, "").trim();
   const parts = withoutTitle.split(/\n## /);
@@ -94,8 +167,14 @@ function parseFieldNote(path: string, raw: string): FieldNote {
     eyebrow: data.eyebrow,
     status: data.status,
     summary: data.summary,
+    pdfUrl: data.pdfUrl,
+    chartImage: data.chartImage,
+    chartAlt: data.chartAlt,
+    coverImage: data.coverImage,
+    period: data.period,
     intro,
-    sections
+    sections,
+    bodyHtml: markdownToHtml(body)
   };
 }
 

@@ -21,33 +21,40 @@ if (!note) {
   throw new Error(`Unknown field note: ${slug}`);
 }
 const ui = uiCopy[lang];
+const downloadLabel = lang === "ja" ? "PDFをダウンロード" : lang === "de" ? "PDF herunterladen" : "Download PDF";
+const chartHeading = lang === "ja" ? "ホロスコープ" : lang === "de" ? "Horoskop" : "Horoscope";
 ---
 
 <BaseLayout lang={lang} title={note.title} description={note.summary}>
-  <article class="field-note">
-    <header class="page-heading">
-      <p class="eyebrow">{note.eyebrow}</p>
-      <h1>{note.title}</h1>
-      <p>{note.summary}</p>
-      <span class="status-pill">{note.status}</span>
+  <article class="field-note report-page">
+    <header class="report-cover" style={note.coverImage ? `--report-cover-image: url(${note.coverImage})` : undefined}>
+      <div class="report-cover-panel">
+        <p class="eyebrow">Polar Bird Astrology</p>
+        <p class="report-kind">{note.eyebrow}</p>
+        <h1>{note.title}</h1>
+        <p>{note.summary}</p>
+        <div class="report-actions">
+          <span class="status-pill">{note.status}</span>
+          {note.period && <span class="status-pill muted">{note.period}</span>}
+          {note.pdfUrl && <a class="button primary" href={note.pdfUrl} download>{downloadLabel}</a>}
+        </div>
+      </div>
     </header>
+
+    {note.chartImage && (
+      <figure class="chart-panel">
+        <div>
+          <p class="eyebrow">{chartHeading}</p>
+          <h2>{chartHeading}</h2>
+        </div>
+        <img src={note.chartImage} alt={note.chartAlt || ""} loading="lazy" />
+      </figure>
+    )}
 
     <BoundaryBox title={ui.publicationBoundaryTitle}>
       <p>{ui.publicationBoundaryText}</p>
     </BoundaryBox>
 
-    <section class="article-flow">
-      {note.intro.length > 0 && (
-        <article>
-          {note.intro.map((paragraph) => <p>{paragraph}</p>)}
-        </article>
-      )}
-      {note.sections.map((section) => (
-        <article>
-          <h2>{section.heading}</h2>
-          {section.body.map((paragraph) => <p>{paragraph}</p>)}
-        </article>
-      ))}
-    </section>
+    <section class="report-body" set:html={note.bodyHtml} />
   </article>
 </BaseLayout>
