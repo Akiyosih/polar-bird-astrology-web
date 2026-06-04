@@ -44,3 +44,7 @@ The site is designed for static hosting. Cloudflare Pages can build it with:
 - output directory: `dist`
 
 No server functions are required for the current public site.
+
+The intended production domain is `polarbirdastrology.com`. The Cloudflare
+Pages project name can be `polarbirdastrology` so the temporary Pages URL stays
+aligned with the public brand.
