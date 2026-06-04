@@ -1,4 +1,5 @@
 import type { Lang } from "./i18n";
+import type { ReportTypeKey } from "../data/site";
 
 type FieldNoteSection = {
   heading: string;
@@ -8,6 +9,7 @@ type FieldNoteSection = {
 export type FieldNote = {
   lang: Lang;
   slug: string;
+  reportType: ReportTypeKey;
   title: string;
   eyebrow: string;
   status: string;
@@ -15,6 +17,12 @@ export type FieldNote = {
   intro: string[];
   sections: FieldNoteSection[];
 };
+
+const reportTypeKeys = ["natal", "solar-return", "new-moon"] as const;
+
+function isReportType(value: string | undefined): value is ReportTypeKey {
+  return reportTypeKeys.includes(value as ReportTypeKey);
+}
 
 const rawModules = import.meta.glob("../../content/core-field-notes/*/*.md", {
   eager: true,
@@ -68,14 +76,20 @@ function parseFieldNote(path: string, raw: string): FieldNote {
   const { intro, sections } = parseSections(body);
   const lang = data.locale as Lang;
   const slug = data.slug;
+  const reportType = data.reportType;
 
   if (!lang || !slug || !data.title || !data.summary || !data.status || !data.eyebrow) {
     throw new Error(`Missing required Field Note frontmatter in ${path}`);
   }
 
+  if (!isReportType(reportType)) {
+    throw new Error(`Missing or unsupported reportType in ${path}`);
+  }
+
   return {
     lang,
     slug,
+    reportType,
     title: data.title,
     eyebrow: data.eyebrow,
     status: data.status,
@@ -91,6 +105,13 @@ export function getFieldNotes(lang: Lang): FieldNote[] {
   return allFieldNotes.filter((note) => note.lang === lang);
 }
 
+export function getLatestFieldNoteByReportType(
+  lang: Lang,
+  reportType: ReportTypeKey
+): FieldNote | undefined {
+  return allFieldNotes.find((note) => note.lang === lang && note.reportType === reportType);
+}
+
 export function getFieldNote(lang: Lang, slug: string | undefined): FieldNote | undefined {
   return allFieldNotes.find((note) => note.lang === lang && note.slug === slug);
 }
@@ -98,4 +119,3 @@ export function getFieldNote(lang: Lang, slug: string | undefined): FieldNote | 
 export function getFieldNoteStaticPaths() {
   return allFieldNotes.map((note) => ({ params: { lang: note.lang, slug: note.slug } }));
 }
-

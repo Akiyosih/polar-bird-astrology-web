@@ -1,8 +1,9 @@
 ---
 import FieldNoteCard from "../../../components/FieldNoteCard.astro";
+import ReportTypeCard from "../../../components/ReportTypeCard.astro";
 import BaseLayout from "../../../layouts/BaseLayout.astro";
-import { uiCopy } from "../../../data/site";
-import { getFieldNotes } from "../../../lib/fieldNotes";
+import { reportTypes, uiCopy } from "../../../data/site";
+import { getFieldNotes, getLatestFieldNoteByReportType } from "../../../lib/fieldNotes";
 import { isLang, languages } from "../../../lib/i18n";
 
 export function getStaticPaths() {
@@ -24,6 +25,32 @@ const ui = uiCopy[lang];
     <h1>{ui.fieldNotesTitle}</h1>
     <p>{ui.fieldNotesDescription}</p>
   </section>
+
+  <section class="report-hub" aria-labelledby="report-hub-title">
+    <div class="section-heading">
+      <p class="eyebrow">{ui.reportHubEyebrow}</p>
+      <h2 id="report-hub-title">{ui.reportHubTitle}</h2>
+      <p>{ui.reportHubDescription}</p>
+    </div>
+    <div class="report-grid">
+      {reportTypes[lang].map((report) => (
+        <ReportTypeCard
+          lang={lang}
+          report={report}
+          note={getLatestFieldNoteByReportType(lang, report.key)}
+          readLabel={ui.readNoteLabel}
+          focusLabel={ui.focusLabel}
+        />
+      ))}
+    </div>
+  </section>
+
+  <section class="section-heading compact">
+    <p class="eyebrow">{ui.availableNotesTitle}</p>
+    <h2>{ui.availableNotesTitle}</h2>
+    <p>{ui.availableNotesDescription}</p>
+  </section>
+
   <section class="card-list">
     {notes.map((note) => <FieldNoteCard {...note} />)}
   </section>

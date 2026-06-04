@@ -1,6 +1,7 @@
 ---
 locale: en
 slug: core-2026-solar-return-field-note
+reportType: solar-return
 title: Core 2026 Solar Return Field Note
 eyebrow: Public community note
 status: Public note

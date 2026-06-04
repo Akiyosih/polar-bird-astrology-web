@@ -1,7 +1,9 @@
 ---
 import BoundaryBox from "../../components/BoundaryBox.astro";
+import ReportTypeCard from "../../components/ReportTypeCard.astro";
 import BaseLayout from "../../layouts/BaseLayout.astro";
-import { homeCopy, uiCopy } from "../../data/site";
+import { homeCopy, reportTypes, uiCopy } from "../../data/site";
+import { getLatestFieldNoteByReportType } from "../../lib/fieldNotes";
 import { isLang, languages, localizedPath } from "../../lib/i18n";
 
 export function getStaticPaths() {
@@ -34,6 +36,25 @@ const ui = uiCopy[lang];
   <BoundaryBox title={ui.boundaryTitle}>
     <p>{ui.boundaryText}</p>
   </BoundaryBox>
+
+  <section class="report-hub" aria-labelledby="report-hub-title">
+    <div class="section-heading">
+      <p class="eyebrow">{ui.reportHubEyebrow}</p>
+      <h2 id="report-hub-title">{ui.reportHubTitle}</h2>
+      <p>{ui.reportHubDescription}</p>
+    </div>
+    <div class="report-grid">
+      {reportTypes[lang].map((report) => (
+        <ReportTypeCard
+          lang={lang}
+          report={report}
+          note={getLatestFieldNoteByReportType(lang, report.key)}
+          readLabel={ui.readNoteLabel}
+          focusLabel={ui.focusLabel}
+        />
+      ))}
+    </div>
+  </section>
 
   <section class="content-grid">
     {copy.blocks.map((block) => (

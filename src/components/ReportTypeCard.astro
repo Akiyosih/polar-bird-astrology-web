@@ -1,0 +1,48 @@
+---
+import type { ReportTypeKey } from "../data/site";
+import type { FieldNote } from "../lib/fieldNotes";
+import type { Lang } from "../lib/i18n";
+import { localizedPath } from "../lib/i18n";
+
+type ReportTypeCardCopy = {
+  key: ReportTypeKey;
+  label: string;
+  title: string;
+  summary: string;
+  focus: string;
+  emptyLabel: string;
+};
+
+type Props = {
+  lang: Lang;
+  report: ReportTypeCardCopy;
+  note?: FieldNote;
+  readLabel: string;
+  focusLabel: string;
+};
+
+const { lang, report, note, readLabel, focusLabel } = Astro.props;
+---
+
+<article class:list={["report-type-card", note ? "is-available" : "is-empty"]}>
+  <p class="eyebrow">{report.label}</p>
+  <h2>{report.title}</h2>
+  <p>{report.summary}</p>
+  <dl class="report-meta">
+    <div>
+      <dt>{focusLabel}</dt>
+      <dd>{report.focus}</dd>
+    </div>
+  </dl>
+  <div class="card-actions">
+    {
+      note ? (
+        <a class="button secondary" href={localizedPath(lang, `core-field-notes/${note.slug}`)}>
+          {readLabel}
+        </a>
+      ) : (
+        <span class="status-pill">{report.emptyLabel}</span>
+      )
+    }
+  </div>
+</article>

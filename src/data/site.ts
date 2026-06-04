@@ -1,6 +1,7 @@
 import type { Lang } from "../lib/i18n";
 
 export type PageKey = "status" | "method-boundary" | "privacy" | "transparency";
+export type ReportTypeKey = "natal" | "solar-return" | "new-moon";
 
 type TextBlock = {
   heading: string;
@@ -19,8 +20,15 @@ type UiCopy = {
   heroSecondary: string;
   boundaryTitle: string;
   boundaryText: string;
+  reportHubEyebrow: string;
+  reportHubTitle: string;
+  reportHubDescription: string;
   fieldNotesTitle: string;
   fieldNotesDescription: string;
+  availableNotesTitle: string;
+  availableNotesDescription: string;
+  readNoteLabel: string;
+  focusLabel: string;
   publicationBoundaryTitle: string;
   publicationBoundaryText: string;
   footerNotice: string;
@@ -32,29 +40,128 @@ type UiCopy = {
   };
 };
 
+type ReportTypeCopy = {
+  key: ReportTypeKey;
+  label: string;
+  title: string;
+  summary: string;
+  focus: string;
+  emptyLabel: string;
+};
+
 export const repoUrl = "https://github.com/Akiyosih/polar-bird-astrology-web";
 
 export const navItems: Record<Lang, Array<{ href: string; label: string }>> = {
   en: [
-    { href: "core-field-notes", label: "Field Notes" },
+    { href: "core-field-notes", label: "Core Reports" },
     { href: "status", label: "Status" },
     { href: "method-boundary", label: "Method" },
     { href: "privacy", label: "Privacy" },
     { href: "transparency", label: "Transparency" }
   ],
   ja: [
-    { href: "core-field-notes", label: "読みもの" },
+    { href: "core-field-notes", label: "3レポート" },
     { href: "status", label: "現在の状態" },
     { href: "method-boundary", label: "方法の境界" },
     { href: "privacy", label: "プライバシー" },
     { href: "transparency", label: "透明性" }
   ],
   de: [
-    { href: "core-field-notes", label: "Field Notes" },
+    { href: "core-field-notes", label: "Reports" },
     { href: "status", label: "Status" },
     { href: "method-boundary", label: "Methode" },
     { href: "privacy", label: "Datenschutz" },
     { href: "transparency", label: "Transparenz" }
+  ]
+};
+
+export const reportTypes: Record<Lang, ReportTypeCopy[]> = {
+  en: [
+    {
+      key: "natal",
+      label: "Natal report",
+      title: "Core's foundational pattern",
+      summary:
+        "A public-entity reading of Core Blockchain's base chart: temperament, recurring themes, and the symbolic structure behind the community field.",
+      focus: "Identity, temperament, long-range pattern",
+      emptyLabel: "No public note yet"
+    },
+    {
+      key: "solar-return",
+      label: "Solar return report",
+      title: "Core's yearly theme",
+      summary:
+        "A yearly reading that frames the current cycle as symbolic timing for reflection, public contact, and community conversation.",
+      focus: "Annual mood, timing, visibility",
+      emptyLabel: "No public note yet"
+    },
+    {
+      key: "new-moon",
+      label: "New moon report",
+      title: "Monthly observation points",
+      summary:
+        "A cycle-by-cycle reading for noticing monthly emphasis, community attention, and themes worth watching without product or market claims.",
+      focus: "Monthly rhythm, attention markers",
+      emptyLabel: "No public note yet"
+    }
+  ],
+  ja: [
+    {
+      key: "natal",
+      label: "出生図レポート",
+      title: "Coreの基本性質",
+      summary:
+        "Core Blockchainを人間ではなくpublic entity / ecosystem fieldとして読み、核となる性質、反復テーマ、コミュニティの土台を整理する読みです。",
+      focus: "性質、基調、長期パターン",
+      emptyLabel: "公開ノート未掲載"
+    },
+    {
+      key: "solar-return",
+      label: "太陽回帰レポート",
+      title: "Coreの年次テーマ",
+      summary:
+        "現在の年回りを、プロダクトや価格の断定ではなく、振り返り、公開接点、コミュニティでの語りとして読む年次ノートです。",
+      focus: "年間の空気、タイミング、可視性",
+      emptyLabel: "公開ノート未掲載"
+    },
+    {
+      key: "new-moon",
+      label: "新月レポート",
+      title: "月ごとの観察ポイント",
+      summary:
+        "新月サイクルごとに、コミュニティの注意点、話題になりやすいテーマ、観察しておきたいリズムを読むノートです。",
+      focus: "月間リズム、注目点",
+      emptyLabel: "公開ノート未掲載"
+    }
+  ],
+  de: [
+    {
+      key: "natal",
+      label: "Radix-Report",
+      title: "Cores Grundmuster",
+      summary:
+        "Eine Public-Entity-Lesung von Cores Basischart: Temperament, wiederkehrende Themen und symbolische Struktur des Community-Feldes.",
+      focus: "Identität, Temperament, Langzeitmuster",
+      emptyLabel: "Noch keine öffentliche Note"
+    },
+    {
+      key: "solar-return",
+      label: "Solar-Return-Report",
+      title: "Cores Jahresthema",
+      summary:
+        "Eine Jahreslesung, die den aktuellen Zyklus als symbolisches Timing für Reflexion, öffentlichen Kontakt und Community-Gespräch rahmt.",
+      focus: "Jahresstimmung, Timing, Sichtbarkeit",
+      emptyLabel: "Noch keine öffentliche Note"
+    },
+    {
+      key: "new-moon",
+      label: "Neumond-Report",
+      title: "Monatliche Beobachtungspunkte",
+      summary:
+        "Eine Zykluslesung für monatliche Betonungen, Community-Aufmerksamkeit und Themen, die ohne Produkt- oder Marktaussagen beobachtet werden können.",
+      focus: "Monatsrhythmus, Aufmerksamkeitsmarker",
+      emptyLabel: "Noch keine öffentliche Note"
+    }
   ]
 };
 
@@ -64,9 +171,18 @@ export const uiCopy: Record<Lang, UiCopy> = {
     heroSecondary: "Current status",
     boundaryTitle: "Boundary",
     boundaryText: "Unofficial. Not investment advice. Public Field Notes only.",
+    reportHubEyebrow: "Reading hub",
+    reportHubTitle: "Three Core report paths",
+    reportHubDescription:
+      "The public MVP is organized around three report-style Field Notes: natal, solar return, and new moon cycle. Each path keeps astrology separate from factual product claims.",
     fieldNotesTitle: "Core Field Notes",
     fieldNotesDescription:
       "Public-safe astrology notes for the Core community. Field Notes are not investment advice and not official Core communication.",
+    availableNotesTitle: "Available public notes",
+    availableNotesDescription:
+      "Only notes that are ready for public reading appear as links.",
+    readNoteLabel: "Read note",
+    focusLabel: "Focus",
     publicationBoundaryTitle: "Publication boundary",
     publicationBoundaryText:
       "Field Notes are edited for public reading. They do not include raw chart data, private reports, unverified product claims, or investment advice.",
@@ -84,9 +200,18 @@ export const uiCopy: Record<Lang, UiCopy> = {
     heroSecondary: "現在の状態",
     boundaryTitle: "境界",
     boundaryText: "非公式。投資助言ではありません。現在はpublic Field Notesのみです。",
+    reportHubEyebrow: "読書ハブ",
+    reportHubTitle: "Coreの3レポート",
+    reportHubDescription:
+      "公開MVPは、出生図、太陽回帰、新月サイクルの3つのレポート型Field Noteを軸に整理します。占星術の読みと実務事実の断定は分けて扱います。",
     fieldNotesTitle: "Core Field Notes",
     fieldNotesDescription:
       "Coreコミュニティ向けのpublic-safeな占星術Field Notesです。投資助言でも、Core公式発信でもありません。",
+    availableNotesTitle: "公開中のノート",
+    availableNotesDescription:
+      "公開用に整ったノートだけをリンクとして表示します。",
+    readNoteLabel: "読む",
+    focusLabel: "焦点",
     publicationBoundaryTitle: "公開境界",
     publicationBoundaryText:
       "Field Notesは公開用の読み物として編集します。raw chart data、private report、未確認のproduct claim、投資助言を含めません。",
@@ -105,9 +230,18 @@ export const uiCopy: Record<Lang, UiCopy> = {
     boundaryTitle: "Grenze",
     boundaryText:
       "Inoffiziell. Keine Anlageberatung. Nur öffentliche Field Notes.",
+    reportHubEyebrow: "Lese-Hub",
+    reportHubTitle: "Drei Core-Report-Pfade",
+    reportHubDescription:
+      "Das öffentliche MVP ist um drei reportartige Field Notes organisiert: Radix, Solar Return und Neumond-Zyklus. Jede Lesung trennt Astrologie von faktischen Produktbehauptungen.",
     fieldNotesTitle: "Core Field Notes",
     fieldNotesDescription:
       "Public-safe astrologische Notizen für die Core-Community. Field Notes sind keine Anlageberatung und keine offizielle Core-Mitteilung.",
+    availableNotesTitle: "Verfügbare öffentliche Notes",
+    availableNotesDescription:
+      "Nur Notes, die für die öffentliche Lektüre bereit sind, erscheinen als Links.",
+    readNoteLabel: "Lesen",
+    focusLabel: "Fokus",
     publicationBoundaryTitle: "Veröffentlichungsgrenze",
     publicationBoundaryText:
       "Field Notes werden für die öffentliche Lektüre redigiert. Sie enthalten keine raw chart data, private Reports, unverifizierten Produktbehauptungen oder Anlageberatung.",
