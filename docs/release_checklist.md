@@ -16,9 +16,8 @@ Use this before a public launch or meaningful public content update.
 
 - [ ] `/en`, `/ja`, and `/de` routes build.
 - [ ] `/en/core-field-notes`, `/ja/core-field-notes`, and `/de/core-field-notes` have the current Field Note entry.
-- [ ] `/en/status`, `/ja/status`, and `/de/status` describe the current public status.
-- [ ] `/en/privacy`, `/ja/privacy`, and `/de/privacy` match the current collection state.
-- [ ] `/en/transparency`, `/ja/transparency`, and `/de/transparency` link to the public repository after the repo exists.
+- [ ] `/en/purchase`, `/ja/purchase`, and `/de/purchase` clearly mark report purchase as in preparation.
+- [ ] `/en/reading-policy`, `/ja/reading-policy`, and `/de/reading-policy` explain the reading style, boundaries, and public repository link.
 
 ## Validation
 

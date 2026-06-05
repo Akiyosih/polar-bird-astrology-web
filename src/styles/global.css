@@ -251,10 +251,27 @@ img {
   text-decoration: none;
 }
 
+.primary-nav a {
+  align-items: center;
+  display: inline-flex;
+  gap: 0.32rem;
+}
+
 .primary-nav a:hover,
 .language-nav a:hover,
 .footer-links a:hover {
   color: var(--link-color);
+}
+
+.nav-badge {
+  background: rgba(185, 155, 79, 0.16);
+  border: 1px solid rgba(185, 155, 79, 0.42);
+  color: var(--accent-star);
+  font-size: 0.62rem;
+  font-weight: 700;
+  line-height: 1;
+  padding: 0.16rem 0.32rem;
+  text-transform: uppercase;
 }
 
 .language-nav {
@@ -521,6 +538,13 @@ p {
   display: grid;
   gap: 1rem;
   max-width: var(--container-reading);
+}
+
+.page-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 0.25rem;
 }
 
 .field-note-card {

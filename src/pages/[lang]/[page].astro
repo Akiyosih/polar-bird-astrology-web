@@ -3,10 +3,10 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
 import { pages, type PageKey } from "../../data/site";
 import { isLang, languages } from "../../lib/i18n";
 
-const pageKeys = ["status", "method-boundary", "privacy", "transparency"] satisfies PageKey[];
+const pageKeys = ["purchase", "reading-policy"] satisfies PageKey[];
 
 export function getStaticPaths() {
-  const staticPageKeys = ["status", "method-boundary", "privacy", "transparency"] satisfies PageKey[];
+  const staticPageKeys = ["purchase", "reading-policy"] satisfies PageKey[];
   return languages.flatMap((lang) => staticPageKeys.map((page) => ({ params: { lang, page } })));
 }
 
@@ -33,5 +33,12 @@ const copy = pages[lang][page];
         {block.body.map((paragraph) => <p>{paragraph}</p>)}
       </article>
     ))}
+    {copy.links && copy.links.length > 0 && (
+      <nav class="page-links" aria-label="Related links">
+        {copy.links.map((link) => (
+          <a class="button secondary" href={link.href}>{link.label}</a>
+        ))}
+      </nav>
+    )}
   </section>
 </BaseLayout>

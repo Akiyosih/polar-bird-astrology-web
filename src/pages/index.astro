@@ -8,7 +8,7 @@ import "../styles/global.css";
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content="Choose a language for Polar Bird Astrology Field Notes." />
+    <meta name="description" content="Choose a language for Polar Bird Astrology reports." />
     <link rel="icon" href="/favicon.png" type="image/png" />
     <link rel="apple-touch-icon" href="/images/brand/polar-bird-icon-180.png" />
     <title>Polar Bird Astrology</title>
@@ -17,9 +17,9 @@ import "../styles/global.css";
     <main class="language-choice" aria-labelledby="language-title">
       <img src="/images/brand/polar-bird-seal-dark.webp" width="1024" height="1024" alt="" />
       <div>
-        <p class="eyebrow">Field Notes for Core Readers</p>
+        <p class="eyebrow">Astrology reports</p>
         <h1 id="language-title">Polar Bird Astrology</h1>
-        <p>Choose a language. Japanese, English, and German are maintained as first-class public surfaces.</p>
+        <p>Choose a language. Current sample reports read Core; the wider brand reads natal charts, solar returns, and new moon cycles.</p>
         <nav aria-label="Language">
           {languages.map((lang) => <a href={localizedPath(lang)}>{languageLabels[lang]}</a>)}
         </nav>

@@ -2,10 +2,10 @@
 locale: ja
 slug: core-natal-field-note
 reportType: natal
-title: Core 星まわりフィールドノート
+title: Core 出生図レポート
 eyebrow: 出生図レポート
 status: PDFあり
-summary: Core Blockchainを公開エコシステムとして読み、基本性質、反応のリズム、外から見える役割、協働のパターンを整理するレポートです。
+summary: Coreを公開エコシステムとして読み、長く続く基本構造、反応のリズム、外から見える役割、協働のパターンを整理するレポートです。
 pdfUrl: /reports/core/core-natal-field-note-20260603.pdf
 chartImage: /reports/core/charts/core-natal-chart-20260603.png
 chartAlt: Coreの出生ホロスコープ図

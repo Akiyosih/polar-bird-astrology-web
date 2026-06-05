@@ -3,7 +3,7 @@ import BoundaryBox from "../../../components/BoundaryBox.astro";
 import BaseLayout from "../../../layouts/BaseLayout.astro";
 import { uiCopy } from "../../../data/site";
 import { getFieldNote, getFieldNoteStaticPaths } from "../../../lib/fieldNotes";
-import { isLang } from "../../../lib/i18n";
+import { isLang, languages, localizedPath } from "../../../lib/i18n";
 
 export function getStaticPaths() {
   return getFieldNoteStaticPaths();
@@ -23,6 +23,14 @@ if (!note) {
 const ui = uiCopy[lang];
 const downloadLabel = lang === "ja" ? "PDFをダウンロード" : lang === "de" ? "PDF herunterladen" : "Download PDF";
 const chartHeading = lang === "ja" ? "ホロスコープ" : lang === "de" ? "Horoskop" : "Horoscope";
+const languagePaths = Object.fromEntries(
+  languages.map((code) => [
+    code,
+    getFieldNote(code, slug)
+      ? localizedPath(code, `core-field-notes/${slug}`)
+      : localizedPath(code, "core-field-notes")
+  ])
+) as Partial<Record<typeof lang, string>>;
 
 function escapeHtml(value: string) {
   return value
@@ -35,7 +43,7 @@ function escapeHtml(value: string) {
 const titleHtml = escapeHtml(note.title).replace(/([^\s])フィールドノート/g, "$1<wbr />フィールドノート");
 ---
 
-<BaseLayout lang={lang} title={note.title} description={note.summary}>
+<BaseLayout lang={lang} title={note.title} description={note.summary} languagePaths={languagePaths}>
   <article class="field-note report-page">
     <header class="report-cover" style={note.coverImage ? `--report-cover-image: url(${note.coverImage})` : undefined}>
       <div class="report-cover-panel">

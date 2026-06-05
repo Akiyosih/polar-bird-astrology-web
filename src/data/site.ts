@@ -1,6 +1,6 @@
 import type { Lang } from "../lib/i18n";
 
-export type PageKey = "status" | "method-boundary" | "privacy" | "transparency";
+export type PageKey = "purchase" | "reading-policy";
 export type ReportTypeKey = "natal" | "solar-return" | "new-moon";
 
 type TextBlock = {
@@ -8,18 +8,28 @@ type TextBlock = {
   body: string[];
 };
 
+type PageLink = {
+  href: string;
+  label: string;
+};
+
 type PageCopy = {
   title: string;
   description: string;
   eyebrow?: string;
   blocks: TextBlock[];
+  links?: PageLink[];
+};
+
+type NavItem = {
+  href: string;
+  label: string;
+  badge?: string;
 };
 
 type UiCopy = {
   heroPrimary: string;
   heroSecondary: string;
-  boundaryTitle: string;
-  boundaryText: string;
   reportHubEyebrow: string;
   reportHubTitle: string;
   reportHubDescription: string;
@@ -33,10 +43,10 @@ type UiCopy = {
   publicationBoundaryText: string;
   footerNotice: string;
   footerLinks: {
-    method: string;
-    privacy: string;
-    transparency: string;
+    readingPolicy: string;
+    purchase: string;
     github: string;
+    corepay: string;
   };
 };
 
@@ -50,28 +60,23 @@ type ReportTypeCopy = {
 };
 
 export const repoUrl = "https://github.com/Akiyosih/polar-bird-astrology-web";
+export const corePayUrl = "https://corepay.money/";
 
-export const navItems: Record<Lang, Array<{ href: string; label: string }>> = {
+export const navItems: Record<Lang, NavItem[]> = {
   en: [
-    { href: "core-field-notes", label: "Core Reports" },
-    { href: "status", label: "Status" },
-    { href: "method-boundary", label: "Method" },
-    { href: "privacy", label: "Privacy" },
-    { href: "transparency", label: "Transparency" }
+    { href: "core-field-notes", label: "Sample Reports" },
+    { href: "purchase", label: "Buy a Report", badge: "soon" },
+    { href: "reading-policy", label: "How We Read" }
   ],
   ja: [
-    { href: "core-field-notes", label: "レポート" },
-    { href: "status", label: "公開状況" },
-    { href: "method-boundary", label: "読みの境界" },
-    { href: "privacy", label: "プライバシー" },
-    { href: "transparency", label: "透明性" }
+    { href: "core-field-notes", label: "サンプルレポート" },
+    { href: "purchase", label: "レポート購入", badge: "soon" },
+    { href: "reading-policy", label: "読み方と方針" }
   ],
   de: [
-    { href: "core-field-notes", label: "Reports" },
-    { href: "status", label: "Status" },
-    { href: "method-boundary", label: "Methode" },
-    { href: "privacy", label: "Datenschutz" },
-    { href: "transparency", label: "Transparenz" }
+    { href: "core-field-notes", label: "Beispielreports" },
+    { href: "purchase", label: "Report kaufen", badge: "soon" },
+    { href: "reading-policy", label: "Leseweise" }
   ]
 };
 
@@ -82,56 +87,56 @@ export const reportTypes: Record<Lang, ReportTypeCopy[]> = {
       label: "Natal report",
       title: "Core's foundational pattern",
       summary:
-        "A public-entity reading of Core Blockchain's base chart: temperament, recurring themes, and the symbolic structure behind the community field.",
-      focus: "Identity, temperament, long-range pattern",
-      emptyLabel: "No public note yet"
+        "A public-entity reading of Core's base chart: long-range structure, response rhythm, and the community foundation.",
+      focus: "Foundational pattern, response rhythm, community base",
+      emptyLabel: "Coming soon"
     },
     {
       key: "solar-return",
       label: "Solar return report",
-      title: "Core's yearly theme",
+      title: "Core's 2026 theme",
       summary:
-        "A yearly reading that frames the current cycle as symbolic timing for reflection, public contact, and community conversation.",
-      focus: "Annual mood, timing, visibility",
-      emptyLabel: "No public note yet"
+        "A yearly reading for the 2026 stage: where emphasis gathers and how Core's existing pattern comes forward this year.",
+      focus: "2026 theme, annual stage, emphasis",
+      emptyLabel: "Coming soon"
     },
     {
       key: "new-moon",
       label: "New moon report",
-      title: "Monthly observation points",
+      title: "Core's new moon cycle",
       summary:
-        "A cycle-by-cycle reading for noticing monthly emphasis, community attention, and themes worth watching without product or market claims.",
-      focus: "Monthly rhythm, attention markers",
-      emptyLabel: "No public note yet"
+        "A cycle reading for the published new-moon period: active themes, community atmosphere, and lunar rhythm to observe.",
+      focus: "Published cycle, lunar rhythm",
+      emptyLabel: "Coming soon"
     }
   ],
   ja: [
     {
       key: "natal",
       label: "出生図レポート",
-      title: "Coreの基本特性",
+      title: "Coreの基本構造",
       summary:
-        "Coreの出生図から、生涯を通じて変わらない核となる性質、反応のリズム、コミュニティの土台を読み解きます。",
-      focus: "基本特性、反応のリズム、土台",
-      emptyLabel: "公開ノート未掲載"
+        "Coreの出生図から、長く続く基本構造、反応のリズム、コミュニティの土台を読みます。",
+      focus: "基本構造、反応のリズム、土台",
+      emptyLabel: "準備中"
     },
     {
       key: "solar-return",
       label: "太陽回帰レポート",
       title: "Coreの2026年のテーマ",
       summary:
-        "太陽回帰図から、2026年のCoreがどのような方向性を持ち、どこに焦点が当たりやすいかを読み解きます。",
-      focus: "年ごとのテーマ、方向性、焦点",
-      emptyLabel: "公開ノート未掲載"
+        "太陽回帰図から、2026年に焦点が当たりやすいテーマと、Coreの性質がその年にどう表へ出るかを読みます。",
+      focus: "2026年のテーマ、舞台、焦点",
+      emptyLabel: "準備中"
     },
     {
       key: "new-moon",
       label: "新月レポート",
-      title: "Coreの月ごとの流れ",
+      title: "Coreの新月サイクル",
       summary:
-        "新月図から、次の新月までの流れと、Coreにとって注目しやすいテーマを読み解きます。",
-      focus: "月ごとの流れ、注目テーマ",
-      emptyLabel: "公開ノート未掲載"
+        "新月図から、公開中のサイクルで動きやすいテーマ、コミュニティの空気、観察したい月相リズムを読みます。",
+      focus: "公開中のサイクル、月相リズム",
+      emptyLabel: "準備中"
     }
   ],
   de: [
@@ -140,118 +145,111 @@ export const reportTypes: Record<Lang, ReportTypeCopy[]> = {
       label: "Radix-Report",
       title: "Cores Grundmuster",
       summary:
-        "Eine Public-Entity-Lesung von Cores Basischart: Temperament, wiederkehrende Themen und symbolische Struktur des Community-Feldes.",
-      focus: "Identität, Temperament, Langzeitmuster",
-      emptyLabel: "Noch keine öffentliche Note"
+        "Eine Public-Entity-Lesung von Cores Basischart: langfristige Struktur, Reaktionsrhythmus und Community-Fundament.",
+      focus: "Grundmuster, Reaktionsrhythmus, Community-Basis",
+      emptyLabel: "Bald"
     },
     {
       key: "solar-return",
       label: "Solar-Return-Report",
-      title: "Cores Jahresthema",
+      title: "Cores Thema 2026",
       summary:
-        "Eine Jahreslesung, die den aktuellen Zyklus als symbolisches Timing für Reflexion, öffentlichen Kontakt und Community-Gespräch rahmt.",
-      focus: "Jahresstimmung, Timing, Sichtbarkeit",
-      emptyLabel: "Noch keine öffentliche Note"
+        "Eine Jahreslesung fuer die Buehne 2026: wo sich Betonung sammelt und wie Cores bestehendes Muster sichtbar wird.",
+      focus: "Thema 2026, Jahresbuehne, Fokus",
+      emptyLabel: "Bald"
     },
     {
       key: "new-moon",
       label: "Neumond-Report",
-      title: "Monatliche Beobachtungspunkte",
+      title: "Cores Neumond-Zyklus",
       summary:
-        "Eine Zykluslesung für monatliche Betonungen, Community-Aufmerksamkeit und Themen, die ohne Produkt- oder Marktaussagen beobachtet werden können.",
-      focus: "Monatsrhythmus, Aufmerksamkeitsmarker",
-      emptyLabel: "Noch keine öffentliche Note"
+        "Eine Zykluslesung fuer den veroeffentlichten Neumondzeitraum: aktive Themen, Community-Atmosphaere und Mondrhythmus.",
+      focus: "Veroeffentlichter Zyklus, Mondrhythmus",
+      emptyLabel: "Bald"
     }
   ]
 };
 
 export const uiCopy: Record<Lang, UiCopy> = {
   en: {
-    heroPrimary: "Browse Field Notes",
-    heroSecondary: "Current status",
-    boundaryTitle: "Boundary",
-    boundaryText: "Interpretive Field Notes with clear public method boundaries.",
-    reportHubEyebrow: "Reading hub",
-    reportHubTitle: "Field Notes Library",
+    heroPrimary: "Read sample reports",
+    heroSecondary: "See purchase preparation",
+    reportHubEyebrow: "Sample reports: Core",
+    reportHubTitle: "Three sample reports for Core",
     reportHubDescription:
-      "The current reading hub is arranged around three Field Notes: natal, solar return, and new moon cycle. Each note keeps astrology separate from factual product claims.",
-    fieldNotesTitle: "Core Field Notes",
+      "Natal reads the foundational pattern, solar return reads the 2026 annual stage, and new moon reads the published cycle. Together they show how Polar Bird Astrology can read a public ecosystem.",
+    fieldNotesTitle: "Sample Reports: Core",
     fieldNotesDescription:
-      "A quiet library of astrology notes for Core readers, edited for reflection, context, and clear method boundaries.",
-    availableNotesTitle: "Available public notes",
+      "Core is published as a business and community sample: natal, solar return, and new-moon-cycle reports in one reading path.",
+    availableNotesTitle: "Published Core reports",
     availableNotesDescription:
-      "Only notes that are ready for public reading appear as links.",
-    readNoteLabel: "Read note",
+      "Read the report text, chart image, and PDF for each public sample.",
+    readNoteLabel: "Read",
     focusLabel: "Focus",
-    publicationBoundaryTitle: "Publication boundary",
+    publicationBoundaryTitle: "Reading boundary",
     publicationBoundaryText:
-      "Field Notes are edited for public reading. They do not include raw chart data, private reports, unverified product claims, or investment advice.",
+      "The report body treats themes astrology can read. Product facts belong with public source information. Price and investment decisions are outside these reports.",
     footerNotice:
-      "Polar Bird Astrology publishes reflective astrology field notes with clear method, privacy, and transparency boundaries.",
+      "Polar Bird Astrology publishes astrology reports that read natal charts, solar returns, and new moon cycles.",
     footerLinks: {
-      method: "Method boundary",
-      privacy: "Privacy",
-      transparency: "Transparency",
-      github: "GitHub"
+      readingPolicy: "How we read",
+      purchase: "Purchase preparation",
+      github: "GitHub",
+      corepay: "CorePay"
     }
   },
   ja: {
-    heroPrimary: "レポートを読む",
-    heroSecondary: "公開状況",
-    boundaryTitle: "公開レポートの姿勢",
-    boundaryText: "星まわりから読めるテーマを、公開情報と照らし合わせながら扱います。",
-    reportHubEyebrow: "3つのレポート",
-    reportHubTitle: "占星術レポート",
+    heroPrimary: "サンプルレポートを読む",
+    heroSecondary: "購入準備を見る",
+    reportHubEyebrow: "サンプルレポート（Core）",
+    reportHubTitle: "Coreを読む3つのサンプル",
     reportHubDescription:
-      "出生図、太陽回帰、新月。三つの視点から、Coreの特性とこれからを読み解きます。",
-    fieldNotesTitle: "Coreの占星術レポート",
+      "出生図はCoreの基本構造、太陽回帰は2026年の舞台、新月は公開中のサイクルを読みます。事業やコミュニティを読むレポート例として公開しています。",
+    fieldNotesTitle: "サンプルレポート（Core）",
     fieldNotesDescription:
-      "出生図、太陽回帰、新月の3つの視点から、Coreの特性とこれからを読み解きます。",
-    availableNotesTitle: "公開中のレポート",
+      "人ではない公開エコシステムも、出生図、太陽回帰、新月サイクルで読めます。現在はCoreの3レポートを公開しています。",
+    availableNotesTitle: "公開中のCoreレポート",
     availableNotesDescription:
-      "公開中のレポートをまとめています。",
+      "出生図、太陽回帰、新月サイクルの本文、ホロスコープ、PDFを読めます。",
     readNoteLabel: "読む",
     focusLabel: "焦点",
-    publicationBoundaryTitle: "公開レポートの姿勢",
+    publicationBoundaryTitle: "読み方と境界",
     publicationBoundaryText:
-      "星まわりから読めるテーマを本文で扱い、事実確認が必要な内容は公開情報に戻って確認します。",
+      "レポート本文では、占星術で読めるテーマを扱います。プロダクト事実は公開元の情報で確認します。価格や投資判断は、このレポートの対象外です。",
     footerNotice:
-      "Polar Bird Astrologyは、星まわりから読めるテーマを、公開レポートとして分かりやすく整えています。",
+      "Polar Bird Astrologyは、出生図・太陽回帰・新月サイクルを読む占星術レポートを公開しています。",
     footerLinks: {
-      method: "読みの境界",
-      privacy: "プライバシー",
-      transparency: "透明性",
-      github: "GitHub"
+      readingPolicy: "読み方と方針",
+      purchase: "レポート購入",
+      github: "GitHub",
+      corepay: "CorePay"
     }
   },
   de: {
-    heroPrimary: "Field Notes lesen",
-    heroSecondary: "Aktueller Status",
-    boundaryTitle: "Grenze",
-    boundaryText:
-      "Interpretative Field Notes mit klaren öffentlichen Methodengrenzen.",
-    reportHubEyebrow: "Lese-Hub",
-    reportHubTitle: "Field Notes Library",
+    heroPrimary: "Beispielreports lesen",
+    heroSecondary: "Kaufvorbereitung ansehen",
+    reportHubEyebrow: "Beispielreports: Core",
+    reportHubTitle: "Drei Beispielreports fuer Core",
     reportHubDescription:
-      "Der aktuelle Lese-Hub ist um drei Field Notes angeordnet: Radix, Solar Return und Neumond-Zyklus. Jede Note trennt Astrologie von faktischen Produktbehauptungen.",
-    fieldNotesTitle: "Core Field Notes",
+      "Radix liest das Grundmuster, Solar Return die Jahresbuehne 2026, und Neumond den veroeffentlichten Zyklus.",
+    fieldNotesTitle: "Beispielreports: Core",
     fieldNotesDescription:
-      "Eine ruhige Bibliothek astrologischer Notizen für Core-Leser, redigiert für Reflexion, Kontext und klare Methodengrenzen.",
-    availableNotesTitle: "Verfügbare öffentliche Notes",
+      "Core ist hier ein Beispiel fuer eine Business- und Community-Lesung mit Radix, Solar Return und Neumond-Zyklus.",
+    availableNotesTitle: "Veroeffentlichte Core-Reports",
     availableNotesDescription:
-      "Nur Notes, die für die öffentliche Lektüre bereit sind, erscheinen als Links.",
+      "Text, Horoskopbild und PDF sind fuer jedes oeffentliche Beispiel verfuegbar.",
     readNoteLabel: "Lesen",
     focusLabel: "Fokus",
-    publicationBoundaryTitle: "Veröffentlichungsgrenze",
+    publicationBoundaryTitle: "Lesegrenze",
     publicationBoundaryText:
-      "Field Notes werden für die öffentliche Lektüre redigiert. Sie enthalten keine raw chart data, private Reports, unverifizierten Produktbehauptungen oder Anlageberatung.",
+      "Der Report behandelt astrologisch lesbare Themen. Produktfakten gehoeren zu oeffentlichen Quellen. Preis- und Investmententscheidungen liegen ausserhalb dieser Reports.",
     footerNotice:
-      "Polar Bird Astrology veröffentlicht reflektierende astrologische Field Notes mit klaren Grenzen für Methode, Datenschutz und Transparenz.",
+      "Polar Bird Astrology veroeffentlicht astrologische Reports zu Radix, Solar Return und Neumond-Zyklen.",
     footerLinks: {
-      method: "Methodengrenze",
-      privacy: "Datenschutz",
-      transparency: "Transparenz",
-      github: "GitHub"
+      readingPolicy: "Leseweise",
+      purchase: "Kaufvorbereitung",
+      github: "GitHub",
+      corepay: "CorePay"
     }
   }
 };
@@ -259,51 +257,68 @@ export const uiCopy: Record<Lang, UiCopy> = {
 export const homeCopy: Record<Lang, PageCopy> = {
   en: {
     title: "Polar Bird Astrology",
-    eyebrow: "Field Notes for Core Readers",
+    eyebrow: "Astrology reports for rhythm, timing, and choice",
     description:
-      "Quiet astrology field notes for Core readers, shaped as a northern watercolor journal for reflection, context, and careful observation.",
+      "Polar Bird Astrology reads natal charts, solar returns, and new moon cycles for self-understanding, practical timing, and reflective planning. The current sample library follows Core as a public ecosystem.",
     blocks: [
       {
-        heading: "What is open now",
+        heading: "What the reports read",
         body: [
-          "The current library centers on three Core readings: foundational pattern, yearly theme, and new moon cycle.",
-          "Each note is edited as a public reading surface, with the detailed status, method, privacy, and transparency boundaries kept on their own pages."
+          "Natal reports read foundational patterns. Solar returns read the stage of the year. New moon reports read the rhythm from one new moon to the next.",
+          "The same structure can support personal self-understanding and business or community observation."
         ]
       },
       {
-        heading: "How to read",
+        heading: "CorePay purchase path",
         body: [
-          "Astrology is treated as a language for noticing rhythm, mood, timing, and meaning.",
-          "Japanese, English, and German remain first-class reading paths from the beginning."
+          "A report purchase flow using CorePay is in preparation.",
+          "Purchases through this site are not open yet.",
+          "For now, the Core sample reports are available to read publicly."
         ]
       }
     ]
   },
   ja: {
     title: "Polar Bird Astrology",
-    eyebrow: "Coreの星まわりを読む",
+    eyebrow: "星まわりを読む占星術レポート",
     description:
-      "Coreを占星術の観点から分析し、性質、年ごとのテーマ、新月ごとのリズムを読み解きます。",
-    blocks: []
-  },
-  de: {
-    title: "Polar Bird Astrology",
-    eyebrow: "Field Notes for Core Readers",
-    description:
-      "Ruhige astrologische Field Notes für Core-Leser, gestaltet wie ein nördliches Aquarell-Journal für Reflexion, Kontext und sorgfältige Beobachtung.",
+      "出生図、太陽回帰、新月サイクルを組み合わせて、自己理解、日々の選択、行動計画に使えるテーマを読みます。現在はCoreのサンプルレポートを公開しています。",
     blocks: [
       {
-        heading: "Was jetzt offen ist",
+        heading: "読むもの",
         body: [
-          "Die aktuelle Bibliothek konzentriert sich auf drei Core-Lesungen: Grundmuster, Jahresthema und Neumond-Zyklus.",
-          "Status, Methode, Datenschutz und Transparenz werden auf eigenen erklärenden Seiten geführt."
+          "出生図は基本構造、太陽回帰は一年の舞台、新月はそのサイクルで動きやすいテーマを読みます。",
+          "人の自己理解にも、事業やコミュニティの流れを観察する読み物にも使える形で整えています。"
         ]
       },
       {
-        heading: "Wie man liest",
+        heading: "CorePayでの購入導線",
         body: [
-          "Astrologie wird als Sprache für Rhythmus, Stimmung, Timing und Bedeutung behandelt.",
-          "Japanisch, Englisch und Deutsch bleiben von Beginn an eigenständige Lesewege."
+          "CorePayを使ったレポート購入導線を準備しています。",
+          "今はCoreを題材にしたサンプルレポートを読めます。"
+        ]
+      }
+    ]
+  },
+  de: {
+    title: "Polar Bird Astrology",
+    eyebrow: "Astrologische Reports fuer Rhythmus, Timing und Wahl",
+    description:
+      "Polar Bird Astrology liest Radix, Solar Return und Neumond-Zyklen fuer Selbstverstaendnis, Timing und reflektierte Planung. Die aktuelle Beispielbibliothek folgt Core als oeffentlichem Oekosystem.",
+    blocks: [
+      {
+        heading: "Was die Reports lesen",
+        body: [
+          "Radixreports lesen Grundmuster. Solar Returns lesen die Jahresbuehne. Neumondreports lesen den Rhythmus von Neumond zu Neumond.",
+          "Dieselbe Struktur kann Selbstverstaendnis und Business- oder Community-Beobachtung tragen."
+        ]
+      },
+      {
+        heading: "CorePay-Kaufweg",
+        body: [
+          "Ein Reportkauf mit CorePay ist in Vorbereitung.",
+          "Kaeufe ueber diese Website sind noch nicht offen.",
+          "Derzeit sind die Core-Beispielreports oeffentlich lesbar."
         ]
       }
     ]
@@ -312,273 +327,175 @@ export const homeCopy: Record<Lang, PageCopy> = {
 
 export const pages: Record<Lang, Record<PageKey, PageCopy>> = {
   en: {
-    status: {
-      title: "Current Status",
-      eyebrow: "Public Field Notes only",
+    purchase: {
+      title: "Report Purchase",
+      eyebrow: "CorePay flow in preparation",
       description:
-        "What is available on the public website today.",
+        "The purchase path for Polar Bird Astrology reports is being prepared.",
       blocks: [
         {
-          heading: "Available now",
+          heading: "What is being prepared",
           body: [
-            "The website publishes public Core community Field Notes.",
-            "These notes are unofficial, interpretive, and written for reflection and entertainment."
+            "The intended flow is a simple web purchase path for natal, solar-return, and new-moon-cycle reports.",
+            "CorePay is the payment-link layer planned for that experience.",
+            "Purchases through this site are not open yet."
           ]
         },
         {
-          heading: "Not available now",
+          heading: "What you can read now",
           body: [
-            "The site does not accept orders, payments, birth data, wallet data, or account sign-ins.",
-            "Any change to that boundary must be published with clear privacy and usage terms."
+            "The current public sample is the Core report set.",
+            "It shows how the same astrology structure can read a public ecosystem as well as a person."
           ]
         }
-      ]
+      ],
+      links: [{ href: corePayUrl, label: "CorePay official site" }]
     },
-    "method-boundary": {
-      title: "Method Boundary",
-      eyebrow: "Astrology and facts stay separate",
+    "reading-policy": {
+      title: "How We Read",
+      eyebrow: "Reading style and boundary",
       description:
-        "What astrology can speak about here, and what must be verified through Core product evidence.",
+        "How Polar Bird Astrology uses natal charts, solar returns, and new moon cycles, and where astrology stays separate from factual claims.",
       blocks: [
         {
-          heading: "Astrology can read",
+          heading: "Three report types",
           body: [
-            "Project rhythm, community mood, symbolic timing, and reflective themes.",
-            "These Field Notes can help the community notice patterns and talk about Core in a more imaginative way."
+            "Natal reports read foundational structure, recurring patterns, and the base rhythm of a person, business, or community.",
+            "Solar returns read the annual stage: the themes, focus, and way an existing pattern comes forward in that year.",
+            "New moon reports read the current cycle: active themes, rhythm, and observation points from one new moon to the next."
           ]
         },
         {
-          heading: "Astrology cannot decide",
+          heading: "Use",
           body: [
-            "Price, market cap, investment return, product launch success, payment availability, or official roadmap certainty.",
-            "Those claims require public factual evidence and should not be replaced by astrology."
-          ]
-        }
-      ]
-    },
-    privacy: {
-      title: "Privacy",
-      eyebrow: "No personal data collection",
-      description:
-        "How the project avoids collecting unnecessary personal data during the public Field Note phase.",
-      blocks: [
-        {
-          heading: "Current state",
-          body: [
-            "The current site has no paid orders, account sign-in, payment flow, or birth data intake.",
-            "The public repository does not contain client profiles, raw charts, private reports, payment records, or logs."
+            "The reports translate astrology into ordinary language for self-understanding, daily decisions, and reflective planning.",
+            "For a business or community, personal-language symbols are translated into public language: atmosphere, participation, trust, explanation, and operations."
           ]
         },
         {
-          heading: "If this changes",
+          heading: "Boundary",
           body: [
-            "If a reader submits personal information in the future, the project will collect only the information required for the stated purpose.",
-            "Email, birth data, wallet data, and payment information must not be collected or combined without a clear public reason and policy."
+            "When astrology can naturally speak, Polar Bird Astrology reads it directly and affirmatively.",
+            "Official information, product facts, prices, investment decisions, and guaranteed outcomes remain outside the report."
           ]
         }
-      ]
-    },
-    transparency: {
-      title: "Transparency",
-      eyebrow: "Public boundary",
-      description:
-        "What this repository makes public, and what remains private by design.",
-      blocks: [
-        {
-          heading: "Public",
-          body: [
-            "Website code, public Field Notes, method boundaries, privacy boundaries, and public integration explanations belong here when they are ready to publish.",
-            `The public repository is ${repoUrl}.`
-          ]
-        },
-        {
-          heading: "Private",
-          body: [
-            "Private calculations, raw chart data, client profiles, private reports, secrets, records, and logs stay outside this repository.",
-            "This project is unofficial and must not be confused with official Core communication."
-          ]
-        }
-      ]
+      ],
+      links: [{ href: repoUrl, label: "Public repository" }]
     }
   },
   ja: {
-    status: {
-      title: "公開状況",
-      eyebrow: "公開中のレポート",
+    purchase: {
+      title: "レポート購入",
+      eyebrow: "CorePay導線を準備中",
       description:
-        "現在このサイトで公開している内容です。",
+        "Polar Bird Astrologyの占星術レポートを申し込める導線を準備しています。",
       blocks: [
         {
-          heading: "公開しているもの",
+          heading: "準備していること",
           body: [
-            "このサイトでは、Coreを対象にした占星術レポートを公開しています。",
-            "出生図、太陽回帰図、新月図から、Coreの特性、年ごとのテーマ、現在のサイクルを読み解きます。"
+            "出生図、太陽回帰、新月サイクルのレポートを、Webから申し込める導線を準備しています。",
+            "CorePayを使った軽い購入体験として設計しています。",
+            "このサイトでの購入導線は、まだ公開していません。"
           ]
         },
         {
-          heading: "扱っていないもの",
+          heading: "今読めるもの",
           body: [
-            "注文、支払い、出生情報入力、ウォレット情報、アカウント登録は扱っていません。",
-            "この範囲を変更する場合は、プライバシーと利用条件を明確に公開します。"
+            "現在はCoreを題材にしたサンプルレポートを公開しています。",
+            "同じ占星術の構造で、人の自己理解にも、事業やコミュニティの流れの観察にも使えることを示すためのサンプルです。"
           ]
         }
-      ]
+      ],
+      links: [{ href: corePayUrl, label: "CorePay公式サイトを見る" }]
     },
-    "method-boundary": {
-      title: "読みの境界",
-      eyebrow: "占星術と事実を分ける",
+    "reading-policy": {
+      title: "読み方と方針",
+      eyebrow: "占星術の採用スタイル",
       description:
-        "占星術で読み解く領域と、公開情報で確認する領域を示します。",
+        "Polar Bird Astrologyが何を読み、どこまで解釈し、何を事実確認の領域に残すかをまとめます。",
       blocks: [
         {
-          heading: "占星術で読むこと",
+          heading: "3つのレポート",
           body: [
-            "プロジェクトのリズム、コミュニティの空気、象徴的なタイミング、振り返りのテーマ。",
-            "レポートは、Coreを別の角度から理解するための読み物です。"
+            "出生図は、基本構造、長く続く性質、反応のリズムを読みます。",
+            "太陽回帰は、その年の舞台、焦点が当たりやすいテーマ、既存の性質の使われ方を読みます。",
+            "新月サイクルは、新月から次の新月までのリズム、動きやすいテーマ、日々の選択に使える観察点を読みます。"
           ]
         },
         {
-          heading: "公開情報で確認すること",
+          heading: "使い方",
           body: [
-            "価格、時価総額、投資リターン、プロダクト成功、決済機能の利用可否、公式ロードマップの確実性。",
-            "これらは占星術の本文に混ぜず、公開されている事実で確認する領域として扱います。"
-          ]
-        }
-      ]
-    },
-    privacy: {
-      title: "プライバシー",
-      eyebrow: "個人情報を収集しない",
-      description:
-        "公開レポートの段階で、不要な個人情報を集めないための方針です。",
-      blocks: [
-        {
-          heading: "現在の状態",
-          body: [
-            "現在のサイトには、有料注文、アカウント登録、支払い導線、出生情報入力はありません。",
-            "公開リポジトリには、依頼者情報、出生データ、非公開レポート、支払い記録、ログを含めません。"
+            "人の自己理解、日々の意思決定、行動計画に使えるように、抽象的な象徴を普通の言葉へ翻訳します。",
+            "事業やコミュニティを読む場合は、感情や関係性を、コミュニティの空気、参加、信頼、説明、運用の言葉へ置き換えます。"
           ]
         },
         {
-          heading: "この境界を変更する場合",
+          heading: "解釈の境界",
           body: [
-            "読者から個人情報を受け取る場合は、明示した目的に必要な最小限の情報だけを扱います。",
-            "メールアドレス、出生データ、ウォレット情報、支払い情報は、明確な理由と方針なしに収集・結合しません。"
+            "占星術で自然に読めるところは、弱めず肯定形で読みます。",
+            "公式情報、プロダクト事実、価格、投資判断、成果保証は、占星術レポートの対象外です。",
+            "公開リポジトリでは、Webサイトの実装、公開レポート、採用している読み方の方針を確認できます。"
           ]
         }
-      ]
-    },
-    transparency: {
-      title: "公開しているもの",
-      eyebrow: "公開範囲",
-      description:
-        "このリポジトリで公開するものと、公開しないものの境界です。",
-      blocks: [
-        {
-          heading: "公開するもの",
-          body: [
-            "Webサイトの実装、公開レポート、読みの境界、プライバシー方針、公開できる連携説明を置きます。",
-            `公開リポジトリ: ${repoUrl}`
-          ]
-        },
-        {
-          heading: "公開しないもの",
-          body: [
-            "非公開の計算、出生データ、依頼者情報、非公開レポート、シークレット、記録、ログはこのリポジトリに置きません。",
-            "Coreの公式情報やプロダクト事実は、公開元の情報で確認する領域として扱います。"
-          ]
-        }
-      ]
+      ],
+      links: [{ href: repoUrl, label: "公開リポジトリ" }]
     }
   },
   de: {
-    status: {
-      title: "Aktueller Status",
-      eyebrow: "Nur öffentliche Field Notes",
+    purchase: {
+      title: "Reportkauf",
+      eyebrow: "CorePay-Weg in Vorbereitung",
       description:
-        "Was heute auf der öffentlichen Website verfügbar ist.",
+        "Der Kaufweg fuer Polar Bird Astrology Reports wird vorbereitet.",
       blocks: [
         {
-          heading: "Jetzt verfügbar",
+          heading: "Was vorbereitet wird",
           body: [
-            "Die Website veröffentlicht öffentliche Field Notes für die Core-Community.",
-            "Diese Notizen sind inoffiziell, interpretativ und für Reflexion und Unterhaltung geschrieben."
+            "Geplant ist ein einfacher Webkauf fuer Radix-, Solar-Return- und Neumond-Zyklus-Reports.",
+            "CorePay ist als Payment-Link-Ebene fuer diesen Ablauf geplant.",
+            "Kaeufe ueber diese Website sind noch nicht offen."
           ]
         },
         {
-          heading: "Jetzt nicht verfügbar",
+          heading: "Was jetzt lesbar ist",
           body: [
-            "Die Website nimmt keine Bestellungen, Zahlungen, Geburtsdaten, Wallet-Daten oder Konto-Anmeldungen entgegen.",
-            "Jede Änderung dieser Grenze muss mit klaren Datenschutz- und Nutzungsbedingungen veröffentlicht werden."
+            "Das aktuelle oeffentliche Beispiel ist das Core-Reportset.",
+            "Es zeigt, wie dieselbe astrologische Struktur ein oeffentliches Oekosystem und eine Person lesen kann."
           ]
         }
-      ]
+      ],
+      links: [{ href: corePayUrl, label: "CorePay Website" }]
     },
-    "method-boundary": {
-      title: "Methodengrenze",
-      eyebrow: "Astrologie und Fakten bleiben getrennt",
+    "reading-policy": {
+      title: "Leseweise",
+      eyebrow: "Stil und Grenze",
       description:
-        "Was Astrologie hier beschreiben kann und was durch Core-Produktnachweise geprüft werden muss.",
+        "Wie Polar Bird Astrology Radix, Solar Return und Neumond-Zyklen nutzt und wo Astrologie von Fakten getrennt bleibt.",
       blocks: [
         {
-          heading: "Astrologie kann lesen",
+          heading: "Drei Reporttypen",
           body: [
-            "Projekt-Rhythmus, Community-Stimmung, symbolisches Timing und Reflexionsthemen.",
-            "Die Field Notes können der Community helfen, Muster wahrzunehmen und über Core mit mehr Vorstellungskraft zu sprechen."
+            "Radixreports lesen Grundstruktur, wiederkehrende Muster und den Basisrhythmus einer Person, eines Business oder einer Community.",
+            "Solar Returns lesen die Jahresbuehne: Themen, Fokus und die Art, wie ein bestehendes Muster in diesem Jahr sichtbar wird.",
+            "Neumondreports lesen den aktuellen Zyklus: aktive Themen, Rhythmus und Beobachtungspunkte von Neumond zu Neumond."
           ]
         },
         {
-          heading: "Astrologie kann nicht entscheiden",
+          heading: "Nutzung",
           body: [
-            "Preis, Marktkapitalisierung, Investment-Rendite, Produkterfolg, Payment-Verfügbarkeit oder offizielle Roadmap-Sicherheit.",
-            "Solche Aussagen brauchen Produktnachweise und dürfen nicht durch Astrologie ersetzt werden."
-          ]
-        }
-      ]
-    },
-    privacy: {
-      title: "Datenschutz",
-      eyebrow: "Keine personenbezogene Datenerhebung",
-      description:
-        "Wie das Projekt in der Field-Note-Phase unnötige personenbezogene Daten vermeidet.",
-      blocks: [
-        {
-          heading: "Aktueller Zustand",
-          body: [
-            "Die aktuelle Website hat keine bezahlten Bestellungen, keinen Account Sign-in, keinen Payment Flow und keine Eingabe von Geburtsdaten.",
-            "Das öffentliche Repository enthält keine Client-Profile, raw charts, private Reports, Zahlungsdaten oder Logs."
+            "Die Reports uebersetzen Astrologie in alltaegliche Sprache fuer Selbstverstaendnis, Entscheidungen und reflektierte Planung.",
+            "Bei Business oder Community werden persoenliche Symbole in oeffentliche Sprache uebersetzt: Atmosphaere, Teilnahme, Vertrauen, Erklaerung und Betrieb."
           ]
         },
         {
-          heading: "Wenn sich diese Grenze ändert",
+          heading: "Grenze",
           body: [
-            "Wenn Leser künftig personenbezogene Informationen übermitteln, sammelt das Projekt nur die Informationen, die für den genannten Zweck notwendig sind.",
-            "E-Mail, Geburtsdaten, Wallet-Daten und Zahlungsinformationen dürfen ohne klaren öffentlichen Zweck und Policy nicht gesammelt oder zusammengeführt werden."
+            "Wo Astrologie natuerlich sprechen kann, liest Polar Bird Astrology direkt und affirmativ.",
+            "Offizielle Informationen, Produktfakten, Preise, Investmententscheidungen und garantierte Ergebnisse bleiben ausserhalb des Reports."
           ]
         }
-      ]
-    },
-    transparency: {
-      title: "Transparenz",
-      eyebrow: "Öffentliche Grenze",
-      description:
-        "Was dieses Repository öffentlich macht und was bewusst privat bleibt.",
-      blocks: [
-        {
-          heading: "Öffentlich",
-          body: [
-            "Website-Code, öffentliche Field Notes, Methodengrenzen, Datenschutzgrenzen und veröffentlichbare Integrationsbeschreibungen gehören hierher.",
-            `Das öffentliche Repository ist ${repoUrl}.`
-          ]
-        },
-        {
-          heading: "Privat",
-          body: [
-            "Private Berechnungen, raw chart data, Client-Profile, private Reports, Secrets, Records und Logs bleiben außerhalb dieses Repositorys.",
-            "Dieses Projekt ist inoffiziell und darf nicht mit offizieller Core-Kommunikation verwechselt werden."
-          ]
-        }
-      ]
+      ],
+      links: [{ href: repoUrl, label: "Public repository" }]
     }
   }
 };

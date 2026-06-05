@@ -4,11 +4,17 @@ import { navItems } from "../data/site";
 
 type Props = {
   lang: Lang;
+  languagePaths?: Partial<Record<Lang, string>>;
 };
 
-const { lang } = Astro.props;
+const { lang, languagePaths } = Astro.props;
 const suffix = Astro.url.pathname.replace(/^\/(en|ja|de)/, "") || "";
-const brandSubtitle = lang === "ja" ? "Coreの星まわりを読む" : "Field Notes for Core Readers";
+const brandSubtitle =
+  lang === "ja"
+    ? "星まわりを読む占星術レポート"
+    : lang === "de"
+      ? "Astrologische Reports"
+      : "Astrology reports";
 ---
 
 <header class="site-header">
@@ -22,11 +28,16 @@ const brandSubtitle = lang === "ja" ? "Coreの星まわりを読む" : "Field No
     </span>
   </a>
   <nav class="primary-nav" aria-label="Primary">
-    {navItems[lang].map((item) => <a href={localizedPath(lang, item.href)}>{item.label}</a>)}
+    {navItems[lang].map((item) => (
+      <a href={localizedPath(lang, item.href)}>
+        <span>{item.label}</span>
+        {item.badge && <span class="nav-badge">{item.badge}</span>}
+      </a>
+    ))}
   </nav>
   <nav class="language-nav" aria-label="Language">
     {languages.map((code) => (
-      <a class:list={{ active: code === lang }} href={`${localizedPath(code, suffix)}`}>
+      <a class:list={{ active: code === lang }} href={languagePaths?.[code] || localizedPath(code, suffix)}>
         {languageLabels[code]}
       </a>
     ))}

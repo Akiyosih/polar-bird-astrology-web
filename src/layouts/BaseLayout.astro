@@ -8,13 +8,14 @@ type Props = {
   lang: Lang;
   title?: string;
   description?: string;
+  languagePaths?: Partial<Record<Lang, string>>;
 };
 
-const { lang, title, description } = Astro.props;
+const { lang, title, description, languagePaths } = Astro.props;
 const pageTitle = title ? `${title} | Polar Bird Astrology` : "Polar Bird Astrology";
 const pageDescription =
   description ||
-  "Reflective astrology Field Notes by Polar Bird Astrology, currently publishing for Core readers.";
+  "Astrology reports by Polar Bird Astrology, reading natal charts, solar returns, and new moon cycles.";
 ---
 
 <!doctype html>
@@ -30,7 +31,7 @@ const pageDescription =
   <body>
     <a class="skip-link" href="#main">Skip to content</a>
     <div class="site-shell">
-      <SiteHeader lang={lang} />
+      <SiteHeader lang={lang} languagePaths={languagePaths} />
       <main id="main">
         <slot />
       </main>

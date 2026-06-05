@@ -1,12 +1,12 @@
 # Polar Bird Astrology
 
-Public website for Polar Bird Astrology, currently publishing Core community
-astrology reports.
+Public website for Polar Bird Astrology, currently publishing sample
+astrology reports for Core.
 
-This project publishes public astrology reports for community reading. It
-reads Core through natal, solar-return, and new-moon-cycle reports while
-avoiding official Core claims, investment claims, and unverified product or
-payment claims.
+This project publishes sample astrology reports for public reading. It reads
+Core through natal, solar-return, and new-moon-cycle reports while avoiding
+official Core claims, investment claims, and unverified product or payment
+claims.
 
 ## Philosophy
 
@@ -17,8 +17,8 @@ keep a clear line between symbolic interpretation and factual product claims.
 ## What This Repository Contains
 
 - A static Astro website.
-- Public Field Notes in English, Japanese, and German.
-- Public-facing privacy, method, and transparency pages.
+- Public sample reports in English, Japanese, and German.
+- Public-facing reading-policy and report-purchase preparation pages.
 - Public-safe Japanese homepage copy guidance.
 - Tests that prevent accidental private-data and unverified product claims.
 
