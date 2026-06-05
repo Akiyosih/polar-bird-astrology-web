@@ -11,6 +11,7 @@ yarn-debug.log*
 Thumbs.db
 .dev-server.log
 .preview-server.log
+.preview-server-*.log
 .verification-*.png
 AGENTS.md
 AGENTS.local.md
