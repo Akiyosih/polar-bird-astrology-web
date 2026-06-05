@@ -8,6 +8,7 @@ type Props = {
 
 const { lang } = Astro.props;
 const suffix = Astro.url.pathname.replace(/^\/(en|ja|de)/, "") || "";
+const brandSubtitle = lang === "ja" ? "Coreの星まわりを読む" : "Field Notes for Core Readers";
 ---
 
 <header class="site-header">
@@ -17,7 +18,7 @@ const suffix = Astro.url.pathname.replace(/^\/(en|ja|de)/, "") || "";
     </span>
     <span>
       <strong>Polar Bird Astrology</strong>
-      <small>Field Notes for Core Readers</small>
+      <small>{brandSubtitle}</small>
     </span>
   </a>
   <nav class="primary-nav" aria-label="Primary">

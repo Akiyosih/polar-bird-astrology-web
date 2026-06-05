@@ -55,12 +55,14 @@ const ui = uiCopy[lang];
     </div>
   </section>
 
-  <section class="content-grid">
-    {copy.blocks.map((block) => (
-      <article>
-        <h2>{block.heading}</h2>
-        {block.body.map((paragraph) => <p>{paragraph}</p>)}
-      </article>
-    ))}
-  </section>
+  {copy.blocks.length > 0 && (
+    <section class="content-grid">
+      {copy.blocks.map((block) => (
+        <article>
+          <h2>{block.heading}</h2>
+          {block.body.map((paragraph) => <p>{paragraph}</p>)}
+        </article>
+      ))}
+    </section>
+  )}
 </BaseLayout>

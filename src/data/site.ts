@@ -60,9 +60,9 @@ export const navItems: Record<Lang, Array<{ href: string; label: string }>> = {
     { href: "transparency", label: "Transparency" }
   ],
   ja: [
-    { href: "core-field-notes", label: "3レポート" },
-    { href: "status", label: "現在の状態" },
-    { href: "method-boundary", label: "方法の境界" },
+    { href: "core-field-notes", label: "レポート" },
+    { href: "status", label: "公開状況" },
+    { href: "method-boundary", label: "読みの境界" },
     { href: "privacy", label: "プライバシー" },
     { href: "transparency", label: "透明性" }
   ],
@@ -109,28 +109,28 @@ export const reportTypes: Record<Lang, ReportTypeCopy[]> = {
     {
       key: "natal",
       label: "出生図レポート",
-      title: "Coreの基本性質",
+      title: "Coreの基本特性",
       summary:
-        "Core Blockchainを人間ではなくpublic entity / ecosystem fieldとして読み、核となる性質、反復テーマ、コミュニティの土台を整理する読みです。",
-      focus: "性質、基調、長期パターン",
+        "Coreの出生図から、生涯を通じて変わらない核となる性質、反応のリズム、コミュニティの土台を読み解きます。",
+      focus: "基本特性、反応のリズム、土台",
       emptyLabel: "公開ノート未掲載"
     },
     {
       key: "solar-return",
       label: "太陽回帰レポート",
-      title: "Coreの年次テーマ",
+      title: "Coreの2026年のテーマ",
       summary:
-        "現在の年回りを、プロダクトや価格の断定ではなく、振り返り、公開接点、コミュニティでの語りとして読む年次ノートです。",
-      focus: "年間の空気、タイミング、可視性",
+        "太陽回帰図から、2026年のCoreがどのような方向性を持ち、どこに焦点が当たりやすいかを読み解きます。",
+      focus: "年ごとのテーマ、方向性、焦点",
       emptyLabel: "公開ノート未掲載"
     },
     {
       key: "new-moon",
       label: "新月レポート",
-      title: "月ごとの観察ポイント",
+      title: "Coreの月ごとの流れ",
       summary:
-        "新月サイクルごとに、コミュニティの注意点、話題になりやすいテーマ、観察しておきたいリズムを読むノートです。",
-      focus: "月間リズム、注目点",
+        "新月図から、次の新月までの流れと、Coreにとって注目しやすいテーマを読み解きます。",
+      focus: "月ごとの流れ、注目テーマ",
       emptyLabel: "公開ノート未掲載"
     }
   ],
@@ -196,29 +196,29 @@ export const uiCopy: Record<Lang, UiCopy> = {
     }
   },
   ja: {
-    heroPrimary: "Field Notesを読む",
-    heroSecondary: "現在の状態",
-    boundaryTitle: "境界",
-    boundaryText: "解釈的なField Notesとして、公開範囲と方法の境界を明確にします。",
-    reportHubEyebrow: "読書ハブ",
-    reportHubTitle: "Field Notes Library",
+    heroPrimary: "レポートを読む",
+    heroSecondary: "公開状況",
+    boundaryTitle: "読みの境界",
+    boundaryText: "象徴的な読みと、公開情報で確認すべき事実を分けて扱います。",
+    reportHubEyebrow: "3つのレポート",
+    reportHubTitle: "占星術レポート",
     reportHubDescription:
-      "現在の読書ハブは、出生図、太陽回帰、新月サイクルの3冊のField Notesを軸に整理します。占星術の読みと実務事実の断定は分けて扱います。",
-    fieldNotesTitle: "Core Field Notes",
+      "出生図、太陽回帰、新月。三つの視点から、Coreの特性とこれからを読み解きます。",
+    fieldNotesTitle: "Coreの占星術レポート",
     fieldNotesDescription:
-      "Core readersのための静かな占星術ノート集です。振り返り、文脈、方法の境界を読みやすく整理します。",
-    availableNotesTitle: "公開中のノート",
+      "出生図、太陽回帰、新月の3つの視点から、Coreの特性とこれからを読み解きます。",
+    availableNotesTitle: "公開中のレポート",
     availableNotesDescription:
-      "公開用に整ったノートだけをリンクとして表示します。",
+      "公開中のレポートをまとめています。",
     readNoteLabel: "読む",
     focusLabel: "焦点",
-    publicationBoundaryTitle: "公開境界",
+    publicationBoundaryTitle: "読みの境界",
     publicationBoundaryText:
-      "Field Notesは公開用の読み物として編集します。raw chart data、private report、未確認のproduct claim、投資助言を含めません。",
+      "このレポートは象徴的な読み物です。未確認のプロダクト情報、投資判断、個人データは扱いません。",
     footerNotice:
-      "Polar Bird Astrologyは、方法、プライバシー、透明性の境界を明確にしながら占星術Field Notesを公開します。",
+      "Polar Bird Astrologyは、占星術レポートを、方法・プライバシー・公開範囲を明確にしたうえで公開しています。",
     footerLinks: {
-      method: "方法の境界",
+      method: "読みの境界",
       privacy: "プライバシー",
       transparency: "透明性",
       github: "GitHub"
@@ -281,25 +281,10 @@ export const homeCopy: Record<Lang, PageCopy> = {
   },
   ja: {
     title: "Polar Bird Astrology",
-    eyebrow: "Field Notes for Core Readers",
+    eyebrow: "Coreの星まわりを読む",
     description:
-      "Core readersに向けて、北方の水彩ジャーナルのように静かに読める占星術Field Notesです。",
-    blocks: [
-      {
-        heading: "いま公開するもの",
-        body: [
-          "現在のライブラリは、Coreの基本性質、年次テーマ、新月サイクルの3つの読みを中心にしています。",
-          "詳細な現在の状態、方法、プライバシー、透明性の境界は、それぞれの説明ページにまとめます。"
-        ]
-      },
-      {
-        heading: "読み方",
-        body: [
-          "占星術は、リズム、ムード、タイミング、意味を観察するための言語として扱います。",
-          "日本語、英語、ドイツ語を最初から第一級の読書導線として扱います。"
-        ]
-      }
-    ]
+      "Coreを占星術の観点から分析し、性質、年ごとのテーマ、新月ごとのリズムを読み解きます。",
+    blocks: []
   },
   de: {
     title: "Polar Bird Astrology",
@@ -418,89 +403,89 @@ export const pages: Record<Lang, Record<PageKey, PageCopy>> = {
   },
   ja: {
     status: {
-      title: "現在の状態",
-      eyebrow: "public Field Notesのみ",
+      title: "公開状況",
+      eyebrow: "公開中のレポート",
       description:
-        "現在この公開サイトで提供しているものの説明です。",
+        "現在このサイトで公開している内容です。",
       blocks: [
         {
-          heading: "現在あるもの",
+          heading: "公開しているもの",
           body: [
-            "このサイトでは、Coreコミュニティ向けのpublic Field Notesを公開します。",
-            "Field Notesは非公式で、振り返りや娯楽のための解釈的な読み物です。"
+            "このサイトでは、Coreを対象にした占星術レポートを公開しています。",
+            "レポートは非公式の読み物であり、振り返りや理解のために編集しています。"
           ]
         },
         {
-          heading: "現在ないもの",
+          heading: "扱っていないもの",
           body: [
-            "注文、支払い、出生情報入力、wallet情報、アカウントsign-inは扱っていません。",
-            "この境界を変更する場合は、privacyと利用条件を明確に公開します。"
+            "注文、支払い、出生情報入力、ウォレット情報、アカウント登録は扱っていません。",
+            "この範囲を変更する場合は、プライバシーと利用条件を明確に公開します。"
           ]
         }
       ]
     },
     "method-boundary": {
-      title: "Method Boundary",
-      eyebrow: "占星術と実務事実を分ける",
+      title: "読みの境界",
+      eyebrow: "占星術と事実を分ける",
       description:
-        "ここで占星術が扱うことと、Core product evidenceで確認すべきことの境界です。",
+        "占星術で読み解く領域と、公開情報で確認すべき領域を分けて示します。",
       blocks: [
         {
-          heading: "占星術で読めること",
+          heading: "占星術で読むこと",
           body: [
             "プロジェクトのリズム、コミュニティの空気、象徴的なタイミング、振り返りのテーマ。",
-            "Field Notesは、Coreについて少し違う角度から話すための文化的な読み物です。"
+            "レポートは、Coreを別の角度から理解するための読み物です。"
           ]
         },
         {
-          heading: "占星術だけでは決めないこと",
+          heading: "占星術で決めないこと",
           body: [
             "価格、時価総額、投資リターン、プロダクト成功、決済機能の利用可否、公式ロードマップの確実性。",
-            "それらはCore product evidenceで確認する領域であり、占星術で置き換えません。"
+            "それらは公開されている事実で確認する領域であり、占星術で置き換えません。"
           ]
         }
       ]
     },
     privacy: {
-      title: "Privacy",
+      title: "プライバシー",
       eyebrow: "個人情報を収集しない",
       description:
-        "public Field Note段階で、不要な個人情報を集めないための方針です。",
+        "公開レポートの段階で、不要な個人情報を集めないための方針です。",
       blocks: [
         {
           heading: "現在の状態",
           body: [
-            "現在のサイトには、有料注文、アカウントsign-in、payment flow、出生情報入力はありません。",
-            "public repoには、client profile、raw chart、private report、支払い記録、logを入れません。"
+            "現在のサイトには、有料注文、アカウント登録、支払い導線、出生情報入力はありません。",
+            "公開リポジトリには、依頼者情報、出生データ、非公開レポート、支払い記録、ログを含めません。"
           ]
         },
         {
           heading: "この境界を変更する場合",
           body: [
             "読者から個人情報を受け取る場合は、明示した目的に必要な最小限の情報だけを扱います。",
-            "email、birth data、wallet data、payment informationは、明確な公開理由とpolicyなしに収集・結合しません。"
+            "メールアドレス、出生データ、ウォレット情報、支払い情報は、明確な理由と方針なしに収集・結合しません。"
           ]
         }
       ]
     },
     transparency: {
-      title: "Transparency",
-      eyebrow: "公開境界",
+      title: "公開しているもの",
+      eyebrow: "公開範囲",
       description:
-        "このrepoで公開するものと、意図的に公開しないものの境界です。",
+        "このリポジトリで公開するものと、公開しないものの境界です。",
       blocks: [
         {
           heading: "公開するもの",
           body: [
-            "Webサイト実装、public Field Notes、method boundary、privacy boundary、公開してよいintegration説明をここに置きます。",
-            `public repository: ${repoUrl}`
+            "Webサイトの実装、公開レポート、読みの境界、プライバシー方針、公開できる連携説明を置きます。",
+            `公開リポジトリ: ${repoUrl}`
           ]
         },
         {
           heading: "公開しないもの",
           body: [
-            "private calculation、raw chart data、client profile、private report、secrets、records、logsはこのrepoに置きません。",
-            "このprojectは非公式です。Core公式発信と混同されないようにします。"
+            "非公開の計算、出生データ、依頼者情報、非公開レポート、シークレット、記録、ログはこのリポジトリに置きません。",
+            "このプロジェクトは非公式であり、Core公式発信と混同されないようにします。"
           ]
         }
       ]

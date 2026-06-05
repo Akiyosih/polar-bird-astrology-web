@@ -371,6 +371,10 @@ main {
   text-transform: uppercase;
 }
 
+:lang(ja) .eyebrow {
+  text-transform: none;
+}
+
 h1,
 h2,
 h3 {
