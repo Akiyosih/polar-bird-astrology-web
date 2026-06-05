@@ -10,6 +10,7 @@ yarn-debug.log*
 .DS_Store
 Thumbs.db
 .dev-server.log
+.preview-server.log
 .verification-*.png
 AGENTS.md
 AGENTS.local.md

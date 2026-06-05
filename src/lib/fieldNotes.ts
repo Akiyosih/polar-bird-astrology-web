@@ -109,6 +109,9 @@ function markdownToHtml(markdown: string): string {
       flushParagraph();
       flushList();
       const level = heading[1].length;
+      if (level === 2) {
+        html.push(`<div class="section-mark" aria-hidden="true"></div>`);
+      }
       html.push(`<h${level}>${renderInlineMarkdown(heading[2])}</h${level}>`);
       continue;
     }

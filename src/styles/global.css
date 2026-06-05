@@ -19,7 +19,7 @@
 
   --surface-page: var(--pb-paper-cool);
   --surface-card: var(--pb-paper-soft);
-  --surface-reading: rgba(251, 247, 238, 0.94);
+  --surface-reading: #fffefb;
   --surface-boundary: rgba(251, 247, 238, 0.9);
   --surface-cover-panel: rgba(251, 247, 238, 0.86);
 
@@ -33,7 +33,7 @@
   --image-aurora-cover: url("/images/watercolor/pdf-cover-background-1600.webp");
   --image-paper-wash: url("/images/watercolor/pdf-body-background.jpeg");
   --image-field-wash: url("/images/watercolor/polar-field-wash.png");
-  --image-section-ornament: url("/images/watercolor/section-ornament.png");
+  --image-section-ornament: url("/images/brand/polar-bird-icon-180.webp");
   --image-brand-seal-dark: url("/images/brand/polar-bird-seal-dark.webp");
   --image-brand-seal-light: url("/images/brand/polar-bird-seal-light.webp");
   --image-brand-symbol-dark: url("/images/brand/polar-bird-symbol-dark.webp");
@@ -146,6 +146,19 @@ img {
 
 .skip-link:focus {
   top: 1rem;
+}
+
+.sr-only {
+  border: 0;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
 }
 
 .site-shell {
@@ -562,13 +575,15 @@ p {
 
 .report-type-card::after {
   background: var(--image-section-ornament) center / contain no-repeat;
+  border-radius: 50%;
   content: "";
-  height: 2.65rem;
-  opacity: 0.7;
+  filter: saturate(0.86) contrast(0.92);
+  height: 3rem;
+  opacity: 0.42;
   position: absolute;
-  right: 1.05rem;
-  top: 0.75rem;
-  width: 3.3rem;
+  right: 0.95rem;
+  top: 0.7rem;
+  width: 3rem;
 }
 
 .report-type-card[data-report="solar-return"] {
@@ -747,101 +762,127 @@ p {
 .chart-panel {
   align-items: center;
   background:
-    linear-gradient(180deg, rgba(251, 247, 238, 0.88), rgba(238, 248, 246, 0.84)),
-    var(--image-paper-wash);
+    linear-gradient(180deg, rgba(255, 254, 251, 0.96), rgba(245, 251, 249, 0.92));
   background-position: center top;
   background-size: cover;
   border: var(--line-paper);
   box-shadow: var(--shadow-paper);
   display: grid;
   gap: 1rem;
-  grid-template-columns: minmax(0, 0.28fr) minmax(0, 0.72fr);
+  justify-items: center;
   margin: 0;
-  padding: 2rem;
+  padding: 1.5rem;
 }
 
 .chart-panel img {
   justify-self: center;
-  max-height: 760px;
+  max-height: min(86vh, 980px);
   object-fit: contain;
-  width: min(100%, 680px);
+  width: min(100%, 960px);
 }
 
 .report-body {
-  background:
-    linear-gradient(180deg, rgba(251, 247, 238, 0.8), rgba(251, 247, 238, 0.7)),
-    var(--image-paper-wash);
-  background-attachment: local;
-  background-position: center top;
-  background-size: cover;
+  background: var(--surface-reading);
   border: var(--line-paper);
   box-shadow: var(--shadow-paper);
-  display: grid;
-  gap: 1rem;
-  max-width: 960px;
-  padding: 4rem 4.5rem;
+  max-width: 940px;
+  padding: 4.1rem 4.7rem;
   position: relative;
 }
 
-.report-body::before {
+.report-body .section-mark {
+  break-after: avoid;
   background: var(--image-section-ornament) center / contain no-repeat;
-  content: "";
-  height: 3.1rem;
-  justify-self: center;
-  margin-bottom: 0.2rem;
-  opacity: 0.72;
-  width: 4rem;
+  border-radius: 50%;
+  display: block;
+  filter: saturate(0.78) contrast(0.92);
+  height: 2.6rem;
+  margin: 2.55rem auto -0.2rem;
+  opacity: 0.26;
+  width: 2.6rem;
+}
+
+.report-body .section-mark:first-child {
+  margin-top: 0;
 }
 
 .report-body h2 {
-  border-bottom: 1px solid rgba(185, 155, 79, 0.46);
+  border-bottom: 1px solid rgba(197, 179, 88, 0.58);
   color: var(--pb-teal);
-  display: flex;
   font-family: var(--font-body);
-  font-size: 1.7rem;
-  font-weight: 800;
-  gap: 0.65rem;
-  margin-top: 1.2rem;
-  padding-bottom: 0.55rem;
+  font-size: 1.65rem;
+  font-weight: 700;
+  line-height: 1.45;
+  margin: 3.1rem 0 1.05rem;
+  padding-bottom: 0.45rem;
+  text-wrap: balance;
 }
 
 .report-body h2::before {
-  background: var(--pb-teal);
-  content: "";
-  flex: 0 0 auto;
-  height: 0.72rem;
-  margin-top: 0.43rem;
-  transform: rotate(45deg);
-  width: 0.72rem;
+  color: var(--pb-teal);
+  content: "❖";
+  font-size: 0.92em;
+  margin-right: 0.45rem;
 }
 
 .report-body h2:first-child {
   margin-top: 0;
 }
 
+.report-body .section-mark + h2 {
+  margin-top: 0.9rem;
+}
+
 .report-body h3 {
-  color: var(--pb-teal);
+  color: var(--pb-gold);
   font-size: 1.15rem;
   line-height: 1.35;
-  margin-top: 0.5rem;
+  margin: 1.7rem 0 0.75rem;
+  text-wrap: balance;
+}
+
+.report-body h3::before {
+  color: var(--pb-gold);
+  content: "◆";
+  font-size: 0.82em;
+  margin-right: 0.42rem;
 }
 
 .report-body p,
 .report-body li {
-  color: rgba(16, 41, 58, 0.88);
+  color: #3a3a3a;
   font-size: var(--text-body);
   line-height: var(--leading-body);
 }
 
+.report-body p {
+  margin: 0 0 1.05rem;
+}
+
 .report-body strong {
-  color: var(--pb-night);
+  color: var(--pb-teal);
+  font-weight: 700;
 }
 
 .report-body ul {
-  display: grid;
-  gap: 0.65rem;
-  margin: 0;
-  padding-left: 1.2rem;
+  list-style: none;
+  margin: 0 0 1.4rem;
+  padding-left: 0;
+}
+
+.report-body li {
+  margin: 0 0 0.55rem;
+  padding-left: 1.35rem;
+  position: relative;
+}
+
+.report-body li::before {
+  color: var(--pb-gold);
+  content: "✦";
+  font-size: 0.82rem;
+  left: 0;
+  position: absolute;
+  top: 0.05em;
 }
 
 .site-footer {
@@ -1088,13 +1129,21 @@ p {
     padding: 4.9rem 1.35rem 1.35rem;
   }
 
-  .chart-panel,
   .report-body {
     padding: 1.25rem;
   }
 
+  .chart-panel {
+    padding: 0.55rem;
+  }
+
   .report-body h2 {
-    font-size: 1.45rem;
+    font-size: 1.36rem;
+  }
+
+  .report-body h3 {
+    font-size: 1rem;
+    line-height: 1.42;
   }
 
   .report-body p,

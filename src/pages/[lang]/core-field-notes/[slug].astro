@@ -56,10 +56,7 @@ const titleHtml = escapeHtml(note.title).replace(/([^\s])フィールドノー�
 
     {note.chartImage && (
       <figure class="chart-panel">
-        <div>
-          <p class="eyebrow">{chartHeading}</p>
-          <h2>{chartHeading}</h2>
-        </div>
+        <figcaption class="sr-only">{chartHeading}</figcaption>
         <img src={note.chartImage} alt={note.chartAlt || ""} loading="lazy" />
       </figure>
     )}
