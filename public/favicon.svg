@@ -1,6 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Polar Bird Astrology">
-  <rect width="64" height="64" fill="#005f6b"/>
-  <path d="M16 42c9-18 21-28 36-30-7 8-12 18-15 30H16Z" fill="#fff9df"/>
-  <path d="M16 42c9-5 18-7 29-5-7 4-15 8-29 5Z" fill="#c5b358"/>
-  <circle cx="43" cy="18" r="3" fill="#60415f"/>
-</svg>

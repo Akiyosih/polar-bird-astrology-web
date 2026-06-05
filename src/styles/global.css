@@ -30,9 +30,13 @@
   --accent-star: var(--pb-gold);
   --accent-aurora: var(--pb-aurora);
 
-  --image-aurora-cover: url("/images/watercolor/pdf-cover-background.png");
+  --image-aurora-cover: url("/images/watercolor/pdf-cover-background-1600.webp");
   --image-paper-wash: url("/images/watercolor/pdf-body-background.jpeg");
   --image-field-wash: url("/images/watercolor/polar-field-wash.png");
+  --image-section-ornament: url("/images/watercolor/section-ornament.png");
+  --image-brand-seal-dark: url("/images/brand/polar-bird-seal-dark.webp");
+  --image-brand-seal-light: url("/images/brand/polar-bird-seal-light.webp");
+  --image-brand-symbol-dark: url("/images/brand/polar-bird-symbol-dark.webp");
 
   --overlay-aurora-strong: rgba(3, 32, 38, 0.42);
   --overlay-aurora-soft: rgba(3, 32, 38, 0.24);
@@ -101,11 +105,11 @@ html {
 body {
   margin: 0;
   background:
-    linear-gradient(180deg, rgba(238, 248, 246, 0.96), rgba(251, 247, 238, 0.9)),
-    var(--image-field-wash),
+    linear-gradient(180deg, rgba(238, 248, 246, 0.92), rgba(251, 247, 238, 0.86)),
+    var(--image-paper-wash),
     var(--surface-page);
   background-attachment: fixed, fixed, scroll;
-  background-position: center top;
+  background-position: center top, center top;
   background-size: cover;
 }
 
@@ -150,6 +154,11 @@ img {
 
 .site-header {
   align-items: center;
+  background:
+    linear-gradient(180deg, rgba(251, 247, 238, 0.8), rgba(238, 248, 246, 0.62)),
+    var(--image-paper-wash);
+  background-position: center top;
+  background-size: cover;
   border-bottom: var(--line-hair);
   display: grid;
   gap: 1rem;
@@ -190,13 +199,14 @@ img {
   align-items: center;
   aspect-ratio: 1;
   background:
-    radial-gradient(circle at 50% 50%, rgba(251, 247, 238, 0.96), rgba(216, 201, 150, 0.18));
-  border: 1px solid rgba(185, 155, 79, 0.62);
+    radial-gradient(circle at 50% 50%, rgba(6, 47, 55, 0.92), rgba(2, 12, 16, 0.96));
+  border: 1px solid rgba(199, 162, 87, 0.72);
   border-radius: 50%;
+  box-shadow: 0 8px 22px rgba(3, 32, 38, 0.16);
   display: inline-flex;
   justify-content: center;
-  padding: 0.2rem;
-  width: 2.75rem;
+  padding: 0.1rem;
+  width: 3.15rem;
 }
 
 .brand-mark img {
@@ -251,17 +261,18 @@ main {
 .hero {
   align-items: end;
   background:
-    linear-gradient(90deg, rgba(3, 32, 38, 0.62), rgba(3, 32, 38, 0.28)),
-    linear-gradient(180deg, rgba(6, 47, 55, 0.18), rgba(6, 47, 55, 0.42)),
+    radial-gradient(circle at 50% 19%, rgba(255, 249, 216, 0.2), transparent 15rem),
+    linear-gradient(90deg, rgba(2, 12, 16, 0.72), rgba(3, 32, 38, 0.38) 48%, rgba(3, 32, 38, 0.12)),
+    linear-gradient(180deg, rgba(6, 47, 55, 0.04), rgba(2, 12, 16, 0.34)),
     var(--image-aurora-cover);
-  background-position: center 36%;
+  background-position: center, center, center, center 18%;
   background-size: cover;
   border: 1px solid rgba(143, 218, 211, 0.22);
   box-shadow: var(--shadow-aurora);
   display: grid;
   gap: 1.5rem;
-  grid-template-columns: minmax(0, 0.75fr) minmax(150px, 0.25fr);
-  min-height: 560px;
+  grid-template-columns: minmax(0, 0.58fr) minmax(260px, 0.42fr);
+  min-height: 640px;
   overflow: hidden;
   padding: 3rem;
   position: relative;
@@ -277,8 +288,9 @@ main {
 
 .hero-copy {
   background:
-    linear-gradient(180deg, rgba(251, 247, 238, 0.9), rgba(238, 248, 246, 0.82)),
+    linear-gradient(180deg, rgba(251, 247, 238, 0.94), rgba(238, 248, 246, 0.86)),
     var(--image-paper-wash);
+  background-position: center top;
   background-size: cover;
   border-left: var(--line-accent);
   box-shadow: 0 16px 44px rgba(3, 32, 38, 0.18);
@@ -305,10 +317,10 @@ main {
 
 .hero-visual {
   align-items: center;
-  align-self: start;
+  align-self: center;
   display: flex;
-  justify-content: end;
-  min-height: 12rem;
+  justify-content: center;
+  min-height: 22rem;
   position: relative;
   z-index: 1;
 }
@@ -316,17 +328,17 @@ main {
 .brand-seal {
   align-items: center;
   aspect-ratio: 1;
-  background:
-    radial-gradient(circle at 50% 50%, rgba(251, 247, 238, 0.94), rgba(185, 155, 79, 0.14));
-  border: 1px solid rgba(216, 201, 150, 0.78);
+  background: rgba(2, 12, 16, 0.28);
+  border: 1px solid rgba(216, 201, 150, 0.62);
   border-radius: 50%;
-  box-shadow: 0 18px 50px rgba(3, 32, 38, 0.32);
+  box-shadow: 0 28px 80px rgba(2, 12, 16, 0.48);
   display: inline-flex;
   flex: 0 0 auto;
-  height: 7rem;
+  height: min(26rem, 34vw);
   justify-content: center;
-  padding: 0.8rem;
-  width: 7rem;
+  overflow: hidden;
+  padding: 0;
+  width: min(26rem, 34vw);
 }
 
 .brand-seal img {
@@ -437,6 +449,7 @@ p {
 
 .report-grid {
   grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.15rem;
 }
 
 .content-grid article,
@@ -507,38 +520,63 @@ p {
 
 .report-type-card {
   align-content: start;
-  border-left: var(--line-accent);
+  border: 1px solid rgba(185, 155, 79, 0.32);
+  border-left: 5px solid var(--pb-gold);
   display: grid;
   gap: 0.7rem;
   min-height: 100%;
   overflow: hidden;
-  padding-top: 0;
+  padding: 2.8rem 1.35rem 1.35rem;
   position: relative;
+  box-shadow:
+    0 16px 36px rgba(16, 41, 58, 0.08),
+    7px 7px 0 rgba(185, 155, 79, 0.12),
+    13px 13px 0 rgba(0, 104, 117, 0.06);
+}
+
+.report-type-card > * {
+  position: relative;
+  z-index: 1;
 }
 
 .report-type-card::before {
   background:
-    linear-gradient(120deg, rgba(0, 104, 117, 0.22), rgba(251, 247, 238, 0.86)),
+    linear-gradient(180deg, rgba(251, 247, 238, 0.02), rgba(251, 247, 238, 0.72)),
     var(--image-paper-wash);
-  background-position: center;
+  background-position: center top;
   background-size: cover;
-  border-bottom: var(--line-paper);
   content: "";
-  display: block;
-  height: 5.25rem;
-  margin: 0 calc(var(--space-card) * -1) 0.25rem;
+  inset: 0;
+  opacity: 0.96;
+  position: absolute;
 }
 
-.report-type-card[data-report="solar-return"]::before {
-  background:
-    linear-gradient(120deg, rgba(185, 155, 79, 0.22), rgba(238, 248, 246, 0.82)),
-    var(--image-paper-wash);
+.report-type-card .eyebrow {
+  align-self: start;
+  background: rgba(251, 247, 238, 0.62);
+  border: 1px solid rgba(185, 155, 79, 0.38);
+  color: var(--accent-star);
+  justify-self: start;
+  padding: 0.22rem 0.48rem;
 }
 
-.report-type-card[data-report="new-moon"]::before {
-  background:
-    linear-gradient(120deg, rgba(207, 165, 161, 0.24), rgba(251, 247, 238, 0.86)),
-    var(--image-paper-wash);
+.report-type-card::after {
+  background: var(--image-section-ornament) center / contain no-repeat;
+  content: "";
+  height: 2.65rem;
+  opacity: 0.7;
+  position: absolute;
+  right: 1.05rem;
+  top: 0.75rem;
+  width: 3.3rem;
+}
+
+.report-type-card[data-report="solar-return"] {
+  border-left-color: rgba(199, 162, 87, 0.78);
+}
+
+.report-type-card[data-report="new-moon"] {
+  border-left-color: rgba(0, 104, 117, 0.68);
 }
 
 .report-type-card.is-available,
@@ -549,6 +587,11 @@ p {
 .report-type-card h2,
 .field-note-card h2 {
   font-size: 1.45rem;
+}
+
+.report-type-card h2 {
+  text-wrap: balance;
+  word-break: keep-all;
 }
 
 .report-meta {
@@ -580,7 +623,14 @@ p {
 .card-actions {
   align-self: end;
   display: flex;
-  margin-top: 0.2rem;
+  margin-top: 0.45rem;
+}
+
+.report-type-card .button {
+  background: rgba(251, 247, 238, 0.72);
+  border-color: rgba(0, 104, 117, 0.5);
+  min-height: 2.35rem;
+  padding-inline: 0.9rem;
 }
 
 .field-note-card h2 a {
@@ -617,10 +667,11 @@ p {
 .report-cover {
   align-items: end;
   background:
-    linear-gradient(90deg, rgba(3, 32, 38, 0.54), rgba(3, 32, 38, 0.18)),
-    linear-gradient(180deg, rgba(0, 79, 89, 0.05), rgba(0, 79, 89, 0.34)),
+    radial-gradient(circle at 50% 18%, rgba(255, 249, 216, 0.18), transparent 15rem),
+    linear-gradient(90deg, rgba(2, 12, 16, 0.62), rgba(3, 32, 38, 0.2) 58%, rgba(3, 32, 38, 0.04)),
+    linear-gradient(180deg, rgba(0, 79, 89, 0.02), rgba(2, 12, 16, 0.34)),
     var(--report-cover-image, var(--image-aurora-cover));
-  background-position: center 34%;
+  background-position: center, center, center, center 18%;
   background-size: cover;
   border: 1px solid rgba(143, 218, 211, 0.22);
   box-shadow: var(--shadow-aurora);
@@ -631,9 +682,9 @@ p {
 
 .report-cover-panel {
   background:
-    linear-gradient(180deg, rgba(251, 247, 238, 0.9), rgba(238, 248, 246, 0.82)),
+    linear-gradient(180deg, rgba(251, 247, 238, 0.94), rgba(238, 248, 246, 0.86)),
     var(--image-paper-wash);
-  background-position: center;
+  background-position: center top;
   background-size: cover;
   border-left: var(--line-accent);
   box-shadow: 0 16px 44px rgba(3, 32, 38, 0.18);
@@ -647,16 +698,16 @@ p {
 .cover-mark {
   align-items: center;
   aspect-ratio: 1;
-  background: var(--pb-paper);
-  border: 1px solid rgba(185, 155, 79, 0.52);
+  background: var(--pb-night-deep);
+  border: 1px solid rgba(199, 162, 87, 0.72);
   border-radius: 50%;
   display: inline-flex;
   justify-content: center;
-  padding: 0.25rem;
+  padding: 0.08rem;
   position: absolute;
   right: 1.35rem;
   top: 1.35rem;
-  width: 3.2rem;
+  width: 4.35rem;
 }
 
 .cover-mark img {
@@ -696,9 +747,9 @@ p {
 .chart-panel {
   align-items: center;
   background:
-    linear-gradient(180deg, rgba(251, 247, 238, 0.82), rgba(238, 248, 246, 0.86)),
+    linear-gradient(180deg, rgba(251, 247, 238, 0.88), rgba(238, 248, 246, 0.84)),
     var(--image-paper-wash);
-  background-position: center;
+  background-position: center top;
   background-size: cover;
   border: var(--line-paper);
   box-shadow: var(--shadow-paper);
@@ -718,7 +769,7 @@ p {
 
 .report-body {
   background:
-    linear-gradient(180deg, rgba(251, 247, 238, 0.94), rgba(251, 247, 238, 0.9)),
+    linear-gradient(180deg, rgba(251, 247, 238, 0.8), rgba(251, 247, 238, 0.7)),
     var(--image-paper-wash);
   background-attachment: local;
   background-position: center top;
@@ -727,17 +778,41 @@ p {
   box-shadow: var(--shadow-paper);
   display: grid;
   gap: 1rem;
-  max-width: var(--container-reading);
-  padding: 3rem;
+  max-width: 960px;
+  padding: 4rem 4.5rem;
+  position: relative;
+}
+
+.report-body::before {
+  background: var(--image-section-ornament) center / contain no-repeat;
+  content: "";
+  height: 3.1rem;
+  justify-self: center;
+  margin-bottom: 0.2rem;
+  opacity: 0.72;
+  width: 4rem;
 }
 
 .report-body h2 {
   border-bottom: 1px solid rgba(185, 155, 79, 0.46);
-  color: var(--pb-night);
-  font-family: var(--font-heading);
-  font-size: 1.9rem;
+  color: var(--pb-teal);
+  display: flex;
+  font-family: var(--font-body);
+  font-size: 1.7rem;
+  font-weight: 800;
+  gap: 0.65rem;
   margin-top: 1.2rem;
   padding-bottom: 0.55rem;
+}
+
+.report-body h2::before {
+  background: var(--pb-teal);
+  content: "";
+  flex: 0 0 auto;
+  height: 0.72rem;
+  margin-top: 0.43rem;
+  transform: rotate(45deg);
+  width: 0.72rem;
 }
 
 .report-body h2:first-child {
@@ -785,6 +860,12 @@ p {
 
 .root-choice {
   align-items: center;
+  background:
+    radial-gradient(circle at 50% 22%, rgba(255, 249, 216, 0.18), transparent 16rem),
+    linear-gradient(90deg, rgba(2, 12, 16, 0.68), rgba(3, 32, 38, 0.24)),
+    var(--image-aurora-cover);
+  background-position: center, center, center 18%;
+  background-size: cover;
   display: grid;
   min-height: 100vh;
   padding: 1rem;
@@ -792,6 +873,14 @@ p {
 
 .language-choice {
   align-items: center;
+  background:
+    linear-gradient(180deg, rgba(251, 247, 238, 0.92), rgba(238, 248, 246, 0.82)),
+    var(--image-paper-wash);
+  background-position: center top;
+  background-size: cover;
+  border: var(--line-paper);
+  border-left: var(--line-accent);
+  box-shadow: var(--shadow-aurora);
   display: grid;
   gap: 2rem;
   grid-template-columns: minmax(280px, 0.9fr) minmax(0, 1fr);
@@ -806,9 +895,10 @@ p {
 }
 
 .language-choice img {
-  aspect-ratio: 16 / 9;
-  border: var(--line-paper);
-  box-shadow: var(--shadow-paper);
+  aspect-ratio: 1;
+  border: 1px solid rgba(199, 162, 87, 0.42);
+  border-radius: 50%;
+  box-shadow: 0 18px 48px rgba(3, 32, 38, 0.28);
   height: auto;
   object-fit: cover;
   width: 100%;
@@ -829,6 +919,10 @@ p {
 }
 
 @media (max-width: 880px) {
+  :root {
+    --image-aurora-cover: url("/images/watercolor/pdf-cover-background-900.webp");
+  }
+
   .site-header {
     align-items: start;
     grid-template-columns: 1fr;
@@ -863,6 +957,7 @@ p {
     background-position: center top;
     min-height: 620px;
     padding: 1.25rem;
+    position: relative;
   }
 
   .hero::after {
@@ -880,7 +975,16 @@ p {
   }
 
   .hero-visual {
-    display: none;
+    display: flex;
+    min-height: 0;
+    position: absolute;
+    right: 1.35rem;
+    top: 1.35rem;
+  }
+
+  .brand-seal {
+    height: 7.25rem;
+    width: 7.25rem;
   }
 
   .report-cover {
@@ -889,7 +993,7 @@ p {
   }
 
   .report-cover-panel {
-    padding: 1.35rem;
+    padding: 1.35rem 5.7rem 1.35rem 1.35rem;
   }
 
   .report-cover-panel h1 {
@@ -924,6 +1028,16 @@ p {
     width: 2.45rem;
   }
 
+  .hero-visual {
+    right: 1.1rem;
+    top: 1.1rem;
+  }
+
+  .brand-seal {
+    height: 5.65rem;
+    width: 5.65rem;
+  }
+
   .primary-nav,
   .language-nav {
     gap: 0.85rem;
@@ -956,12 +1070,22 @@ p {
     padding: 1rem;
   }
 
-  .report-type-card::before {
-    margin-inline: -1rem;
+  .report-type-card {
+    padding-top: 2.7rem;
+    box-shadow:
+      0 12px 28px rgba(16, 41, 58, 0.08),
+      5px 5px 0 rgba(185, 155, 79, 0.1);
   }
 
   .cover-mark {
-    display: none;
+    display: inline-flex;
+    right: 1.05rem;
+    top: 1.05rem;
+    width: 3.6rem;
+  }
+
+  .report-cover-panel {
+    padding: 4.9rem 1.35rem 1.35rem;
   }
 
   .chart-panel,
