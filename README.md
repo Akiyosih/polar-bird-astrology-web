@@ -1,11 +1,12 @@
 # Polar Bird Astrology
 
 Public website for Polar Bird Astrology, currently publishing Core community
-Field Notes.
+astrology reports.
 
-This project publishes reflective astrology Field Notes for community reading.
-It keeps symbolic interpretation separate from official communication,
-investment advice, and product or payment claims.
+This project publishes public astrology reports for community reading. It
+reads Core through natal, solar-return, and new-moon-cycle reports while
+avoiding official Core claims, investment claims, and unverified product or
+payment claims.
 
 ## Philosophy
 
@@ -18,6 +19,7 @@ keep a clear line between symbolic interpretation and factual product claims.
 - A static Astro website.
 - Public Field Notes in English, Japanese, and German.
 - Public-facing privacy, method, and transparency pages.
+- Public-safe Japanese homepage copy guidance.
 - Tests that prevent accidental private-data and unverified product claims.
 
 ## What This Repository Does Not Contain
@@ -36,6 +38,9 @@ npm run build
 ```
 
 The static build output is written to `dist/`.
+
+For Japanese homepage and UI copy, see
+`docs/homepage_copy_policy_ja.md`.
 
 ## Deployment
 

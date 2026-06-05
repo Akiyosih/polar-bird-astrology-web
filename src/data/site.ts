@@ -198,8 +198,8 @@ export const uiCopy: Record<Lang, UiCopy> = {
   ja: {
     heroPrimary: "レポートを読む",
     heroSecondary: "公開状況",
-    boundaryTitle: "読みの境界",
-    boundaryText: "象徴的な読みと、公開情報で確認すべき事実を分けて扱います。",
+    boundaryTitle: "公開レポートの姿勢",
+    boundaryText: "星まわりから読めるテーマを、公開情報と照らし合わせながら扱います。",
     reportHubEyebrow: "3つのレポート",
     reportHubTitle: "占星術レポート",
     reportHubDescription:
@@ -212,11 +212,11 @@ export const uiCopy: Record<Lang, UiCopy> = {
       "公開中のレポートをまとめています。",
     readNoteLabel: "読む",
     focusLabel: "焦点",
-    publicationBoundaryTitle: "読みの境界",
+    publicationBoundaryTitle: "公開レポートの姿勢",
     publicationBoundaryText:
-      "このレポートは象徴的な読み物です。未確認のプロダクト情報、投資判断、個人データは扱いません。",
+      "星まわりから読めるテーマを本文で扱い、事実確認が必要な内容は公開情報に戻って確認します。",
     footerNotice:
-      "Polar Bird Astrologyは、占星術レポートを、方法・プライバシー・公開範囲を明確にしたうえで公開しています。",
+      "Polar Bird Astrologyは、星まわりから読めるテーマを、公開レポートとして分かりやすく整えています。",
     footerLinks: {
       method: "読みの境界",
       privacy: "プライバシー",
@@ -412,7 +412,7 @@ export const pages: Record<Lang, Record<PageKey, PageCopy>> = {
           heading: "公開しているもの",
           body: [
             "このサイトでは、Coreを対象にした占星術レポートを公開しています。",
-            "レポートは非公式の読み物であり、振り返りや理解のために編集しています。"
+            "出生図、太陽回帰図、新月図から、Coreの特性、年ごとのテーマ、現在のサイクルを読み解きます。"
           ]
         },
         {
@@ -428,7 +428,7 @@ export const pages: Record<Lang, Record<PageKey, PageCopy>> = {
       title: "読みの境界",
       eyebrow: "占星術と事実を分ける",
       description:
-        "占星術で読み解く領域と、公開情報で確認すべき領域を分けて示します。",
+        "占星術で読み解く領域と、公開情報で確認する領域を示します。",
       blocks: [
         {
           heading: "占星術で読むこと",
@@ -438,10 +438,10 @@ export const pages: Record<Lang, Record<PageKey, PageCopy>> = {
           ]
         },
         {
-          heading: "占星術で決めないこと",
+          heading: "公開情報で確認すること",
           body: [
             "価格、時価総額、投資リターン、プロダクト成功、決済機能の利用可否、公式ロードマップの確実性。",
-            "それらは公開されている事実で確認する領域であり、占星術で置き換えません。"
+            "これらは占星術の本文に混ぜず、公開されている事実で確認する領域として扱います。"
           ]
         }
       ]
@@ -485,7 +485,7 @@ export const pages: Record<Lang, Record<PageKey, PageCopy>> = {
           heading: "公開しないもの",
           body: [
             "非公開の計算、出生データ、依頼者情報、非公開レポート、シークレット、記録、ログはこのリポジトリに置きません。",
-            "このプロジェクトは非公式であり、Core公式発信と混同されないようにします。"
+            "Coreの公式情報やプロダクト事実は、公開元の情報で確認する領域として扱います。"
           ]
         }
       ]
