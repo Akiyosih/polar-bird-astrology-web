@@ -1,6 +1,7 @@
 # Polar Bird Astrology
 
-Public website for Polar Bird Astrology's Core community Field Notes.
+Public website for Polar Bird Astrology, currently publishing Core community
+Field Notes.
 
 This project publishes unofficial astrology notes for community reflection and
 entertainment. It is not official Core communication, investment advice, or a
