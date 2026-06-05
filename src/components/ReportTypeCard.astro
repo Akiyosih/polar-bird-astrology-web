@@ -24,7 +24,7 @@ type Props = {
 const { lang, report, note, readLabel, focusLabel } = Astro.props;
 ---
 
-<article class:list={["report-type-card", note ? "is-available" : "is-empty"]}>
+<article class:list={["report-type-card", note ? "is-available" : "is-empty"]} data-report={report.key}>
   <p class="eyebrow">{report.label}</p>
   <h2>{report.title}</h2>
   <p>{report.summary}</p>

@@ -167,17 +167,17 @@ export const reportTypes: Record<Lang, ReportTypeCopy[]> = {
 
 export const uiCopy: Record<Lang, UiCopy> = {
   en: {
-    heroPrimary: "Core Field Notes",
+    heroPrimary: "Browse Field Notes",
     heroSecondary: "Current status",
     boundaryTitle: "Boundary",
-    boundaryText: "Unofficial. Not investment advice. Public Field Notes only.",
+    boundaryText: "Interpretive Field Notes with clear public method boundaries.",
     reportHubEyebrow: "Reading hub",
-    reportHubTitle: "Three Core report paths",
+    reportHubTitle: "Field Notes Library",
     reportHubDescription:
-      "The public MVP is organized around three report-style Field Notes: natal, solar return, and new moon cycle. Each path keeps astrology separate from factual product claims.",
+      "The current reading hub is arranged around three Field Notes: natal, solar return, and new moon cycle. Each note keeps astrology separate from factual product claims.",
     fieldNotesTitle: "Core Field Notes",
     fieldNotesDescription:
-      "Public-safe astrology notes for the Core community. Field Notes are not investment advice and not official Core communication.",
+      "A quiet library of astrology notes for Core readers, edited for reflection, context, and clear method boundaries.",
     availableNotesTitle: "Available public notes",
     availableNotesDescription:
       "Only notes that are ready for public reading appear as links.",
@@ -187,7 +187,7 @@ export const uiCopy: Record<Lang, UiCopy> = {
     publicationBoundaryText:
       "Field Notes are edited for public reading. They do not include raw chart data, private reports, unverified product claims, or investment advice.",
     footerNotice:
-      "Polar Bird Astrology is an unofficial community project. It is not investment advice and not official Core communication.",
+      "Polar Bird Astrology publishes reflective astrology field notes with clear method, privacy, and transparency boundaries.",
     footerLinks: {
       method: "Method boundary",
       privacy: "Privacy",
@@ -196,17 +196,17 @@ export const uiCopy: Record<Lang, UiCopy> = {
     }
   },
   ja: {
-    heroPrimary: "Core Field Notes",
+    heroPrimary: "Field Notesを読む",
     heroSecondary: "現在の状態",
     boundaryTitle: "境界",
-    boundaryText: "非公式。投資助言ではありません。現在はpublic Field Notesのみです。",
+    boundaryText: "解釈的なField Notesとして、公開範囲と方法の境界を明確にします。",
     reportHubEyebrow: "読書ハブ",
-    reportHubTitle: "Coreの3レポート",
+    reportHubTitle: "Field Notes Library",
     reportHubDescription:
-      "公開MVPは、出生図、太陽回帰、新月サイクルの3つのレポート型Field Noteを軸に整理します。占星術の読みと実務事実の断定は分けて扱います。",
+      "現在の読書ハブは、出生図、太陽回帰、新月サイクルの3冊のField Notesを軸に整理します。占星術の読みと実務事実の断定は分けて扱います。",
     fieldNotesTitle: "Core Field Notes",
     fieldNotesDescription:
-      "Coreコミュニティ向けのpublic-safeな占星術Field Notesです。投資助言でも、Core公式発信でもありません。",
+      "Core readersのための静かな占星術ノート集です。振り返り、文脈、方法の境界を読みやすく整理します。",
     availableNotesTitle: "公開中のノート",
     availableNotesDescription:
       "公開用に整ったノートだけをリンクとして表示します。",
@@ -216,7 +216,7 @@ export const uiCopy: Record<Lang, UiCopy> = {
     publicationBoundaryText:
       "Field Notesは公開用の読み物として編集します。raw chart data、private report、未確認のproduct claim、投資助言を含めません。",
     footerNotice:
-      "Polar Bird Astrologyは非公式のコミュニティプロジェクトです。投資助言ではなく、Core公式発信でもありません。",
+      "Polar Bird Astrologyは、方法、プライバシー、透明性の境界を明確にしながら占星術Field Notesを公開します。",
     footerLinks: {
       method: "方法の境界",
       privacy: "プライバシー",
@@ -225,18 +225,18 @@ export const uiCopy: Record<Lang, UiCopy> = {
     }
   },
   de: {
-    heroPrimary: "Core Field Notes",
+    heroPrimary: "Field Notes lesen",
     heroSecondary: "Aktueller Status",
     boundaryTitle: "Grenze",
     boundaryText:
-      "Inoffiziell. Keine Anlageberatung. Nur öffentliche Field Notes.",
+      "Interpretative Field Notes mit klaren öffentlichen Methodengrenzen.",
     reportHubEyebrow: "Lese-Hub",
-    reportHubTitle: "Drei Core-Report-Pfade",
+    reportHubTitle: "Field Notes Library",
     reportHubDescription:
-      "Das öffentliche MVP ist um drei reportartige Field Notes organisiert: Radix, Solar Return und Neumond-Zyklus. Jede Lesung trennt Astrologie von faktischen Produktbehauptungen.",
+      "Der aktuelle Lese-Hub ist um drei Field Notes angeordnet: Radix, Solar Return und Neumond-Zyklus. Jede Note trennt Astrologie von faktischen Produktbehauptungen.",
     fieldNotesTitle: "Core Field Notes",
     fieldNotesDescription:
-      "Public-safe astrologische Notizen für die Core-Community. Field Notes sind keine Anlageberatung und keine offizielle Core-Mitteilung.",
+      "Eine ruhige Bibliothek astrologischer Notizen für Core-Leser, redigiert für Reflexion, Kontext und klare Methodengrenzen.",
     availableNotesTitle: "Verfügbare öffentliche Notes",
     availableNotesDescription:
       "Nur Notes, die für die öffentliche Lektüre bereit sind, erscheinen als Links.",
@@ -246,7 +246,7 @@ export const uiCopy: Record<Lang, UiCopy> = {
     publicationBoundaryText:
       "Field Notes werden für die öffentliche Lektüre redigiert. Sie enthalten keine raw chart data, private Reports, unverifizierten Produktbehauptungen oder Anlageberatung.",
     footerNotice:
-      "Polar Bird Astrology ist ein inoffizielles Community-Projekt. Es ist keine Anlageberatung und keine offizielle Core-Mitteilung.",
+      "Polar Bird Astrology veröffentlicht reflektierende astrologische Field Notes mit klaren Grenzen für Methode, Datenschutz und Transparenz.",
     footerLinks: {
       method: "Methodengrenze",
       privacy: "Datenschutz",
@@ -259,66 +259,66 @@ export const uiCopy: Record<Lang, UiCopy> = {
 export const homeCopy: Record<Lang, PageCopy> = {
   en: {
     title: "Polar Bird Astrology",
-    eyebrow: "Unofficial Core community field notes",
+    eyebrow: "Field Notes for Core Readers",
     description:
-      "Astrology Field Notes for the Core community, published with clear boundaries around interpretation, privacy, and factual claims.",
+      "Quiet astrology field notes for Core readers, shaped as a northern watercolor journal for reflection, context, and careful observation.",
     blocks: [
       {
         heading: "What is open now",
         body: [
-          "The first surface is a public Core Field Note. It is meant to be read as symbolic timing and community culture, not as investment advice or official Core communication.",
-          "The current public site contains Field Notes only. It does not collect orders, birth data, wallet data, or payment information."
+          "The current library centers on three Core readings: foundational pattern, yearly theme, and new moon cycle.",
+          "Each note is edited as a public reading surface, with the detailed status, method, privacy, and transparency boundaries kept on their own pages."
         ]
       },
       {
-        heading: "How the site starts",
+        heading: "How to read",
         body: [
-          "This website starts as a static site with no API routes, checkout, account system, payment records, or secrets.",
-          "Japanese, English, and German are treated as first-class languages from the beginning."
+          "Astrology is treated as a language for noticing rhythm, mood, timing, and meaning.",
+          "Japanese, English, and German remain first-class reading paths from the beginning."
         ]
       }
     ]
   },
   ja: {
     title: "Polar Bird Astrology",
-    eyebrow: "Coreコミュニティ向け非公式Field Notes",
+    eyebrow: "Field Notes for Core Readers",
     description:
-      "Coreコミュニティに向けて、占星術の読みと実務事実の境界を明確にしながら公開するPolar Bird AstrologyのField Notesです。",
+      "Core readersに向けて、北方の水彩ジャーナルのように静かに読める占星術Field Notesです。",
     blocks: [
       {
         heading: "いま公開するもの",
         body: [
-          "最初に公開するのは、Coreの星まわりを読むpublic Field Noteです。投資助言でも、Core公式の発信でもなく、象徴的なタイミングとコミュニティ文化として楽しむためのものです。",
-          "現在の公開サイトはField Notesのみです。注文、出生情報、wallet情報、支払い情報は受け取りません。"
+          "現在のライブラリは、Coreの基本性質、年次テーマ、新月サイクルの3つの読みを中心にしています。",
+          "詳細な現在の状態、方法、プライバシー、透明性の境界は、それぞれの説明ページにまとめます。"
         ]
       },
       {
-        heading: "初期Webの形",
+        heading: "読み方",
         body: [
-          "このサイトは静的サイトとして始めます。API routes、checkout、アカウント機能、支払い記録、秘密情報はありません。",
-          "日本語、英語、ドイツ語を最初から第一級の言語として扱います。"
+          "占星術は、リズム、ムード、タイミング、意味を観察するための言語として扱います。",
+          "日本語、英語、ドイツ語を最初から第一級の読書導線として扱います。"
         ]
       }
     ]
   },
   de: {
     title: "Polar Bird Astrology",
-    eyebrow: "Inoffizielle Field Notes für die Core-Community",
+    eyebrow: "Field Notes for Core Readers",
     description:
-      "Astrologische Field Notes für die Core-Community, mit klaren Grenzen zwischen Deutung, Datenschutz und faktischen Aussagen.",
+      "Ruhige astrologische Field Notes für Core-Leser, gestaltet wie ein nördliches Aquarell-Journal für Reflexion, Kontext und sorgfältige Beobachtung.",
     blocks: [
       {
         heading: "Was jetzt offen ist",
         body: [
-          "Der erste öffentliche Bereich ist eine Core Field Note. Sie ist als symbolisches Timing und Community-Kultur gedacht, nicht als Anlageberatung und nicht als offizielle Core-Mitteilung.",
-          "Die aktuelle öffentliche Website enthält nur Field Notes. Sie sammelt keine Bestellungen, Geburtsdaten, Wallet-Daten oder Zahlungsinformationen."
+          "Die aktuelle Bibliothek konzentriert sich auf drei Core-Lesungen: Grundmuster, Jahresthema und Neumond-Zyklus.",
+          "Status, Methode, Datenschutz und Transparenz werden auf eigenen erklärenden Seiten geführt."
         ]
       },
       {
-        heading: "Wie die Website startet",
+        heading: "Wie man liest",
         body: [
-          "Diese Website startet als statische Website ohne API-Routen, Checkout, Kontosystem, Zahlungsdaten oder Secrets.",
-          "Japanisch, Englisch und Deutsch werden von Anfang an als vollwertige Sprachen behandelt."
+          "Astrologie wird als Sprache für Rhythmus, Stimmung, Timing und Bedeutung behandelt.",
+          "Japanisch, Englisch und Deutsch bleiben von Beginn an eigenständige Lesewege."
         ]
       }
     ]

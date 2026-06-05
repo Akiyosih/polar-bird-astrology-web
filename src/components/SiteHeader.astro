@@ -12,10 +12,12 @@ const suffix = Astro.url.pathname.replace(/^\/(en|ja|de)/, "") || "";
 
 <header class="site-header">
   <a class="brand" href={localizedPath(lang)}>
-    <span class="brand-mark" aria-hidden="true">PB</span>
+    <span class="brand-mark" aria-hidden="true">
+      <img src="/favicon.svg" alt="" width="64" height="64" />
+    </span>
     <span>
       <strong>Polar Bird Astrology</strong>
-      <small>Core Field Notes</small>
+      <small>Field Notes for Core Readers</small>
     </span>
   </a>
   <nav class="primary-nav" aria-label="Primary">
@@ -29,4 +31,3 @@ const suffix = Astro.url.pathname.replace(/^\/(en|ja|de)/, "") || "";
     ))}
   </nav>
 </header>
-

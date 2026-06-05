@@ -1,5 +1,4 @@
 ---
-import BoundaryBox from "../../components/BoundaryBox.astro";
 import ReportTypeCard from "../../components/ReportTypeCard.astro";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import { homeCopy, reportTypes, uiCopy } from "../../data/site";
@@ -30,12 +29,12 @@ const ui = uiCopy[lang];
         <a class="button secondary" href={localizedPath(lang, "status")}>{ui.heroSecondary}</a>
       </div>
     </div>
-    <img src="/images/watercolor/polar-field-wash.png" width="960" height="540" alt="" />
+    <div class="hero-visual" aria-hidden="true">
+      <span class="brand-seal">
+        <img src="/favicon.svg" width="64" height="64" alt="" />
+      </span>
+    </div>
   </section>
-
-  <BoundaryBox title={ui.boundaryTitle}>
-    <p>{ui.boundaryText}</p>
-  </BoundaryBox>
 
   <section class="report-hub" aria-labelledby="report-hub-title">
     <div class="section-heading">

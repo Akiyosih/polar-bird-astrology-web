@@ -3,9 +3,9 @@
 Public website for Polar Bird Astrology, currently publishing Core community
 Field Notes.
 
-This project publishes unofficial astrology notes for community reflection and
-entertainment. It is not official Core communication, investment advice, or a
-payment product.
+This project publishes reflective astrology Field Notes for community reading.
+It keeps symbolic interpretation separate from official communication,
+investment advice, and product or payment claims.
 
 ## Philosophy
 

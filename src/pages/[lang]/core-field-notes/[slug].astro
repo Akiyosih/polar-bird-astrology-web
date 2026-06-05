@@ -23,15 +23,28 @@ if (!note) {
 const ui = uiCopy[lang];
 const downloadLabel = lang === "ja" ? "PDFをダウンロード" : lang === "de" ? "PDF herunterladen" : "Download PDF";
 const chartHeading = lang === "ja" ? "ホロスコープ" : lang === "de" ? "Horoskop" : "Horoscope";
+
+function escapeHtml(value: string) {
+  return value
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;");
+}
+
+const titleHtml = escapeHtml(note.title).replace(/([^\s])フィールドノート/g, "$1<wbr />フィールドノート");
 ---
 
 <BaseLayout lang={lang} title={note.title} description={note.summary}>
   <article class="field-note report-page">
     <header class="report-cover" style={note.coverImage ? `--report-cover-image: url(${note.coverImage})` : undefined}>
       <div class="report-cover-panel">
+        <span class="cover-mark" aria-hidden="true">
+          <img src="/favicon.svg" width="64" height="64" alt="" />
+        </span>
         <p class="eyebrow">Polar Bird Astrology</p>
         <p class="report-kind">{note.eyebrow}</p>
-        <h1>{note.title}</h1>
+        <h1 set:html={titleHtml} />
         <p>{note.summary}</p>
         <div class="report-actions">
           <span class="status-pill">{note.status}</span>
