@@ -83,6 +83,19 @@ const titleHtml = escapeHtml(note.title).replace(/([^\s])フィールドノー�
       </figure>
     )}
 
+    {note.tableOfContents.length > 0 && (
+      <nav id="report-toc" class="report-toc" aria-labelledby="report-toc-title">
+        <h2 id="report-toc-title">{ui.tableOfContentsTitle}</h2>
+        <ol>
+          {note.tableOfContents.map((item) => (
+            <li data-level={item.level}>
+              <a href={`#${item.id}`}>{item.title}</a>
+            </li>
+          ))}
+        </ol>
+      </nav>
+    )}
+
     <BoundaryBox title={ui.publicationBoundaryTitle}>
       {publicationBoundaryParagraphs.map((paragraph) => <p>{paragraph}</p>)}
     </BoundaryBox>

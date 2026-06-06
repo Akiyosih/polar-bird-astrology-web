@@ -43,6 +43,7 @@ type UiCopy = {
   focusLabel: string;
   periodLabel: string;
   chartLegendTitle: string;
+  tableOfContentsTitle: string;
   publicationBoundaryTitle: string;
   publicationBoundaryText: string;
   publicationBoundaryParagraphs?: string[];
@@ -264,6 +265,7 @@ export const uiCopy: Record<Lang, UiCopy> = {
     focusLabel: "Focus",
     periodLabel: "Period",
     chartLegendTitle: "Legend",
+    tableOfContentsTitle: "Contents",
     publicationBoundaryTitle: "Reading boundary",
     publicationBoundaryText:
       "The report body treats themes astrology can read. Product facts belong with public source information. Price and investment decisions are outside these reports.",
@@ -299,6 +301,7 @@ export const uiCopy: Record<Lang, UiCopy> = {
     focusLabel: "焦点",
     periodLabel: "対象期間",
     chartLegendTitle: "凡例",
+    tableOfContentsTitle: "目次",
     publicationBoundaryTitle: "読み方と境界",
     publicationBoundaryText:
       "レポート本文では、占星術で読めるテーマを扱います。プロダクト事実は公開元の情報を参照します。価格や投資判断は、このレポートの対象外です。",
@@ -334,6 +337,7 @@ export const uiCopy: Record<Lang, UiCopy> = {
     focusLabel: "Fokus",
     periodLabel: "Zeitraum",
     chartLegendTitle: "Legende",
+    tableOfContentsTitle: "Inhalt",
     publicationBoundaryTitle: "Lesegrenze",
     publicationBoundaryText:
       "Der Report behandelt astrologisch lesbare Themen. Produktfakten gehoeren zu oeffentlichen Quellen. Preis- und Investmententscheidungen liegen ausserhalb dieser Reports.",

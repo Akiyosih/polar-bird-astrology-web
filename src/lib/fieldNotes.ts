@@ -6,6 +6,12 @@ type FieldNoteSection = {
   body: string[];
 };
 
+export type FieldNoteTocItem = {
+  id: string;
+  level: 2 | 3;
+  title: string;
+};
+
 export type FieldNote = {
   lang: Lang;
   slug: string;
@@ -21,6 +27,7 @@ export type FieldNote = {
   period?: string;
   intro: string[];
   sections: FieldNoteSection[];
+  tableOfContents: FieldNoteTocItem[];
   bodyHtml: string;
 };
 
@@ -74,9 +81,34 @@ function renderInlineMarkdown(value: string): string {
   return escapeHtml(value).replace(/\*\*([^*]+)\*\*/g, "<strong>$1</strong>");
 }
 
-function markdownToHtml(markdown: string): string {
+function plainMarkdownText(value: string): string {
+  return value
+    .replace(/\*\*([^*]+)\*\*/g, "$1")
+    .replace(/`([^`]+)`/g, "$1")
+    .trim();
+}
+
+function headingSlug(value: string): string {
+  const slug = plainMarkdownText(value)
+    .normalize("NFKC")
+    .toLowerCase()
+    .replace(/[^\p{Letter}\p{Number}]+/gu, "-")
+    .replace(/^-+|-+$/g, "");
+  return slug || "section";
+}
+
+function uniqueHeadingId(value: string, seen: Map<string, number>): string {
+  const base = `heading-${headingSlug(value)}`;
+  const count = seen.get(base) || 0;
+  seen.set(base, count + 1);
+  return count === 0 ? base : `${base}-${count + 1}`;
+}
+
+function markdownToHtml(markdown: string): { bodyHtml: string; tableOfContents: FieldNoteTocItem[] } {
   const withoutTitle = markdown.replace(/^# .*(?:\n|$)/, "").trim();
   const html: string[] = [];
+  const tableOfContents: FieldNoteTocItem[] = [];
+  const seenHeadingIds = new Map<string, number>();
   let paragraph: string[] = [];
   let listItems: string[] = [];
 
@@ -109,10 +141,15 @@ function markdownToHtml(markdown: string): string {
       flushParagraph();
       flushList();
       const level = heading[1].length;
+      const title = heading[2].trim();
+      const id = uniqueHeadingId(title, seenHeadingIds);
+      tableOfContents.push({ id, level: level as 2 | 3, title: plainMarkdownText(title) });
       if (level === 2) {
         html.push(`<div class="section-mark" aria-hidden="true"></div>`);
       }
-      html.push(`<h${level}>${renderInlineMarkdown(heading[2])}</h${level}>`);
+      html.push(
+        `<h${level} id="${escapeHtml(id)}"><a class="report-heading-link" href="#report-toc">${renderInlineMarkdown(title)}</a></h${level}>`
+      );
       continue;
     }
 
@@ -129,7 +166,7 @@ function markdownToHtml(markdown: string): string {
 
   flushParagraph();
   flushList();
-  return html.join("\n");
+  return { bodyHtml: html.join("\n"), tableOfContents };
 }
 
 function parseSections(markdown: string): { intro: string[]; sections: FieldNoteSection[] } {
@@ -150,6 +187,7 @@ function parseSections(markdown: string): { intro: string[]; sections: FieldNote
 function parseFieldNote(path: string, raw: string): FieldNote {
   const { data, body } = parseFrontmatter(raw);
   const { intro, sections } = parseSections(body);
+  const { bodyHtml, tableOfContents } = markdownToHtml(body);
   const lang = data.locale as Lang;
   const slug = data.slug;
   const reportType = data.reportType;
@@ -177,7 +215,8 @@ function parseFieldNote(path: string, raw: string): FieldNote {
     period: data.period,
     intro,
     sections,
-    bodyHtml: markdownToHtml(body)
+    tableOfContents,
+    bodyHtml
   };
 }
 

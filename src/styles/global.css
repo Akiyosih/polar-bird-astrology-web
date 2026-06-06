@@ -220,14 +220,19 @@ img {
   border-radius: 50%;
   box-shadow: 0 8px 22px rgba(3, 32, 38, 0.16);
   display: inline-flex;
+  flex: 0 0 auto;
+  height: 3.15rem;
   justify-content: center;
+  overflow: hidden;
   padding: 0.1rem;
   width: 3.15rem;
 }
 
 .brand-mark img {
   border-radius: 50%;
+  display: block;
   height: 100%;
+  object-fit: cover;
   width: 100%;
 }
 
@@ -605,9 +610,40 @@ p {
     13px 13px 0 rgba(0, 104, 117, 0.06);
 }
 
-.report-type-card > * {
+.report-type-card > *:not(.card-hit-link) {
   position: relative;
   z-index: 1;
+}
+
+.card-hit-link {
+  display: block;
+  bottom: -1px;
+  left: -5px;
+  position: absolute;
+  right: -1px;
+  top: -1px;
+  z-index: 2;
+}
+
+.card-hit-link:focus-visible {
+  outline: var(--focus-ring);
+  outline-offset: -0.35rem;
+}
+
+.report-type-card.is-available {
+  transition:
+    border-color 160ms ease,
+    box-shadow 160ms ease,
+    transform 160ms ease;
+}
+
+.report-type-card.is-available:hover {
+  border-color: var(--report-accent-line);
+  box-shadow:
+    0 18px 40px rgba(16, 41, 58, 0.1),
+    7px 7px 0 var(--report-accent-soft),
+    13px 13px 0 rgba(0, 104, 117, 0.08);
+  transform: translateY(-1px);
 }
 
 .report-type-card::before {
@@ -781,7 +817,10 @@ p {
   border: 1px solid rgba(199, 162, 87, 0.72);
   border-radius: 50%;
   display: inline-flex;
+  flex: 0 0 auto;
+  height: 4.35rem;
   justify-content: center;
+  overflow: hidden;
   padding: 0.08rem;
   position: absolute;
   right: 1.35rem;
@@ -791,7 +830,9 @@ p {
 
 .cover-mark img {
   border-radius: 50%;
+  display: block;
   height: 100%;
+  object-fit: cover;
   width: 100%;
 }
 
@@ -833,17 +874,20 @@ p {
   box-shadow: var(--shadow-paper);
   display: grid;
   gap: 1.25rem;
+  justify-self: center;
   justify-items: center;
   margin: 0;
+  max-width: 940px;
   overflow-x: auto;
   padding: 1rem;
+  width: 100%;
 }
 
 .chart-image-frame {
   aspect-ratio: 1447 / 1460;
   display: grid;
   justify-self: center;
-  max-width: 1120px;
+  max-width: var(--container-reading);
   overflow: hidden;
   width: 100%;
 }
@@ -867,10 +911,84 @@ p {
   border: var(--line-paper);
   display: grid;
   gap: 0.8rem;
-  justify-self: stretch;
-  max-width: 1120px;
+  justify-self: center;
+  max-width: var(--container-reading);
   padding: 1rem 1.1rem;
   width: 100%;
+}
+
+.report-toc {
+  background:
+    linear-gradient(180deg, rgba(255, 254, 251, 0.95), rgba(238, 248, 246, 0.78)),
+    var(--image-paper-wash);
+  background-position: center top;
+  background-size: cover;
+  border: var(--line-paper);
+  box-shadow: var(--shadow-paper);
+  display: grid;
+  gap: 0.8rem;
+  justify-self: center;
+  max-width: var(--container-reading);
+  padding: 1.25rem 1.35rem;
+  scroll-margin-top: 1rem;
+  width: 100%;
+}
+
+.report-toc h2 {
+  color: var(--pb-teal);
+  font-family: var(--font-body);
+  font-size: 1.12rem;
+}
+
+.report-toc ol {
+  display: grid;
+  gap: 0.38rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.report-toc li {
+  line-height: var(--leading-ui);
+}
+
+.report-toc li[data-level="3"] {
+  padding-left: 1.1rem;
+}
+
+.report-toc li[data-level="3"] a::before {
+  color: var(--pb-gold);
+  content: "◆";
+  font-size: 0.72em;
+  margin-right: 0.45rem;
+}
+
+.report-toc a {
+  color: var(--text-primary);
+  text-decoration: none;
+  text-decoration-thickness: 0.08em;
+}
+
+.report-toc li[data-level="2"] a {
+  color: var(--pb-night);
+  font-weight: 700;
+}
+
+.report-toc li[data-level="2"] a::before {
+  color: var(--pb-teal);
+  content: "❖";
+  font-size: 0.82em;
+  margin-right: 0.45rem;
+}
+
+.report-toc li[data-level="3"] a {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+}
+
+.report-toc a:hover {
+  color: var(--pb-teal);
+  text-decoration: underline;
 }
 
 .chart-legend-title {
@@ -994,6 +1112,11 @@ p {
   text-wrap: balance;
 }
 
+.report-body h2,
+.report-body h3 {
+  scroll-margin-top: 1rem;
+}
+
 .report-body h2::before {
   color: var(--pb-teal);
   content: "❖";
@@ -1022,6 +1145,17 @@ p {
   content: "◆";
   font-size: 0.82em;
   margin-right: 0.42rem;
+}
+
+.report-heading-link {
+  color: inherit;
+  text-decoration: none;
+  text-decoration-thickness: 0.08em;
+}
+
+.report-heading-link:hover {
+  color: var(--pb-teal);
+  text-decoration: underline;
 }
 
 .report-body p,
@@ -1244,6 +1378,7 @@ p {
   }
 
   .brand-mark {
+    height: 2.45rem;
     width: 2.45rem;
   }
 
@@ -1298,6 +1433,7 @@ p {
 
   .cover-mark {
     display: inline-flex;
+    height: 3.6rem;
     right: 1.05rem;
     top: 1.05rem;
     width: 3.6rem;
