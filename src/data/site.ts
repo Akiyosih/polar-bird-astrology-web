@@ -191,7 +191,7 @@ export const chartLegendGroups: Record<Lang, ChartLegendGroup[]> = {
     {
       key: "points",
       items: [
-        { key: "fortune", glyph: "⊗", label: "Glueckspunkt" },
+        { key: "fortune", glyph: "⊗", label: "Glückspunkt" },
         { key: "north-node", glyph: "☊", label: "Aufsteigender Mondknoten" },
         { key: "south-node", glyph: "☋", label: "Absteigender Mondknoten" },
         { key: "chiron", glyph: "⚷", label: "Chiron" }
@@ -224,7 +224,7 @@ export const navItems: Record<Lang, NavItem[]> = {
   ],
   de: [
     { href: "core-field-notes", label: "Beispielreports" },
-    { href: "purchase", label: "Report kaufen", badge: "soon" },
+    { href: "purchase", label: "Reportkauf", badge: "soon" },
     { href: "reading-policy", label: "Leseweise" },
     { href: "about", label: "Autor" }
   ]
@@ -293,29 +293,29 @@ export const reportTypes: Record<Lang, ReportTypeCopy[]> = {
     {
       key: "natal",
       label: "Radix-Report",
-      title: "Cores Grundmuster",
+      title: "Core Blockchain:\nGrundstruktur",
       summary:
-        "Eine Public-Entity-Lesung von Cores Basischart: langfristige Struktur, Reaktionsrhythmus und Community-Fundament.",
-      focus: "Grundmuster, Reaktionsrhythmus, Community-Basis",
-      emptyLabel: "Bald"
+        "Der Radix-Report liest die langfristige Grundstruktur von Core Blockchain, den Reaktionsrhythmus und das Fundament der Community.",
+      focus: "Grundstruktur, Reaktionsrhythmus, Fundament",
+      emptyLabel: "In Vorbereitung"
     },
     {
       key: "solar-return",
       label: "Solar-Return-Report",
-      title: "Cores Thema 2026",
+      title: "Core Blockchain:\nThema 2026",
       summary:
-        "Eine Jahreslesung fuer die Buehne 2026: wo sich Betonung sammelt und wie Cores bestehendes Muster sichtbar wird.",
-      focus: "Thema 2026, Jahresbuehne, Fokus",
-      emptyLabel: "Bald"
+        "Der Solar-Return-Report liest, welche Themen 2026 leicht in den Fokus rücken. Er zeigt, wie bestehende Muster von Core Blockchain in diesem Jahr sichtbar werden.",
+      focus: "Jahresthema, sichtbare Rolle, Fokus",
+      emptyLabel: "In Vorbereitung"
     },
     {
       key: "new-moon",
       label: "Neumond-Report",
-      title: "Cores Neumond-Zyklus",
+      title: "Core Blockchain:\nNeumondzyklus",
       summary:
-        "Eine Zykluslesung fuer den veroeffentlichten Neumondzeitraum: aktive Themen, Community-Atmosphaere und Mondrhythmus.",
-      focus: "Veroeffentlichter Zyklus, Mondrhythmus",
-      emptyLabel: "Bald"
+        "Der Neumond-Report liest die Themen, die im veröffentlichten Zyklus leichter in Bewegung kommen. Er zeigt die Stimmung in der Community und Beobachtungspunkte im Mondphasenrhythmus.",
+      focus: "Zentrales Thema, Mondphasenrhythmus, Beobachtungspunkte",
+      emptyLabel: "In Vorbereitung"
     }
   ]
 };
@@ -395,37 +395,37 @@ export const uiCopy: Record<Lang, UiCopy> = {
   },
   de: {
     heroPrimary: "Beispielreports lesen",
-    heroSecondary: "Kaufvorbereitung ansehen",
-    reportHubEyebrow: "Aktuell veroeffentlicht",
-    reportHubTitle: "Drei Beispielreports fuer Core",
+    heroSecondary: "Reportkauf",
+    reportHubEyebrow: "Derzeit veröffentlicht",
+    reportHubTitle: "Drei Blickwinkel auf Core Blockchain",
     reportHubDescription:
-      "Radix liest das Grundmuster, Solar Return die Jahresbuehne 2026, und Neumond den veroeffentlichten Zyklus.",
+      "Der Radix-Report liest die Grundstruktur von Core Blockchain. Der Solar-Return-Report liest die Bühne des Jahres 2026. Der Neumond-Report liest den veröffentlichten Zyklus. Dieses Set zeigt, wie Polar Bird Astrology ein Unternehmen oder eine Community astrologisch liest.",
     reportHubDescriptionParagraphs: [
-      "Radix liest das Grundmuster, Solar Return die Jahresbuehne 2026, und Neumond den veroeffentlichten Zyklus.",
-      "Zusammen zeigen sie, wie Polar Bird Astrology ein oeffentliches Oekosystem lesen kann."
+      "Der Radix-Report liest die Grundstruktur von Core Blockchain. Der Solar-Return-Report liest die Bühne des Jahres 2026. Der Neumond-Report liest den veröffentlichten Zyklus.",
+      "Dieses Set zeigt, wie Polar Bird Astrology ein Unternehmen oder eine Community astrologisch liest."
     ],
-    fieldNotesEyebrow: "Core als oeffentliches Beispiel",
-    fieldNotesTitle: "Beispielreports: Core",
+    fieldNotesEyebrow: "Reportbeispiele zu Core Blockchain",
+    fieldNotesTitle: "Beispielreports",
     fieldNotesDescription:
-      "Core ist hier ein Beispiel fuer eine Business- und Community-Lesung mit Radix, Solar Return und Neumond-Zyklus.",
+      "Polar Bird Astrology kann auch ein öffentliches Ökosystem mit Radix, Solar Return und Neumondzyklus lesen. Derzeit sind drei Reports zu Core Blockchain veröffentlicht.",
     readNoteLabel: "Lesen",
     focusLabel: "Fokus",
     periodLabel: "Zeitraum",
     chartLegendTitle: "Legende",
     tableOfContentsTitle: "Inhalt",
-    publicationBoundaryTitle: "Lesegrenze",
+    publicationBoundaryTitle: "Leseweise und Grenze",
     publicationBoundaryText:
-      "Der Report behandelt astrologisch lesbare Themen. Produktfakten gehoeren zu oeffentlichen Quellen. Preis- und Investmententscheidungen liegen ausserhalb dieser Reports.",
+      "Der Report behandelt Themen, die astrologisch lesbar sind. Für Produktfakten verweist er auf öffentliche Quellen. Preise und Anlageentscheidungen gehören nicht zum Gegenstand dieser Reports.",
     publicationBoundaryParagraphs: [
-      "Der Report behandelt astrologisch lesbare Themen.",
-      "Produktfakten gehoeren zu oeffentlichen Quellen. Preis- und Investmententscheidungen liegen ausserhalb dieser Reports."
+      "Der Report behandelt Themen, die astrologisch lesbar sind.",
+      "Für Produktfakten verweist er auf öffentliche Quellen. Preise und Anlageentscheidungen gehören nicht zum Gegenstand dieser Reports."
     ],
     footerNotice:
-      "Polar Bird Astrology veroeffentlicht astrologische Reports zu Radix, Solar Return und Neumond-Zyklen.",
+      "Polar Bird Astrology veröffentlicht astrologische Reports, die Radix, Solar Return und Neumondzyklus lesen.",
     footerLinks: {
       sampleReports: "Beispielreports",
       readingPolicy: "Leseweise",
-      purchase: "Kaufvorbereitung",
+      purchase: "Reportkauf",
       about: "Autor"
     }
   }
@@ -490,29 +490,29 @@ export const homeCopy: Record<Lang, PageCopy> = {
   },
   de: {
     title: "Polar Bird Astrology",
-    eyebrow: "Astrologische Reports fuer Rhythmus, Timing und Wahl",
+    eyebrow: "Astrologische Reports, die Sternrhythmen lesen",
     description:
-      "Polar Bird Astrology liest Radix, Solar Return und Neumond-Zyklen fuer Selbstverstaendnis, Timing und reflektierte Planung. Die aktuelle Beispielbibliothek folgt Core als oeffentlichem Oekosystem.",
+      "Polar Bird Astrology verbindet Radix, Solar Return und Neumondzyklus. Daraus liest Polar Bird Astrology Themen für Selbstverstehen, tägliche Entscheidungen und die Planung der nächsten Schritte. Derzeit sind Beispielreports zu Core Blockchain veröffentlicht.",
     descriptionParagraphs: [
-      "Polar Bird Astrology liest Radix, Solar Return und Neumond-Zyklen fuer Selbstverstaendnis, Timing und reflektierte Planung.",
-      "Die aktuelle Beispielbibliothek folgt Core als oeffentlichem Oekosystem."
+      "Polar Bird Astrology verbindet Radix, Solar Return und Neumondzyklus. Daraus liest Polar Bird Astrology Themen für Selbstverstehen, tägliche Entscheidungen und die Planung der nächsten Schritte.",
+      "Derzeit sind Beispielreports zu Core Blockchain veröffentlicht."
     ],
     blocks: [
       {
-        heading: "Reporttypen",
+        heading: "Reportarten",
         body: [
-          "Radixreports lesen Grundmuster. Solar Returns lesen die Jahresbuehne. Neumondreports lesen den Rhythmus von Neumond zu Neumond.",
-          "Dieselbe Struktur kann Selbstverstaendnis und Business- oder Community-Beobachtung tragen."
+          "Der Radix-Report liest die Grundstruktur. Der Solar Return liest die Bühne des Jahres. Der Neumond-Report liest Themen, die in diesem Zyklus leichter in Bewegung kommen.",
+          "Die Reports unterstützen persönliches Selbstverstehen. Sie helfen auch dabei, den Fluss eines Unternehmens oder einer Community zu beobachten."
         ],
         link: { href: "reading-policy", label: "Leseweise ansehen" }
       },
       {
-        heading: "CorePay-Kaufweg",
+        heading: "Reportkauf mit CorePay",
         body: [
-          "Ein Reportkauf mit CorePay wird vorbereitet, damit die Core-Community die Erfahrung leicht testen kann.",
-          "Derzeit sind die Core-Beispielreports oeffentlich lesbar."
+          "Polar Bird Astrology bereitet einen Reportkauf mit CorePay vor, den auch die Core-Blockchain-Community leicht ausprobieren kann.",
+          "Aktuell stehen die Beispielreports zu Core Blockchain bereit."
         ],
-        link: { href: "purchase", label: "Kaufvorbereitung ansehen" }
+        link: { href: "purchase", label: "Reportkauf" }
       }
     ]
   }
@@ -780,98 +780,129 @@ export const pages: Record<Lang, Record<PageKey, PageCopy>> = {
   de: {
     purchase: {
       title: "Reportkauf",
-      eyebrow: "CorePay-Weg in Vorbereitung",
+      eyebrow: "CorePay-Bestellung in Vorbereitung",
       description:
-        "Der Kaufweg fuer Polar Bird Astrology Reports wird vorbereitet.",
+        "Polar Bird Astrology bereitet den Weg vor, über den astrologische Reports online bestellt werden können.",
       blocks: [
         {
-          heading: "Was vorbereitet wird",
+          heading: "Reportkauf mit CorePay",
           body: [
-            "Geplant ist ein einfacher Webkauf fuer Radix-, Solar-Return- und Neumond-Zyklus-Reports.",
-            "CorePay ist als Payment-Link-Ebene fuer diesen Ablauf geplant.",
-            "Kaeufe ueber diese Website sind noch nicht offen."
+            "Polar Bird Astrology bereitet einen Online-Kauf für Radix-, Solar-Return- und Neumondzyklus-Reports vor.",
+            "Der Ablauf wird mit CorePay gestaltet, damit ihn auch die Core-Blockchain-Community leicht ausprobieren kann.",
+            "Wenn Produkte im Umfeld von Core Blockchain veröffentlicht werden, erweitert Polar Bird Astrology die Tokenoptionen für Reportkäufe."
           ]
         },
         {
-          heading: "Was jetzt lesbar ist",
+          heading: "Reportbeispiele vor dem Kauf",
           body: [
-            "Das aktuelle oeffentliche Beispiel ist das Core-Reportset.",
-            "Es zeigt, wie dieselbe astrologische Struktur ein oeffentliches Oekosystem und eine Person lesen kann."
+            "Derzeit veröffentlicht Polar Bird Astrology Beispielreports zu Core Blockchain.",
+            "Sie zeigen, wie dieselbe astrologische Struktur persönliches Selbstverstehen und die Beobachtung eines Unternehmens oder einer Community unterstützen kann."
           ]
         }
       ],
-      links: [{ href: corePayUrl, label: "CorePay Website" }]
+      links: [
+        { href: corePayUrl, label: "CorePay-Website" },
+        { href: coreBlockchainUrl, label: "Core-Blockchain-Website" }
+      ]
     },
     "reading-policy": {
-      title: "Leseweise",
-      eyebrow: "Stil und Grenze",
+      title: "Leseweise und Grundsätze",
+      eyebrow: "Astrologischer Stil",
       description:
-        "Wie Polar Bird Astrology Radix, Solar Return und Neumond-Zyklen nutzt und wo Astrologie von Fakten getrennt bleibt.",
+        "Der astrologische Stil von Polar Bird Astrology, die Rollen der drei Reportarten und die Grenze der Deutung.",
       blocks: [
         {
-          heading: "Drei Reporttypen",
+          heading: "Verwendeter Stil",
           body: [
-            "Radixreports lesen Grundstruktur, wiederkehrende Muster und den Basisrhythmus einer Person, eines Business oder einer Community.",
-            "Solar Returns lesen die Jahresbuehne: Themen, Fokus und die Art, wie ein bestehendes Muster in diesem Jahr sichtbar wird.",
-            "Neumondreports lesen den aktuellen Zyklus: aktive Themen, Rhythmus und Beobachtungspunkte von Neumond zu Neumond."
+            "Polar Bird Astrology basiert auf westlicher Astrologie und orientiert sich an psychologischer und humanistischer Astrologie.",
+            "Die drei Standardreports nutzen den tropischen Tierkreis und Placidus-Häuser. Aufsteigender und absteigender Mondknoten werden mit True Node gelesen."
           ]
         },
         {
-          heading: "Nutzung",
+          heading: "Radix",
           body: [
-            "Die Reports uebersetzen Astrologie in alltaegliche Sprache fuer Selbstverstaendnis, Entscheidungen und reflektierte Planung.",
-            "Bei Business oder Community werden persoenliche Symbole in oeffentliche Sprache uebersetzt: Atmosphaere, Teilnahme, Vertrauen, Erklaerung und Betrieb."
+            "Die Radix liest Grundstruktur, schwer veränderliche Eigenschaften und Reaktionsmuster.",
+            "Sie betrachtet, welchen Rhythmus eine Person oder ein Thema lange zeigt. Daraus entstehen Worte, die Selbstverständnis und Entscheidungen stützen."
           ]
         },
         {
-          heading: "Grenze",
+          heading: "Solar Return",
           body: [
-            "Wo Astrologie natuerlich sprechen kann, liest Polar Bird Astrology direkt und affirmativ.",
-            "Offizielle Informationen, Produktfakten, Preise, Investmententscheidungen und garantierte Ergebnisse bleiben ausserhalb des Reports."
+            "Der Solar Return liest die Bühne des Jahres und die Themen, die leicht in den Fokus rücken. Er liest auch, wie bestehende Eigenschaften genutzt werden.",
+            "Er ist eine Lesung auf Jahresebene. Feinere Monats- oder Tageszeitpunkte gehören in eine andere Zeitschicht, zum Beispiel in Neumondzyklen."
+          ]
+        },
+        {
+          heading: "Neumondzyklus",
+          body: [
+            "Der Neumondzyklus liest den Rhythmus von einem Neumond zum nächsten, aktive Themen und Beobachtungspunkte für tägliche Entscheidungen.",
+            "Er ordnet, womit man beginnt, was man justiert und welche Reihenfolge den Zyklus leichter nutzbar macht."
+          ]
+        },
+        {
+          heading: "Menschen, Unternehmen und Communities",
+          body: [
+            "Wenn Polar Bird Astrology einen Menschen liest, übersetzt es die Konstellationen in Gefühle, Beziehungen, Arbeit und Alltag.",
+            "Bei einem Unternehmen oder einer Community übersetzt Polar Bird Astrology dieselben Symbole in öffentliche Sprache.",
+            "Dann geht es um Community-Stimmung, Beteiligung, Vertrauen, öffentliche Erklärung und Betrieb."
+          ]
+        },
+        {
+          heading: "Deutungsgrenze",
+          body: [
+            "Wenn ein Punkt astrologisch klar lesbar ist, schreibt Polar Bird Astrology ihn verständlich und affirmativ aus.",
+            "Offizielle Informationen, Produktfakten, Preise, Anlageentscheidungen und garantierte Ergebnisse bleiben außerhalb des Astrologiereports.",
+            "Das öffentliche Repository zeigt die Website-Implementierung, veröffentlichte Reports und die Leseweise, die diese Website verwendet."
           ]
         }
       ],
-      links: [{ href: repoUrl, label: "Public repository" }]
+      links: [{ href: repoUrl, label: "Öffentliches Repository" }]
     },
     about: {
-      title: "Autor",
-      eyebrow: "Ueber Polar Bird Astrology",
+      title: "Über den Autor",
+      eyebrow: "Autor von Polar Bird Astrology",
       description:
-        "Polar Bird Astrology wird von einem japanischen Autor geschrieben, der astrologische Symbolik in klare Sprache fuer Entscheidungen, Planung und Selbstverstaendnis uebersetzt.",
+        "Polar Bird Astrology übersetzt Sternrhythmen in Worte, die bei täglichen Entscheidungen und bei der Planung der nächsten Schritte helfen.",
       profileImage: {
         src: "/images/profile/writer-profile.jpg",
-        alt: "Portraet des Autors von Polar Bird Astrology"
+        alt: "Porträt des Autors von Polar Bird Astrology"
       },
+      descriptionParagraphs: [
+        "Polar Bird Astrology übersetzt Sternrhythmen in Worte, die bei täglichen Entscheidungen und bei der Planung der nächsten Schritte helfen.",
+        "Symbolik bleibt nicht bei vagen Metaphern stehen. Themen aus Radix, Solar Return und Neumondzyklus werden zu konkreten, brauchbaren Sätzen geformt."
+      ],
       blocks: [
         {
-          heading: "Lesehaltung",
+          heading: "Astrologische Haltung",
           body: [
-            "Ich lese Radix, Solar Return und Neumond-Zyklen als Schichten von Zeit, Rhythmus und Bedeutung.",
-            "Das Ziel ist nicht vage Symbolik, sondern eine Sprache, die Entscheidungen, Planung und Reflexion unterstuetzen kann."
+            "Der Nachthimmel gibt mir das Gefühl, innerlich klarer zu werden.",
+            "Mich zieht an, wie aus den Bewegungen der Sterne eine stimmige Symbolik entsteht. Sie lässt sich schwer als bloßer Zufall abtun.",
+            "Ich behandle Astrologie nicht nur als Wahrsagerei. Mir geht es um konkrete, verständliche Lesungen. Sie sollen Selbstverständnis, tägliche Entscheidungen und die Planung nächster Schritte unterstützen."
           ]
         },
         {
-          heading: "Hintergrund",
+          heading: "Autor",
           body: [
-            "Ich bin Japaner und habe an der University of Tokyo studiert.",
-            "Ich lebe in einem alten Haus in den Bergen und schreibe die Reports nahe an Himmel, Jahreszeiten und stiller Beobachtung."
+            "Ich bin Japaner und Absolvent der University of Tokyo.",
+            "Ich lebe in einem alten Haus in den Bergen und schreibe astrologische Reports nahe an Jahreszeiten und Nachthimmel.",
+            "Ob es um einen Menschen, ein Unternehmen oder eine Community geht: Ich lese die Konstellationen stimmig. Dann bringe ich sie in brauchbare Worte."
           ]
         },
         {
-          heading: "Persoenliches",
+          heading: "Leben und Interessen",
           body: [
             "Ich lebe mit einem Nymphensittich und Katzen.",
-            "Zu meinen Interessen gehoeren Zigarren, Whisky und ein naturnahes Leben; ich besitze auch eine Jagdlizenz.",
-            "Diese Details stehen nicht im Zentrum der Reports, aber sie gehoeren zu der Person, die sie schreibt."
+            "Ich interessiere mich für Zigarren, Whisky und das Leben in den Bergen und besitze auch einen Jagdschein.",
+            "Diese persönlichen Hintergründe prägen eine Leseweise, die Natur, Zeit, Körpergefühl und stille Beobachtung ernst nimmt."
           ]
         },
         {
-          heading: "Oeffentliche Arbeit",
+          heading: "Öffentliche Arbeiten",
           body: [
-            "Core Cats ist ein weiteres oeffentliches Kreativprojekt fuer die Core-Community.",
-            "Es ist von Polar Bird Astrology getrennt, teilt aber denselben Wunsch, der Community etwas Lesbares und Angenehmes zu geben."
+            "Core Cats ist ein weiteres öffentliches Kreativprojekt für die Core-Blockchain-Community.",
+            "Die Haltung ist dieselbe. Es geht darum, etwas Lesbares und Angenehmes zu schaffen, worüber die Community gern spricht."
           ],
-          link: { href: coreCatsUrl, label: "Core Cats oeffnen" }
+          link: { href: coreCatsUrl, label: "Core Cats ansehen" }
         }
       ]
     }
