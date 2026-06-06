@@ -13,7 +13,6 @@ chartAlt: Core Blockchainの2026年5月新月サイクルホロスコープ図
 coverImage: /images/watercolor/pdf-cover-background.png
 ---
 # Core 新月サイクル分析
-対象期間: 2026年5月17日 - 2026年6月15日
 
 ## Coreにとってのこの新月サイクルの中心テーマ
 

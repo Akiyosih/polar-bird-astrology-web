@@ -207,18 +207,27 @@ function normalizeJapanesePeriod(markdown) {
   return { frontmatter: `${left} - ${right}`, summaryRange: `${start}から${end}まで`, titleDate: left };
 }
 
+function stripLeadingJapanesePeriodLine(markdown) {
+  return markdown.replace(
+    /^(#[^\r\n]*\r?\n)(?:[ \t]*\r?\n)?対象期間[:：][^\r\n]*(?:\r?\n){1,2}/,
+    "$1\n"
+  );
+}
+
 function buildPublicMarkdown(existing, sourceBody, config, publicPdf, publicChart) {
   const { lines, data } = parseFrontmatter(existing);
   updateFrontmatterValue(lines, "pdfUrl", `/reports/core/${publicPdf}`);
   updateFrontmatterValue(lines, "chartImage", `/reports/core/charts/${publicChart}`);
 
+  let publicBody = sourceBody;
   if (config === reports["new-moon"]) {
     const period = normalizeJapanesePeriod(sourceBody);
+    publicBody = stripLeadingJapanesePeriodLine(sourceBody);
     if (period) {
       updateFrontmatterValue(lines, "period", period.frontmatter);
       const title = data.get("title") || "";
-      if (/^Core 新月サイクル分析/.test(title)) {
-        updateFrontmatterValue(lines, "title", `Core 新月サイクル分析 ${period.titleDate}`);
+      if (/^Core(?: Blockchain)? 新月サイクル分析/.test(title)) {
+        updateFrontmatterValue(lines, "title", `Core Blockchain 新月サイクル分析 ${period.titleDate}`);
       }
       const summary = data.get("summary") || "";
       if (summary) {
@@ -231,7 +240,7 @@ function buildPublicMarkdown(existing, sourceBody, config, publicPdf, publicChar
     }
   }
 
-  return `---\n${lines.join("\n")}\n---\n${sourceBody.trim()}\n`;
+  return `---\n${lines.join("\n")}\n---\n${publicBody.trim()}\n`;
 }
 
 async function pruneMatching(dir, pattern, keepName) {
