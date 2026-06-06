@@ -1,7 +1,7 @@
 ---
 import BoundaryBox from "../../../components/BoundaryBox.astro";
 import BaseLayout from "../../../layouts/BaseLayout.astro";
-import { uiCopy } from "../../../data/site";
+import { chartLegendItems, uiCopy } from "../../../data/site";
 import { getFieldNote, getFieldNoteStaticPaths } from "../../../lib/fieldNotes";
 import { isLang, languages, localizedPath } from "../../../lib/i18n";
 
@@ -21,6 +21,7 @@ if (!note) {
   throw new Error(`Unknown field note: ${slug}`);
 }
 const ui = uiCopy[lang];
+const publicationBoundaryParagraphs = ui.publicationBoundaryParagraphs ?? [ui.publicationBoundaryText];
 const downloadLabel = lang === "ja" ? "PDFをダウンロード" : lang === "de" ? "PDF herunterladen" : "Download PDF";
 const chartHeading = lang === "ja" ? "ホロスコープ" : lang === "de" ? "Horoskop" : "Horoscope";
 const languagePaths = Object.fromEntries(
@@ -65,12 +66,25 @@ const titleHtml = escapeHtml(note.title).replace(/([^\s])フィールドノー�
     {note.chartImage && (
       <figure class="chart-panel">
         <figcaption class="sr-only">{chartHeading}</figcaption>
-        <img src={note.chartImage} alt={note.chartAlt || ""} loading="lazy" />
+        <div class="chart-image-frame">
+          <img src={note.chartImage} alt={note.chartAlt || ""} loading="lazy" />
+        </div>
+        <div class="chart-legend" aria-label={ui.chartLegendTitle}>
+          <p class="chart-legend-title">{ui.chartLegendTitle}</p>
+          <ul>
+            {chartLegendItems[lang].map((item) => (
+              <li data-point={item.key}>
+                <span class="legend-glyph" aria-hidden="true">{item.glyph}</span>
+                <span>{item.label}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
       </figure>
     )}
 
     <BoundaryBox title={ui.publicationBoundaryTitle}>
-      <p>{ui.publicationBoundaryText}</p>
+      {publicationBoundaryParagraphs.map((paragraph) => <p>{paragraph}</p>)}
     </BoundaryBox>
 
     <section class="report-body" set:html={note.bodyHtml} />

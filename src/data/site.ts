@@ -42,8 +42,10 @@ type UiCopy = {
   readNoteLabel: string;
   focusLabel: string;
   periodLabel: string;
+  chartLegendTitle: string;
   publicationBoundaryTitle: string;
   publicationBoundaryText: string;
+  publicationBoundaryParagraphs?: string[];
   footerNotice: string;
   footerLinks: {
     readingPolicy: string;
@@ -51,6 +53,12 @@ type UiCopy = {
     github: string;
     corepay: string;
   };
+};
+
+type ChartLegendItem = {
+  key: string;
+  glyph: string;
+  label: string;
 };
 
 type ReportTypeCopy = {
@@ -64,6 +72,69 @@ type ReportTypeCopy = {
 
 export const repoUrl = "https://github.com/Akiyosih/polar-bird-astrology-web";
 export const corePayUrl = "https://corepay.money/";
+
+export const chartLegendItems: Record<Lang, ChartLegendItem[]> = {
+  en: [
+    { key: "sun", glyph: "☉", label: "Sun" },
+    { key: "moon", glyph: "☽", label: "Moon" },
+    { key: "mercury", glyph: "☿", label: "Mercury" },
+    { key: "venus", glyph: "♀", label: "Venus" },
+    { key: "mars", glyph: "♂", label: "Mars" },
+    { key: "jupiter", glyph: "♃", label: "Jupiter" },
+    { key: "saturn", glyph: "♄", label: "Saturn" },
+    { key: "uranus", glyph: "♅", label: "Uranus" },
+    { key: "neptune", glyph: "♆", label: "Neptune" },
+    { key: "pluto", glyph: "♇", label: "Pluto" },
+    { key: "fortune", glyph: "⊗", label: "Part of Fortune" },
+    { key: "north-node", glyph: "☊", label: "North Node" },
+    { key: "south-node", glyph: "☋", label: "South Node" },
+    { key: "chiron", glyph: "⚷", label: "Chiron" },
+    { key: "asc", glyph: "Asc", label: "Ascendant" },
+    { key: "mc", glyph: "MC", label: "MC" },
+    { key: "dsc", glyph: "Dsc", label: "Descendant" },
+    { key: "ic", glyph: "IC", label: "IC" }
+  ],
+  ja: [
+    { key: "sun", glyph: "☉", label: "太陽" },
+    { key: "moon", glyph: "☽", label: "月" },
+    { key: "mercury", glyph: "☿", label: "水星" },
+    { key: "venus", glyph: "♀", label: "金星" },
+    { key: "mars", glyph: "♂", label: "火星" },
+    { key: "jupiter", glyph: "♃", label: "木星" },
+    { key: "saturn", glyph: "♄", label: "土星" },
+    { key: "uranus", glyph: "♅", label: "天王星" },
+    { key: "neptune", glyph: "♆", label: "海王星" },
+    { key: "pluto", glyph: "♇", label: "冥王星" },
+    { key: "fortune", glyph: "⊗", label: "パートオブフォーチュン" },
+    { key: "north-node", glyph: "☊", label: "ドラゴンヘッド" },
+    { key: "south-node", glyph: "☋", label: "ドラゴンテイル" },
+    { key: "chiron", glyph: "⚷", label: "キロン" },
+    { key: "asc", glyph: "Asc", label: "アセンダント" },
+    { key: "mc", glyph: "MC", label: "MC（ミッドヘブン）" },
+    { key: "dsc", glyph: "Dsc", label: "ディセンダント" },
+    { key: "ic", glyph: "IC", label: "IC（イムム・コエリ）" }
+  ],
+  de: [
+    { key: "sun", glyph: "☉", label: "Sonne" },
+    { key: "moon", glyph: "☽", label: "Mond" },
+    { key: "mercury", glyph: "☿", label: "Merkur" },
+    { key: "venus", glyph: "♀", label: "Venus" },
+    { key: "mars", glyph: "♂", label: "Mars" },
+    { key: "jupiter", glyph: "♃", label: "Jupiter" },
+    { key: "saturn", glyph: "♄", label: "Saturn" },
+    { key: "uranus", glyph: "♅", label: "Uranus" },
+    { key: "neptune", glyph: "♆", label: "Neptun" },
+    { key: "pluto", glyph: "♇", label: "Pluto" },
+    { key: "fortune", glyph: "⊗", label: "Glueckspunkt" },
+    { key: "north-node", glyph: "☊", label: "Aufsteigender Mondknoten" },
+    { key: "south-node", glyph: "☋", label: "Absteigender Mondknoten" },
+    { key: "chiron", glyph: "⚷", label: "Chiron" },
+    { key: "asc", glyph: "Asc", label: "Aszendent" },
+    { key: "mc", glyph: "MC", label: "MC" },
+    { key: "dsc", glyph: "Dsc", label: "Deszendent" },
+    { key: "ic", glyph: "IC", label: "IC" }
+  ]
+};
 
 export const navItems: Record<Lang, NavItem[]> = {
   en: [
@@ -192,9 +263,14 @@ export const uiCopy: Record<Lang, UiCopy> = {
     readNoteLabel: "Read",
     focusLabel: "Focus",
     periodLabel: "Period",
+    chartLegendTitle: "Legend",
     publicationBoundaryTitle: "Reading boundary",
     publicationBoundaryText:
       "The report body treats themes astrology can read. Product facts belong with public source information. Price and investment decisions are outside these reports.",
+    publicationBoundaryParagraphs: [
+      "The report body treats themes astrology can read.",
+      "Product facts belong with public source information. Price and investment decisions are outside these reports."
+    ],
     footerNotice:
       "Polar Bird Astrology publishes astrology reports that read natal charts, solar returns, and new moon cycles.",
     footerLinks: {
@@ -222,9 +298,14 @@ export const uiCopy: Record<Lang, UiCopy> = {
     readNoteLabel: "読む",
     focusLabel: "焦点",
     periodLabel: "対象期間",
+    chartLegendTitle: "凡例",
     publicationBoundaryTitle: "読み方と境界",
     publicationBoundaryText:
-      "レポート本文では、占星術で読めるテーマを扱います。プロダクト事実は公開元の情報で確認します。価格や投資判断は、このレポートの対象外です。",
+      "レポート本文では、占星術で読めるテーマを扱います。プロダクト事実は公開元の情報を参照します。価格や投資判断は、このレポートの対象外です。",
+    publicationBoundaryParagraphs: [
+      "レポート本文では、占星術で読めるテーマを扱います。",
+      "プロダクト事実は公開元の情報を参照します。価格や投資判断は、このレポートの対象外です。"
+    ],
     footerNotice:
       "Polar Bird Astrologyは、出生図・太陽回帰・新月サイクルを読む占星術レポートを公開しています。",
     footerLinks: {
@@ -252,9 +333,14 @@ export const uiCopy: Record<Lang, UiCopy> = {
     readNoteLabel: "Lesen",
     focusLabel: "Fokus",
     periodLabel: "Zeitraum",
+    chartLegendTitle: "Legende",
     publicationBoundaryTitle: "Lesegrenze",
     publicationBoundaryText:
       "Der Report behandelt astrologisch lesbare Themen. Produktfakten gehoeren zu oeffentlichen Quellen. Preis- und Investmententscheidungen liegen ausserhalb dieser Reports.",
+    publicationBoundaryParagraphs: [
+      "Der Report behandelt astrologisch lesbare Themen.",
+      "Produktfakten gehoeren zu oeffentlichen Quellen. Preis- und Investmententscheidungen liegen ausserhalb dieser Reports."
+    ],
     footerNotice:
       "Polar Bird Astrology veroeffentlicht astrologische Reports zu Radix, Solar Return und Neumond-Zyklen.",
     footerLinks: {
@@ -480,7 +566,7 @@ export const pages: Record<Lang, Record<PageKey, PageCopy>> = {
         {
           heading: "解釈の境界",
           body: [
-            "占星術で自然に読めるところは、弱めず肯定形で読みます。",
+            "占星術で自然に読めるところは、象徴や比喩だけで済ませず、分かりやすい言葉で肯定形に読みます。",
             "公式情報、プロダクト事実、価格、投資判断、成果保証は、占星術レポートの対象外です。",
             "公開リポジトリでは、Webサイトの実装、公開レポート、採用している読み方の方針を確認できます。"
           ]
