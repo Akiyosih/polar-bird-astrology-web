@@ -19,6 +19,13 @@ Use this before a public launch or meaningful public content update.
 - [ ] `/en/purchase`, `/ja/purchase`, and `/de/purchase` clearly mark report purchase as in preparation.
 - [ ] `/en/reading-policy`, `/ja/reading-policy`, and `/de/reading-policy` explain the reading style, boundaries, and public repository link.
 
+## Core Report Updates
+
+- [ ] The source report set contains the latest selected Markdown, matching PDF, and retained chart wheel PNG for each report being updated.
+- [ ] Run `node scripts/import-core-report-set.mjs --source-dir <source-report-dir>` for a full Core set update, or add `--reports new-moon` for a monthly new-moon-only update.
+- [ ] Confirm the import summary points to the intended Markdown, PDF, and chart assets.
+- [ ] Confirm old same-type Core PDF/chart assets were removed unless `--keep-old-assets` was intentionally used.
+
 ## Validation
 
 - [ ] `npm run check`

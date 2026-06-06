@@ -268,11 +268,22 @@ img {
 
 .primary-nav a {
   gap: 0.32rem;
+  position: relative;
 }
 
 .primary-nav a + a {
-  border-left: 1px solid rgba(185, 155, 79, 0.24);
   padding-left: 0.9rem;
+}
+
+.primary-nav a + a::before {
+  background: rgba(185, 155, 79, 0.24);
+  content: "";
+  height: 1.35em;
+  left: 0;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 1px;
 }
 
 .primary-nav a:hover,

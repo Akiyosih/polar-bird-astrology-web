@@ -135,7 +135,16 @@ function scanText(rel, text, failures, extraPatterns = []) {
 }
 
 async function scanPdf(rel, file, failures) {
-  const buffer = await readFile(file);
+  let buffer;
+  try {
+    buffer = await readFile(file);
+  } catch (error) {
+    if (error.code === "ENOENT") {
+      return;
+    }
+    throw error;
+  }
+
   const texts = textViews(buffer);
   for (const stream of flatePdfStreams(buffer)) {
     texts.push(...textViews(stream));
