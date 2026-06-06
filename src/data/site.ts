@@ -605,7 +605,7 @@ export const pages: Record<Lang, Record<PageKey, PageCopy>> = {
       description:
         "Polar Bird Astrology turns star rhythms into language for daily choices and action planning.",
       profileImage: {
-        src: "/images/profile/writer-profile.jpg",
+        src: "/images/profile/writer-profile.jpg?v=privacy-20260606",
         alt: "Portrait of the Polar Bird Astrology writer"
       },
       descriptionParagraphs: [
@@ -734,7 +734,7 @@ export const pages: Record<Lang, Record<PageKey, PageCopy>> = {
       description:
         "Polar Bird Astrologyは、星まわりを日々の選択や行動計画に使える言葉へ翻訳する占星術レポートです。",
       profileImage: {
-        src: "/images/profile/writer-profile.jpg",
+        src: "/images/profile/writer-profile.jpg?v=privacy-20260606",
         alt: "Polar Bird Astrologyの書き手のポートレート"
       },
       descriptionParagraphs: [
@@ -864,7 +864,7 @@ export const pages: Record<Lang, Record<PageKey, PageCopy>> = {
       description:
         "Polar Bird Astrology übersetzt Sternrhythmen in Worte, die bei täglichen Entscheidungen und bei der Planung der nächsten Schritte helfen.",
       profileImage: {
-        src: "/images/profile/writer-profile.jpg",
+        src: "/images/profile/writer-profile.jpg?v=privacy-20260606",
         alt: "Porträt des Autors von Polar Bird Astrology"
       },
       descriptionParagraphs: [
