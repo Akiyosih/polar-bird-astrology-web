@@ -42,6 +42,17 @@ function escapeHtml(value: string) {
 }
 
 const titleHtml = escapeHtml(note.title).replace(/([^\s])フィールドノート/g, "$1<wbr />フィールドノート");
+let tocAccentIndex = -1;
+const tocItems = note.tableOfContents.map((item) => {
+  if (item.level === 2) {
+    tocAccentIndex = (tocAccentIndex + 1) % 4;
+  }
+
+  return {
+    ...item,
+    accent: String(Math.max(tocAccentIndex, 0))
+  };
+});
 ---
 
 <BaseLayout lang={lang} title={note.title} description={note.summary} languagePaths={languagePaths}>
@@ -98,8 +109,8 @@ const titleHtml = escapeHtml(note.title).replace(/([^\s])フィールドノー�
       <nav id="report-toc" class="report-toc" aria-labelledby="report-toc-title">
         <h2 id="report-toc-title">{ui.tableOfContentsTitle}</h2>
         <ol>
-          {note.tableOfContents.map((item) => (
-            <li data-level={item.level}>
+          {tocItems.map((item) => (
+            <li data-level={item.level} data-toc-accent={item.accent}>
               <a href={`#${item.id}`}>{item.title}</a>
             </li>
           ))}
