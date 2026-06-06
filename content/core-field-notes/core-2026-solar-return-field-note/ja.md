@@ -11,6 +11,7 @@ pdfUrl: /reports/core/core-2026-solar-return-report-20260605.pdf
 chartImage: /reports/core/charts/core-solar-return-chart-20260605.png
 chartAlt: Core Blockchainの2026年太陽回帰ホロスコープ図
 coverImage: /images/watercolor/pdf-cover-background.png
+chartImageDark: /reports/core/charts/core-solar-return-chart-20260605-dark.png
 ---
 # Core 太陽回帰レポート
 

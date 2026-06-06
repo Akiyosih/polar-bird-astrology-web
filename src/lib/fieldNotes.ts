@@ -22,6 +22,7 @@ export type FieldNote = {
   summary: string;
   pdfUrl?: string;
   chartImage?: string;
+  chartImageDark?: string;
   chartAlt?: string;
   coverImage?: string;
   period?: string;
@@ -210,6 +211,7 @@ function parseFieldNote(path: string, raw: string): FieldNote {
     summary: data.summary,
     pdfUrl: data.pdfUrl,
     chartImage: data.chartImage,
+    chartImageDark: data.chartImageDark,
     chartAlt: data.chartAlt,
     coverImage: data.coverImage,
     period: data.period,

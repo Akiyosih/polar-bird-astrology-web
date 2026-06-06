@@ -67,7 +67,14 @@ const titleHtml = escapeHtml(note.title).replace(/([^\s])フィールドノー�
       <figure class="chart-panel">
         <figcaption class="sr-only">{chartHeading}</figcaption>
         <div class="chart-image-frame">
-          <img src={note.chartImage} alt={note.chartAlt || ""} loading="lazy" />
+          <img
+            src={note.chartImage}
+            data-theme-chart
+            data-light-src={note.chartImage}
+            data-dark-src={note.chartImageDark}
+            alt={note.chartAlt || ""}
+            loading="lazy"
+          />
         </div>
         <div class="chart-legend" aria-label={ui.chartLegendTitle}>
           <p class="chart-legend-title">{ui.chartLegendTitle}</p>
@@ -85,6 +92,36 @@ const titleHtml = escapeHtml(note.title).replace(/([^\s])フィールドノー�
           </div>
         </div>
       </figure>
+    )}
+
+    {note.chartImageDark && (
+      <script is:inline>
+        (() => {
+          const root = document.documentElement;
+          const charts = document.querySelectorAll("[data-theme-chart][data-dark-src]");
+          if (!charts.length) {
+            return;
+          }
+
+          const syncCharts = () => {
+            const useDark = root.dataset.theme === "dark";
+            charts.forEach((chart) => {
+              const lightSrc = chart.getAttribute("data-light-src");
+              const darkSrc = chart.getAttribute("data-dark-src");
+              const nextSrc = useDark && darkSrc ? darkSrc : lightSrc;
+              if (nextSrc && chart.getAttribute("src") !== nextSrc) {
+                chart.setAttribute("src", nextSrc);
+              }
+            });
+          };
+
+          syncCharts();
+          new MutationObserver(syncCharts).observe(root, {
+            attributes: true,
+            attributeFilter: ["data-theme"]
+          });
+        })();
+      </script>
     )}
 
     {note.tableOfContents.length > 0 && (

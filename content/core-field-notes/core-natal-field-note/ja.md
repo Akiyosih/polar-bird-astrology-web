@@ -10,6 +10,7 @@ pdfUrl: /reports/core/core-natal-field-note-20260605.pdf
 chartImage: /reports/core/charts/core-natal-chart-20260605.png
 chartAlt: Core Blockchainの出生ホロスコープ図
 coverImage: /images/watercolor/pdf-cover-background.png
+chartImageDark: /reports/core/charts/core-natal-chart-20260605-dark.png
 ---
 # Core 出生ホロスコープ分析
 
