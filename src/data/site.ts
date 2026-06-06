@@ -358,7 +358,7 @@ export const uiCopy: Record<Lang, UiCopy> = {
   },
   ja: {
     heroPrimary: "サンプルレポートを読む",
-    heroSecondary: "購入準備を見る",
+    heroSecondary: "レポート購入",
     reportHubEyebrow: "現在公開中",
     reportHubTitle: "Core Blockchainを読み解く3つの視点",
     reportHubDescription:
@@ -483,7 +483,7 @@ export const homeCopy: Record<Lang, PageCopy> = {
           "CorePayを使って、Core Blockchainコミュニティでも試しやすいレポート購入導線を準備しています。",
           "今はCore Blockchainを題材にしたサンプルレポートを読めます。"
         ],
-        link: { href: "purchase", label: "購入準備を見る" }
+        link: { href: "purchase", label: "レポート購入" }
       }
     ]
   },

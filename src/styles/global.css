@@ -826,7 +826,9 @@ p {
 }
 
 .field-note .boundary-box {
-  max-width: var(--container-reading);
+  justify-self: center;
+  max-width: 940px;
+  width: 100%;
 }
 
 .report-page {
@@ -980,7 +982,7 @@ p {
   display: grid;
   gap: 0.8rem;
   justify-self: center;
-  max-width: var(--container-reading);
+  max-width: 940px;
   padding: 1.25rem 1.35rem;
   scroll-margin-top: 1rem;
   width: 100%;
@@ -1146,9 +1148,11 @@ p {
   background: var(--surface-reading);
   border: var(--line-paper);
   box-shadow: var(--shadow-paper);
+  justify-self: center;
   max-width: 940px;
   padding: 4.1rem 4.7rem;
   position: relative;
+  width: 100%;
 }
 
 .report-body .section-mark {
