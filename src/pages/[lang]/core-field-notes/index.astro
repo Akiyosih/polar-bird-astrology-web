@@ -52,7 +52,7 @@ const resolveLink = (href: string) => (/^https?:\/\//.test(href) ? href : locali
       <h2 id="report-type-guide-title">{reportTypeGuide.heading}</h2>
       {reportTypeGuide.body.map((paragraph) => <p>{paragraph}</p>)}
       {reportTypeGuide.link && (
-        <a class="text-link" href={resolveLink(reportTypeGuide.link.href)}>{reportTypeGuide.link.label}</a>
+        <a class="button secondary" href={resolveLink(reportTypeGuide.link.href)}>{reportTypeGuide.link.label}</a>
       )}
     </article>
   </section>

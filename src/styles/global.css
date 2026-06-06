@@ -484,6 +484,12 @@ p {
   color: var(--pb-teal);
 }
 
+.content-grid .button,
+.article-flow .button,
+.sample-guide .button {
+  justify-self: start;
+}
+
 .boundary-box {
   background:
     linear-gradient(180deg, rgba(251, 247, 238, 0.92), rgba(238, 248, 246, 0.72)),
