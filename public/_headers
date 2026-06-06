@@ -7,5 +7,8 @@
 /images/profile/writer-profile.jpg
   X-Robots-Tag: noindex
 
+/images/profile/writer-profile-dark.webp
+  X-Robots-Tag: noindex
+
 /assets/*
   Cache-Control: public, max-age=31536000, immutable

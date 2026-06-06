@@ -40,6 +40,33 @@ const pageDescription =
       <main id="main">
         <slot />
       </main>
+      <script is:inline>
+        (() => {
+          const root = document.documentElement;
+          const images = document.querySelectorAll("[data-theme-image][data-dark-src]");
+          if (!images.length) {
+            return;
+          }
+
+          const syncImages = () => {
+            const useDark = root.dataset.theme === "dark";
+            images.forEach((image) => {
+              const lightSrc = image.getAttribute("data-light-src");
+              const darkSrc = image.getAttribute("data-dark-src");
+              const nextSrc = useDark && darkSrc ? darkSrc : lightSrc;
+              if (nextSrc && image.getAttribute("src") !== nextSrc) {
+                image.setAttribute("src", nextSrc);
+              }
+            });
+          };
+
+          syncImages();
+          new MutationObserver(syncImages).observe(root, {
+            attributes: true,
+            attributeFilter: ["data-theme"]
+          });
+        })();
+      </script>
       <SiteFooter lang={lang} />
     </div>
   </body>

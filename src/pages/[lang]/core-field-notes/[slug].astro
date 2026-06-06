@@ -69,7 +69,7 @@ const titleHtml = escapeHtml(note.title).replace(/([^\s])フィールドノー�
         <div class="chart-image-frame">
           <img
             src={note.chartImage}
-            data-theme-chart
+            data-theme-image
             data-light-src={note.chartImage}
             data-dark-src={note.chartImageDark}
             alt={note.chartAlt || ""}
@@ -92,36 +92,6 @@ const titleHtml = escapeHtml(note.title).replace(/([^\s])フィールドノー�
           </div>
         </div>
       </figure>
-    )}
-
-    {note.chartImageDark && (
-      <script is:inline>
-        (() => {
-          const root = document.documentElement;
-          const charts = document.querySelectorAll("[data-theme-chart][data-dark-src]");
-          if (!charts.length) {
-            return;
-          }
-
-          const syncCharts = () => {
-            const useDark = root.dataset.theme === "dark";
-            charts.forEach((chart) => {
-              const lightSrc = chart.getAttribute("data-light-src");
-              const darkSrc = chart.getAttribute("data-dark-src");
-              const nextSrc = useDark && darkSrc ? darkSrc : lightSrc;
-              if (nextSrc && chart.getAttribute("src") !== nextSrc) {
-                chart.setAttribute("src", nextSrc);
-              }
-            });
-          };
-
-          syncCharts();
-          new MutationObserver(syncCharts).observe(root, {
-            attributes: true,
-            attributeFilter: ["data-theme"]
-          });
-        })();
-      </script>
     )}
 
     {note.tableOfContents.length > 0 && (

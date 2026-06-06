@@ -34,6 +34,9 @@ const robots = page === "about" ? "noindex, noimageindex" : undefined;
       <figure class="profile-portrait">
         <img
           src={copy.profileImage.src}
+          data-theme-image
+          data-light-src={copy.profileImage.src}
+          data-dark-src={copy.profileImage.darkSrc}
           alt={copy.profileImage.alt}
           width="768"
           height="768"
