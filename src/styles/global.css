@@ -1482,6 +1482,16 @@ p {
     font-size: 0.86rem;
   }
 
+  .primary-nav a.has-badge {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 0.18rem;
+  }
+
+  .primary-nav a.has-badge .nav-badge {
+    align-self: flex-start;
+  }
+
   .hero {
     min-height: 520px;
   }

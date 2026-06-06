@@ -36,7 +36,11 @@ const isActiveNavItem = (href: string) => {
     {navItems[lang].map((item) => {
       const active = isActiveNavItem(item.href);
       return (
-        <a class:list={{ active }} href={localizedPath(lang, item.href)} aria-current={active ? "page" : undefined}>
+        <a
+          class:list={{ active, "has-badge": Boolean(item.badge) }}
+          href={localizedPath(lang, item.href)}
+          aria-current={active ? "page" : undefined}
+        >
           <span>{item.label}</span>
           {item.badge && <span class="nav-badge">{item.badge}</span>}
         </a>
