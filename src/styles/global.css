@@ -1403,7 +1403,7 @@ p {
 .report-toc li[data-level="3"] a {
   color: var(--toc-level-3);
   font-size: 0.95rem;
-  font-weight: 650;
+  font-weight: 400;
 }
 
 .report-toc a:hover {
