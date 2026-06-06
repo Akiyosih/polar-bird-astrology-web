@@ -263,42 +263,91 @@ body {
 }
 
 :root[data-theme="dark"] .report-type-card {
-  --report-accent-line: rgba(216, 194, 120, 0.52);
-  --report-accent-soft: rgba(216, 194, 120, 0.18);
-  border-color: rgba(216, 194, 120, 0.34);
+  --report-accent: #dcc36d;
+  --report-accent-line: rgba(220, 195, 109, 0.64);
+  --report-accent-soft: rgba(220, 195, 109, 0.18);
+  --report-accent-wash: rgba(220, 195, 109, 0.12);
+  --report-accent-glow: rgba(220, 195, 109, 0.28);
+  background: linear-gradient(180deg, #1d383b, #102a2f);
+  border-color: rgba(220, 195, 109, 0.46);
+  border-left-color: var(--report-accent);
+  color: var(--text-primary);
   box-shadow:
-    0 18px 46px rgba(0, 0, 0, 0.28),
+    0 20px 52px rgba(0, 0, 0, 0.36),
     7px 7px 0 var(--report-accent-soft),
-    13px 13px 0 rgba(134, 221, 214, 0.09);
+    13px 13px 0 rgba(134, 221, 214, 0.08);
 }
 
 :root[data-theme="dark"] .report-type-card[data-report="solar-return"] {
-  --report-accent-line: rgba(220, 156, 145, 0.52);
-  --report-accent-soft: rgba(220, 156, 145, 0.18);
+  --report-accent: #ef9b91;
+  --report-accent-line: rgba(239, 155, 145, 0.68);
+  --report-accent-soft: rgba(239, 155, 145, 0.18);
+  --report-accent-wash: rgba(239, 155, 145, 0.12);
+  --report-accent-glow: rgba(239, 155, 145, 0.26);
 }
 
 :root[data-theme="dark"] .report-type-card[data-report="new-moon"] {
-  --report-accent-line: rgba(134, 221, 214, 0.52);
-  --report-accent-soft: rgba(134, 221, 214, 0.16);
+  --report-accent: #77e4df;
+  --report-accent-line: rgba(119, 228, 223, 0.68);
+  --report-accent-soft: rgba(119, 228, 223, 0.16);
+  --report-accent-wash: rgba(119, 228, 223, 0.13);
+  --report-accent-glow: rgba(119, 228, 223, 0.28);
 }
 
 :root[data-theme="dark"] .report-type-card.is-available:hover {
+  border-color: var(--report-accent-line);
   box-shadow:
-    0 20px 50px rgba(0, 0, 0, 0.34),
+    0 22px 56px rgba(0, 0, 0, 0.42),
+    0 0 34px var(--report-accent-glow),
     7px 7px 0 var(--report-accent-soft),
-    13px 13px 0 rgba(134, 221, 214, 0.12);
+    13px 13px 0 rgba(134, 221, 214, 0.1);
 }
 
 :root[data-theme="dark"] .report-type-card::before {
   background:
-    linear-gradient(180deg, rgba(16, 39, 43, 0.12), rgba(8, 25, 30, 0.8)),
+    radial-gradient(circle at 86% 12%, var(--report-accent-wash), transparent 10rem),
+    linear-gradient(180deg, rgba(237, 248, 243, 0.09), rgba(237, 248, 243, 0) 34%),
+    linear-gradient(180deg, rgba(33, 59, 62, 0.96), rgba(13, 33, 38, 0.98)),
     var(--image-paper-wash);
-  opacity: 0.98;
+  background-blend-mode: normal, normal, normal, soft-light;
+  opacity: 1;
 }
 
 :root[data-theme="dark"] .report-type-card .eyebrow,
 :root[data-theme="dark"] .report-type-card .button {
-  background: rgba(10, 28, 32, 0.72);
+  background: rgba(5, 25, 30, 0.82);
+  border-color: var(--report-accent-line);
+  color: var(--report-accent);
+}
+
+:root[data-theme="dark"] .report-type-card .button {
+  box-shadow: inset 0 -2px 0 rgba(119, 228, 223, 0.14);
+}
+
+:root[data-theme="dark"] .report-type-card h2 {
+  color: #f3fbf7;
+}
+
+:root[data-theme="dark"] .report-type-card > p:not(.eyebrow) {
+  color: #c8dcda;
+}
+
+:root[data-theme="dark"] .report-meta div {
+  border-top-color: rgba(237, 248, 243, 0.13);
+}
+
+:root[data-theme="dark"] .report-meta dt {
+  color: var(--report-accent);
+}
+
+:root[data-theme="dark"] .report-meta dd {
+  color: #f0faf6;
+}
+
+:root[data-theme="dark"] .report-type-card::after {
+  box-shadow:
+    0 0 0 1px rgba(216, 194, 120, 0.42),
+    0 12px 28px rgba(0, 0, 0, 0.28);
 }
 
 :root[data-theme="dark"] .chart-panel {
