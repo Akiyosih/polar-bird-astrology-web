@@ -82,6 +82,7 @@ type ReportTypeCopy = {
 
 export const repoUrl = "https://github.com/Akiyosih/polar-bird-astrology-web";
 export const corePayUrl = "https://corepay.money/";
+export const coreBlockchainUrl = "https://coreblockchain.net/";
 export const coreCatsUrl = "https://core-cats.pages.dev/";
 const coreBlockchainJa = "Core Blockchain";
 
@@ -360,7 +361,7 @@ export const uiCopy: Record<Lang, UiCopy> = {
     heroPrimary: "サンプルレポートを読む",
     heroSecondary: "レポート購入",
     reportHubEyebrow: "現在公開中",
-    reportHubTitle: "Core Blockchainを読み解く3つの視点",
+    reportHubTitle: "Core Blockchainを読み解く三つの視点",
     reportHubDescription:
       "出生図はCore Blockchainの基本構造、太陽回帰は2026年の舞台、新月は公開中のサイクルを読みます。事業やコミュニティを読むレポート例として公開しています。",
     reportHubDescriptionParagraphs: [
@@ -626,22 +627,25 @@ export const pages: Record<Lang, Record<PageKey, PageCopy>> = {
         "Polar Bird Astrologyの占星術レポートを申し込める導線を準備しています。",
       blocks: [
         {
-          heading: "準備していること",
+          heading: "CorePayでの購入導線",
           body: [
-            "出生図、太陽回帰、新月サイクルのレポートを、Webから申し込める導線を準備しています。",
-            "CorePayを使って、Core Blockchainコミュニティでも試しやすいレポート購入導線として設計しています。",
-            "このサイトでの購入導線は、まだ公開していません。"
+            "出生図、太陽回帰、新月サイクルのレポートを、Webから購入できる導線を準備しています。",
+            "CorePayを使い、Core Blockchainコミュニティでも試しやすい購入体験として設計しています。",
+            "Core Blockchain周辺のプロダクトリリースに応じて、レポート購入に使えるトークンを広げていきます。"
           ]
         },
         {
-          heading: "今読めるもの",
+          heading: "購入前に読めるレポート例",
           body: [
             "現在はCore Blockchainを題材にしたサンプルレポートを公開しています。",
             "同じ占星術の構造で、人の自己理解にも、事業やコミュニティの流れの観察にも使えることを示すためのサンプルです。"
           ]
         }
       ],
-      links: [{ href: corePayUrl, label: "CorePay公式サイトを見る" }]
+      links: [
+        { href: corePayUrl, label: "CorePay公式サイトを見る" },
+        { href: coreBlockchainUrl, label: "Core Blockchain公式サイトを見る" }
+      ]
     },
     "reading-policy": {
       title: "読み方と方針",
