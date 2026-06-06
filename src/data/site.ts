@@ -624,17 +624,17 @@ export const pages: Record<Lang, Record<PageKey, PageCopy>> = {
         {
           heading: "Writer",
           body: [
-            "I am Japanese and graduated from the University of Tokyo.",
-            "I live in an old house in the mountains, close to seasonal change and the night sky.",
+            "I write from Japan and shape astrology reports as clear, usable language.",
+            "I live close to seasonal change and the night sky.",
             "Whether the subject is a person, business, or community, I read the chart naturally and put it into language the reader can use."
           ]
         },
         {
           heading: "Life and interests",
           body: [
-            "I live with a cockatiel and cats.",
-            "I am interested in cigars, whisky, and mountain life, and I hold a hunting license.",
-            "These personal backgrounds connect to a reading style that values nature, time, body awareness, and quiet observation."
+            "Daily observation, mountain time, and quiet sensory details are part of my life.",
+            "I am drawn to materials, scent, taste, weather, and the way the body notices time.",
+            "This background connects to a reading style that values nature, time, body awareness, and quiet observation."
           ]
         },
         {
@@ -753,17 +753,17 @@ export const pages: Record<Lang, Record<PageKey, PageCopy>> = {
         {
           heading: "書き手",
           body: [
-            "日本人です。東京大学を卒業。",
-            "山の古民家で暮らし、季節の変化や夜空を近くに感じながら、占星術レポートを書いています。",
+            "日本で暮らし、星まわりを日々の選択に使える言葉へ整えています。",
+            "自然の近くで、季節の変化や夜空を感じながら、占星術レポートを書いています。",
             "読む対象が人であっても、事業やコミュニティであっても、星まわりを自然に読み、読み手が扱える言葉へ落とし込みます。"
           ]
         },
         {
           heading: "暮らしと趣味",
           body: [
-            "オカメインコと猫と暮らしています。",
-            "葉巻、ウイスキー、山での暮らしに関心があり、狩猟免許も持っています。",
-            "こうした個人的な背景は、自然、時間、身体感覚、静かな観察を大切にする読み方につながっています。"
+            "日々の観察、山で過ごす時間、香りや味わいのあるものに関心があります。",
+            "天気、季節、身体感覚の変化を、生活の中で静かに見る時間を大切にしています。",
+            "こうした背景は、自然、時間、身体感覚、静かな観察を大切にする読み方につながっています。"
           ]
         },
         {
@@ -883,17 +883,17 @@ export const pages: Record<Lang, Record<PageKey, PageCopy>> = {
         {
           heading: "Autor",
           body: [
-            "Ich bin Japaner und Absolvent der University of Tokyo.",
-            "Ich lebe in einem alten Haus in den Bergen und schreibe astrologische Reports nahe an Jahreszeiten und Nachthimmel.",
+            "Ich schreibe aus Japan und forme astrologische Reports zu klarer, brauchbarer Sprache.",
+            "Ich lebe nahe an Jahreszeiten und Nachthimmel.",
             "Ob es um einen Menschen, ein Unternehmen oder eine Community geht: Ich deute die Konstellationen stimmig und bringe sie in Worte, mit denen der Leser arbeiten kann."
           ]
         },
         {
           heading: "Leben und Interessen",
           body: [
-            "Ich lebe mit einem Nymphensittich und Katzen.",
-            "Ich interessiere mich für Zigarren, Whisky und das Leben in den Bergen und besitze auch einen Jagdschein.",
-            "Diese persönlichen Hintergründe prägen eine Leseweise, die Natur, Zeit, Körpergefühl und stille Beobachtung ernst nimmt."
+            "Tägliche Beobachtung, Zeit in den Bergen und stille Sinneseindrücke gehören zu meinem Leben.",
+            "Mich interessieren Materialien, Duft, Geschmack, Wetter und die Art, wie der Körper Zeit wahrnimmt.",
+            "Dieser Hintergrund prägt eine Leseweise, die Natur, Zeit, Körpergefühl und stille Beobachtung ernst nimmt."
           ]
         },
         {

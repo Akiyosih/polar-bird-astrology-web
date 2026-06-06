@@ -20,9 +20,10 @@ if (!isLang(lang) || !pageKeys.includes(page)) {
 const copy = pages[lang][page];
 const descriptionParagraphs = copy.descriptionParagraphs ?? [copy.description];
 const resolveLink = (href: string) => (/^https?:\/\//.test(href) ? href : localizedPath(lang, href));
+const robots = page === "about" ? "noindex, noimageindex" : undefined;
 ---
 
-<BaseLayout lang={lang} title={copy.title} description={copy.description}>
+<BaseLayout lang={lang} title={copy.title} description={copy.description} robots={robots}>
   <section class:list={["page-heading", copy.profileImage && "with-profile"]}>
     <div class="page-heading-copy">
       <p class="eyebrow">{copy.eyebrow}</p>

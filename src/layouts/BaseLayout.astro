@@ -8,10 +8,11 @@ type Props = {
   lang: Lang;
   title?: string;
   description?: string;
+  robots?: string;
   languagePaths?: Partial<Record<Lang, string>>;
 };
 
-const { lang, title, description, languagePaths } = Astro.props;
+const { lang, title, description, robots, languagePaths } = Astro.props;
 const pageTitle = title ? `${title} | Polar Bird Astrology` : "Polar Bird Astrology";
 const pageDescription =
   description ||
@@ -24,6 +25,7 @@ const pageDescription =
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content={pageDescription} />
+    {robots && <meta name="robots" content={robots} />}
     <link rel="icon" href="/favicon.png" type="image/png" />
     <link rel="apple-touch-icon" href="/images/brand/polar-bird-icon-180.png" />
     <title>{pageTitle}</title>
