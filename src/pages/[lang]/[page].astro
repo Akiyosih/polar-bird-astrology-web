@@ -23,10 +23,24 @@ const resolveLink = (href: string) => (/^https?:\/\//.test(href) ? href : locali
 ---
 
 <BaseLayout lang={lang} title={copy.title} description={copy.description}>
-  <section class="page-heading">
-    <p class="eyebrow">{copy.eyebrow}</p>
-    <h1>{copy.title}</h1>
-    {descriptionParagraphs.map((paragraph) => <p>{paragraph}</p>)}
+  <section class:list={["page-heading", copy.profileImage && "with-profile"]}>
+    <div class="page-heading-copy">
+      <p class="eyebrow">{copy.eyebrow}</p>
+      <h1>{copy.title}</h1>
+      {descriptionParagraphs.map((paragraph) => <p>{paragraph}</p>)}
+    </div>
+    {copy.profileImage && (
+      <figure class="profile-portrait">
+        <img
+          src={copy.profileImage.src}
+          alt={copy.profileImage.alt}
+          width="768"
+          height="768"
+          loading="eager"
+          decoding="async"
+        />
+      </figure>
+    )}
   </section>
   <section class="article-flow">
     {copy.blocks.map((block) => (

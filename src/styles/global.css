@@ -536,9 +536,41 @@ p {
   max-width: 820px;
 }
 
+.page-heading.with-profile {
+  align-items: center;
+  gap: 1.5rem 2rem;
+  grid-template-columns: minmax(0, 1fr) minmax(220px, 320px);
+  max-width: 1080px;
+}
+
+.page-heading-copy {
+  display: grid;
+  gap: 0.85rem;
+}
+
 .page-heading h1 {
   font-size: 4rem;
   max-width: 15ch;
+}
+
+.profile-portrait {
+  justify-self: end;
+  margin: 0;
+  max-width: 320px;
+  width: min(32vw, 320px);
+}
+
+.profile-portrait img {
+  aspect-ratio: 1;
+  border: 1px solid rgba(185, 155, 79, 0.44);
+  border-radius: 8px;
+  box-shadow:
+    0 16px 34px rgba(16, 41, 58, 0.12),
+    6px 6px 0 rgba(185, 155, 79, 0.12);
+  display: block;
+  height: auto;
+  object-fit: cover;
+  width: 100%;
 }
 
 .section-heading {
@@ -1323,6 +1355,18 @@ p {
     grid-template-columns: 1fr;
   }
 
+  .page-heading.with-profile {
+    align-items: start;
+    grid-template-columns: 1fr;
+    max-width: 820px;
+  }
+
+  .profile-portrait {
+    justify-self: start;
+    max-width: 300px;
+    width: min(72vw, 300px);
+  }
+
   .hero {
     align-items: end;
     background-position: center top;
@@ -1413,6 +1457,12 @@ p {
   .primary-nav,
   .language-nav {
     gap: 0.85rem;
+  }
+
+  .primary-nav {
+    flex-wrap: wrap;
+    overflow-x: visible;
+    row-gap: 0.55rem;
   }
 
   .primary-nav a,

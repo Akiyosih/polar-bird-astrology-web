@@ -19,6 +19,10 @@ type PageCopy = {
   description: string;
   descriptionParagraphs?: string[];
   eyebrow?: string;
+  profileImage?: {
+    src: string;
+    alt: string;
+  };
   blocks: TextBlock[];
   links?: PageLink[];
 };
@@ -578,6 +582,10 @@ export const pages: Record<Lang, Record<PageKey, PageCopy>> = {
       eyebrow: "About the person behind Polar Bird Astrology",
       description:
         "Polar Bird Astrology is written by a Japanese astrologer who translates chart symbolism into clear language for decisions, planning, and self-understanding.",
+      profileImage: {
+        src: "/images/profile/writer-profile.jpg",
+        alt: "Portrait of the Polar Bird Astrology writer"
+      },
       blocks: [
         {
           heading: "Reading stance",
@@ -695,6 +703,10 @@ export const pages: Record<Lang, Record<PageKey, PageCopy>> = {
       eyebrow: "Polar Bird Astrologyの書き手",
       description:
         "Polar Bird Astrologyは、星まわりを日々の選択や行動計画に使える言葉へ翻訳する占星術レポートです。",
+      profileImage: {
+        src: "/images/profile/writer-profile.jpg",
+        alt: "Polar Bird Astrologyの書き手のポートレート"
+      },
       descriptionParagraphs: [
         "Polar Bird Astrologyは、星まわりを日々の選択や行動計画に使える言葉へ翻訳する占星術レポートです。",
         "象徴を曖昧な比喩だけで終わらせず、出生図、太陽回帰、新月サイクルから読み取れるテーマを、具体的で扱いやすい文章に整えています。"
@@ -711,9 +723,9 @@ export const pages: Record<Lang, Record<PageKey, PageCopy>> = {
         {
           heading: "書き手",
           body: [
-            "日本人です。東京大学を卒業しました。",
+            "日本人です。東京大学を卒業。",
             "山の古民家で暮らし、季節の変化や夜空を近くに感じながら、占星術レポートを書いています。",
-            "読む対象が人であっても、事業やコミュニティであっても、星まわりから自然に読めるところは弱めず、読み手が扱える言葉へ落とし込みます。"
+            "読む対象が人であっても、事業やコミュニティであっても、星まわりを自然に読み、読み手が扱える言葉へ落とし込みます。"
           ]
         },
         {
@@ -721,14 +733,14 @@ export const pages: Record<Lang, Record<PageKey, PageCopy>> = {
           body: [
             "オカメインコと猫と暮らしています。",
             "葉巻、ウイスキー、山での暮らしに関心があり、狩猟免許も持っています。",
-            "こうした個人的な背景はレポートの中心ではありませんが、自然、時間、身体感覚、静かな観察を大切にする読み方にはつながっています。"
+            "こうした個人的な背景は、自然、時間、身体感覚、静かな観察を大切にする読み方につながっています。"
           ]
         },
         {
           heading: "公開している制作物",
           body: [
             "Core Catsは、Coreコミュニティに向けて公開している別の制作物です。",
-            "Polar Bird Astrologyとは別の表現ですが、コミュニティに読みやすく、楽しめて、話題にできるものを届けたいという姿勢は共通しています。"
+            "コミュニティに読みやすく、楽しめて、話題にできるものを届けたいという姿勢は共通しています。"
           ],
           link: { href: coreCatsUrl, label: "Core Catsを見る" }
         }
@@ -796,6 +808,10 @@ export const pages: Record<Lang, Record<PageKey, PageCopy>> = {
       eyebrow: "Ueber Polar Bird Astrology",
       description:
         "Polar Bird Astrology wird von einem japanischen Autor geschrieben, der astrologische Symbolik in klare Sprache fuer Entscheidungen, Planung und Selbstverstaendnis uebersetzt.",
+      profileImage: {
+        src: "/images/profile/writer-profile.jpg",
+        alt: "Portraet des Autors von Polar Bird Astrology"
+      },
       blocks: [
         {
           heading: "Lesehaltung",
