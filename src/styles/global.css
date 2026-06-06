@@ -1471,6 +1471,7 @@ p {
   }
 
   .primary-nav {
+    align-items: flex-start;
     flex-wrap: wrap;
     overflow-x: visible;
     row-gap: 0.55rem;
