@@ -1,10 +1,9 @@
 ---
-import FieldNoteCard from "../../../components/FieldNoteCard.astro";
 import ReportTypeCard from "../../../components/ReportTypeCard.astro";
 import BaseLayout from "../../../layouts/BaseLayout.astro";
-import { reportTypes, uiCopy } from "../../../data/site";
-import { getFieldNotes, getLatestFieldNoteByReportType } from "../../../lib/fieldNotes";
-import { isLang, languages } from "../../../lib/i18n";
+import { homeCopy, reportTypes, uiCopy } from "../../../data/site";
+import { getLatestFieldNoteByReportType } from "../../../lib/fieldNotes";
+import { isLang, languages, localizedPath } from "../../../lib/i18n";
 
 export function getStaticPaths() {
   return languages.map((lang) => ({ params: { lang } }));
@@ -15,13 +14,15 @@ if (!isLang(lang)) {
   throw new Error(`Unsupported language: ${lang}`);
 }
 
-const notes = getFieldNotes(lang);
 const ui = uiCopy[lang];
+const reportTypeGuide = homeCopy[lang].blocks[0];
+const reportHubDescriptionParagraphs = ui.reportHubDescriptionParagraphs ?? [ui.reportHubDescription];
+const resolveLink = (href: string) => (/^https?:\/\//.test(href) ? href : localizedPath(lang, href));
 ---
 
 <BaseLayout lang={lang} title={ui.fieldNotesTitle} description={ui.fieldNotesDescription}>
   <section class="page-heading">
-    <p class="eyebrow">{ui.fieldNotesTitle}</p>
+    <p class="eyebrow">{ui.fieldNotesEyebrow}</p>
     <h1>{ui.fieldNotesTitle}</h1>
     <p>{ui.fieldNotesDescription}</p>
   </section>
@@ -30,7 +31,7 @@ const ui = uiCopy[lang];
     <div class="section-heading">
       <p class="eyebrow">{ui.reportHubEyebrow}</p>
       <h2 id="report-hub-title">{ui.reportHubTitle}</h2>
-      <p>{ui.reportHubDescription}</p>
+      {reportHubDescriptionParagraphs.map((paragraph) => <p>{paragraph}</p>)}
     </div>
     <div class="report-grid">
       {reportTypes[lang].map((report) => (
@@ -40,18 +41,19 @@ const ui = uiCopy[lang];
           note={getLatestFieldNoteByReportType(lang, report.key)}
           readLabel={ui.readNoteLabel}
           focusLabel={ui.focusLabel}
+          periodLabel={ui.periodLabel}
         />
       ))}
     </div>
   </section>
 
-  <section class="section-heading compact">
-    <p class="eyebrow">{ui.availableNotesTitle}</p>
-    <h2>{ui.availableNotesTitle}</h2>
-    <p>{ui.availableNotesDescription}</p>
-  </section>
-
-  <section class="card-list">
-    {notes.map((note) => <FieldNoteCard {...note} />)}
+  <section class="article-flow sample-guide" aria-labelledby="report-type-guide-title">
+    <article>
+      <h2 id="report-type-guide-title">{reportTypeGuide.heading}</h2>
+      {reportTypeGuide.body.map((paragraph) => <p>{paragraph}</p>)}
+      {reportTypeGuide.link && (
+        <a class="text-link" href={resolveLink(reportTypeGuide.link.href)}>{reportTypeGuide.link.label}</a>
+      )}
+    </article>
   </section>
 </BaseLayout>

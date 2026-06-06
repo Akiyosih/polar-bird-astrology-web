@@ -9,12 +9,17 @@ type Props = {
 
 const { lang, languagePaths } = Astro.props;
 const suffix = Astro.url.pathname.replace(/^\/(en|ja|de)/, "") || "";
+const currentPath = Astro.url.pathname.replace(/\/$/, "") || "/";
 const brandSubtitle =
   lang === "ja"
     ? "星まわりを読む占星術レポート"
     : lang === "de"
       ? "Astrologische Reports"
       : "Astrology reports";
+const isActiveNavItem = (href: string) => {
+  const targetPath = localizedPath(lang, href).replace(/\/$/, "") || "/";
+  return currentPath === targetPath || currentPath.startsWith(`${targetPath}/`);
+};
 ---
 
 <header class="site-header">
@@ -28,12 +33,15 @@ const brandSubtitle =
     </span>
   </a>
   <nav class="primary-nav" aria-label="Primary">
-    {navItems[lang].map((item) => (
-      <a href={localizedPath(lang, item.href)}>
-        <span>{item.label}</span>
-        {item.badge && <span class="nav-badge">{item.badge}</span>}
-      </a>
-    ))}
+    {navItems[lang].map((item) => {
+      const active = isActiveNavItem(item.href);
+      return (
+        <a class:list={{ active }} href={localizedPath(lang, item.href)} aria-current={active ? "page" : undefined}>
+          <span>{item.label}</span>
+          {item.badge && <span class="nav-badge">{item.badge}</span>}
+        </a>
+      );
+    })}
   </nav>
   <nav class="language-nav" aria-label="Language">
     {languages.map((code) => (

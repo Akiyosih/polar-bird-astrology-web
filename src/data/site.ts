@@ -6,6 +6,7 @@ export type ReportTypeKey = "natal" | "solar-return" | "new-moon";
 type TextBlock = {
   heading: string;
   body: string[];
+  link?: PageLink;
 };
 
 type PageLink = {
@@ -16,6 +17,7 @@ type PageLink = {
 type PageCopy = {
   title: string;
   description: string;
+  descriptionParagraphs?: string[];
   eyebrow?: string;
   blocks: TextBlock[];
   links?: PageLink[];
@@ -33,12 +35,13 @@ type UiCopy = {
   reportHubEyebrow: string;
   reportHubTitle: string;
   reportHubDescription: string;
+  reportHubDescriptionParagraphs?: string[];
+  fieldNotesEyebrow: string;
   fieldNotesTitle: string;
   fieldNotesDescription: string;
-  availableNotesTitle: string;
-  availableNotesDescription: string;
   readNoteLabel: string;
   focusLabel: string;
+  periodLabel: string;
   publicationBoundaryTitle: string;
   publicationBoundaryText: string;
   footerNotice: string;
@@ -126,7 +129,7 @@ export const reportTypes: Record<Lang, ReportTypeCopy[]> = {
       title: "Coreの2026年のテーマ",
       summary:
         "太陽回帰図から、2026年に焦点が当たりやすいテーマと、Coreの性質がその年にどう表へ出るかを読みます。",
-      focus: "2026年のテーマ、舞台、焦点",
+      focus: "年間テーマ、表に出る役割、焦点",
       emptyLabel: "準備中"
     },
     {
@@ -135,7 +138,7 @@ export const reportTypes: Record<Lang, ReportTypeCopy[]> = {
       title: "Coreの新月サイクル",
       summary:
         "新月図から、公開中のサイクルで動きやすいテーマ、コミュニティの空気、観察したい月相リズムを読みます。",
-      focus: "公開中のサイクル、月相リズム",
+      focus: "中心テーマ、月相リズム、観察点",
       emptyLabel: "準備中"
     }
   ],
@@ -174,18 +177,21 @@ export const uiCopy: Record<Lang, UiCopy> = {
   en: {
     heroPrimary: "Read sample reports",
     heroSecondary: "See purchase preparation",
-    reportHubEyebrow: "Sample reports: Core",
+    reportHubEyebrow: "Currently published",
     reportHubTitle: "Three sample reports for Core",
     reportHubDescription:
       "Natal reads the foundational pattern, solar return reads the 2026 annual stage, and new moon reads the published cycle. Together they show how Polar Bird Astrology can read a public ecosystem.",
+    reportHubDescriptionParagraphs: [
+      "Natal reads the foundational pattern, solar return reads the 2026 annual stage, and new moon reads the published cycle.",
+      "Together they show how Polar Bird Astrology can read a public ecosystem."
+    ],
+    fieldNotesEyebrow: "Core as a public sample",
     fieldNotesTitle: "Sample Reports: Core",
     fieldNotesDescription:
       "Core is published as a business and community sample: natal, solar return, and new-moon-cycle reports in one reading path.",
-    availableNotesTitle: "Published Core reports",
-    availableNotesDescription:
-      "Read the report text, chart image, and PDF for each public sample.",
     readNoteLabel: "Read",
     focusLabel: "Focus",
+    periodLabel: "Period",
     publicationBoundaryTitle: "Reading boundary",
     publicationBoundaryText:
       "The report body treats themes astrology can read. Product facts belong with public source information. Price and investment decisions are outside these reports.",
@@ -201,18 +207,21 @@ export const uiCopy: Record<Lang, UiCopy> = {
   ja: {
     heroPrimary: "サンプルレポートを読む",
     heroSecondary: "購入準備を見る",
-    reportHubEyebrow: "サンプルレポート（Core）",
+    reportHubEyebrow: "現在公開中",
     reportHubTitle: "Coreを読む3つのサンプル",
     reportHubDescription:
       "出生図はCoreの基本構造、太陽回帰は2026年の舞台、新月は公開中のサイクルを読みます。事業やコミュニティを読むレポート例として公開しています。",
+    reportHubDescriptionParagraphs: [
+      "出生図はCoreの基本構造、太陽回帰は2026年の舞台、新月は公開中のサイクルを読みます。",
+      "事業やコミュニティを読むレポート例として公開しています。"
+    ],
+    fieldNotesEyebrow: "Coreを題材にしたレポート例",
     fieldNotesTitle: "サンプルレポート（Core）",
     fieldNotesDescription:
       "人ではない公開エコシステムも、出生図、太陽回帰、新月サイクルで読めます。現在はCoreの3レポートを公開しています。",
-    availableNotesTitle: "公開中のCoreレポート",
-    availableNotesDescription:
-      "出生図、太陽回帰、新月サイクルの本文、ホロスコープ、PDFを読めます。",
     readNoteLabel: "読む",
     focusLabel: "焦点",
+    periodLabel: "対象期間",
     publicationBoundaryTitle: "読み方と境界",
     publicationBoundaryText:
       "レポート本文では、占星術で読めるテーマを扱います。プロダクト事実は公開元の情報で確認します。価格や投資判断は、このレポートの対象外です。",
@@ -228,18 +237,21 @@ export const uiCopy: Record<Lang, UiCopy> = {
   de: {
     heroPrimary: "Beispielreports lesen",
     heroSecondary: "Kaufvorbereitung ansehen",
-    reportHubEyebrow: "Beispielreports: Core",
+    reportHubEyebrow: "Aktuell veroeffentlicht",
     reportHubTitle: "Drei Beispielreports fuer Core",
     reportHubDescription:
       "Radix liest das Grundmuster, Solar Return die Jahresbuehne 2026, und Neumond den veroeffentlichten Zyklus.",
+    reportHubDescriptionParagraphs: [
+      "Radix liest das Grundmuster, Solar Return die Jahresbuehne 2026, und Neumond den veroeffentlichten Zyklus.",
+      "Zusammen zeigen sie, wie Polar Bird Astrology ein oeffentliches Oekosystem lesen kann."
+    ],
+    fieldNotesEyebrow: "Core als oeffentliches Beispiel",
     fieldNotesTitle: "Beispielreports: Core",
     fieldNotesDescription:
       "Core ist hier ein Beispiel fuer eine Business- und Community-Lesung mit Radix, Solar Return und Neumond-Zyklus.",
-    availableNotesTitle: "Veroeffentlichte Core-Reports",
-    availableNotesDescription:
-      "Text, Horoskopbild und PDF sind fuer jedes oeffentliche Beispiel verfuegbar.",
     readNoteLabel: "Lesen",
     focusLabel: "Fokus",
+    periodLabel: "Zeitraum",
     publicationBoundaryTitle: "Lesegrenze",
     publicationBoundaryText:
       "Der Report behandelt astrologisch lesbare Themen. Produktfakten gehoeren zu oeffentlichen Quellen. Preis- und Investmententscheidungen liegen ausserhalb dieser Reports.",
@@ -260,21 +272,26 @@ export const homeCopy: Record<Lang, PageCopy> = {
     eyebrow: "Astrology reports for rhythm, timing, and choice",
     description:
       "Polar Bird Astrology reads natal charts, solar returns, and new moon cycles for self-understanding, practical timing, and reflective planning. The current sample library follows Core as a public ecosystem.",
+    descriptionParagraphs: [
+      "Polar Bird Astrology reads natal charts, solar returns, and new moon cycles for self-understanding, practical timing, and reflective planning.",
+      "The current sample library follows Core as a public ecosystem."
+    ],
     blocks: [
       {
-        heading: "What the reports read",
+        heading: "Report types",
         body: [
           "Natal reports read foundational patterns. Solar returns read the stage of the year. New moon reports read the rhythm from one new moon to the next.",
           "The same structure can support personal self-understanding and business or community observation."
-        ]
+        ],
+        link: { href: "reading-policy", label: "How we read" }
       },
       {
         heading: "CorePay purchase path",
         body: [
-          "A report purchase flow using CorePay is in preparation.",
-          "Purchases through this site are not open yet.",
+          "A report purchase path using CorePay is being prepared so Core community members can try the experience lightly.",
           "For now, the Core sample reports are available to read publicly."
-        ]
+        ],
+        link: { href: "purchase", label: "See purchase preparation" }
       }
     ]
   },
@@ -283,20 +300,26 @@ export const homeCopy: Record<Lang, PageCopy> = {
     eyebrow: "星まわりを読む占星術レポート",
     description:
       "出生図、太陽回帰、新月サイクルを組み合わせて、自己理解、日々の選択、行動計画に使えるテーマを読みます。現在はCoreのサンプルレポートを公開しています。",
+    descriptionParagraphs: [
+      "出生図、太陽回帰、新月サイクルを組み合わせて、自己理解、日々の選択、行動計画に使えるテーマを読みます。",
+      "現在はCoreのサンプルレポートを公開しています。"
+    ],
     blocks: [
       {
-        heading: "読むもの",
+        heading: "レポートの種類",
         body: [
           "出生図は基本構造、太陽回帰は一年の舞台、新月はそのサイクルで動きやすいテーマを読みます。",
           "人の自己理解にも、事業やコミュニティの流れを観察する読み物にも使える形で整えています。"
-        ]
+        ],
+        link: { href: "reading-policy", label: "読み方と方針を見る" }
       },
       {
         heading: "CorePayでの購入導線",
         body: [
-          "CorePayを使ったレポート購入導線を準備しています。",
+          "CorePayを使って、Coreコミュニティでも試しやすいレポート購入導線を準備しています。",
           "今はCoreを題材にしたサンプルレポートを読めます。"
-        ]
+        ],
+        link: { href: "purchase", label: "購入準備を見る" }
       }
     ]
   },
@@ -305,21 +328,26 @@ export const homeCopy: Record<Lang, PageCopy> = {
     eyebrow: "Astrologische Reports fuer Rhythmus, Timing und Wahl",
     description:
       "Polar Bird Astrology liest Radix, Solar Return und Neumond-Zyklen fuer Selbstverstaendnis, Timing und reflektierte Planung. Die aktuelle Beispielbibliothek folgt Core als oeffentlichem Oekosystem.",
+    descriptionParagraphs: [
+      "Polar Bird Astrology liest Radix, Solar Return und Neumond-Zyklen fuer Selbstverstaendnis, Timing und reflektierte Planung.",
+      "Die aktuelle Beispielbibliothek folgt Core als oeffentlichem Oekosystem."
+    ],
     blocks: [
       {
-        heading: "Was die Reports lesen",
+        heading: "Reporttypen",
         body: [
           "Radixreports lesen Grundmuster. Solar Returns lesen die Jahresbuehne. Neumondreports lesen den Rhythmus von Neumond zu Neumond.",
           "Dieselbe Struktur kann Selbstverstaendnis und Business- oder Community-Beobachtung tragen."
-        ]
+        ],
+        link: { href: "reading-policy", label: "Leseweise ansehen" }
       },
       {
         heading: "CorePay-Kaufweg",
         body: [
-          "Ein Reportkauf mit CorePay ist in Vorbereitung.",
-          "Kaeufe ueber diese Website sind noch nicht offen.",
+          "Ein Reportkauf mit CorePay wird vorbereitet, damit die Core-Community die Erfahrung leicht testen kann.",
           "Derzeit sind die Core-Beispielreports oeffentlich lesbar."
-        ]
+        ],
+        link: { href: "purchase", label: "Kaufvorbereitung ansehen" }
       }
     ]
   }
@@ -394,7 +422,7 @@ export const pages: Record<Lang, Record<PageKey, PageCopy>> = {
           heading: "準備していること",
           body: [
             "出生図、太陽回帰、新月サイクルのレポートを、Webから申し込める導線を準備しています。",
-            "CorePayを使った軽い購入体験として設計しています。",
+            "CorePayを使って、Coreコミュニティでも試しやすいレポート購入導線として設計しています。",
             "このサイトでの購入導線は、まだ公開していません。"
           ]
         },
@@ -412,21 +440,41 @@ export const pages: Record<Lang, Record<PageKey, PageCopy>> = {
       title: "読み方と方針",
       eyebrow: "占星術の採用スタイル",
       description:
-        "Polar Bird Astrologyが何を読み、どこまで解釈し、何を事実確認の領域に残すかをまとめます。",
+        "Polar Bird Astrologyが採用している占星術スタイル、3つのレポートの役割、解釈の境界をまとめます。",
       blocks: [
         {
-          heading: "3つのレポート",
+          heading: "採用しているスタイル",
           body: [
-            "出生図は、基本構造、長く続く性質、反応のリズムを読みます。",
-            "太陽回帰は、その年の舞台、焦点が当たりやすいテーマ、既存の性質の使われ方を読みます。",
-            "新月サイクルは、新月から次の新月までのリズム、動きやすいテーマ、日々の選択に使える観察点を読みます。"
+            "Polar Bird Astrologyは、西洋占星術をベースに、心理占星術・人間性占星術寄りの読み方を採用しています。",
+            "標準の3レポートは、トロピカル方式とプラシーダスハウスを基準にし、ドラゴンヘッド／ドラゴンテイルはTrue Nodeで扱います。"
           ]
         },
         {
-          heading: "使い方",
+          heading: "出生図",
           body: [
-            "人の自己理解、日々の意思決定、行動計画に使えるように、抽象的な象徴を普通の言葉へ翻訳します。",
-            "事業やコミュニティを読む場合は、感情や関係性を、コミュニティの空気、参加、信頼、説明、運用の言葉へ置き換えます。"
+            "出生図は、基本構造、変わりにくい性質、反応のパターンを読みます。",
+            "その人や対象が長く持ち続けるリズムを見て、自己理解や判断の土台に使える言葉へ翻訳します。"
+          ]
+        },
+        {
+          heading: "太陽回帰",
+          body: [
+            "太陽回帰は、その年の舞台、焦点が当たりやすいテーマ、既存の性質の使われ方を読みます。",
+            "年単位の読みとして扱い、月ごと・日付ごとの細かなタイミングは新月サイクルなど別の時間層で確認します。"
+          ]
+        },
+        {
+          heading: "新月サイクル",
+          body: [
+            "新月サイクルは、新月から次の新月までのリズム、動きやすいテーマ、日々の選択に使える観察点を読みます。",
+            "その月に何を始め、何を整え、どの順番で扱うと動きやすいかを、現在のサイクルの言葉で整理します。"
+          ]
+        },
+        {
+          heading: "人と事業・コミュニティ",
+          body: [
+            "人を読むときは、感情、関係性、仕事、生活の場面へ翻訳します。",
+            "事業やコミュニティを読むときは、同じ象徴を、コミュニティの空気、参加、信頼、説明、運用の言葉へ置き換えます。"
           ]
         },
         {

@@ -19,9 +19,10 @@ type Props = {
   note?: FieldNote;
   readLabel: string;
   focusLabel: string;
+  periodLabel: string;
 };
 
-const { lang, report, note, readLabel, focusLabel } = Astro.props;
+const { lang, report, note, readLabel, focusLabel, periodLabel } = Astro.props;
 ---
 
 <article class:list={["report-type-card", note ? "is-available" : "is-empty"]} data-report={report.key}>
@@ -33,6 +34,12 @@ const { lang, report, note, readLabel, focusLabel } = Astro.props;
       <dt>{focusLabel}</dt>
       <dd>{report.focus}</dd>
     </div>
+    {note?.period && (
+      <div>
+        <dt>{periodLabel}</dt>
+        <dd>{note.period}</dd>
+      </div>
+    )}
   </dl>
   <div class="card-actions">
     {

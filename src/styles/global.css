@@ -253,13 +253,20 @@ img {
 
 .primary-nav a {
   align-items: center;
+  border-bottom: 2px solid transparent;
   display: inline-flex;
   gap: 0.32rem;
+  padding-bottom: 0.18rem;
 }
 
 .primary-nav a:hover,
 .language-nav a:hover,
 .footer-links a:hover {
+  color: var(--link-color);
+}
+
+.primary-nav a.active {
+  border-bottom-color: rgba(185, 155, 79, 0.72);
   color: var(--link-color);
 }
 
@@ -291,12 +298,9 @@ main {
 
 .hero {
   align-items: end;
-  background:
-    radial-gradient(circle at 50% 19%, rgba(255, 249, 216, 0.2), transparent 15rem),
-    linear-gradient(90deg, rgba(2, 12, 16, 0.72), rgba(3, 32, 38, 0.38) 48%, rgba(3, 32, 38, 0.12)),
-    linear-gradient(180deg, rgba(6, 47, 55, 0.04), rgba(2, 12, 16, 0.34)),
-    var(--image-aurora-cover);
-  background-position: center, center, center, center 18%;
+  background: var(--image-aurora-cover);
+  background-color: var(--pb-night-deep);
+  background-position: center 18%;
   background-size: cover;
   border: 1px solid rgba(143, 218, 211, 0.22);
   box-shadow: var(--shadow-aurora);
@@ -547,6 +551,15 @@ p {
   margin-top: 0.25rem;
 }
 
+.text-link {
+  color: var(--pb-teal);
+  font-weight: 700;
+  justify-self: start;
+  line-height: var(--leading-ui);
+  margin-top: 0.15rem;
+  text-decoration-thickness: 0.08em;
+}
+
 .field-note-card {
   display: grid;
   gap: 0.65rem;
@@ -558,6 +571,10 @@ p {
 
 .hero + .report-hub {
   margin-top: 3.25rem;
+}
+
+.sample-guide {
+  margin-top: 2rem;
 }
 
 .report-type-card {
