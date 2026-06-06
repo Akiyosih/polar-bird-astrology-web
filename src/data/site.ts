@@ -212,7 +212,7 @@ export const chartLegendGroups: Record<Lang, ChartLegendGroup[]> = {
 export const navItems: Record<Lang, NavItem[]> = {
   en: [
     { href: "core-field-notes", label: "Sample Reports" },
-    { href: "purchase", label: "Buy a Report", badge: "soon" },
+    { href: "purchase", label: "Report Purchase", badge: "soon" },
     { href: "reading-policy", label: "How We Read" },
     { href: "about", label: "Writer" }
   ],
@@ -235,28 +235,28 @@ export const reportTypes: Record<Lang, ReportTypeCopy[]> = {
     {
       key: "natal",
       label: "Natal report",
-      title: "Core's foundational pattern",
+      title: "Core Blockchain's\nBasic Structure",
       summary:
-        "A public-entity reading of Core's base chart: long-range structure, response rhythm, and the community foundation.",
-      focus: "Foundational pattern, response rhythm, community base",
+        "From Core Blockchain's natal chart, this report reads the long-lasting basic structure, response rhythm, and community foundation.",
+      focus: "Basic structure, response rhythm, foundation",
       emptyLabel: "Coming soon"
     },
     {
       key: "solar-return",
       label: "Solar return report",
-      title: "Core's 2026 theme",
+      title: "Core Blockchain's\n2026 Theme",
       summary:
-        "A yearly reading for the 2026 stage: where emphasis gathers and how Core's existing pattern comes forward this year.",
-      focus: "2026 theme, annual stage, emphasis",
+        "From the solar return chart, this report reads the themes most likely to draw focus in 2026 and how Core Blockchain's existing ecosystem patterns become visible that year.",
+      focus: "Annual theme, visible ecosystem pattern, focus",
       emptyLabel: "Coming soon"
     },
     {
       key: "new-moon",
       label: "New moon report",
-      title: "Core's new moon cycle",
+      title: "Core Blockchain's\nNew Moon Cycle",
       summary:
-        "A cycle reading for the published new-moon period: active themes, community atmosphere, and lunar rhythm to observe.",
-      focus: "Published cycle, lunar rhythm",
+        "From the new moon chart, this report reads the active themes in the published cycle, the community atmosphere, and the lunar rhythm to observe.",
+      focus: "Central theme, lunar rhythm, observation points",
       emptyLabel: "Coming soon"
     }
   ],
@@ -323,37 +323,37 @@ export const reportTypes: Record<Lang, ReportTypeCopy[]> = {
 export const uiCopy: Record<Lang, UiCopy> = {
   en: {
     heroPrimary: "Read sample reports",
-    heroSecondary: "See purchase preparation",
+    heroSecondary: "Purchase status",
     reportHubEyebrow: "Currently published",
-    reportHubTitle: "Three sample reports for Core",
+    reportHubTitle: "Three Views on Core Blockchain",
     reportHubDescription:
-      "Natal reads the foundational pattern, solar return reads the 2026 annual stage, and new moon reads the published cycle. Together they show how Polar Bird Astrology can read a public ecosystem.",
+      "The natal report reads Core Blockchain's basic structure. The solar return reads the annual stage for 2026. The new moon report reads the currently published cycle. Polar Bird Astrology publishes the set as an example of reading a business or community.",
     reportHubDescriptionParagraphs: [
-      "Natal reads the foundational pattern, solar return reads the 2026 annual stage, and new moon reads the published cycle.",
-      "Together they show how Polar Bird Astrology can read a public ecosystem."
+      "The natal report reads Core Blockchain's basic structure. The solar return reads the annual stage for 2026. The new moon report reads the currently published cycle.",
+      "Polar Bird Astrology publishes the set as an example of reading a business or community."
     ],
-    fieldNotesEyebrow: "Core as a public sample",
-    fieldNotesTitle: "Sample Reports: Core",
+    fieldNotesEyebrow: "Sample reports on Core Blockchain",
+    fieldNotesTitle: "Sample Reports",
     fieldNotesDescription:
-      "Core is published as a business and community sample: natal, solar return, and new-moon-cycle reports in one reading path.",
+      "A public ecosystem can also be read through a natal chart, solar return, and new moon cycle. The current library publishes three reports on Core Blockchain.",
     readNoteLabel: "Read",
     focusLabel: "Focus",
     periodLabel: "Period",
     chartLegendTitle: "Legend",
     tableOfContentsTitle: "Contents",
-    publicationBoundaryTitle: "Reading boundary",
+    publicationBoundaryTitle: "Reading Style and Boundary",
     publicationBoundaryText:
-      "The report body treats themes astrology can read. Product facts belong with public source information. Price and investment decisions are outside these reports.",
+      "The report body covers themes that can be read astrologically. For product facts, the report refers to public source information. Price and investment decisions are outside these reports.",
     publicationBoundaryParagraphs: [
-      "The report body treats themes astrology can read.",
-      "Product facts belong with public source information. Price and investment decisions are outside these reports."
+      "The report body covers themes that can be read astrologically.",
+      "For product facts, the report refers to public source information. Price and investment decisions are outside these reports."
     ],
     footerNotice:
       "Polar Bird Astrology publishes astrology reports that read natal charts, solar returns, and new moon cycles.",
     footerLinks: {
       sampleReports: "Sample Reports",
       readingPolicy: "How we read",
-      purchase: "Purchase preparation",
+      purchase: "Purchase status",
       about: "Writer"
     }
   },
@@ -434,29 +434,29 @@ export const uiCopy: Record<Lang, UiCopy> = {
 export const homeCopy: Record<Lang, PageCopy> = {
   en: {
     title: "Polar Bird Astrology",
-    eyebrow: "Astrology reports for rhythm, timing, and choice",
+    eyebrow: "Astrology reports that read charts for timing and choice",
     description:
-      "Polar Bird Astrology reads natal charts, solar returns, and new moon cycles for self-understanding, practical timing, and reflective planning. The current sample library follows Core as a public ecosystem.",
+      "Polar Bird Astrology combines natal charts, solar returns, and new moon cycles to read themes you can use for self-understanding, daily choices, and action planning. The current public samples read Core Blockchain.",
     descriptionParagraphs: [
-      "Polar Bird Astrology reads natal charts, solar returns, and new moon cycles for self-understanding, practical timing, and reflective planning.",
-      "The current sample library follows Core as a public ecosystem."
+      "Polar Bird Astrology combines natal charts, solar returns, and new moon cycles to read themes you can use for self-understanding, daily choices, and action planning.",
+      "The current public samples read Core Blockchain."
     ],
     blocks: [
       {
         heading: "Report types",
         body: [
-          "Natal reports read foundational patterns. Solar returns read the stage of the year. New moon reports read the rhythm from one new moon to the next.",
-          "The same structure can support personal self-understanding and business or community observation."
+          "Natal reports read basic structure. Solar returns read the stage of the year. New moon reports read the active themes in that cycle.",
+          "They are shaped for personal self-understanding and for observing the flow of a business or community."
         ],
-        link: { href: "reading-policy", label: "How we read" }
+        link: { href: "reading-policy", label: "See how we read" }
       },
       {
-        heading: "CorePay purchase path",
+        heading: "CorePay report purchases",
         body: [
-          "A report purchase path using CorePay is being prepared so Core community members can try the experience lightly.",
-          "For now, the Core sample reports are available to read publicly."
+          "Polar Bird Astrology is preparing report purchases through CorePay, designed to be easy for the Core Blockchain community to try.",
+          "For now, you can read the sample reports on Core Blockchain."
         ],
-        link: { href: "purchase", label: "See purchase preparation" }
+        link: { href: "purchase", label: "Purchase status" }
       }
     ]
   },
@@ -522,99 +522,128 @@ export const pages: Record<Lang, Record<PageKey, PageCopy>> = {
   en: {
     purchase: {
       title: "Report Purchase",
-      eyebrow: "CorePay flow in preparation",
+      eyebrow: "Purchases are being prepared",
       description:
-        "The purchase path for Polar Bird Astrology reports is being prepared.",
+        "Polar Bird Astrology is preparing online report purchases.",
       blocks: [
         {
-          heading: "What is being prepared",
+          heading: "CorePay report purchases",
           body: [
-            "The intended flow is a simple web purchase path for natal, solar-return, and new-moon-cycle reports.",
-            "CorePay is the payment-link layer planned for that experience.",
-            "Purchases through this site are not open yet."
+            "Polar Bird Astrology is preparing online purchase options for natal, solar return, and new moon cycle reports.",
+            "It is being designed around CorePay as an easy purchase experience for the Core Blockchain community.",
+            "As related Core Blockchain products are released, Polar Bird Astrology will expand the token options available for report purchases."
           ]
         },
         {
-          heading: "What you can read now",
+          heading: "Sample reports to read first",
           body: [
-            "The current public sample is the Core report set.",
-            "It shows how the same astrology structure can read a public ecosystem as well as a person."
+            "The current public samples read Core Blockchain.",
+            "They show how the same astrology structure can support personal self-understanding and observation of a business or community."
           ]
         }
       ],
-      links: [{ href: corePayUrl, label: "CorePay official site" }]
+      links: [
+        { href: corePayUrl, label: "CorePay website" },
+        { href: coreBlockchainUrl, label: "Core Blockchain website" }
+      ]
     },
     "reading-policy": {
       title: "How We Read",
-      eyebrow: "Reading style and boundary",
+      eyebrow: "Astrology style",
       description:
-        "How Polar Bird Astrology uses natal charts, solar returns, and new moon cycles, and where astrology stays separate from factual claims.",
+        "Polar Bird Astrology's astrology style, the role of the three report types, and the boundary of interpretation.",
       blocks: [
         {
-          heading: "Three report types",
+          heading: "Reading style",
           body: [
-            "Natal reports read foundational structure, recurring patterns, and the base rhythm of a person, business, or community.",
-            "Solar returns read the annual stage: the themes, focus, and way an existing pattern comes forward in that year.",
-            "New moon reports read the current cycle: active themes, rhythm, and observation points from one new moon to the next."
+            "Polar Bird Astrology is based on Western astrology and uses a reading style close to psychological and humanistic astrology.",
+            "The standard three reports use the tropical zodiac and Placidus houses. The North Node and South Node are read with True Node."
           ]
         },
         {
-          heading: "Use",
+          heading: "Natal chart",
           body: [
-            "The reports translate astrology into ordinary language for self-understanding, daily decisions, and reflective planning.",
-            "For a business or community, personal-language symbols are translated into public language: atmosphere, participation, trust, explanation, and operations."
+            "A natal chart reading covers basic structure, harder-to-change qualities, and response patterns.",
+            "It looks at the rhythm a person or subject carries over time and translates it into language that can support self-understanding and decisions."
           ]
         },
         {
-          heading: "Boundary",
+          heading: "Solar return",
           body: [
-            "When astrology can naturally speak, Polar Bird Astrology reads it directly and affirmatively.",
-            "Official information, product facts, prices, investment decisions, and guaranteed outcomes remain outside the report."
+            "A solar return reads the stage of the year, the themes most likely to draw focus, and the way existing qualities are used.",
+            "It is a year-level reading. Finer monthly or date-level timing belongs to another time layer, such as new moon cycles."
+          ]
+        },
+        {
+          heading: "New moon cycle",
+          body: [
+            "A new moon cycle reads the rhythm from one new moon to the next, active themes, and observation points for daily choices.",
+            "It helps organize what to start, what to adjust, and the order that makes the cycle easier to work with."
+          ]
+        },
+        {
+          heading: "People, businesses, and communities",
+          body: [
+            "When Polar Bird Astrology reads a person, it translates the chart into feelings, relationships, work, and everyday life.",
+            "When it reads a business or community, it translates the same symbols into community atmosphere, participation, trust, public explanation, and operations."
+          ]
+        },
+        {
+          heading: "Interpretive boundary",
+          body: [
+            "When the chart supports a direct reading, Polar Bird Astrology writes in clear, affirmative language instead of leaving the point as symbol or metaphor only.",
+            "Official information, product facts, prices, investment decisions, and guaranteed outcomes remain outside the astrology report.",
+            "The public repository shows the website implementation, published reports, and the reading policy used for this site."
           ]
         }
       ],
       links: [{ href: repoUrl, label: "Public repository" }]
     },
     about: {
-      title: "Writer",
-      eyebrow: "About the person behind Polar Bird Astrology",
+      title: "About the Writer",
+      eyebrow: "Writer of Polar Bird Astrology",
       description:
-        "Polar Bird Astrology is written by a Japanese astrologer who translates chart symbolism into clear language for decisions, planning, and self-understanding.",
+        "Polar Bird Astrology turns star rhythms into language for daily choices and action planning.",
       profileImage: {
         src: "/images/profile/writer-profile.jpg",
         alt: "Portrait of the Polar Bird Astrology writer"
       },
+      descriptionParagraphs: [
+        "Polar Bird Astrology turns star rhythms into language for daily choices and action planning.",
+        "It does not leave symbolism as vague metaphor. It shapes themes read from natal charts, solar returns, and new moon cycles into concrete, usable sentences."
+      ],
       blocks: [
         {
-          heading: "Reading stance",
+          heading: "Astrology stance",
           body: [
-            "I read natal charts, solar returns, and new moon cycles as layered time and meaning.",
-            "The aim is not to leave the chart as vague symbolism, but to turn it into language that can support daily choices, planning, and reflection."
+            "Looking at the night sky clears my mind.",
+            "I am drawn to the way coherent symbolism rises from the movement of the stars, in a way that is hard to dismiss as coincidence.",
+            "I do not treat astrology as fortune-telling alone. I aim for concrete, clear readings that can support self-understanding, daily decisions, and action planning."
           ]
         },
         {
-          heading: "Background",
+          heading: "Writer",
           body: [
             "I am Japanese and graduated from the University of Tokyo.",
-            "I live in an old house in the mountains, close to open sky and seasonal change.",
-            "Looking up at the night sky still feels cleansing to me. Astrology became compelling because the symbolism often forms a coherence that is hard to dismiss as mere coincidence."
+            "I live in an old house in the mountains, close to seasonal change and the night sky.",
+            "Whether the subject is a person, business, or community, I read the chart naturally and put it into language the reader can use."
           ]
         },
         {
-          heading: "Personal notes",
+          heading: "Life and interests",
           body: [
             "I live with a cockatiel and cats.",
-            "I enjoy cigars, whisky, and the kind of outdoor life that led me to obtain a hunting license.",
-            "Those details are not the center of Polar Bird Astrology, but they are part of the person writing these reports."
+            "I am interested in cigars, whisky, and mountain life, and I hold a hunting license.",
+            "These personal backgrounds connect to a reading style that values nature, time, body awareness, and quiet observation."
           ]
         },
         {
           heading: "Public work",
           body: [
-            "Core Cats is another public creative project connected to the Core community.",
-            "Polar Bird Astrology is separate from Core Cats, but both come from the same wish to contribute something readable, useful, and enjoyable to the community."
+            "Core Cats is another public creative project for the Core Blockchain community.",
+            "The same stance carries through: making something readable, enjoyable, and easy for the community to talk about."
           ],
-          link: { href: coreCatsUrl, label: "Open Core Cats" }
+          link: { href: coreCatsUrl, label: "See Core Cats" }
         }
       ]
     }

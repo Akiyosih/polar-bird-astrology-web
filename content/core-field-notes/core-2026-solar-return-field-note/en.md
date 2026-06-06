@@ -2,10 +2,10 @@
 locale: en
 slug: core-2026-solar-return-field-note
 reportType: solar-return
-title: Core 2026 Solar Return Field Note
-eyebrow: Public community note
-status: Public note
-summary: A symbolic reading of Core's 2026 yearly theme for community reflection, without product or price claims.
+title: Core Blockchain Solar Return Report 2026
+eyebrow: Solar return report
+status: Report available
+summary: A report reading Core Blockchain's 2026 theme through public role, explanation quality, community atmosphere, and a foundation of trust.
 ---
 
 # Core 2026 Solar Return Field Note

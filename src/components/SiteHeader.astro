@@ -15,7 +15,7 @@ const brandSubtitle =
     ? "星まわりを読む占星術レポート"
     : lang === "de"
       ? "Astrologische Reports"
-      : "Astrology reports";
+      : "Astrology reports for timing and choice";
 const isActiveNavItem = (href: string) => {
   const targetPath = localizedPath(lang, href).replace(/\/$/, "") || "/";
   return currentPath === targetPath || currentPath.startsWith(`${targetPath}/`);
