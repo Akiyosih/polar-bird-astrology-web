@@ -33,6 +33,7 @@
   --accent-aurora: var(--pb-aurora);
 
   --image-aurora-cover: url("/images/watercolor/pdf-cover-background-1600.webp");
+  --image-dark-aurora-cover: url("/images/watercolor/dark-aurora-background-1600.webp");
   --image-paper-wash: url("/images/watercolor/pdf-body-background.jpeg");
   --image-field-wash: url("/images/watercolor/polar-field-wash.png");
   --image-section-ornament: url("/images/watercolor/section-ornament.png");
@@ -176,19 +177,22 @@ body {
 
 :root[data-theme="dark"] body {
   background:
-    radial-gradient(circle at 74% 0%, rgba(58, 135, 134, 0.18), transparent 28rem),
-    linear-gradient(180deg, rgba(3, 14, 18, 0.97), rgba(6, 25, 30, 0.94)),
-    var(--image-paper-wash),
+    radial-gradient(circle at 82% -8%, rgba(119, 228, 223, 0.2), transparent 34rem),
+    radial-gradient(circle at 10% 18%, rgba(216, 194, 120, 0.08), transparent 22rem),
+    linear-gradient(180deg, rgba(2, 10, 14, 0.78), rgba(5, 20, 25, 0.88)),
+    var(--image-dark-aurora-cover),
     var(--surface-page);
-  background-attachment: fixed, fixed, fixed, scroll;
-  background-position: center top, center top, center top;
+  background-attachment: fixed, fixed, fixed, fixed, scroll;
+  background-position: center top, center top, center top, center 42%;
   background-size: cover;
 }
 
 :root[data-theme="dark"] .site-header {
   background:
-    linear-gradient(180deg, rgba(11, 30, 34, 0.94), rgba(6, 22, 27, 0.84)),
-    var(--image-paper-wash);
+    linear-gradient(180deg, rgba(11, 30, 34, 0.94), rgba(6, 22, 27, 0.86)),
+    var(--image-dark-aurora-cover);
+  background-position: center 18%;
+  background-size: cover;
   border-bottom-color: rgba(196, 233, 226, 0.12);
 }
 
@@ -215,6 +219,12 @@ body {
 
 :root[data-theme="dark"] .hero,
 :root[data-theme="dark"] .report-cover {
+  background:
+    linear-gradient(90deg, rgba(0, 8, 12, 0.5), rgba(7, 31, 35, 0.18)),
+    linear-gradient(180deg, rgba(2, 10, 14, 0.16), rgba(2, 10, 14, 0.42)),
+    var(--image-dark-aurora-cover);
+  background-position: center, center, center 42%;
+  background-size: cover;
   border-color: rgba(143, 218, 211, 0.3);
 }
 
@@ -232,9 +242,11 @@ body {
 :root[data-theme="dark"] .report-toc,
 :root[data-theme="dark"] .language-choice {
   background:
-    linear-gradient(180deg, rgba(16, 39, 43, 0.95), rgba(8, 25, 30, 0.9)),
-    var(--image-paper-wash);
-  border-color: rgba(216, 194, 120, 0.32);
+    linear-gradient(180deg, rgba(16, 39, 43, 0.93), rgba(8, 25, 30, 0.91)),
+    var(--image-dark-aurora-cover);
+  background-position: center 36%;
+  background-size: cover;
+  border-color: rgba(216, 194, 120, 0.34);
   box-shadow: var(--shadow-paper);
 }
 
@@ -267,7 +279,11 @@ body {
   --report-accent-soft: rgba(220, 195, 109, 0.18);
   --report-accent-wash: rgba(220, 195, 109, 0.12);
   --report-accent-glow: rgba(220, 195, 109, 0.28);
-  background: linear-gradient(180deg, #1d383b, #102a2f);
+  background:
+    linear-gradient(180deg, rgba(29, 56, 59, 0.94), rgba(16, 42, 47, 0.96)),
+    var(--image-dark-aurora-cover);
+  background-position: center 48%;
+  background-size: cover;
   border-color: rgba(220, 195, 109, 0.46);
   border-left-color: var(--report-accent);
   color: var(--text-primary);
@@ -306,8 +322,10 @@ body {
   background:
     radial-gradient(circle at 86% 12%, var(--report-accent-wash), transparent 10rem),
     linear-gradient(180deg, rgba(237, 248, 243, 0.09), rgba(237, 248, 243, 0) 34%),
-    linear-gradient(180deg, rgba(33, 59, 62, 0.96), rgba(13, 33, 38, 0.98)),
-    var(--image-paper-wash);
+    linear-gradient(180deg, rgba(33, 59, 62, 0.9), rgba(13, 33, 38, 0.96)),
+    var(--image-dark-aurora-cover);
+  background-position: center 40%;
+  background-size: cover;
   background-blend-mode: normal, normal, normal, soft-light;
   opacity: 1;
 }
@@ -350,11 +368,19 @@ body {
 }
 
 :root[data-theme="dark"] .chart-panel {
-  background: linear-gradient(180deg, rgba(9, 27, 31, 0.96), rgba(12, 32, 36, 0.92));
+  background:
+    linear-gradient(180deg, rgba(9, 27, 31, 0.96), rgba(12, 32, 36, 0.94)),
+    var(--image-dark-aurora-cover);
+  background-position: center 42%;
+  background-size: cover;
 }
 
 :root[data-theme="dark"] .report-body {
-  background: linear-gradient(180deg, #10262a, #0b2024);
+  background:
+    linear-gradient(180deg, rgba(16, 38, 42, 0.98), rgba(11, 32, 36, 0.99)),
+    var(--image-dark-aurora-cover);
+  background-position: center 62%;
+  background-size: cover;
 }
 
 :root[data-theme="dark"] .report-body .section-mark {
@@ -379,9 +405,10 @@ body {
 :root[data-theme="dark"] .root-choice {
   background:
     radial-gradient(circle at 50% 18%, rgba(216, 194, 120, 0.14), transparent 18rem),
-    linear-gradient(90deg, rgba(0, 8, 12, 0.82), rgba(6, 31, 38, 0.52)),
-    var(--image-aurora-cover);
-  background-position: center, center, center 18%;
+    radial-gradient(circle at 72% 18%, rgba(119, 228, 223, 0.18), transparent 22rem),
+    linear-gradient(90deg, rgba(0, 8, 12, 0.78), rgba(6, 31, 38, 0.42)),
+    var(--image-dark-aurora-cover);
+  background-position: center, center, center, center 42%;
   background-size: cover;
 }
 
@@ -1709,6 +1736,7 @@ p {
 @media (max-width: 880px) {
   :root {
     --image-aurora-cover: url("/images/watercolor/pdf-cover-background-900.webp");
+    --image-dark-aurora-cover: url("/images/watercolor/dark-aurora-background-900.webp");
   }
 
   .site-header {
