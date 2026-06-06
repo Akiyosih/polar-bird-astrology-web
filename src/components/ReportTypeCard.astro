@@ -24,12 +24,16 @@ type Props = {
 
 const { lang, report, note, readLabel, focusLabel, periodLabel } = Astro.props;
 const noteHref = note ? localizedPath(lang, `core-field-notes/${note.slug}`) : undefined;
+const titleLines = report.title.split("\n");
+const accessibleTitle = report.title.replace(/\s+/g, " ");
 ---
 
 <article class:list={["report-type-card", note ? "is-available" : "is-empty"]} data-report={report.key}>
-  {noteHref && <a class="card-hit-link" href={noteHref} aria-label={`${report.title} ${readLabel}`}></a>}
+  {noteHref && <a class="card-hit-link" href={noteHref} aria-label={`${accessibleTitle} ${readLabel}`}></a>}
   <p class="eyebrow">{report.label}</p>
-  <h2>{report.title}</h2>
+  <h2>
+    {titleLines.map((line) => <span class="report-title-line">{line}</span>)}
+  </h2>
   <p>{report.summary}</p>
   <dl class="report-meta">
     <div>

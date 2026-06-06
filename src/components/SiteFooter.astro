@@ -1,6 +1,6 @@
 ---
 import { localizedPath, type Lang } from "../lib/i18n";
-import { corePayUrl, repoUrl, uiCopy } from "../data/site";
+import { uiCopy } from "../data/site";
 
 type Props = {
   lang: Lang;
@@ -13,10 +13,9 @@ const copy = uiCopy[lang];
 <footer class="site-footer">
   <p>{copy.footerNotice}</p>
   <div class="footer-links">
-    <a href={localizedPath(lang, "reading-policy")}>{copy.footerLinks.readingPolicy}</a>
+    <a href={localizedPath(lang, "core-field-notes")}>{copy.footerLinks.sampleReports}</a>
     <a href={localizedPath(lang, "purchase")}>{copy.footerLinks.purchase}</a>
+    <a href={localizedPath(lang, "reading-policy")}>{copy.footerLinks.readingPolicy}</a>
     <a href={localizedPath(lang, "about")}>{copy.footerLinks.about}</a>
-    <a href={repoUrl}>{copy.footerLinks.github}</a>
-    <a href={corePayUrl}>{copy.footerLinks.corepay}</a>
   </div>
 </footer>

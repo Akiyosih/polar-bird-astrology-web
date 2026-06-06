@@ -2,14 +2,14 @@
 locale: ja
 slug: core-2026-solar-return-field-note
 reportType: solar-return
-title: Core 太陽回帰レポート 2026
+title: Core Blockchain 太陽回帰レポート 2026
 eyebrow: 太陽回帰レポート
 status: PDFあり
 period: 2026.05.06 - 2027.05.07
-summary: Coreの2026年のテーマを、表に出る役割、説明の質、コミュニティの空気、信頼の土台から読むレポートです。
+summary: Core Blockchainの2026年のテーマを、表に出る役割、説明の質、コミュニティの空気、信頼の土台から読むレポートです。
 pdfUrl: /reports/core/core-2026-solar-return-report-20260605.pdf
 chartImage: /reports/core/charts/core-solar-return-chart-20260605.png
-chartAlt: Coreの2026年太陽回帰ホロスコープ図
+chartAlt: Core Blockchainの2026年太陽回帰ホロスコープ図
 coverImage: /images/watercolor/pdf-cover-background.png
 ---
 # Core 太陽回帰レポート

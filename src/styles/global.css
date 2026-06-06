@@ -751,7 +751,11 @@ p {
 
 .report-type-card h2 {
   text-wrap: balance;
-  word-break: keep-all;
+  word-break: normal;
+}
+
+.report-title-line {
+  display: block;
 }
 
 .report-type-card > p:not(.eyebrow) {

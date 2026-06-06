@@ -53,11 +53,10 @@ type UiCopy = {
   publicationBoundaryParagraphs?: string[];
   footerNotice: string;
   footerLinks: {
+    sampleReports: string;
     readingPolicy: string;
     purchase: string;
     about: string;
-    github: string;
-    corepay: string;
   };
 };
 
@@ -84,6 +83,7 @@ type ReportTypeCopy = {
 export const repoUrl = "https://github.com/Akiyosih/polar-bird-astrology-web";
 export const corePayUrl = "https://corepay.money/";
 export const coreCatsUrl = "https://core-cats.pages.dev/";
+const coreBlockchainJa = "Core Blockchain";
 
 export const chartLegendGroups: Record<Lang, ChartLegendGroup[]> = {
   en: [
@@ -263,25 +263,25 @@ export const reportTypes: Record<Lang, ReportTypeCopy[]> = {
     {
       key: "natal",
       label: "出生図レポート",
-      title: "Coreの基本構造",
+      title: `${coreBlockchainJa}の\n基本構造`,
       summary:
-        "Coreの出生図から、長く続く基本構造、反応のリズム、コミュニティの土台を読みます。",
+        `${coreBlockchainJa}の出生図から、長く続く基本構造、反応のリズム、コミュニティの土台を読みます。`,
       focus: "基本構造、反応のリズム、土台",
       emptyLabel: "準備中"
     },
     {
       key: "solar-return",
       label: "太陽回帰レポート",
-      title: "Coreの2026年のテーマ",
+      title: `${coreBlockchainJa}の\n2026年のテーマ`,
       summary:
-        "太陽回帰図から、2026年に焦点が当たりやすいテーマと、Coreの性質がその年にどう表へ出るかを読みます。",
+        `太陽回帰図から、2026年に焦点が当たりやすいテーマと、${coreBlockchainJa}の性質がその年にどう表へ出るかを読みます。`,
       focus: "年間テーマ、表に出る役割、焦点",
       emptyLabel: "準備中"
     },
     {
       key: "new-moon",
       label: "新月レポート",
-      title: "Coreの新月サイクル",
+      title: `${coreBlockchainJa}の\n新月サイクル`,
       summary:
         "新月図から、公開中のサイクルで動きやすいテーマ、コミュニティの空気、観察したい月相リズムを読みます。",
       focus: "中心テーマ、月相リズム、観察点",
@@ -350,28 +350,27 @@ export const uiCopy: Record<Lang, UiCopy> = {
     footerNotice:
       "Polar Bird Astrology publishes astrology reports that read natal charts, solar returns, and new moon cycles.",
     footerLinks: {
+      sampleReports: "Sample Reports",
       readingPolicy: "How we read",
       purchase: "Purchase preparation",
-      about: "Writer",
-      github: "GitHub",
-      corepay: "CorePay"
+      about: "Writer"
     }
   },
   ja: {
     heroPrimary: "サンプルレポートを読む",
     heroSecondary: "購入準備を見る",
     reportHubEyebrow: "現在公開中",
-    reportHubTitle: "Coreを読む3つのサンプル",
+    reportHubTitle: "Core Blockchainを読み解く3つの視点",
     reportHubDescription:
-      "出生図はCoreの基本構造、太陽回帰は2026年の舞台、新月は公開中のサイクルを読みます。事業やコミュニティを読むレポート例として公開しています。",
+      "出生図はCore Blockchainの基本構造、太陽回帰は2026年の舞台、新月は公開中のサイクルを読みます。事業やコミュニティを読むレポート例として公開しています。",
     reportHubDescriptionParagraphs: [
-      "出生図はCoreの基本構造、太陽回帰は2026年の舞台、新月は公開中のサイクルを読みます。",
+      "出生図はCore Blockchainの基本構造、太陽回帰は2026年の舞台、新月は公開中のサイクルを読みます。",
       "事業やコミュニティを読むレポート例として公開しています。"
     ],
-    fieldNotesEyebrow: "Coreを題材にしたレポート例",
-    fieldNotesTitle: "サンプルレポート（Core）",
+    fieldNotesEyebrow: "Core Blockchainを題材にしたレポート例",
+    fieldNotesTitle: "サンプルレポート",
     fieldNotesDescription:
-      "人ではない公開エコシステムも、出生図、太陽回帰、新月サイクルで読めます。現在はCoreの3レポートを公開しています。",
+      "人ではない公開エコシステムも、出生図、太陽回帰、新月サイクルで読めます。現在はCore Blockchainの3レポートを公開しています。",
     readNoteLabel: "読む",
     focusLabel: "焦点",
     periodLabel: "対象期間",
@@ -387,11 +386,10 @@ export const uiCopy: Record<Lang, UiCopy> = {
     footerNotice:
       "Polar Bird Astrologyは、出生図・太陽回帰・新月サイクルを読む占星術レポートを公開しています。",
     footerLinks: {
+      sampleReports: "サンプルレポート",
       readingPolicy: "読み方と方針",
       purchase: "レポート購入",
-      about: "書き手",
-      github: "GitHub",
-      corepay: "CorePay"
+      about: "書き手"
     }
   },
   de: {
@@ -424,11 +422,10 @@ export const uiCopy: Record<Lang, UiCopy> = {
     footerNotice:
       "Polar Bird Astrology veroeffentlicht astrologische Reports zu Radix, Solar Return und Neumond-Zyklen.",
     footerLinks: {
+      sampleReports: "Beispielreports",
       readingPolicy: "Leseweise",
       purchase: "Kaufvorbereitung",
-      about: "Autor",
-      github: "GitHub",
-      corepay: "CorePay"
+      about: "Autor"
     }
   }
 };
@@ -466,10 +463,10 @@ export const homeCopy: Record<Lang, PageCopy> = {
     title: "Polar Bird Astrology",
     eyebrow: "星まわりを読む占星術レポート",
     description:
-      "出生図、太陽回帰、新月サイクルを組み合わせて、自己理解、日々の選択、行動計画に使えるテーマを読みます。現在はCoreのサンプルレポートを公開しています。",
+      "出生図、太陽回帰、新月サイクルを組み合わせて、自己理解、日々の選択、行動計画に使えるテーマを読みます。現在はCore Blockchainのサンプルレポートを公開しています。",
     descriptionParagraphs: [
       "出生図、太陽回帰、新月サイクルを組み合わせて、自己理解、日々の選択、行動計画に使えるテーマを読みます。",
-      "現在はCoreのサンプルレポートを公開しています。"
+      "現在はCore Blockchainのサンプルレポートを公開しています。"
     ],
     blocks: [
       {
@@ -483,8 +480,8 @@ export const homeCopy: Record<Lang, PageCopy> = {
       {
         heading: "CorePayでの購入導線",
         body: [
-          "CorePayを使って、Coreコミュニティでも試しやすいレポート購入導線を準備しています。",
-          "今はCoreを題材にしたサンプルレポートを読めます。"
+          "CorePayを使って、Core Blockchainコミュニティでも試しやすいレポート購入導線を準備しています。",
+          "今はCore Blockchainを題材にしたサンプルレポートを読めます。"
         ],
         link: { href: "purchase", label: "購入準備を見る" }
       }
@@ -632,14 +629,14 @@ export const pages: Record<Lang, Record<PageKey, PageCopy>> = {
           heading: "準備していること",
           body: [
             "出生図、太陽回帰、新月サイクルのレポートを、Webから申し込める導線を準備しています。",
-            "CorePayを使って、Coreコミュニティでも試しやすいレポート購入導線として設計しています。",
+            "CorePayを使って、Core Blockchainコミュニティでも試しやすいレポート購入導線として設計しています。",
             "このサイトでの購入導線は、まだ公開していません。"
           ]
         },
         {
           heading: "今読めるもの",
           body: [
-            "現在はCoreを題材にしたサンプルレポートを公開しています。",
+            "現在はCore Blockchainを題材にしたサンプルレポートを公開しています。",
             "同じ占星術の構造で、人の自己理解にも、事業やコミュニティの流れの観察にも使えることを示すためのサンプルです。"
           ]
         }
@@ -739,7 +736,7 @@ export const pages: Record<Lang, Record<PageKey, PageCopy>> = {
         {
           heading: "公開している制作物",
           body: [
-            "Core Catsは、Coreコミュニティに向けて公開している別の制作物です。",
+            "Core Catsは、Core Blockchainコミュニティに向けて公開している別の制作物です。",
             "コミュニティに読みやすく、楽しめて、話題にできるものを届けたいという姿勢は共通しています。"
           ],
           link: { href: coreCatsUrl, label: "Core Catsを見る" }
