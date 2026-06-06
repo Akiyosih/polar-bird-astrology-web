@@ -1,4 +1,5 @@
 ---
+import ThemeInit from "../components/ThemeInit.astro";
 import { languageLabels, languages, localizedPath } from "../lib/i18n";
 import "../styles/global.css";
 ---
@@ -9,8 +10,10 @@ import "../styles/global.css";
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content="Polar Bird Astrology publishes astrology reports for timing and choice." />
+    <meta name="color-scheme" content="light dark" />
     <link rel="icon" href="/favicon.png" type="image/png" />
     <link rel="apple-touch-icon" href="/images/brand/polar-bird-icon-180.png" />
+    <ThemeInit />
     <title>Polar Bird Astrology</title>
   </head>
   <body class="root-choice">

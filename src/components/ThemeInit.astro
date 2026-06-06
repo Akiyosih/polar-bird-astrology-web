@@ -1,0 +1,17 @@
+<script is:inline>
+  (() => {
+    const storageKey = "polarbird-theme";
+    const root = document.documentElement;
+    const media = window.matchMedia("(prefers-color-scheme: dark)");
+    const isTheme = (value) => value === "light" || value === "dark";
+
+    let storedTheme = null;
+    try {
+      storedTheme = localStorage.getItem(storageKey);
+    } catch {
+      storedTheme = null;
+    }
+
+    root.dataset.theme = isTheme(storedTheme) ? storedTheme : media.matches ? "dark" : "light";
+  })();
+</script>

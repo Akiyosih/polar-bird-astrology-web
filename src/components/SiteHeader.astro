@@ -16,6 +16,12 @@ const brandSubtitle =
     : lang === "de"
       ? "Astrologische Reports"
       : "Astrology reports for timing and choice";
+const themeToggleLabel =
+  lang === "ja" ? "表示テーマを切り替える" : lang === "de" ? "Darstellung umschalten" : "Toggle color theme";
+const lightThemeLabel =
+  lang === "ja" ? "昼モードに切り替える" : lang === "de" ? "Zum hellen Modus wechseln" : "Switch to light mode";
+const darkThemeLabel =
+  lang === "ja" ? "ダークモードに切り替える" : lang === "de" ? "Zum dunklen Modus wechseln" : "Switch to dark mode";
 const isActiveNavItem = (href: string) => {
   const targetPath = localizedPath(lang, href).replace(/\/$/, "") || "/";
   return currentPath === targetPath || currentPath.startsWith(`${targetPath}/`);
@@ -47,11 +53,104 @@ const isActiveNavItem = (href: string) => {
       );
     })}
   </nav>
-  <nav class="language-nav" aria-label="Language">
-    {languages.map((code) => (
-      <a class:list={{ active: code === lang }} href={languagePaths?.[code] || localizedPath(code, suffix)}>
-        {languageLabels[code]}
-      </a>
-    ))}
-  </nav>
+  <div class="header-tools">
+    <nav class="language-nav" aria-label="Language">
+      {languages.map((code) => (
+        <a class:list={{ active: code === lang }} href={languagePaths?.[code] || localizedPath(code, suffix)}>
+          {languageLabels[code]}
+        </a>
+      ))}
+    </nav>
+    <button
+      class="theme-toggle"
+      type="button"
+      aria-label={themeToggleLabel}
+      aria-pressed="false"
+      data-theme-toggle
+      data-light-label={lightThemeLabel}
+      data-dark-label={darkThemeLabel}
+      title={themeToggleLabel}
+    >
+      <svg class="theme-icon theme-icon-sun" aria-hidden="true" viewBox="0 0 24 24">
+        <circle cx="12" cy="12" r="4.1"></circle>
+        <path d="M12 2.6v2.2M12 19.2v2.2M4.7 4.7l1.6 1.6M17.7 17.7l1.6 1.6M2.6 12h2.2M19.2 12h2.2M4.7 19.3l1.6-1.6M17.7 6.3l1.6-1.6"></path>
+      </svg>
+      <svg class="theme-icon theme-icon-moon" aria-hidden="true" viewBox="0 0 24 24">
+        <path d="M19.7 14.4A7.7 7.7 0 0 1 9.6 4.3a8.5 8.5 0 1 0 10.1 10.1Z"></path>
+      </svg>
+      <span class="sr-only theme-label">{themeToggleLabel}</span>
+    </button>
+  </div>
 </header>
+
+<script is:inline>
+  (() => {
+    const storageKey = "polarbird-theme";
+    const root = document.documentElement;
+    const media = window.matchMedia("(prefers-color-scheme: dark)");
+    const buttons = document.querySelectorAll("[data-theme-toggle]");
+    const isTheme = (value) => value === "light" || value === "dark";
+
+    const readStoredTheme = () => {
+      try {
+        return localStorage.getItem(storageKey);
+      } catch {
+        return null;
+      }
+    };
+
+    const writeStoredTheme = (theme) => {
+      try {
+        localStorage.setItem(storageKey, theme);
+      } catch {
+        // Theme choice still works for this page view when storage is unavailable.
+      }
+    };
+
+    const preferredTheme = () => {
+      const storedTheme = readStoredTheme();
+      return isTheme(storedTheme) ? storedTheme : media.matches ? "dark" : "light";
+    };
+
+    const syncButtons = (theme) => {
+      buttons.forEach((button) => {
+        const nextLabel = theme === "dark" ? button.dataset.lightLabel : button.dataset.darkLabel;
+        button.dataset.themeValue = theme;
+        button.setAttribute("aria-pressed", String(theme === "dark"));
+        if (nextLabel) {
+          button.setAttribute("aria-label", nextLabel);
+          button.setAttribute("title", nextLabel);
+          const label = button.querySelector(".theme-label");
+          if (label) {
+            label.textContent = nextLabel;
+          }
+        }
+      });
+    };
+
+    const applyTheme = (theme, persist = false) => {
+      root.dataset.theme = theme;
+      syncButtons(theme);
+      if (persist) {
+        writeStoredTheme(theme);
+      }
+    };
+
+    applyTheme(preferredTheme());
+
+    buttons.forEach((button) => {
+      button.addEventListener("click", () => {
+        const nextTheme = root.dataset.theme === "dark" ? "light" : "dark";
+        applyTheme(nextTheme, true);
+      });
+    });
+
+    const syncSystemTheme = () => {
+      if (!isTheme(readStoredTheme())) {
+        applyTheme(media.matches ? "dark" : "light");
+      }
+    };
+
+    media.addEventListener("change", syncSystemTheme);
+  })();
+</script>

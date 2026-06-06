@@ -1,6 +1,7 @@
 ---
 import SiteFooter from "../components/SiteFooter.astro";
 import SiteHeader from "../components/SiteHeader.astro";
+import ThemeInit from "../components/ThemeInit.astro";
 import "../styles/global.css";
 import type { Lang } from "../lib/i18n";
 
@@ -25,9 +26,11 @@ const pageDescription =
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content={pageDescription} />
+    <meta name="color-scheme" content="light dark" />
     {robots && <meta name="robots" content={robots} />}
     <link rel="icon" href="/favicon.png" type="image/png" />
     <link rel="apple-touch-icon" href="/images/brand/polar-bird-icon-180.png" />
+    <ThemeInit />
     <title>{pageTitle}</title>
   </head>
   <body>
