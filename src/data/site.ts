@@ -1,6 +1,6 @@
 import type { Lang } from "../lib/i18n";
 
-export type PageKey = "purchase" | "reading-policy";
+export type PageKey = "purchase" | "reading-policy" | "about";
 export type ReportTypeKey = "natal" | "solar-return" | "new-moon";
 
 type TextBlock = {
@@ -51,6 +51,7 @@ type UiCopy = {
   footerLinks: {
     readingPolicy: string;
     purchase: string;
+    about: string;
     github: string;
     corepay: string;
   };
@@ -60,6 +61,11 @@ type ChartLegendItem = {
   key: string;
   glyph: string;
   label: string;
+};
+
+type ChartLegendGroup = {
+  key: string;
+  items: ChartLegendItem[];
 };
 
 type ReportTypeCopy = {
@@ -73,67 +79,128 @@ type ReportTypeCopy = {
 
 export const repoUrl = "https://github.com/Akiyosih/polar-bird-astrology-web";
 export const corePayUrl = "https://corepay.money/";
+export const coreCatsUrl = "https://core-cats.pages.dev/";
 
-export const chartLegendItems: Record<Lang, ChartLegendItem[]> = {
+export const chartLegendGroups: Record<Lang, ChartLegendGroup[]> = {
   en: [
-    { key: "sun", glyph: "☉", label: "Sun" },
-    { key: "moon", glyph: "☽", label: "Moon" },
-    { key: "mercury", glyph: "☿", label: "Mercury" },
-    { key: "venus", glyph: "♀", label: "Venus" },
-    { key: "mars", glyph: "♂", label: "Mars" },
-    { key: "jupiter", glyph: "♃", label: "Jupiter" },
-    { key: "saturn", glyph: "♄", label: "Saturn" },
-    { key: "uranus", glyph: "♅", label: "Uranus" },
-    { key: "neptune", glyph: "♆", label: "Neptune" },
-    { key: "pluto", glyph: "♇", label: "Pluto" },
-    { key: "fortune", glyph: "⊗", label: "Part of Fortune" },
-    { key: "north-node", glyph: "☊", label: "North Node" },
-    { key: "south-node", glyph: "☋", label: "South Node" },
-    { key: "chiron", glyph: "⚷", label: "Chiron" },
-    { key: "asc", glyph: "Asc", label: "Ascendant" },
-    { key: "mc", glyph: "MC", label: "MC" },
-    { key: "dsc", glyph: "Dsc", label: "Descendant" },
-    { key: "ic", glyph: "IC", label: "IC" }
+    {
+      key: "personal-planets",
+      items: [
+        { key: "sun", glyph: "☉", label: "Sun" },
+        { key: "moon", glyph: "☽", label: "Moon" },
+        { key: "mercury", glyph: "☿", label: "Mercury" },
+        { key: "venus", glyph: "♀", label: "Venus" },
+        { key: "mars", glyph: "♂", label: "Mars" }
+      ]
+    },
+    {
+      key: "social-outer-planets",
+      items: [
+        { key: "jupiter", glyph: "♃", label: "Jupiter" },
+        { key: "saturn", glyph: "♄", label: "Saturn" },
+        { key: "uranus", glyph: "♅", label: "Uranus" },
+        { key: "neptune", glyph: "♆", label: "Neptune" },
+        { key: "pluto", glyph: "♇", label: "Pluto" }
+      ]
+    },
+    {
+      key: "points",
+      items: [
+        { key: "fortune", glyph: "⊗", label: "Part of Fortune" },
+        { key: "north-node", glyph: "☊", label: "North Node" },
+        { key: "south-node", glyph: "☋", label: "South Node" },
+        { key: "chiron", glyph: "⚷", label: "Chiron" }
+      ]
+    },
+    {
+      key: "angles",
+      items: [
+        { key: "asc", glyph: "Asc", label: "Ascendant" },
+        { key: "mc", glyph: "MC", label: "MC" },
+        { key: "dsc", glyph: "Dsc", label: "Descendant" },
+        { key: "ic", glyph: "IC", label: "IC" }
+      ]
+    }
   ],
   ja: [
-    { key: "sun", glyph: "☉", label: "太陽" },
-    { key: "moon", glyph: "☽", label: "月" },
-    { key: "mercury", glyph: "☿", label: "水星" },
-    { key: "venus", glyph: "♀", label: "金星" },
-    { key: "mars", glyph: "♂", label: "火星" },
-    { key: "jupiter", glyph: "♃", label: "木星" },
-    { key: "saturn", glyph: "♄", label: "土星" },
-    { key: "uranus", glyph: "♅", label: "天王星" },
-    { key: "neptune", glyph: "♆", label: "海王星" },
-    { key: "pluto", glyph: "♇", label: "冥王星" },
-    { key: "fortune", glyph: "⊗", label: "パートオブフォーチュン" },
-    { key: "north-node", glyph: "☊", label: "ドラゴンヘッド" },
-    { key: "south-node", glyph: "☋", label: "ドラゴンテイル" },
-    { key: "chiron", glyph: "⚷", label: "キロン" },
-    { key: "asc", glyph: "Asc", label: "アセンダント" },
-    { key: "mc", glyph: "MC", label: "MC（ミッドヘブン）" },
-    { key: "dsc", glyph: "Dsc", label: "ディセンダント" },
-    { key: "ic", glyph: "IC", label: "IC（イムム・コエリ）" }
+    {
+      key: "personal-planets",
+      items: [
+        { key: "sun", glyph: "☉", label: "太陽" },
+        { key: "moon", glyph: "☽", label: "月" },
+        { key: "mercury", glyph: "☿", label: "水星" },
+        { key: "venus", glyph: "♀", label: "金星" },
+        { key: "mars", glyph: "♂", label: "火星" }
+      ]
+    },
+    {
+      key: "social-outer-planets",
+      items: [
+        { key: "jupiter", glyph: "♃", label: "木星" },
+        { key: "saturn", glyph: "♄", label: "土星" },
+        { key: "uranus", glyph: "♅", label: "天王星" },
+        { key: "neptune", glyph: "♆", label: "海王星" },
+        { key: "pluto", glyph: "♇", label: "冥王星" }
+      ]
+    },
+    {
+      key: "points",
+      items: [
+        { key: "fortune", glyph: "⊗", label: "パートオブフォーチュン" },
+        { key: "north-node", glyph: "☊", label: "ドラゴンヘッド" },
+        { key: "south-node", glyph: "☋", label: "ドラゴンテイル" },
+        { key: "chiron", glyph: "⚷", label: "キロン" }
+      ]
+    },
+    {
+      key: "angles",
+      items: [
+        { key: "asc", glyph: "Asc", label: "アセンダント" },
+        { key: "mc", glyph: "MC", label: "MC（ミッドヘブン）" },
+        { key: "dsc", glyph: "Dsc", label: "ディセンダント" },
+        { key: "ic", glyph: "IC", label: "IC（イムム・コエリ）" }
+      ]
+    }
   ],
   de: [
-    { key: "sun", glyph: "☉", label: "Sonne" },
-    { key: "moon", glyph: "☽", label: "Mond" },
-    { key: "mercury", glyph: "☿", label: "Merkur" },
-    { key: "venus", glyph: "♀", label: "Venus" },
-    { key: "mars", glyph: "♂", label: "Mars" },
-    { key: "jupiter", glyph: "♃", label: "Jupiter" },
-    { key: "saturn", glyph: "♄", label: "Saturn" },
-    { key: "uranus", glyph: "♅", label: "Uranus" },
-    { key: "neptune", glyph: "♆", label: "Neptun" },
-    { key: "pluto", glyph: "♇", label: "Pluto" },
-    { key: "fortune", glyph: "⊗", label: "Glueckspunkt" },
-    { key: "north-node", glyph: "☊", label: "Aufsteigender Mondknoten" },
-    { key: "south-node", glyph: "☋", label: "Absteigender Mondknoten" },
-    { key: "chiron", glyph: "⚷", label: "Chiron" },
-    { key: "asc", glyph: "Asc", label: "Aszendent" },
-    { key: "mc", glyph: "MC", label: "MC" },
-    { key: "dsc", glyph: "Dsc", label: "Deszendent" },
-    { key: "ic", glyph: "IC", label: "IC" }
+    {
+      key: "personal-planets",
+      items: [
+        { key: "sun", glyph: "☉", label: "Sonne" },
+        { key: "moon", glyph: "☽", label: "Mond" },
+        { key: "mercury", glyph: "☿", label: "Merkur" },
+        { key: "venus", glyph: "♀", label: "Venus" },
+        { key: "mars", glyph: "♂", label: "Mars" }
+      ]
+    },
+    {
+      key: "social-outer-planets",
+      items: [
+        { key: "jupiter", glyph: "♃", label: "Jupiter" },
+        { key: "saturn", glyph: "♄", label: "Saturn" },
+        { key: "uranus", glyph: "♅", label: "Uranus" },
+        { key: "neptune", glyph: "♆", label: "Neptun" },
+        { key: "pluto", glyph: "♇", label: "Pluto" }
+      ]
+    },
+    {
+      key: "points",
+      items: [
+        { key: "fortune", glyph: "⊗", label: "Glueckspunkt" },
+        { key: "north-node", glyph: "☊", label: "Aufsteigender Mondknoten" },
+        { key: "south-node", glyph: "☋", label: "Absteigender Mondknoten" },
+        { key: "chiron", glyph: "⚷", label: "Chiron" }
+      ]
+    },
+    {
+      key: "angles",
+      items: [
+        { key: "asc", glyph: "Asc", label: "Aszendent" },
+        { key: "mc", glyph: "MC", label: "MC" },
+        { key: "dsc", glyph: "Dsc", label: "Deszendent" },
+        { key: "ic", glyph: "IC", label: "IC" }
+      ]
+    }
   ]
 };
 
@@ -141,17 +208,20 @@ export const navItems: Record<Lang, NavItem[]> = {
   en: [
     { href: "core-field-notes", label: "Sample Reports" },
     { href: "purchase", label: "Buy a Report", badge: "soon" },
-    { href: "reading-policy", label: "How We Read" }
+    { href: "reading-policy", label: "How We Read" },
+    { href: "about", label: "Writer" }
   ],
   ja: [
     { href: "core-field-notes", label: "サンプルレポート" },
     { href: "purchase", label: "レポート購入", badge: "soon" },
-    { href: "reading-policy", label: "読み方と方針" }
+    { href: "reading-policy", label: "読み方と方針" },
+    { href: "about", label: "書き手" }
   ],
   de: [
     { href: "core-field-notes", label: "Beispielreports" },
     { href: "purchase", label: "Report kaufen", badge: "soon" },
-    { href: "reading-policy", label: "Leseweise" }
+    { href: "reading-policy", label: "Leseweise" },
+    { href: "about", label: "Autor" }
   ]
 };
 
@@ -278,6 +348,7 @@ export const uiCopy: Record<Lang, UiCopy> = {
     footerLinks: {
       readingPolicy: "How we read",
       purchase: "Purchase preparation",
+      about: "Writer",
       github: "GitHub",
       corepay: "CorePay"
     }
@@ -314,6 +385,7 @@ export const uiCopy: Record<Lang, UiCopy> = {
     footerLinks: {
       readingPolicy: "読み方と方針",
       purchase: "レポート購入",
+      about: "書き手",
       github: "GitHub",
       corepay: "CorePay"
     }
@@ -350,6 +422,7 @@ export const uiCopy: Record<Lang, UiCopy> = {
     footerLinks: {
       readingPolicy: "Leseweise",
       purchase: "Kaufvorbereitung",
+      about: "Autor",
       github: "GitHub",
       corepay: "CorePay"
     }
@@ -499,6 +572,45 @@ export const pages: Record<Lang, Record<PageKey, PageCopy>> = {
         }
       ],
       links: [{ href: repoUrl, label: "Public repository" }]
+    },
+    about: {
+      title: "Writer",
+      eyebrow: "About the person behind Polar Bird Astrology",
+      description:
+        "Polar Bird Astrology is written by a Japanese astrologer who translates chart symbolism into clear language for decisions, planning, and self-understanding.",
+      blocks: [
+        {
+          heading: "Reading stance",
+          body: [
+            "I read natal charts, solar returns, and new moon cycles as layered time and meaning.",
+            "The aim is not to leave the chart as vague symbolism, but to turn it into language that can support daily choices, planning, and reflection."
+          ]
+        },
+        {
+          heading: "Background",
+          body: [
+            "I am Japanese and graduated from the University of Tokyo.",
+            "I live in an old house in the mountains, close to open sky and seasonal change.",
+            "Looking up at the night sky still feels cleansing to me. Astrology became compelling because the symbolism often forms a coherence that is hard to dismiss as mere coincidence."
+          ]
+        },
+        {
+          heading: "Personal notes",
+          body: [
+            "I live with a cockatiel and cats.",
+            "I enjoy cigars, whisky, and the kind of outdoor life that led me to obtain a hunting license.",
+            "Those details are not the center of Polar Bird Astrology, but they are part of the person writing these reports."
+          ]
+        },
+        {
+          heading: "Public work",
+          body: [
+            "Core Cats is another public creative project connected to the Core community.",
+            "Polar Bird Astrology is separate from Core Cats, but both come from the same wish to contribute something readable, useful, and enjoyable to the community."
+          ],
+          link: { href: coreCatsUrl, label: "Open Core Cats" }
+        }
+      ]
     }
   },
   ja: {
@@ -577,6 +689,50 @@ export const pages: Record<Lang, Record<PageKey, PageCopy>> = {
         }
       ],
       links: [{ href: repoUrl, label: "公開リポジトリ" }]
+    },
+    about: {
+      title: "書き手について",
+      eyebrow: "Polar Bird Astrologyの書き手",
+      description:
+        "Polar Bird Astrologyは、星まわりを日々の選択や行動計画に使える言葉へ翻訳する占星術レポートです。",
+      descriptionParagraphs: [
+        "Polar Bird Astrologyは、星まわりを日々の選択や行動計画に使える言葉へ翻訳する占星術レポートです。",
+        "象徴を曖昧な比喩だけで終わらせず、出生図、太陽回帰、新月サイクルから読み取れるテーマを、具体的で扱いやすい文章に整えています。"
+      ],
+      blocks: [
+        {
+          heading: "占星術への姿勢",
+          body: [
+            "星空を見上げると、心が洗われる感覚があります。",
+            "その星まわりから、偶然では片づけにくい整合的な象意が立ち上がるところに惹かれています。",
+            "ただの占いとしてではなく、自己理解、日々の意思決定、行動計画に使える読みとして、具体的で分かりやすい鑑定を心がけています。"
+          ]
+        },
+        {
+          heading: "書き手",
+          body: [
+            "日本人です。東京大学を卒業しました。",
+            "山の古民家で暮らし、季節の変化や夜空を近くに感じながら、占星術レポートを書いています。",
+            "読む対象が人であっても、事業やコミュニティであっても、星まわりから自然に読めるところは弱めず、読み手が扱える言葉へ落とし込みます。"
+          ]
+        },
+        {
+          heading: "暮らしと趣味",
+          body: [
+            "オカメインコと猫と暮らしています。",
+            "葉巻、ウイスキー、山での暮らしに関心があり、狩猟免許も持っています。",
+            "こうした個人的な背景はレポートの中心ではありませんが、自然、時間、身体感覚、静かな観察を大切にする読み方にはつながっています。"
+          ]
+        },
+        {
+          heading: "公開している制作物",
+          body: [
+            "Core Catsは、Coreコミュニティに向けて公開している別の制作物です。",
+            "Polar Bird Astrologyとは別の表現ですが、コミュニティに読みやすく、楽しめて、話題にできるものを届けたいという姿勢は共通しています。"
+          ],
+          link: { href: coreCatsUrl, label: "Core Catsを見る" }
+        }
+      ]
     }
   },
   de: {
@@ -634,6 +790,44 @@ export const pages: Record<Lang, Record<PageKey, PageCopy>> = {
         }
       ],
       links: [{ href: repoUrl, label: "Public repository" }]
+    },
+    about: {
+      title: "Autor",
+      eyebrow: "Ueber Polar Bird Astrology",
+      description:
+        "Polar Bird Astrology wird von einem japanischen Autor geschrieben, der astrologische Symbolik in klare Sprache fuer Entscheidungen, Planung und Selbstverstaendnis uebersetzt.",
+      blocks: [
+        {
+          heading: "Lesehaltung",
+          body: [
+            "Ich lese Radix, Solar Return und Neumond-Zyklen als Schichten von Zeit, Rhythmus und Bedeutung.",
+            "Das Ziel ist nicht vage Symbolik, sondern eine Sprache, die Entscheidungen, Planung und Reflexion unterstuetzen kann."
+          ]
+        },
+        {
+          heading: "Hintergrund",
+          body: [
+            "Ich bin Japaner und habe an der University of Tokyo studiert.",
+            "Ich lebe in einem alten Haus in den Bergen und schreibe die Reports nahe an Himmel, Jahreszeiten und stiller Beobachtung."
+          ]
+        },
+        {
+          heading: "Persoenliches",
+          body: [
+            "Ich lebe mit einem Nymphensittich und Katzen.",
+            "Zu meinen Interessen gehoeren Zigarren, Whisky und ein naturnahes Leben; ich besitze auch eine Jagdlizenz.",
+            "Diese Details stehen nicht im Zentrum der Reports, aber sie gehoeren zu der Person, die sie schreibt."
+          ]
+        },
+        {
+          heading: "Oeffentliche Arbeit",
+          body: [
+            "Core Cats ist ein weiteres oeffentliches Kreativprojekt fuer die Core-Community.",
+            "Es ist von Polar Bird Astrology getrennt, teilt aber denselben Wunsch, der Community etwas Lesbares und Angenehmes zu geben."
+          ],
+          link: { href: coreCatsUrl, label: "Core Cats oeffnen" }
+        }
+      ]
     }
   }
 };

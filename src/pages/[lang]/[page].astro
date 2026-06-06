@@ -3,10 +3,10 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
 import { pages, type PageKey } from "../../data/site";
 import { isLang, languages, localizedPath } from "../../lib/i18n";
 
-const pageKeys = ["purchase", "reading-policy"] satisfies PageKey[];
+const pageKeys = ["purchase", "reading-policy", "about"] satisfies PageKey[];
 
 export function getStaticPaths() {
-  const staticPageKeys = ["purchase", "reading-policy"] satisfies PageKey[];
+  const staticPageKeys = ["purchase", "reading-policy", "about"] satisfies PageKey[];
   return languages.flatMap((lang) => staticPageKeys.map((page) => ({ params: { lang, page } })));
 }
 

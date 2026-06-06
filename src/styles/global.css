@@ -270,6 +270,11 @@ img {
   gap: 0.32rem;
 }
 
+.primary-nav a + a {
+  border-left: 1px solid rgba(185, 155, 79, 0.24);
+  padding-left: 0.9rem;
+}
+
 .primary-nav a:hover,
 .language-nav a:hover,
 .footer-links a:hover {
@@ -998,10 +1003,15 @@ p {
   line-height: var(--leading-ui);
 }
 
+.chart-legend-groups {
+  display: grid;
+  gap: 0.65rem 1rem;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
 .chart-legend ul {
   display: grid;
-  gap: 0.55rem 1rem;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.55rem;
   list-style: none;
   margin: 0;
   padding: 0;
@@ -1024,6 +1034,14 @@ p {
   font-weight: 800;
   justify-self: center;
   line-height: 1;
+}
+
+.chart-legend li[data-point="asc"] .legend-glyph,
+.chart-legend li[data-point="mc"] .legend-glyph,
+.chart-legend li[data-point="dsc"] .legend-glyph,
+.chart-legend li[data-point="ic"] .legend-glyph {
+  font-size: 0.92rem;
+  font-weight: 700;
 }
 
 .chart-legend li[data-point="sun"] .legend-glyph {
@@ -1452,7 +1470,7 @@ p {
     padding: 0.55rem;
   }
 
-  .chart-legend ul {
+  .chart-legend-groups {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
