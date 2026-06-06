@@ -372,7 +372,7 @@ body {
 }
 
 :root[data-theme="dark"] .report-body strong {
-  box-shadow: inset 0 -0.34em rgba(216, 194, 120, 0.18);
+  box-shadow: inset 0 -0.42em rgba(216, 194, 120, 0.3);
   color: var(--pb-aurora);
 }
 
