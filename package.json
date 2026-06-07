@@ -9,7 +9,7 @@
     "build": "astro build",
     "preview": "astro preview",
     "scan:public-boundary": "node scripts/scan-public-boundary.mjs",
-    "test": "node tests/publicContentBoundary.test.mjs && node tests/publicClaims.test.mjs"
+    "test": "node tests/publicContentBoundary.test.mjs && node tests/publicClaims.test.mjs && node tests/importCoreReportSet.test.mjs"
   },
   "dependencies": {
     "astro": "6.4.2"

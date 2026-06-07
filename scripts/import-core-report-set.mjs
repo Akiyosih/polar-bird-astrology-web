@@ -50,7 +50,7 @@ const reports = {
 function usage() {
   return [
     "Usage:",
-    "  node scripts/import-core-report-set.mjs --source-dir <dir> [--reports natal,solar-return,new-moon] [--keep-old-assets]",
+    "  node scripts/import-core-report-set.mjs --source-dir <dir> [--reports natal,solar-return,new-moon] [--asset-version auto|none|<token>] [--keep-old-assets]",
     "",
     "The source directory must contain the selected Core reading Markdown files, matching PDFs,",
     "light chart wheel PNGs retained by the PDF rendering pipeline,",
@@ -62,7 +62,8 @@ function parseArgs(argv) {
   const options = {
     sourceDir: "",
     reports: Object.keys(reports),
-    pruneOldAssets: true
+    pruneOldAssets: true,
+    assetVersion: "auto"
   };
 
   for (let index = 0; index < argv.length; index += 1) {
@@ -71,6 +72,10 @@ function parseArgs(argv) {
       options.sourceDir = argv[++index] || "";
     } else if (arg === "--reports") {
       options.reports = (argv[++index] || "").split(",").map((value) => value.trim()).filter(Boolean);
+    } else if (arg === "--asset-version") {
+      options.assetVersion = argv[++index] || "";
+    } else if (arg === "--no-asset-version") {
+      options.assetVersion = "none";
     } else if (arg === "--keep-old-assets") {
       options.pruneOldAssets = false;
     } else if (arg === "--help" || arg === "-h") {
@@ -90,6 +95,9 @@ function parseArgs(argv) {
       throw new Error(`Unsupported report key: ${key}`);
     }
   }
+  if (!isValidAssetVersion(options.assetVersion)) {
+    throw new Error(`Invalid --asset-version: ${options.assetVersion}. Use auto, none, or a token containing letters, digits, dot, underscore, or hyphen.`);
+  }
 
   return options;
 }
@@ -103,6 +111,18 @@ function assertInside(baseDir, target) {
   if (relative.startsWith("..") || path.isAbsolute(relative)) {
     throw new Error(`Refusing to write outside repository: ${target}`);
   }
+}
+
+function isValidAssetVersion(value) {
+  return value === "auto" || value === "none" || /^[A-Za-z0-9._-]+$/.test(value);
+}
+
+function withAssetVersion(publicPath, stamp, assetVersion) {
+  if (assetVersion === "none") {
+    return publicPath;
+  }
+  const version = assetVersion === "auto" ? stamp : assetVersion;
+  return `${publicPath}?v=${encodeURIComponent(version)}`;
 }
 
 async function walkFiles(dir) {
@@ -249,11 +269,11 @@ function stripLeadingJapanesePeriodLine(markdown) {
   );
 }
 
-function buildPublicMarkdown(existing, sourceBody, config, publicPdf, publicChart, publicChartDark) {
+function buildPublicMarkdown(existing, sourceBody, config, publicPdf, publicChartUrl, publicChartDarkUrl) {
   const { lines, data } = parseFrontmatter(existing);
   updateFrontmatterValue(lines, "pdfUrl", `/reports/core/${publicPdf}`);
-  updateFrontmatterValue(lines, "chartImage", `/reports/core/charts/${publicChart}`);
-  updateFrontmatterValue(lines, "chartImageDark", `/reports/core/charts/${publicChartDark}`);
+  updateFrontmatterValue(lines, "chartImage", publicChartUrl);
+  updateFrontmatterValue(lines, "chartImageDark", publicChartDarkUrl);
 
   let publicBody = sourceBody;
   if (config === reports["new-moon"]) {
@@ -291,7 +311,7 @@ async function pruneMatching(dir, pattern, keepName) {
   }
 }
 
-async function importReport(key, sourceDir, pruneOldAssets) {
+async function importReport(key, sourceDir, pruneOldAssets, assetVersion) {
   const config = reports[key];
   const source = await findLatestMarkdown(sourceDir, config);
   const date = source.stamp.slice(0, 8);
@@ -325,7 +345,9 @@ async function importReport(key, sourceDir, pruneOldAssets) {
 
   const existing = await readFile(contentTarget, "utf8");
   const sourceBody = stripFrontmatter(await readFile(source.fullPath, "utf8"));
-  const publicMarkdown = buildPublicMarkdown(existing, sourceBody, config, publicPdf, publicChart, publicChartDark);
+  const publicChartUrl = withAssetVersion(`/reports/core/charts/${publicChart}`, source.stamp, assetVersion);
+  const publicChartDarkUrl = withAssetVersion(`/reports/core/charts/${publicChartDark}`, source.stamp, assetVersion);
+  const publicMarkdown = buildPublicMarkdown(existing, sourceBody, config, publicPdf, publicChartUrl, publicChartDarkUrl);
   await writeFile(contentTarget, publicMarkdown, "utf8");
 
   if (pruneOldAssets) {
@@ -340,7 +362,10 @@ async function importReport(key, sourceDir, pruneOldAssets) {
     markdown: path.relative(root, contentTarget),
     pdf: path.relative(root, pdfTarget),
     chart: path.relative(root, chartTarget),
-    chartDark: path.relative(root, chartDarkTarget)
+    chartDark: path.relative(root, chartDarkTarget),
+    chartUrl: publicChartUrl,
+    chartDarkUrl: publicChartDarkUrl,
+    assetVersion
   };
 }
 
@@ -353,7 +378,7 @@ async function main() {
 
   const imported = [];
   for (const key of options.reports) {
-    imported.push(await importReport(key, sourceDir, options.pruneOldAssets));
+    imported.push(await importReport(key, sourceDir, options.pruneOldAssets, options.assetVersion));
   }
 
   console.log(JSON.stringify({ imported }, null, 2));

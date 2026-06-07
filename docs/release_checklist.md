@@ -21,8 +21,8 @@ Use this before a public launch or meaningful public content update.
 
 ## Core Report Updates
 
-- [ ] The source report set contains the latest selected Markdown, matching PDF, and retained chart wheel PNG for each report being updated.
-- [ ] Run `node scripts/import-core-report-set.mjs --source-dir <source-report-dir>` for a full Core set update, or add `--reports new-moon` for a monthly new-moon-only update.
+- [ ] The source report set contains the latest selected Markdown, matching PDF, and matching light/dark chart wheel PNGs for each report being updated.
+- [ ] Prefer the private workflow wrapper that stages matching light/dark chart assets from the same ChartData before import. If importing a prepared set directly, run `node scripts/import-core-report-set.mjs --source-dir <source-report-dir>` for a full Core set update, or add `--reports new-moon` for a monthly new-moon-only update.
 - [ ] Confirm the import summary points to the intended Markdown, PDF, and chart assets.
 - [ ] Confirm old same-type Core PDF/chart assets were removed unless `--keep-old-assets` was intentionally used.
 

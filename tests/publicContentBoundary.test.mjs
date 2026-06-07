@@ -84,6 +84,38 @@ function findWebpPrivacyMetadata(buffer) {
   return blocks;
 }
 
+function parseFrontmatter(markdown, slug) {
+  const match = markdown.match(/^---\r?\n([\s\S]*?)\r?\n---(?:\r?\n|$)/);
+  if (!match) {
+    throw new Error(`Field Note is missing frontmatter: ${slug}`);
+  }
+
+  const frontmatter = new Map();
+  for (const line of match[1].split(/\r?\n/)) {
+    const entry = line.match(/^([A-Za-z0-9_-]+):\s*(.*)$/);
+    if (!entry) {
+      continue;
+    }
+    const [, key, value] = entry;
+    if (frontmatter.has(key)) {
+      throw new Error(`Field Note has duplicate frontmatter key ${key}: ${slug}`);
+    }
+    frontmatter.set(key, value.trim());
+  }
+  return frontmatter;
+}
+
+function assertPublicAssetExists(publicUrl, slug, key) {
+  const cleanPath = publicUrl.split("?")[0];
+  if (!cleanPath.startsWith("/")) {
+    throw new Error(`Field Note ${slug} has non-root ${key}: ${publicUrl}`);
+  }
+  const assetPath = join(root, "public", cleanPath.slice(1));
+  if (!existsSync(assetPath)) {
+    throw new Error(`Field Note ${slug} points ${key} to a missing asset: ${publicUrl}`);
+  }
+}
+
 const headers = await readFile(join(root, "public/_headers"), "utf8");
 for (const assetPath of profileImagePaths) {
   const assetUrlPath = assetPath.replace(/^public/, "");
@@ -116,17 +148,28 @@ for (const [slug, reportType] of expectedJapaneseReports) {
   }
 
   const markdown = await readFile(join(noteDir, "ja.md"), "utf8");
-  if (!markdown.includes(`reportType: ${reportType}`)) {
+  const frontmatter = parseFrontmatter(markdown, slug);
+  if (frontmatter.get("reportType") !== reportType) {
     throw new Error(`Japanese Field Note has wrong reportType: ${slug}`);
   }
 
-  if (!markdown.includes("pdfUrl: /reports/core/")) {
+  const pdfUrl = frontmatter.get("pdfUrl") || "";
+  if (!pdfUrl.startsWith("/reports/core/")) {
     throw new Error(`Japanese Field Note is missing PDF download URL: ${slug}`);
   }
+  assertPublicAssetExists(pdfUrl, slug, "pdfUrl");
 
-  if (!markdown.includes("chartImage: /reports/core/charts/")) {
+  const chartImage = frontmatter.get("chartImage") || "";
+  if (!chartImage.startsWith("/reports/core/charts/")) {
     throw new Error(`Japanese Field Note is missing chart image URL: ${slug}`);
   }
+  assertPublicAssetExists(chartImage, slug, "chartImage");
+
+  const chartImageDark = frontmatter.get("chartImageDark") || "";
+  if (!chartImageDark.startsWith("/reports/core/charts/")) {
+    throw new Error(`Japanese Field Note is missing dark chart image URL: ${slug}`);
+  }
+  assertPublicAssetExists(chartImageDark, slug, "chartImageDark");
 
   const sectionCount = markdown.match(/^## /gm)?.length || 0;
   if (sectionCount < 3) {
