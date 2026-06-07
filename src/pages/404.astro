@@ -1,0 +1,26 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+---
+
+<BaseLayout
+  lang="en"
+  title="Page not found"
+  description="This Polar Bird Astrology page does not exist."
+  robots="noindex"
+>
+  <section class="page-heading">
+    <p class="eyebrow">404</p>
+    <h1>Page not found</h1>
+    <p>The page you requested does not exist on Polar Bird Astrology.</p>
+  </section>
+  <section class="article-flow">
+    <article>
+      <h2>Continue from the current site</h2>
+      <p>Use the current sample reports page or return to the language entrance.</p>
+      <nav class="page-links" aria-label="Current pages">
+        <a class="button secondary" href="/en/sample-reports">Sample Reports</a>
+        <a class="button secondary" href="/">Language entrance</a>
+      </nav>
+    </article>
+  </section>
+</BaseLayout>

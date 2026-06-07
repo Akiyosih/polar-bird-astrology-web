@@ -8,6 +8,9 @@ const requiredDocs = [
   "docs/publication_policy.md",
   "docs/release_checklist.md"
 ];
+const requiredStaticPages = [
+  "src/pages/404.astro"
+];
 const profileImagePaths = [
   "public/images/profile/writer-profile.jpg",
   "public/images/profile/writer-profile-dark.webp"
@@ -16,6 +19,12 @@ const profileImagePaths = [
 for (const file of requiredDocs) {
   if (!existsSync(join(root, file))) {
     throw new Error(`Missing required public-boundary doc: ${file}`);
+  }
+}
+
+for (const file of requiredStaticPages) {
+  if (!existsSync(join(root, file))) {
+    throw new Error(`Missing required static page: ${file}`);
   }
 }
 
