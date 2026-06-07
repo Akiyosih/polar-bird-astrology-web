@@ -33,6 +33,7 @@
   --accent-aurora: var(--pb-aurora);
 
   --image-aurora-cover: url("/images/watercolor/pdf-cover-background-1600.webp");
+  --image-light-watercolor-rich: url("/images/watercolor/light-watercolor-rich.webp");
   --image-dark-aurora-cover: url("/images/watercolor/dark-aurora-background-1600.webp");
   --image-paper-wash: url("/images/watercolor/pdf-body-background.jpeg");
   --image-field-wash: url("/images/watercolor/polar-field-wash.png");
@@ -167,11 +168,14 @@ html {
 body {
   margin: 0;
   background:
-    linear-gradient(180deg, rgba(238, 248, 246, 0.92), rgba(251, 247, 238, 0.86)),
+    radial-gradient(circle at 10% 8%, rgba(143, 218, 211, 0.28), transparent 24rem),
+    radial-gradient(circle at 88% 4%, rgba(255, 254, 251, 0.72), transparent 22rem),
+    linear-gradient(180deg, rgba(248, 254, 252, 0.72), rgba(251, 247, 238, 0.82)),
+    var(--image-light-watercolor-rich),
     var(--image-paper-wash),
     var(--surface-page);
-  background-attachment: fixed, fixed, scroll;
-  background-position: center top, center top;
+  background-attachment: fixed, fixed, fixed, fixed, fixed;
+  background-position: center top, center top, center top, center 38%, center top;
   background-size: cover;
 }
 
@@ -182,7 +186,7 @@ body {
     linear-gradient(180deg, rgba(2, 10, 14, 0.78), rgba(5, 20, 25, 0.88)),
     var(--image-dark-aurora-cover),
     var(--surface-page);
-  background-attachment: fixed, fixed, fixed, fixed, scroll;
+  background-attachment: fixed, fixed, fixed, fixed;
   background-position: center top, center top, center top, center 42%;
   background-size: cover;
 }
@@ -191,7 +195,7 @@ body {
   background:
     linear-gradient(180deg, rgba(11, 30, 34, 0.94), rgba(6, 22, 27, 0.86)),
     var(--image-dark-aurora-cover);
-  background-position: center 18%;
+  background-position: center top, center 18%;
   background-size: cover;
   border-bottom-color: rgba(196, 233, 226, 0.12);
 }
@@ -472,9 +476,10 @@ img {
 .site-header {
   align-items: center;
   background:
-    linear-gradient(180deg, rgba(251, 247, 238, 0.8), rgba(238, 248, 246, 0.62)),
+    linear-gradient(180deg, rgba(251, 247, 238, 0.78), rgba(238, 248, 246, 0.66)),
+    var(--image-light-watercolor-rich),
     var(--image-paper-wash);
-  background-position: center top;
+  background-position: center top, center 34%, center top;
   background-size: cover;
   border-bottom: var(--line-hair);
   display: grid;
@@ -704,9 +709,10 @@ main {
 
 .hero-copy {
   background:
-    linear-gradient(180deg, rgba(251, 247, 238, 0.94), rgba(238, 248, 246, 0.86)),
+    linear-gradient(180deg, rgba(255, 254, 251, 0.9), rgba(238, 248, 246, 0.78)),
+    var(--image-light-watercolor-rich),
     var(--image-paper-wash);
-  background-position: center top;
+  background-position: center top, center 38%, center top;
   background-size: cover;
   border-left: var(--line-accent);
   box-shadow: 0 16px 44px rgba(3, 32, 38, 0.18);
@@ -846,9 +852,10 @@ p {
 
 .boundary-box {
   background:
-    linear-gradient(180deg, rgba(251, 247, 238, 0.92), rgba(238, 248, 246, 0.72)),
+    linear-gradient(180deg, rgba(255, 254, 251, 0.86), rgba(238, 248, 246, 0.66)),
+    var(--image-light-watercolor-rich),
     var(--image-paper-wash);
-  background-position: center;
+  background-position: center top, center 48%, center;
   background-size: cover;
   border: var(--line-paper);
   border-left: var(--line-accent);
@@ -885,9 +892,10 @@ p {
 .report-type-card,
 .article-flow article {
   background:
-    linear-gradient(180deg, rgba(251, 247, 238, 0.9), rgba(251, 247, 238, 0.78)),
+    linear-gradient(180deg, rgba(255, 254, 251, 0.82), rgba(238, 248, 246, 0.64)),
+    var(--image-light-watercolor-rich),
     var(--image-paper-wash);
-  background-position: center;
+  background-position: center top, center 46%, center;
   background-size: cover;
   border: var(--line-paper);
   box-shadow: var(--shadow-paper);
@@ -1056,9 +1064,11 @@ p {
 
 .report-type-card::before {
   background:
-    linear-gradient(180deg, rgba(251, 247, 238, 0.02), rgba(251, 247, 238, 0.72)),
+    radial-gradient(circle at 84% 10%, rgba(143, 218, 211, 0.16), transparent 9rem),
+    linear-gradient(180deg, rgba(255, 254, 251, 0.06), rgba(251, 247, 238, 0.66)),
+    var(--image-light-watercolor-rich),
     var(--image-paper-wash);
-  background-position: center top;
+  background-position: center top, center top, center 46%, center top;
   background-size: cover;
   content: "";
   inset: 0;
@@ -1306,8 +1316,9 @@ p {
 .chart-panel {
   align-items: center;
   background:
-    linear-gradient(180deg, rgba(255, 254, 251, 0.96), rgba(245, 251, 249, 0.92));
-  background-position: center top;
+    linear-gradient(180deg, rgba(255, 254, 251, 0.94), rgba(245, 251, 249, 0.88)),
+    var(--image-light-watercolor-rich);
+  background-position: center top, center 48%;
   background-size: cover;
   border: var(--line-paper);
   box-shadow: var(--shadow-paper);
@@ -1343,9 +1354,10 @@ p {
 
 .chart-legend {
   background:
-    linear-gradient(180deg, rgba(255, 254, 251, 0.92), rgba(238, 248, 246, 0.78)),
+    linear-gradient(180deg, rgba(255, 254, 251, 0.88), rgba(238, 248, 246, 0.72)),
+    var(--image-light-watercolor-rich),
     var(--image-paper-wash);
-  background-position: center top;
+  background-position: center top, center 48%, center top;
   background-size: cover;
   border: var(--line-paper);
   display: grid;
@@ -1358,9 +1370,10 @@ p {
 
 .report-toc {
   background:
-    linear-gradient(180deg, rgba(255, 254, 251, 0.95), rgba(238, 248, 246, 0.78)),
+    linear-gradient(180deg, rgba(255, 254, 251, 0.9), rgba(238, 248, 246, 0.72)),
+    var(--image-light-watercolor-rich),
     var(--image-paper-wash);
-  background-position: center top;
+  background-position: center top, center 48%, center top;
   background-size: cover;
   border: var(--line-paper);
   box-shadow: var(--shadow-paper);
@@ -1538,7 +1551,11 @@ p {
 }
 
 .report-body {
-  background: var(--surface-reading);
+  background:
+    linear-gradient(180deg, rgba(255, 254, 251, 0.96), rgba(255, 254, 251, 0.94)),
+    var(--image-light-watercolor-rich);
+  background-position: center top, center 58%;
+  background-size: cover;
   border: var(--line-paper);
   box-shadow: var(--shadow-paper);
   justify-self: center;
@@ -1689,9 +1706,10 @@ p {
 .language-choice {
   align-items: center;
   background:
-    linear-gradient(180deg, rgba(251, 247, 238, 0.92), rgba(238, 248, 246, 0.82)),
+    linear-gradient(180deg, rgba(255, 254, 251, 0.88), rgba(238, 248, 246, 0.76)),
+    var(--image-light-watercolor-rich),
     var(--image-paper-wash);
-  background-position: center top;
+  background-position: center top, center 42%, center top;
   background-size: cover;
   border: var(--line-paper);
   border-left: var(--line-accent);
@@ -1736,6 +1754,7 @@ p {
 @media (max-width: 880px) {
   :root {
     --image-aurora-cover: url("/images/watercolor/pdf-cover-background-900.webp");
+    --image-light-watercolor-rich: url("/images/watercolor/light-watercolor-rich-900.webp");
     --image-dark-aurora-cover: url("/images/watercolor/dark-aurora-background-900.webp");
   }
 
