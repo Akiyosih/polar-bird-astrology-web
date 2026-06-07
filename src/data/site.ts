@@ -432,22 +432,22 @@ export const sampleSubjects: Record<Lang, SampleSubjectCopy[]> = {
     {
       key: "core",
       label: "Core Blockchain",
-      eyebrow: "Public ecosystem sample",
+      eyebrow: "Business and community sample",
       title: "Core Blockchain",
       descriptionParagraphs: [
-        "Core Blockchain is the current primary sample for reading a business, public ecosystem, and community.",
-        "The three reports show natal structure, the 2026 solar-return year, and one published new moon cycle."
+        "Core Blockchain is a sample for reading a business, a public ecosystem, and a community through astrology rather than a person.",
+        "You can read its enduring basic structure, its annual theme, and its roughly one-month new moon cycle."
       ],
       reports: reportTypes.en
     },
     {
       key: "derek-sample",
       label: "Derek Sample",
-      eyebrow: "Fictional personal sample",
+      eyebrow: "Fictional person sample",
       title: "Derek Sample",
       descriptionParagraphs: [
-        "Derek Sample is a fictional person used to show how personal reports read.",
-        "These placeholder sample reports give the website structure for a future personal sample set."
+        "Derek Sample is a fictional person used as a sample for reading a person through astrology.",
+        "You can read the basic structure he was born with, his annual theme, and his roughly one-month new moon cycle."
       ],
       reports: derekReportTypes.en
     }
@@ -456,11 +456,11 @@ export const sampleSubjects: Record<Lang, SampleSubjectCopy[]> = {
     {
       key: "core",
       label: "Core Blockchain",
-      eyebrow: "公開エコシステムのサンプル",
+      eyebrow: "事業・コミュニティのサンプル",
       title: "Core Blockchain",
       descriptionParagraphs: [
-        "Core Blockchainは、事業、公開エコシステム、コミュニティを読むための現在の前面サンプルです。",
-        "出生図、2026年の太陽回帰、公開中の新月サイクルの3レポートを掲載しています。"
+        "Core Blockchainは、人ではない事業・公開エコシステム・コミュニティを占星術で読むサンプルです。",
+        "長く続く基本構造、一年のテーマ、約1か月の新月サイクルを読むことができます。"
       ],
       reports: reportTypes.ja
     },
@@ -470,8 +470,8 @@ export const sampleSubjects: Record<Lang, SampleSubjectCopy[]> = {
       eyebrow: "架空人物のサンプル",
       title: "Derek Sample",
       descriptionParagraphs: [
-        "Derek Sampleは、個人向けレポートの見え方を示すための架空の人物です。",
-        "現在は、個人サンプルセットの構造を確認するための短いプレースホルダーのサンプルレポートを置いています。"
+        "Derek Sampleは、架空の人物を題材に、人間を占星術で読むサンプルです。",
+        "生まれ持った基本構造、一年のテーマ、約1か月の新月サイクルを読むことができます。"
       ],
       reports: derekReportTypes.ja
     }
@@ -480,22 +480,22 @@ export const sampleSubjects: Record<Lang, SampleSubjectCopy[]> = {
     {
       key: "core",
       label: "Core Blockchain",
-      eyebrow: "Beispiel für ein öffentliches Ökosystem",
+      eyebrow: "Beispiel für Unternehmen und Community",
       title: "Core Blockchain",
       descriptionParagraphs: [
-        "Core Blockchain steht derzeit als zentrales Beispiel für die Deutung eines Unternehmens, öffentlichen Ökosystems und einer Community.",
-        "Die drei Reports zeigen Radixstruktur, das Solar-Return-Jahr 2026 und einen veröffentlichten Neumondzyklus."
+        "Core Blockchain ist ein Beispiel dafür, wie sich mit Astrologie etwas lesen lässt, das keine Person ist: ein Unternehmen, ein öffentliches Ökosystem und eine Community.",
+        "Bei Core Blockchain lassen sich die dauerhafte Grundstruktur, das Thema eines Jahres und ein rund einmonatiger Neumondzyklus lesen."
       ],
       reports: reportTypes.de
     },
     {
       key: "derek-sample",
       label: "Derek Sample",
-      eyebrow: "Fiktives persönliches Beispiel",
+      eyebrow: "Beispiel einer fiktiven Person",
       title: "Derek Sample",
       descriptionParagraphs: [
-        "Derek Sample ist eine fiktive Person, an der persönliche Reports beispielhaft gezeigt werden.",
-        "Diese Platzhalter-Beispielreports geben der Website die Struktur für ein späteres persönliches Beispielset."
+        "Derek Sample ist eine fiktive Person und zeigt, wie ein Mensch astrologisch gedeutet werden kann.",
+        "Bei Derek Sample lassen sich die von Geburt an angelegte Grundstruktur, das Thema eines Jahres und ein rund einmonatiger Neumondzyklus lesen."
       ],
       reports: derekReportTypes.de
     }
