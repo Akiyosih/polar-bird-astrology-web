@@ -62,16 +62,22 @@ const titleHtml = escapeHtml(note.title).replace(/([^\s])フィールドノー�
         <h1 set:html={titleHtml} />
         <p>{note.summary}</p>
         <div class="report-actions">
-          {note.period && <span class="status-pill muted">{note.period}</span>}
-          {note.pdfUrl && <a class="button primary" href={note.pdfUrl} download>{downloadLabel}</a>}
-          {otherNotes.length > 0 && (
-            <nav class="report-inline-links" aria-label={ui.otherSamplesShortLabel}>
-              <span>{ui.otherSamplesShortLabel}</span>
-              {otherNotes.map((item) => (
-                <a href={localizedPath(lang, `core-field-notes/${item.slug}`)}>{item.eyebrow}</a>
-              ))}
-            </nav>
+          {note.period && (
+            <div class="report-period-row">
+              <span class="status-pill muted">{note.period}</span>
+            </div>
           )}
+          <div class="report-action-row">
+            {note.pdfUrl && <a class="button primary" href={note.pdfUrl} download>{downloadLabel}</a>}
+            {otherNotes.length > 0 && (
+              <nav class="report-inline-links" aria-label={ui.otherSamplesShortLabel}>
+                <span>{ui.otherSamplesShortLabel}</span>
+                {otherNotes.map((item) => (
+                  <a href={localizedPath(lang, `core-field-notes/${item.slug}`)}>{item.eyebrow}</a>
+                ))}
+              </nav>
+            )}
+          </div>
         </div>
       </div>
     </header>
