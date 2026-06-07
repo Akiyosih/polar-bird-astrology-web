@@ -1,8 +1,9 @@
 ---
 import BoundaryBox from "../../../components/BoundaryBox.astro";
 import BaseLayout from "../../../layouts/BaseLayout.astro";
-import { chartLegendGroups, uiCopy } from "../../../data/site";
-import { getFieldNote, getFieldNoteStaticPaths } from "../../../lib/fieldNotes";
+import { chartLegendGroups, reportTypes, uiCopy } from "../../../data/site";
+import { getFieldNote, getFieldNoteStaticPaths, getLatestFieldNoteByReportType } from "../../../lib/fieldNotes";
+import type { FieldNote } from "../../../lib/fieldNotes";
 import { isLang, languages, localizedPath } from "../../../lib/i18n";
 
 export function getStaticPaths() {
@@ -24,6 +25,11 @@ const ui = uiCopy[lang];
 const publicationBoundaryParagraphs = ui.publicationBoundaryParagraphs ?? [ui.publicationBoundaryText];
 const downloadLabel = lang === "ja" ? "PDFをダウンロード" : lang === "de" ? "PDF herunterladen" : "Download PDF";
 const chartHeading = lang === "ja" ? "ホロスコープ" : lang === "de" ? "Horoskop" : "Chart";
+const isFieldNote = (item: FieldNote | undefined): item is FieldNote => Boolean(item);
+const otherNotes = reportTypes[lang]
+  .map((report) => getLatestFieldNoteByReportType(lang, report.key))
+  .filter(isFieldNote)
+  .filter((item) => item.slug !== note.slug);
 const languagePaths = Object.fromEntries(
   languages.map((code) => [
     code,
@@ -56,9 +62,16 @@ const titleHtml = escapeHtml(note.title).replace(/([^\s])フィールドノー�
         <h1 set:html={titleHtml} />
         <p>{note.summary}</p>
         <div class="report-actions">
-          <span class="status-pill">{note.status}</span>
           {note.period && <span class="status-pill muted">{note.period}</span>}
           {note.pdfUrl && <a class="button primary" href={note.pdfUrl} download>{downloadLabel}</a>}
+          {otherNotes.length > 0 && (
+            <nav class="report-inline-links" aria-label={ui.otherSamplesShortLabel}>
+              <span>{ui.otherSamplesShortLabel}</span>
+              {otherNotes.map((item) => (
+                <a href={localizedPath(lang, `core-field-notes/${item.slug}`)}>{item.eyebrow}</a>
+              ))}
+            </nav>
+          )}
         </div>
       </div>
     </header>
@@ -112,5 +125,22 @@ const titleHtml = escapeHtml(note.title).replace(/([^\s])フィールドノー�
     </BoundaryBox>
 
     <section class="report-body" set:html={note.bodyHtml} />
+
+    <nav class="report-end-nav" aria-label={ui.otherSamplesLabel}>
+      <div class="report-end-actions">
+        <a class="button primary" href={localizedPath(lang, "purchase")}>{ui.purchaseStatusLabel}</a>
+        <a class="button secondary" href={localizedPath(lang, "core-field-notes")}>{ui.sampleReportsBackLabel}</a>
+      </div>
+      {otherNotes.length > 0 && (
+        <div class="report-end-samples">
+          <h2>{ui.otherSamplesLabel}</h2>
+          <div>
+            {otherNotes.map((item) => (
+              <a href={localizedPath(lang, `core-field-notes/${item.slug}`)}>{item.eyebrow}</a>
+            ))}
+          </div>
+        </div>
+      )}
+    </nav>
   </article>
 </BaseLayout>

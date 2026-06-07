@@ -585,6 +585,10 @@ img {
   position: relative;
 }
 
+.primary-nav a > span:first-child {
+  white-space: nowrap;
+}
+
 .primary-nav a + a {
   padding-left: 0.9rem;
 }
@@ -1313,6 +1317,33 @@ p {
   margin-top: 0.35rem;
 }
 
+.report-inline-links {
+  align-items: center;
+  color: var(--text-muted);
+  display: inline-flex;
+  flex-wrap: wrap;
+  font-size: 0.84rem;
+  gap: 0.35rem 0.55rem;
+  line-height: var(--leading-ui);
+}
+
+.report-inline-links span {
+  font-weight: 700;
+}
+
+.report-inline-links a,
+.report-end-samples a {
+  color: var(--pb-teal);
+  font-weight: 700;
+  text-decoration-color: rgba(185, 155, 79, 0.48);
+  text-underline-offset: 0.18em;
+}
+
+.report-inline-links a:hover,
+.report-end-samples a:hover {
+  color: var(--link-color);
+}
+
 .chart-panel {
   align-items: center;
   background:
@@ -1674,6 +1705,39 @@ p {
   left: 0;
   position: absolute;
   top: 0.05em;
+}
+
+.report-end-nav {
+  border-top: var(--line-hair);
+  display: grid;
+  gap: 1.15rem;
+  justify-self: center;
+  max-width: var(--container-reading);
+  padding-top: 1.35rem;
+  width: 100%;
+}
+
+.report-end-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.report-end-samples {
+  display: grid;
+  gap: 0.55rem;
+}
+
+.report-end-samples h2 {
+  color: var(--pb-teal);
+  font-family: var(--font-body);
+  font-size: 1.05rem;
+}
+
+.report-end-samples div {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem 0.95rem;
 }
 
 .site-footer {

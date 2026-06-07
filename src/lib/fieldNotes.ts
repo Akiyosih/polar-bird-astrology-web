@@ -18,7 +18,6 @@ export type FieldNote = {
   reportType: ReportTypeKey;
   title: string;
   eyebrow: string;
-  status: string;
   summary: string;
   pdfUrl?: string;
   chartImage?: string;
@@ -193,7 +192,7 @@ function parseFieldNote(path: string, raw: string): FieldNote {
   const slug = data.slug;
   const reportType = data.reportType;
 
-  if (!lang || !slug || !data.title || !data.summary || !data.status || !data.eyebrow) {
+  if (!lang || !slug || !data.title || !data.summary || !data.eyebrow) {
     throw new Error(`Missing required Field Note frontmatter in ${path}`);
   }
 
@@ -207,7 +206,6 @@ function parseFieldNote(path: string, raw: string): FieldNote {
     reportType,
     title: data.title,
     eyebrow: data.eyebrow,
-    status: data.status,
     summary: data.summary,
     pdfUrl: data.pdfUrl,
     chartImage: data.chartImage,

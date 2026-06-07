@@ -45,6 +45,10 @@ type UiCopy = {
   fieldNotesTitle: string;
   fieldNotesDescription: string;
   readNoteLabel: string;
+  purchaseStatusLabel: string;
+  sampleReportsBackLabel: string;
+  otherSamplesLabel: string;
+  otherSamplesShortLabel: string;
   focusLabel: string;
   periodLabel: string;
   chartLegendTitle: string;
@@ -212,9 +216,9 @@ export const chartLegendGroups: Record<Lang, ChartLegendGroup[]> = {
 
 export const navItems: Record<Lang, NavItem[]> = {
   en: [
-    { href: "core-field-notes", label: "Sample Reports" },
-    { href: "purchase", label: "Report Purchase", badge: "soon" },
-    { href: "reading-policy", label: "How We Read" },
+    { href: "core-field-notes", label: "Samples" },
+    { href: "purchase", label: "Order", badge: "soon" },
+    { href: "reading-policy", label: "Approach" },
     { href: "about", label: "Writer" }
   ],
   ja: [
@@ -253,10 +257,10 @@ export const reportTypes: Record<Lang, ReportTypeCopy[]> = {
     },
     {
       key: "new-moon",
-      label: "New moon report",
+      label: "New moon cycle report",
       title: "Core Blockchain's\nNew Moon Cycle",
       summary:
-        "From the new moon chart, this report reads the active themes in the published cycle, the community atmosphere, and the lunar rhythm to observe.",
+        "This report reads the published new moon cycle for active themes, community atmosphere, and lunar rhythms worth observing.",
       focus: "Central theme, lunar rhythm, observation points",
       emptyLabel: "Coming soon"
     }
@@ -282,10 +286,10 @@ export const reportTypes: Record<Lang, ReportTypeCopy[]> = {
     },
     {
       key: "new-moon",
-      label: "新月レポート",
+      label: "新月サイクルレポート",
       title: `${coreBlockchainJa}の\n新月サイクル`,
       summary:
-        "新月図から、公開中のサイクルで動きやすいテーマ、コミュニティの空気、観察したい月相リズムを読みます。",
+        "新月から次の新月までの公開中のサイクルから、動きやすいテーマ、コミュニティの空気、観察したい月相リズムを読みます。",
       focus: "中心テーマ、月相リズム、観察点",
       emptyLabel: "準備中"
     }
@@ -311,10 +315,10 @@ export const reportTypes: Record<Lang, ReportTypeCopy[]> = {
     },
     {
       key: "new-moon",
-      label: "Neumond-Report",
+      label: "Neumondzyklus-Report",
       title: "Core Blockchain:\nNeumondzyklus",
       summary:
-        "Der Neumond-Report zeigt, welche Themen im veröffentlichten Zyklus leichter in Bewegung kommen. Er beschreibt die Stimmung in der Community und Beobachtungspunkte im Mondphasenrhythmus.",
+        "Der Report zum Neumondzyklus zeigt, welche Themen im aktuell veröffentlichten Zyklus leichter in Bewegung kommen. Er beschreibt die Stimmung in der Community und benennt Beobachtungspunkte im Mondphasenrhythmus.",
       focus: "Zentrales Thema, Mondphasenrhythmus, Beobachtungspunkte",
       emptyLabel: "In Vorbereitung"
     }
@@ -328,9 +332,9 @@ export const uiCopy: Record<Lang, UiCopy> = {
     reportHubEyebrow: "Currently published",
     reportHubTitle: "Three Views on Core Blockchain",
     reportHubDescription:
-      "The natal report reads Core Blockchain's basic structure. The solar return reads the annual stage for 2026. The new moon report reads the currently published cycle. Polar Bird Astrology publishes the set as an example of reading a business or community.",
+      "The natal report reads Core Blockchain's basic structure. The solar return reads the annual stage for 2026. The new moon cycle report reads the currently published cycle. Polar Bird Astrology publishes the set as an example of reading a business or community.",
     reportHubDescriptionParagraphs: [
-      "The natal report reads Core Blockchain's basic structure. The solar return reads the annual stage for 2026. The new moon report reads the currently published cycle.",
+      "The natal report reads Core Blockchain's basic structure. The solar return reads the annual stage for 2026. The new moon cycle report reads the currently published cycle.",
       "Polar Bird Astrology publishes the set as an example of reading a business or community."
     ],
     fieldNotesEyebrow: "Sample reports on Core Blockchain",
@@ -338,6 +342,10 @@ export const uiCopy: Record<Lang, UiCopy> = {
     fieldNotesDescription:
       "A public ecosystem can also be read through a natal chart, solar return, and new moon cycle. The current library publishes three reports on Core Blockchain.",
     readNoteLabel: "Read",
+    purchaseStatusLabel: "View purchase status",
+    sampleReportsBackLabel: "Back to sample reports",
+    otherSamplesLabel: "Other sample reports",
+    otherSamplesShortLabel: "Other samples",
     focusLabel: "Focus",
     periodLabel: "Period",
     chartLegendTitle: "Legend",
@@ -364,9 +372,9 @@ export const uiCopy: Record<Lang, UiCopy> = {
     reportHubEyebrow: "現在公開中",
     reportHubTitle: "Core Blockchainを読み解く三つの視点",
     reportHubDescription:
-      "出生図はCore Blockchainの基本構造、太陽回帰は2026年の舞台、新月は公開中のサイクルを読みます。事業やコミュニティを読むレポート例として公開しています。",
+      "出生図はCore Blockchainの基本構造、太陽回帰は2026年の舞台、新月サイクルは公開中のサイクルを読みます。事業やコミュニティを読むレポート例として公開しています。",
     reportHubDescriptionParagraphs: [
-      "出生図はCore Blockchainの基本構造、太陽回帰は2026年の舞台、新月は公開中のサイクルを読みます。",
+      "出生図はCore Blockchainの基本構造、太陽回帰は2026年の舞台、新月サイクルは公開中のサイクルを読みます。",
       "事業やコミュニティを読むレポート例として公開しています。"
     ],
     fieldNotesEyebrow: "Core Blockchainを題材にしたレポート例",
@@ -374,6 +382,10 @@ export const uiCopy: Record<Lang, UiCopy> = {
     fieldNotesDescription:
       "人ではない公開エコシステムも、出生図、太陽回帰、新月サイクルで読めます。現在はCore Blockchainの3レポートを公開しています。",
     readNoteLabel: "読む",
+    purchaseStatusLabel: "レポート購入状況を見る",
+    sampleReportsBackLabel: "サンプルレポートへ戻る",
+    otherSamplesLabel: "他のサンプルレポート",
+    otherSamplesShortLabel: "他のサンプル",
     focusLabel: "焦点",
     periodLabel: "対象期間",
     chartLegendTitle: "凡例",
@@ -400,9 +412,9 @@ export const uiCopy: Record<Lang, UiCopy> = {
     reportHubEyebrow: "Derzeit veröffentlicht",
     reportHubTitle: "Drei Blickwinkel auf Core Blockchain",
     reportHubDescription:
-      "Der Radix-Report beschreibt die Grundstruktur von Core Blockchain. Der Solar-Return-Report deutet den Jahresrahmen 2026. Der Neumond-Report deutet den veröffentlichten Zyklus. Dieses Set zeigt, wie Polar Bird Astrology ein Unternehmen oder eine Community astrologisch deutet.",
+      "Der Radix-Report beschreibt die Grundstruktur von Core Blockchain. Der Solar-Return-Report deutet den Jahresrahmen 2026. Der Report zum Neumondzyklus deutet den aktuell veröffentlichten Zyklus. Dieses Set zeigt, wie Polar Bird Astrology ein Unternehmen oder eine Community astrologisch deutet.",
     reportHubDescriptionParagraphs: [
-      "Der Radix-Report beschreibt die Grundstruktur von Core Blockchain. Der Solar-Return-Report deutet den Jahresrahmen 2026. Der Neumond-Report deutet den veröffentlichten Zyklus.",
+      "Der Radix-Report beschreibt die Grundstruktur von Core Blockchain. Der Solar-Return-Report deutet den Jahresrahmen 2026. Der Report zum Neumondzyklus deutet den aktuell veröffentlichten Zyklus.",
       "Dieses Set zeigt, wie Polar Bird Astrology ein Unternehmen oder eine Community astrologisch deutet."
     ],
     fieldNotesEyebrow: "Reportbeispiele zu Core Blockchain",
@@ -410,6 +422,10 @@ export const uiCopy: Record<Lang, UiCopy> = {
     fieldNotesDescription:
       "Polar Bird Astrology kann auch ein öffentliches Ökosystem anhand von Radix, Solar Return und Neumondzyklus deuten. Derzeit sind drei Reports zu Core Blockchain veröffentlicht.",
     readNoteLabel: "Lesen",
+    purchaseStatusLabel: "Status des Reportkaufs ansehen",
+    sampleReportsBackLabel: "Zurück zu den Beispielreports",
+    otherSamplesLabel: "Weitere Beispielreports",
+    otherSamplesShortLabel: "Weitere Beispiele",
     focusLabel: "Fokus",
     periodLabel: "Zeitraum",
     chartLegendTitle: "Legende",
@@ -446,7 +462,7 @@ export const homeCopy: Record<Lang, PageCopy> = {
       {
         heading: "Report types",
         body: [
-          "Natal reports read basic structure. Solar returns read the stage of the year. New moon reports read the active themes in that cycle.",
+          "Natal reports read basic structure. Solar returns read the stage of the year. New moon cycle reports read the active themes in each cycle.",
           "They are shaped for personal self-understanding and for observing the flow of a business or community."
         ],
         link: { href: "reading-policy", label: "See how we read" }
@@ -474,7 +490,7 @@ export const homeCopy: Record<Lang, PageCopy> = {
       {
         heading: "レポートの種類",
         body: [
-          "出生図は基本構造、太陽回帰は一年の舞台、新月はそのサイクルで動きやすいテーマを読みます。",
+          "出生図は基本構造、太陽回帰は一年の舞台、新月サイクルはそのサイクルで動きやすいテーマを読みます。",
           "人の自己理解にも、事業やコミュニティの流れを観察する読み物にも使える形で整えています。"
         ],
         link: { href: "reading-policy", label: "読み方と方針を見る" }
@@ -502,7 +518,7 @@ export const homeCopy: Record<Lang, PageCopy> = {
       {
         heading: "Reportarten",
         body: [
-          "Der Radix-Report beschreibt die Grundstruktur. Der Solar-Return-Report deutet den Jahresrahmen. Der Neumond-Report zeigt Themen, die in diesem Zyklus leichter in Bewegung kommen.",
+          "Der Radix-Report beschreibt die Grundstruktur. Der Solar-Return-Report deutet den Jahresrahmen. Der Report zum Neumondzyklus zeigt Themen, die in diesem Zyklus leichter in Bewegung kommen.",
           "Die Reports unterstützen persönliches Selbstverstehen. Sie helfen auch dabei, den Fluss eines Unternehmens oder einer Community zu beobachten."
         ],
         link: { href: "reading-policy", label: "Leseweise ansehen" }

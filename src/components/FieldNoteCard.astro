@@ -7,17 +7,14 @@ type Props = {
   slug: string;
   title: string;
   eyebrow: string;
-  status: string;
   summary: string;
 };
 
-const { lang, slug, title, eyebrow, status, summary } = Astro.props;
+const { lang, slug, title, eyebrow, summary } = Astro.props;
 ---
 
 <article class="field-note-card">
   <p class="eyebrow">{eyebrow}</p>
   <h2><a href={localizedPath(lang, `core-field-notes/${slug}`)}>{title}</a></h2>
   <p>{summary}</p>
-  <span class="status-pill">{status}</span>
 </article>
-

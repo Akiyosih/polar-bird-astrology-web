@@ -4,8 +4,12 @@ slug: core-2026-solar-return-field-note
 reportType: solar-return
 title: Core Blockchain Solar-Return-Report 2026
 eyebrow: Solar-Return-Report
-status: Report verfügbar
+period: 2026.05.06 - 2027.05.07
 summary: "Dieser Report liest das Thema von Core Blockchain für 2026: die sichtbare Rolle, die Qualität der Erklärung, die Stimmung in der Community und das Fundament des Vertrauens."
+chartImage: /reports/core/charts/core-solar-return-chart-20260605.png?v=zodiac-size-20260607
+chartAlt: Horoskopgrafik zum Solar Return 2026 von Core Blockchain
+coverImage: /images/watercolor/pdf-cover-background.png
+chartImageDark: /reports/core/charts/core-solar-return-chart-20260605-dark.png?v=zodiac-size-20260607
 ---
 
 # Core 2026 Solar Return Field Note
