@@ -1,13 +1,17 @@
 ---
 import BoundaryBox from "../../../components/BoundaryBox.astro";
 import BaseLayout from "../../../layouts/BaseLayout.astro";
-import { chartLegendGroups, reportTypes, uiCopy } from "../../../data/site";
-import { getFieldNote, getFieldNoteStaticPaths, getLatestFieldNoteByReportType } from "../../../lib/fieldNotes";
-import type { FieldNote } from "../../../lib/fieldNotes";
+import { chartLegendGroups, sampleSubjects, uiCopy } from "../../../data/site";
+import {
+  getLatestSampleReportBySubjectAndReportType,
+  getSampleReport,
+  getSampleReportStaticPaths
+} from "../../../lib/sampleReports";
+import type { SampleReport } from "../../../lib/sampleReports";
 import { isLang, languages, localizedPath } from "../../../lib/i18n";
 
 export function getStaticPaths() {
-  return getFieldNoteStaticPaths();
+  return getSampleReportStaticPaths();
 }
 
 const lang = Astro.params.lang;
@@ -17,25 +21,27 @@ if (!isLang(lang)) {
   throw new Error(`Unsupported language: ${lang}`);
 }
 
-const note = getFieldNote(lang, slug);
-if (!note) {
-  throw new Error(`Unknown field note: ${slug}`);
+const sampleReport = getSampleReport(lang, slug);
+if (!sampleReport) {
+  throw new Error(`Unknown sample report: ${slug}`);
 }
 const ui = uiCopy[lang];
 const publicationBoundaryParagraphs = ui.publicationBoundaryParagraphs ?? [ui.publicationBoundaryText];
 const downloadLabel = lang === "ja" ? "PDFをダウンロード" : lang === "de" ? "PDF herunterladen" : "Download PDF";
 const chartHeading = lang === "ja" ? "ホロスコープ" : lang === "de" ? "Horoskop" : "Chart";
-const isFieldNote = (item: FieldNote | undefined): item is FieldNote => Boolean(item);
-const otherNotes = reportTypes[lang]
-  .map((report) => getLatestFieldNoteByReportType(lang, report.key))
-  .filter(isFieldNote)
-  .filter((item) => item.slug !== note.slug);
+const isSampleReport = (item: SampleReport | undefined): item is SampleReport => Boolean(item);
+const activeSubject = sampleSubjects[lang].find((subject) => subject.key === sampleReport.subject) ?? sampleSubjects[lang][0];
+const otherReports = activeSubject.reports
+  .map((report) => getLatestSampleReportBySubjectAndReportType(lang, activeSubject.key, report.key))
+  .filter(isSampleReport)
+  .filter((item) => item.slug !== sampleReport.slug);
+const sampleReportsBackHref = `${localizedPath(lang, "sample-reports")}#sample-subject-${activeSubject.key}`;
 const languagePaths = Object.fromEntries(
   languages.map((code) => [
     code,
-    getFieldNote(code, slug)
-      ? localizedPath(code, `core-field-notes/${slug}`)
-      : localizedPath(code, "core-field-notes")
+    getSampleReport(code, slug)
+      ? localizedPath(code, `sample-reports/${slug}`)
+      : localizedPath(code, "sample-reports")
   ])
 ) as Partial<Record<typeof lang, string>>;
 
@@ -47,33 +53,33 @@ function escapeHtml(value: string) {
     .replace(/"/g, "&quot;");
 }
 
-const titleHtml = escapeHtml(note.title).replace(/([^\s])フィールドノート/g, "$1<wbr />フィールドノート");
+const titleHtml = escapeHtml(sampleReport.title).replace(/([^\s])レポート/g, "$1<wbr />レポート");
 ---
 
-<BaseLayout lang={lang} title={note.title} description={note.summary} languagePaths={languagePaths}>
-  <article class="field-note report-page">
-    <header class="report-cover" style={note.coverImage ? `--report-cover-image: url(${note.coverImage})` : undefined}>
+<BaseLayout lang={lang} title={sampleReport.title} description={sampleReport.summary} languagePaths={languagePaths}>
+  <article class="sample-report report-page">
+    <header class="report-cover" style={sampleReport.coverImage ? `--report-cover-image: url(${sampleReport.coverImage})` : undefined}>
       <div class="report-cover-panel">
         <span class="cover-mark" aria-hidden="true">
           <img src="/images/brand/polar-bird-symbol-dark.webp" width="768" height="768" alt="" />
         </span>
         <p class="eyebrow">Polar Bird Astrology</p>
-        <p class="report-kind">{note.eyebrow}</p>
+        <p class="report-kind">{sampleReport.eyebrow}</p>
         <h1 set:html={titleHtml} />
-        <p>{note.summary}</p>
+        <p>{sampleReport.summary}</p>
         <div class="report-actions">
-          {note.period && (
+          {sampleReport.period && (
             <div class="report-period-row">
-              <span class="status-pill muted">{note.period}</span>
+              <span class="status-pill muted">{sampleReport.period}</span>
             </div>
           )}
           <div class="report-action-row">
-            {note.pdfUrl && <a class="button primary" href={note.pdfUrl} download>{downloadLabel}</a>}
-            {otherNotes.length > 0 && (
+            {sampleReport.pdfUrl && <a class="button primary" href={sampleReport.pdfUrl} download>{downloadLabel}</a>}
+            {otherReports.length > 0 && (
               <nav class="report-inline-links" aria-label={ui.otherSamplesShortLabel}>
                 <span>{ui.otherSamplesShortLabel}</span>
-                {otherNotes.map((item) => (
-                  <a href={localizedPath(lang, `core-field-notes/${item.slug}`)}>{item.eyebrow}</a>
+                {otherReports.map((item) => (
+                  <a href={localizedPath(lang, `sample-reports/${item.slug}`)}>{item.eyebrow}</a>
                 ))}
               </nav>
             )}
@@ -82,16 +88,16 @@ const titleHtml = escapeHtml(note.title).replace(/([^\s])フィールドノー�
       </div>
     </header>
 
-    {note.chartImage && (
+    {sampleReport.chartImage && (
       <figure class="chart-panel">
         <figcaption class="sr-only">{chartHeading}</figcaption>
         <div class="chart-image-frame">
           <img
-            src={note.chartImage}
+            src={sampleReport.chartImage}
             data-theme-image
-            data-light-src={note.chartImage}
-            data-dark-src={note.chartImageDark}
-            alt={note.chartAlt || ""}
+            data-light-src={sampleReport.chartImage}
+            data-dark-src={sampleReport.chartImageDark}
+            alt={sampleReport.chartAlt || ""}
             loading="lazy"
           />
         </div>
@@ -113,11 +119,11 @@ const titleHtml = escapeHtml(note.title).replace(/([^\s])フィールドノー�
       </figure>
     )}
 
-    {note.tableOfContents.length > 0 && (
+    {sampleReport.tableOfContents.length > 0 && (
       <nav id="report-toc" class="report-toc" aria-labelledby="report-toc-title">
         <h2 id="report-toc-title">{ui.tableOfContentsTitle}</h2>
         <ol>
-          {note.tableOfContents.map((item) => (
+          {sampleReport.tableOfContents.map((item) => (
             <li data-level={item.level}>
               <a href={`#${item.id}`}>{item.title}</a>
             </li>
@@ -130,19 +136,19 @@ const titleHtml = escapeHtml(note.title).replace(/([^\s])フィールドノー�
       {publicationBoundaryParagraphs.map((paragraph) => <p>{paragraph}</p>)}
     </BoundaryBox>
 
-    <section class="report-body" set:html={note.bodyHtml} />
+    <section class="report-body" set:html={sampleReport.bodyHtml} />
 
     <nav class="report-end-nav" aria-label={ui.otherSamplesLabel}>
       <div class="report-end-actions">
         <a class="button primary" href={localizedPath(lang, "purchase")}>{ui.purchaseStatusLabel}</a>
-        <a class="button secondary" href={localizedPath(lang, "core-field-notes")}>{ui.sampleReportsBackLabel}</a>
+        <a class="button secondary" href={sampleReportsBackHref}>{ui.sampleReportsBackLabel}</a>
       </div>
-      {otherNotes.length > 0 && (
+      {otherReports.length > 0 && (
         <div class="report-end-samples">
           <h2>{ui.otherSamplesLabel}</h2>
           <div>
-            {otherNotes.map((item) => (
-              <a href={localizedPath(lang, `core-field-notes/${item.slug}`)}>{item.eyebrow}</a>
+            {otherReports.map((item) => (
+              <a href={localizedPath(lang, `sample-reports/${item.slug}`)}>{item.eyebrow}</a>
             ))}
           </div>
         </div>

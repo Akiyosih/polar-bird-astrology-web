@@ -8,8 +8,8 @@ const root = process.cwd();
 const reports = {
   natal: {
     sourcePattern: /^reading_general_core_(\d{8}-\d{6})\.md$/,
-    pdfName: (date) => `core-natal-field-note-${date}.pdf`,
-    pdfPattern: /^core-natal-field-note-\d{8}\.pdf$/,
+    pdfName: (date) => `core-natal-report-${date}.pdf`,
+    pdfPattern: /^core-natal-report-\d{8}\.pdf$/,
     pdfSourceName: (stamp) => `reading_general_core_${stamp}.pdf`,
     chartPattern: (stamp) => new RegExp(`^chart_wheel_natal_core_${escapeRegExp(stamp)}_(?!.*_dark\\.png$).+\\.png$`),
     chartDarkPattern: (stamp) => new RegExp(`^chart_wheel_natal_core_${escapeRegExp(stamp)}_.+_dark\\.png$`),
@@ -17,7 +17,7 @@ const reports = {
     chartDarkName: (date) => `core-natal-chart-${date}-dark.png`,
     chartPublicPattern: /^core-natal-chart-\d{8}\.png$/,
     chartDarkPublicPattern: /^core-natal-chart-\d{8}-dark\.png$/,
-    contentFile: path.join("content", "core-field-notes", "core-natal-field-note", "ja.md")
+    contentFile: path.join("content", "sample-reports", "core-natal-sample-report", "ja.md")
   },
   "solar-return": {
     sourcePattern: /^reading_solar_return_core_(\d{8}-\d{6})\.md$/,
@@ -30,7 +30,7 @@ const reports = {
     chartDarkName: (date) => `core-solar-return-chart-${date}-dark.png`,
     chartPublicPattern: /^core-solar-return-chart-\d{8}\.png$/,
     chartDarkPublicPattern: /^core-solar-return-chart-\d{8}-dark\.png$/,
-    contentFile: path.join("content", "core-field-notes", "core-2026-solar-return-field-note", "ja.md")
+    contentFile: path.join("content", "sample-reports", "core-2026-solar-return-sample-report", "ja.md")
   },
   "new-moon": {
     sourcePattern: /^reading_new_moon_core_(\d{8}-\d{6})\.md$/,
@@ -43,7 +43,7 @@ const reports = {
     chartDarkName: (date) => `core-new-moon-chart-${date}-dark.png`,
     chartPublicPattern: /^core-new-moon-chart-\d{8}\.png$/,
     chartDarkPublicPattern: /^core-new-moon-chart-\d{8}-dark\.png$/,
-    contentFile: path.join("content", "core-field-notes", "core-2026-new-moon-cycle-field-note", "ja.md")
+    contentFile: path.join("content", "sample-reports", "core-2026-new-moon-cycle-sample-report", "ja.md")
   }
 };
 
@@ -215,7 +215,7 @@ function stripFrontmatter(markdown) {
 function parseFrontmatter(markdown) {
   const match = markdown.match(/^---\r?\n([\s\S]*?)\r?\n---\r?\n([\s\S]*)$/);
   if (!match) {
-    throw new Error("Existing public Field Note is missing frontmatter.");
+    throw new Error("Existing public sample report is missing frontmatter.");
   }
 
   const lines = match[1].split(/\r?\n/);

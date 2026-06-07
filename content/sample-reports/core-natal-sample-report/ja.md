@@ -1,17 +1,18 @@
 ---
 locale: ja
-slug: core-natal-field-note
+slug: core-natal-sample-report
+subject: core
 reportType: natal
 title: Core Blockchain 出生図レポート
 eyebrow: 出生図レポート
 summary: Core Blockchainを公開エコシステムとして読み、長く続く基本構造、反応のリズム、外から見える役割、協働のパターンを整理するレポートです。
-pdfUrl: /reports/core/core-natal-field-note-20260605.pdf
+pdfUrl: /reports/core/core-natal-report-20260605.pdf
 chartImage: /reports/core/charts/core-natal-chart-20260605.png?v=zodiac-size-20260607
 chartAlt: Core Blockchainの出生ホロスコープ図
 coverImage: /images/watercolor/pdf-cover-background.png
 chartImageDark: /reports/core/charts/core-natal-chart-20260605-dark.png?v=zodiac-size-20260607
 ---
-# Core 出生ホロスコープ分析
+# Core 出生図レポート
 
 ## Coreの星まわりから見える本質
 

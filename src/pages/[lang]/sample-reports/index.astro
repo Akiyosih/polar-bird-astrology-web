@@ -1,0 +1,127 @@
+---
+import ReportTypeCard from "../../../components/ReportTypeCard.astro";
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+import { homeCopy, sampleSubjects, uiCopy } from "../../../data/site";
+import { getLatestSampleReportBySubjectAndReportType } from "../../../lib/sampleReports";
+import { isLang, languages, localizedPath } from "../../../lib/i18n";
+
+export function getStaticPaths() {
+  return languages.map((lang) => ({ params: { lang } }));
+}
+
+const lang = Astro.params.lang;
+if (!isLang(lang)) {
+  throw new Error(`Unsupported language: ${lang}`);
+}
+
+const ui = uiCopy[lang];
+const subjects = sampleSubjects[lang];
+const reportTypeGuide = homeCopy[lang].blocks[0];
+const resolveLink = (href: string) => (/^https?:\/\//.test(href) ? href : localizedPath(lang, href));
+---
+
+<BaseLayout lang={lang} title={ui.sampleReportsTitle} description={ui.sampleReportsDescription}>
+  <section class="page-heading">
+    <p class="eyebrow">{ui.sampleReportsEyebrow}</p>
+    <h1>{ui.sampleReportsTitle}</h1>
+    <p>{ui.sampleReportsDescription}</p>
+  </section>
+
+  <section class="report-hub" aria-labelledby="report-hub-title">
+    <div class="sample-subject-switcher" data-sample-subject-switcher>
+      <div class="section-heading compact">
+        <p class="eyebrow">{ui.sampleSubjectEyebrow}</p>
+        <h2 id="report-hub-title">{ui.sampleSubjectTitle}</h2>
+      </div>
+      <div class="sample-subject-tabs" role="tablist" aria-labelledby="report-hub-title">
+        {subjects.map((subject, index) => (
+          <a
+            class:list={{ active: index === 0 }}
+            href={`#sample-subject-${subject.key}`}
+            id={`sample-subject-tab-${subject.key}`}
+            role="tab"
+            aria-controls={`sample-subject-${subject.key}`}
+            aria-selected={index === 0 ? "true" : "false"}
+            data-sample-subject-tab={subject.key}
+          >
+            {subject.label}
+          </a>
+        ))}
+      </div>
+      {subjects.map((subject, index) => (
+        <section
+          class="sample-subject-panel"
+          id={`sample-subject-${subject.key}`}
+          role="tabpanel"
+          aria-labelledby={`sample-subject-tab-${subject.key}`}
+          data-sample-subject-panel={subject.key}
+          hidden={index !== 0}
+        >
+          <div class="section-heading compact">
+            <p class="eyebrow">{subject.eyebrow}</p>
+            <h3>{subject.title}</h3>
+            {subject.descriptionParagraphs.map((paragraph) => <p>{paragraph}</p>)}
+          </div>
+          <div class="report-grid">
+            {subject.reports.map((report) => (
+              <ReportTypeCard
+                lang={lang}
+                report={report}
+                sampleReport={getLatestSampleReportBySubjectAndReportType(lang, subject.key, report.key)}
+                readLabel={ui.readNoteLabel}
+                focusLabel={ui.focusLabel}
+                periodLabel={ui.periodLabel}
+              />
+            ))}
+          </div>
+        </section>
+      ))}
+    </div>
+  </section>
+
+  <script is:inline>
+    (() => {
+      const switchers = document.querySelectorAll("[data-sample-subject-switcher]");
+      switchers.forEach((switcher) => {
+        const tabs = Array.from(switcher.querySelectorAll("[data-sample-subject-tab]"));
+        const panels = Array.from(switcher.querySelectorAll("[data-sample-subject-panel]"));
+        const keys = tabs.map((tab) => tab.dataset.sampleSubjectTab).filter(Boolean);
+
+        const setActive = (key, updateHash = false) => {
+          const nextKey = keys.includes(key) ? key : keys[0];
+          tabs.forEach((tab) => {
+            const active = tab.dataset.sampleSubjectTab === nextKey;
+            tab.classList.toggle("active", active);
+            tab.setAttribute("aria-selected", String(active));
+          });
+          panels.forEach((panel) => {
+            panel.hidden = panel.dataset.sampleSubjectPanel !== nextKey;
+          });
+          if (updateHash) {
+            history.replaceState(null, "", `#sample-subject-${nextKey}`);
+          }
+        };
+
+        tabs.forEach((tab) => {
+          tab.addEventListener("click", (event) => {
+            event.preventDefault();
+            setActive(tab.dataset.sampleSubjectTab, true);
+          });
+        });
+
+        const initialKey = location.hash.replace(/^#sample-subject-/, "");
+        setActive(initialKey || keys[0]);
+      });
+    })();
+  </script>
+
+  <section class="article-flow sample-guide" aria-labelledby="report-type-guide-title">
+    <article>
+      <h2 id="report-type-guide-title">{reportTypeGuide.heading}</h2>
+      {reportTypeGuide.body.map((paragraph) => <p>{paragraph}</p>)}
+      {reportTypeGuide.link && (
+        <a class="button secondary" href={resolveLink(reportTypeGuide.link.href)}>{reportTypeGuide.link.label}</a>
+      )}
+    </article>
+  </section>
+</BaseLayout>

@@ -1,7 +1,7 @@
 # Polar Bird Astrology
 
 Public website for Polar Bird Astrology, currently publishing sample
-astrology reports for Core.
+astrology reports with Core Blockchain as the primary sample set.
 
 This project publishes sample astrology reports for public reading. It reads
 Core through natal, solar-return, and new-moon-cycle reports while avoiding
@@ -11,8 +11,9 @@ claims.
 ## Philosophy
 
 Polar Bird Astrology treats astrology as a language for noticing rhythm, mood,
-timing, and meaning. Public Field Notes are edited for a general audience and
-keep a clear line between symbolic interpretation and factual product claims.
+timing, and meaning. Public sample reports are edited for a general audience
+and keep a clear line between symbolic interpretation and factual product
+claims.
 
 ## What This Repository Contains
 

@@ -1,18 +1,19 @@
 ---
 locale: en
-slug: core-natal-field-note
+slug: core-natal-sample-report
+subject: core
 reportType: natal
 title: Core Blockchain Natal Report
 eyebrow: Natal report
-summary: A short public Field Note reading Core Blockchain's basic structure, response rhythm, visible role, and community patterns.
+summary: A short public sample report reading Core Blockchain's basic structure, response rhythm, visible role, and community patterns.
 chartImage: /reports/core/charts/core-natal-chart-20260605.png?v=zodiac-size-20260607
 chartAlt: Core Blockchain natal horoscope chart
 coverImage: /images/watercolor/pdf-cover-background.png
 chartImageDark: /reports/core/charts/core-natal-chart-20260605-dark.png?v=zodiac-size-20260607
 ---
-# Core Natal Field Note
+# Core Natal Sample Report
 
-This Field Note reads Core Blockchain's natal chart as a symbolic map of basic structure and community rhythm.
+This sample report reads Core Blockchain's natal chart as a symbolic map of basic structure and community rhythm.
 
 It is unofficial, interpretive, and written for public reflection. It is not investment advice, official Core communication, or a product availability claim.
 
@@ -28,6 +29,6 @@ The reading gives attention to community atmosphere, trust, shared language, and
 
 In this sample, the chart is treated as a way to organize themes for discussion, not as a factual source about roadmap, price, or release timing.
 
-## What this note does not claim
+## What this sample report does not claim
 
-This Field Note does not predict Core's price, market cap, official roadmap, product availability, or investment return.
+This sample report does not predict Core's price, market cap, official roadmap, product availability, or investment return.

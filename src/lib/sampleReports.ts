@@ -1,20 +1,21 @@
 import type { Lang } from "./i18n";
-import type { ReportTypeKey } from "../data/site";
+import type { ReportTypeKey, SampleSubjectKey } from "../data/site";
 
-type FieldNoteSection = {
+type SampleReportSection = {
   heading: string;
   body: string[];
 };
 
-export type FieldNoteTocItem = {
+export type SampleReportTocItem = {
   id: string;
   level: 2 | 3;
   title: string;
 };
 
-export type FieldNote = {
+export type SampleReport = {
   lang: Lang;
   slug: string;
+  subject: SampleSubjectKey;
   reportType: ReportTypeKey;
   title: string;
   eyebrow: string;
@@ -26,18 +27,23 @@ export type FieldNote = {
   coverImage?: string;
   period?: string;
   intro: string[];
-  sections: FieldNoteSection[];
-  tableOfContents: FieldNoteTocItem[];
+  sections: SampleReportSection[];
+  tableOfContents: SampleReportTocItem[];
   bodyHtml: string;
 };
 
 const reportTypeKeys = ["natal", "solar-return", "new-moon"] as const;
+const sampleSubjectKeys = ["core", "derek-sample"] as const;
 
 function isReportType(value: string | undefined): value is ReportTypeKey {
   return reportTypeKeys.includes(value as ReportTypeKey);
 }
 
-const rawModules = import.meta.glob("../../content/core-field-notes/*/*.md", {
+function isSampleSubject(value: string | undefined): value is SampleSubjectKey {
+  return sampleSubjectKeys.includes(value as SampleSubjectKey);
+}
+
+const rawModules = import.meta.glob("../../content/sample-reports/*/*.md", {
   eager: true,
   import: "default",
   query: "?raw"
@@ -46,7 +52,7 @@ const rawModules = import.meta.glob("../../content/core-field-notes/*/*.md", {
 function parseFrontmatter(raw: string): { data: Record<string, string>; body: string } {
   const match = raw.match(/^---\n([\s\S]*?)\n---\n([\s\S]*)$/);
   if (!match) {
-    throw new Error("Field Note content is missing frontmatter.");
+    throw new Error("Sample report content is missing frontmatter.");
   }
 
   const data: Record<string, string> = {};
@@ -104,10 +110,10 @@ function uniqueHeadingId(value: string, seen: Map<string, number>): string {
   return count === 0 ? base : `${base}-${count + 1}`;
 }
 
-function markdownToHtml(markdown: string): { bodyHtml: string; tableOfContents: FieldNoteTocItem[] } {
+function markdownToHtml(markdown: string): { bodyHtml: string; tableOfContents: SampleReportTocItem[] } {
   const withoutTitle = markdown.replace(/^# .*(?:\n|$)/, "").trim();
   const html: string[] = [];
-  const tableOfContents: FieldNoteTocItem[] = [];
+  const tableOfContents: SampleReportTocItem[] = [];
   const seenHeadingIds = new Map<string, number>();
   let paragraph: string[] = [];
   let listItems: string[] = [];
@@ -169,7 +175,7 @@ function markdownToHtml(markdown: string): { bodyHtml: string; tableOfContents: 
   return { bodyHtml: html.join("\n"), tableOfContents };
 }
 
-function parseSections(markdown: string): { intro: string[]; sections: FieldNoteSection[] } {
+function parseSections(markdown: string): { intro: string[]; sections: SampleReportSection[] } {
   const withoutTitle = markdown.replace(/^# .*(?:\n|$)/, "").trim();
   const parts = withoutTitle.split(/\n## /);
   const intro = markdownParagraphs(parts.shift() || "");
@@ -184,25 +190,31 @@ function parseSections(markdown: string): { intro: string[]; sections: FieldNote
   return { intro, sections };
 }
 
-function parseFieldNote(path: string, raw: string): FieldNote {
+function parseSampleReport(path: string, raw: string): SampleReport {
   const { data, body } = parseFrontmatter(raw);
   const { intro, sections } = parseSections(body);
   const { bodyHtml, tableOfContents } = markdownToHtml(body);
   const lang = data.locale as Lang;
   const slug = data.slug;
+  const subject = data.subject;
   const reportType = data.reportType;
 
   if (!lang || !slug || !data.title || !data.summary || !data.eyebrow) {
-    throw new Error(`Missing required Field Note frontmatter in ${path}`);
+    throw new Error(`Missing required sample report frontmatter in ${path}`);
   }
 
   if (!isReportType(reportType)) {
     throw new Error(`Missing or unsupported reportType in ${path}`);
   }
 
+  if (!isSampleSubject(subject)) {
+    throw new Error(`Missing or unsupported subject in ${path}`);
+  }
+
   return {
     lang,
     slug,
+    subject,
     reportType,
     title: data.title,
     eyebrow: data.eyebrow,
@@ -220,23 +232,33 @@ function parseFieldNote(path: string, raw: string): FieldNote {
   };
 }
 
-const allFieldNotes = Object.entries(rawModules).map(([path, raw]) => parseFieldNote(path, raw));
+const allSampleReports = Object.entries(rawModules).map(([path, raw]) => parseSampleReport(path, raw));
 
-export function getFieldNotes(lang: Lang): FieldNote[] {
-  return allFieldNotes.filter((note) => note.lang === lang);
+export function getSampleReports(lang: Lang): SampleReport[] {
+  return allSampleReports.filter((report) => report.lang === lang);
 }
 
-export function getLatestFieldNoteByReportType(
+export function getLatestSampleReportByReportType(
   lang: Lang,
   reportType: ReportTypeKey
-): FieldNote | undefined {
-  return allFieldNotes.find((note) => note.lang === lang && note.reportType === reportType);
+): SampleReport | undefined {
+  return getLatestSampleReportBySubjectAndReportType(lang, "core", reportType);
 }
 
-export function getFieldNote(lang: Lang, slug: string | undefined): FieldNote | undefined {
-  return allFieldNotes.find((note) => note.lang === lang && note.slug === slug);
+export function getLatestSampleReportBySubjectAndReportType(
+  lang: Lang,
+  subject: SampleSubjectKey,
+  reportType: ReportTypeKey
+): SampleReport | undefined {
+  return allSampleReports.find(
+    (report) => report.lang === lang && report.subject === subject && report.reportType === reportType
+  );
 }
 
-export function getFieldNoteStaticPaths() {
-  return allFieldNotes.map((note) => ({ params: { lang: note.lang, slug: note.slug } }));
+export function getSampleReport(lang: Lang, slug: string | undefined): SampleReport | undefined {
+  return allSampleReports.find((report) => report.lang === lang && report.slug === slug);
+}
+
+export function getSampleReportStaticPaths() {
+  return allSampleReports.map((report) => ({ params: { lang: report.lang, slug: report.slug } }));
 }

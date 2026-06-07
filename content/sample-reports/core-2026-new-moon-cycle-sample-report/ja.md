@@ -1,8 +1,9 @@
 ---
 locale: ja
-slug: core-2026-new-moon-cycle-field-note
+slug: core-2026-new-moon-cycle-sample-report
+subject: core
 reportType: new-moon
-title: Core Blockchain 新月サイクル分析 2026.05.17
+title: Core Blockchain 新月サイクルレポート 2026.05.17
 eyebrow: 新月サイクルレポート
 period: 2026.05.17 - 2026.06.15
 summary: 2026年5月17日から6月15日までの新月サイクルを、Core Blockchainの説明、見え方、コミュニティの空気、月相リズムから読むレポートです。
@@ -12,7 +13,7 @@ chartAlt: Core Blockchainの2026年5月新月サイクルホロスコープ図
 coverImage: /images/watercolor/pdf-cover-background.png
 chartImageDark: /reports/core/charts/core-new-moon-chart-20260605-dark.png?v=zodiac-size-20260607
 ---
-# Core 新月サイクル分析
+# Core 新月サイクルレポート
 
 ## Coreにとってのこの新月サイクルの中心テーマ
 

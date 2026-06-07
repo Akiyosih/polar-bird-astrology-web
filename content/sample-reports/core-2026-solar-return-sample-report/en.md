@@ -1,6 +1,7 @@
 ---
 locale: en
-slug: core-2026-solar-return-field-note
+slug: core-2026-solar-return-sample-report
+subject: core
 reportType: solar-return
 title: Core Blockchain Solar Return Report 2026
 eyebrow: Solar return report
@@ -12,9 +13,9 @@ coverImage: /images/watercolor/pdf-cover-background.png
 chartImageDark: /reports/core/charts/core-solar-return-chart-20260605-dark.png?v=zodiac-size-20260607
 ---
 
-# Core 2026 Solar Return Field Note
+# Core 2026 Solar Return Sample Report
 
-This Field Note reads Core's 2026 yearly theme as symbolic timing for community reflection.
+This sample report reads Core's 2026 yearly theme as symbolic timing for community reflection.
 
 It is unofficial, interpretive, and written for entertainment. It is not investment advice, official Core communication, or a product availability claim.
 
@@ -42,4 +43,4 @@ These are attention markers, not predictions of investment results.
 
 ## What this note does not claim
 
-This Field Note does not predict Core's price, market cap, official roadmap, product availability, or investment return.
+This sample report does not predict Core's price, market cap, official roadmap, product availability, or investment return.

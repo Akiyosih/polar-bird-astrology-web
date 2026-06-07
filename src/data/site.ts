@@ -2,6 +2,7 @@ import type { Lang } from "../lib/i18n";
 
 export type PageKey = "purchase" | "reading-policy" | "about";
 export type ReportTypeKey = "natal" | "solar-return" | "new-moon";
+export type SampleSubjectKey = "core" | "derek-sample";
 
 type TextBlock = {
   heading: string;
@@ -41,9 +42,11 @@ type UiCopy = {
   reportHubTitle: string;
   reportHubDescription: string;
   reportHubDescriptionParagraphs?: string[];
-  fieldNotesEyebrow: string;
-  fieldNotesTitle: string;
-  fieldNotesDescription: string;
+  sampleReportsEyebrow: string;
+  sampleReportsTitle: string;
+  sampleReportsDescription: string;
+  sampleSubjectEyebrow: string;
+  sampleSubjectTitle: string;
   readNoteLabel: string;
   purchaseStatusLabel: string;
   sampleReportsBackLabel: string;
@@ -76,13 +79,22 @@ type ChartLegendGroup = {
   items: ChartLegendItem[];
 };
 
-type ReportTypeCopy = {
+export type ReportTypeCopy = {
   key: ReportTypeKey;
   label: string;
   title: string;
   summary: string;
   focus: string;
   emptyLabel: string;
+};
+
+type SampleSubjectCopy = {
+  key: SampleSubjectKey;
+  label: string;
+  eyebrow: string;
+  title: string;
+  descriptionParagraphs: string[];
+  reports: ReportTypeCopy[];
 };
 
 export const repoUrl = "https://github.com/Akiyosih/polar-bird-astrology-web";
@@ -216,19 +228,19 @@ export const chartLegendGroups: Record<Lang, ChartLegendGroup[]> = {
 
 export const navItems: Record<Lang, NavItem[]> = {
   en: [
-    { href: "core-field-notes", label: "Samples" },
+    { href: "sample-reports", label: "Samples" },
     { href: "purchase", label: "Order", badge: "soon" },
     { href: "reading-policy", label: "Approach" },
     { href: "about", label: "Writer" }
   ],
   ja: [
-    { href: "core-field-notes", label: "サンプルレポート" },
+    { href: "sample-reports", label: "サンプルレポート" },
     { href: "purchase", label: "レポート購入", badge: "soon" },
     { href: "reading-policy", label: "読み方と方針" },
     { href: "about", label: "書き手" }
   ],
   de: [
-    { href: "core-field-notes", label: "Beispielreports" },
+    { href: "sample-reports", label: "Beispielreports" },
     { href: "purchase", label: "Reportkauf", badge: "soon" },
     { href: "reading-policy", label: "Leseweise" },
     { href: "about", label: "Autor" }
@@ -325,6 +337,171 @@ export const reportTypes: Record<Lang, ReportTypeCopy[]> = {
   ]
 };
 
+const derekReportTypes: Record<Lang, ReportTypeCopy[]> = {
+  en: [
+    {
+      key: "natal",
+      label: "Natal report",
+      title: "Derek Sample's\nBasic Structure",
+      summary:
+        "A fictional personal sample showing how a natal report can describe temperament, response patterns, and everyday decision themes.",
+      focus: "Temperament, response rhythm, self-understanding",
+      emptyLabel: "Coming soon"
+    },
+    {
+      key: "solar-return",
+      label: "Solar return report",
+      title: "Derek Sample's\n2026 Theme",
+      summary:
+        "A fictional personal sample showing how a solar return report can frame the stage of a year, visible themes, and practical emphasis.",
+      focus: "Annual theme, practical emphasis, visible stage",
+      emptyLabel: "Coming soon"
+    },
+    {
+      key: "new-moon",
+      label: "New moon cycle report",
+      title: "Derek Sample's\nNew Moon Cycle",
+      summary:
+        "A fictional personal sample showing how a new moon cycle report can organize monthly rhythm, choices, and observation points.",
+      focus: "Monthly rhythm, choices, observation points",
+      emptyLabel: "Coming soon"
+    }
+  ],
+  ja: [
+    {
+      key: "natal",
+      label: "出生図レポート",
+      title: "Derek Sampleの\n基本構造",
+      summary:
+        "架空の人物Derek Sampleを題材に、出生図レポートが気質、反応のパターン、日々の選択テーマをどう読むかを示します。",
+      focus: "気質、反応のリズム、自己理解",
+      emptyLabel: "準備中"
+    },
+    {
+      key: "solar-return",
+      label: "太陽回帰レポート",
+      title: "Derek Sampleの\n2026年のテーマ",
+      summary:
+        "架空の人物Derek Sampleを題材に、太陽回帰レポートが一年の舞台、表に出やすいテーマ、実践上の焦点をどう読むかを示します。",
+      focus: "年間テーマ、実践上の焦点、表に出る舞台",
+      emptyLabel: "準備中"
+    },
+    {
+      key: "new-moon",
+      label: "新月サイクルレポート",
+      title: "Derek Sampleの\n新月サイクル",
+      summary:
+        "架空の人物Derek Sampleを題材に、新月サイクルレポートが月ごとのリズム、選択、観察点をどう整理するかを示します。",
+      focus: "月ごとのリズム、選択、観察点",
+      emptyLabel: "準備中"
+    }
+  ],
+  de: [
+    {
+      key: "natal",
+      label: "Radix-Report",
+      title: "Derek Sample:\nGrundstruktur",
+      summary:
+        "Ein fiktives persönliches Beispiel dafür, wie ein Radix-Report Temperament, Reaktionsmuster und Themen für tägliche Entscheidungen beschreibt.",
+      focus: "Temperament, Reaktionsrhythmus, Selbstverständnis",
+      emptyLabel: "In Vorbereitung"
+    },
+    {
+      key: "solar-return",
+      label: "Solar-Return-Report",
+      title: "Derek Sample:\nThema 2026",
+      summary:
+        "Ein fiktives persönliches Beispiel dafür, wie ein Solar-Return-Report den Jahresrahmen, sichtbare Themen und praktische Schwerpunkte ordnet.",
+      focus: "Jahresthema, praktischer Schwerpunkt, sichtbarer Rahmen",
+      emptyLabel: "In Vorbereitung"
+    },
+    {
+      key: "new-moon",
+      label: "Neumondzyklus-Report",
+      title: "Derek Sample:\nNeumondzyklus",
+      summary:
+        "Ein fiktives persönliches Beispiel dafür, wie ein Report zum Neumondzyklus Monatsrhythmus, Entscheidungen und Beobachtungspunkte ordnet.",
+      focus: "Monatsrhythmus, Entscheidungen, Beobachtungspunkte",
+      emptyLabel: "In Vorbereitung"
+    }
+  ]
+};
+
+export const sampleSubjects: Record<Lang, SampleSubjectCopy[]> = {
+  en: [
+    {
+      key: "core",
+      label: "Core Blockchain",
+      eyebrow: "Public ecosystem sample",
+      title: "Core Blockchain",
+      descriptionParagraphs: [
+        "Core Blockchain is the current primary sample for reading a business, public ecosystem, and community.",
+        "The three reports show natal structure, the 2026 solar-return year, and one published new moon cycle."
+      ],
+      reports: reportTypes.en
+    },
+    {
+      key: "derek-sample",
+      label: "Derek Sample",
+      eyebrow: "Fictional personal sample",
+      title: "Derek Sample",
+      descriptionParagraphs: [
+        "Derek Sample is a fictional person used to show how personal reports read.",
+        "These placeholder sample reports give the website structure for a future personal sample set."
+      ],
+      reports: derekReportTypes.en
+    }
+  ],
+  ja: [
+    {
+      key: "core",
+      label: "Core Blockchain",
+      eyebrow: "公開エコシステムのサンプル",
+      title: "Core Blockchain",
+      descriptionParagraphs: [
+        "Core Blockchainは、事業、公開エコシステム、コミュニティを読むための現在の前面サンプルです。",
+        "出生図、2026年の太陽回帰、公開中の新月サイクルの3レポートを掲載しています。"
+      ],
+      reports: reportTypes.ja
+    },
+    {
+      key: "derek-sample",
+      label: "Derek Sample",
+      eyebrow: "架空人物のサンプル",
+      title: "Derek Sample",
+      descriptionParagraphs: [
+        "Derek Sampleは、個人向けレポートの見え方を示すための架空の人物です。",
+        "現在は、個人サンプルセットの構造を確認するための短いプレースホルダーのサンプルレポートを置いています。"
+      ],
+      reports: derekReportTypes.ja
+    }
+  ],
+  de: [
+    {
+      key: "core",
+      label: "Core Blockchain",
+      eyebrow: "Beispiel für ein öffentliches Ökosystem",
+      title: "Core Blockchain",
+      descriptionParagraphs: [
+        "Core Blockchain steht derzeit als zentrales Beispiel für die Deutung eines Unternehmens, öffentlichen Ökosystems und einer Community.",
+        "Die drei Reports zeigen Radixstruktur, das Solar-Return-Jahr 2026 und einen veröffentlichten Neumondzyklus."
+      ],
+      reports: reportTypes.de
+    },
+    {
+      key: "derek-sample",
+      label: "Derek Sample",
+      eyebrow: "Fiktives persönliches Beispiel",
+      title: "Derek Sample",
+      descriptionParagraphs: [
+        "Derek Sample ist eine fiktive Person, an der persönliche Reports beispielhaft gezeigt werden.",
+        "Diese Platzhalter-Beispielreports geben der Website die Struktur für ein späteres persönliches Beispielset."
+      ],
+      reports: derekReportTypes.de
+    }
+  ]
+};
+
 export const uiCopy: Record<Lang, UiCopy> = {
   en: {
     heroPrimary: "Read sample reports",
@@ -337,10 +514,12 @@ export const uiCopy: Record<Lang, UiCopy> = {
       "The natal report reads Core Blockchain's basic structure. The solar return reads the annual stage for 2026. The new moon cycle report reads the currently published cycle.",
       "Polar Bird Astrology publishes the set as an example of reading a business or community."
     ],
-    fieldNotesEyebrow: "Sample reports on Core Blockchain",
-    fieldNotesTitle: "Sample Reports",
-    fieldNotesDescription:
-      "A public ecosystem can also be read through a natal chart, solar return, and new moon cycle. The current library publishes three reports on Core Blockchain.",
+    sampleReportsEyebrow: "Sample reports",
+    sampleReportsTitle: "Sample Reports",
+    sampleReportsDescription:
+      "Core Blockchain is the primary sample set. Derek Sample adds a fictional personal sample structure for natal, solar return, and new moon cycle reports.",
+    sampleSubjectEyebrow: "Choose a sample subject",
+    sampleSubjectTitle: "Core Blockchain or Derek Sample",
     readNoteLabel: "Read",
     purchaseStatusLabel: "View purchase status",
     sampleReportsBackLabel: "Back to sample reports",
@@ -377,10 +556,12 @@ export const uiCopy: Record<Lang, UiCopy> = {
       "出生図はCore Blockchainの基本構造、太陽回帰は2026年の舞台、新月サイクルは公開中のサイクルを読みます。",
       "事業やコミュニティを読むレポート例として公開しています。"
     ],
-    fieldNotesEyebrow: "Core Blockchainを題材にしたレポート例",
-    fieldNotesTitle: "サンプルレポート",
-    fieldNotesDescription:
-      "人ではない公開エコシステムも、出生図、太陽回帰、新月サイクルで読めます。現在はCore Blockchainの3レポートを公開しています。",
+    sampleReportsEyebrow: "サンプルレポート",
+    sampleReportsTitle: "サンプルレポート",
+    sampleReportsDescription:
+      "Core Blockchainを前面のサンプルセットとして置き、Derek Sampleでは架空人物の出生図、太陽回帰、新月サイクルの見え方を確認できる形にしています。",
+    sampleSubjectEyebrow: "サンプル対象を選ぶ",
+    sampleSubjectTitle: "Core Blockchain / Derek Sample",
     readNoteLabel: "読む",
     purchaseStatusLabel: "レポート購入状況を見る",
     sampleReportsBackLabel: "サンプルレポートへ戻る",
@@ -417,10 +598,12 @@ export const uiCopy: Record<Lang, UiCopy> = {
       "Der Radix-Report beschreibt die Grundstruktur von Core Blockchain. Der Solar-Return-Report deutet den Jahresrahmen 2026. Der Report zum Neumondzyklus deutet den aktuell veröffentlichten Zyklus.",
       "Dieses Set zeigt, wie Polar Bird Astrology ein Unternehmen oder eine Community astrologisch deutet."
     ],
-    fieldNotesEyebrow: "Reportbeispiele zu Core Blockchain",
-    fieldNotesTitle: "Beispielreports",
-    fieldNotesDescription:
-      "Polar Bird Astrology kann auch ein öffentliches Ökosystem anhand von Radix, Solar Return und Neumondzyklus deuten. Derzeit sind drei Reports zu Core Blockchain veröffentlicht.",
+    sampleReportsEyebrow: "Beispielreports",
+    sampleReportsTitle: "Beispielreports",
+    sampleReportsDescription:
+      "Core Blockchain steht als zentrales Beispielset im Vordergrund. Derek Sample ergänzt eine fiktive persönliche Struktur für Radix-, Solar-Return- und Neumondzyklus-Reports.",
+    sampleSubjectEyebrow: "Beispiel wählen",
+    sampleSubjectTitle: "Core Blockchain oder Derek Sample",
     readNoteLabel: "Lesen",
     purchaseStatusLabel: "Status des Reportkaufs ansehen",
     sampleReportsBackLabel: "Zurück zu den Beispielreports",

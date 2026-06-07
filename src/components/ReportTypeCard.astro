@@ -1,6 +1,6 @@
 ---
 import type { ReportTypeKey } from "../data/site";
-import type { FieldNote } from "../lib/fieldNotes";
+import type { SampleReport } from "../lib/sampleReports";
 import type { Lang } from "../lib/i18n";
 import { localizedPath } from "../lib/i18n";
 
@@ -16,20 +16,20 @@ type ReportTypeCardCopy = {
 type Props = {
   lang: Lang;
   report: ReportTypeCardCopy;
-  note?: FieldNote;
+  sampleReport?: SampleReport;
   readLabel: string;
   focusLabel: string;
   periodLabel: string;
 };
 
-const { lang, report, note, readLabel, focusLabel, periodLabel } = Astro.props;
-const noteHref = note ? localizedPath(lang, `core-field-notes/${note.slug}`) : undefined;
+const { lang, report, sampleReport, readLabel, focusLabel, periodLabel } = Astro.props;
+const sampleReportHref = sampleReport ? localizedPath(lang, `sample-reports/${sampleReport.slug}`) : undefined;
 const titleLines = report.title.split("\n");
 const accessibleTitle = report.title.replace(/\s+/g, " ");
 ---
 
-<article class:list={["report-type-card", note ? "is-available" : "is-empty"]} data-report={report.key}>
-  {noteHref && <a class="card-hit-link" href={noteHref} aria-label={`${accessibleTitle} ${readLabel}`}></a>}
+<article class:list={["report-type-card", sampleReport ? "is-available" : "is-empty"]} data-report={report.key}>
+  {sampleReportHref && <a class="card-hit-link" href={sampleReportHref} aria-label={`${accessibleTitle} ${readLabel}`}></a>}
   <p class="eyebrow">{report.label}</p>
   <h2>
     {titleLines.map((line) => <span class="report-title-line">{line}</span>)}
@@ -40,16 +40,16 @@ const accessibleTitle = report.title.replace(/\s+/g, " ");
       <dt>{focusLabel}</dt>
       <dd>{report.focus}</dd>
     </div>
-    {note?.period && (
+    {sampleReport?.period && (
       <div>
         <dt>{periodLabel}</dt>
-        <dd>{note.period}</dd>
+        <dd>{sampleReport.period}</dd>
       </div>
     )}
   </dl>
   <div class="card-actions">
     {
-      note ? (
+      sampleReport ? (
         <span class="button secondary" aria-hidden="true">
           {readLabel}
         </span>

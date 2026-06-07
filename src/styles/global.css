@@ -240,7 +240,7 @@ body {
 :root[data-theme="dark"] .report-cover-panel,
 :root[data-theme="dark"] .boundary-box,
 :root[data-theme="dark"] .content-grid article,
-:root[data-theme="dark"] .field-note-card,
+:root[data-theme="dark"] .sample-report-card,
 :root[data-theme="dark"] .article-flow article,
 :root[data-theme="dark"] .chart-legend,
 :root[data-theme="dark"] .report-toc,
@@ -892,7 +892,7 @@ p {
 }
 
 .content-grid article,
-.field-note-card,
+.sample-report-card,
 .report-type-card,
 .article-flow article {
   background:
@@ -993,7 +993,7 @@ p {
   text-decoration-thickness: 0.08em;
 }
 
-.field-note-card {
+.sample-report-card {
   display: grid;
   gap: 0.65rem;
 }
@@ -1004,6 +1004,63 @@ p {
 
 .hero + .report-hub {
   margin-top: 3.25rem;
+}
+
+.sample-subject-switcher {
+  display: grid;
+  gap: 1.2rem;
+}
+
+.sample-subject-tabs {
+  align-items: center;
+  background: var(--button-secondary-bg);
+  border: 1px solid var(--button-secondary-border);
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 0.25rem;
+  justify-self: start;
+  padding: 0.25rem;
+}
+
+.sample-subject-tabs a {
+  border: 1px solid transparent;
+  color: var(--text-primary);
+  font-size: 0.92rem;
+  font-weight: 700;
+  line-height: var(--leading-ui);
+  min-height: 2.55rem;
+  padding: 0.55rem 0.85rem;
+  text-align: center;
+  text-decoration: none;
+}
+
+.sample-subject-tabs a:hover {
+  border-color: var(--button-secondary-border);
+  color: var(--link-color);
+}
+
+.sample-subject-tabs a.active {
+  background: var(--button-primary-bg);
+  border-color: var(--button-primary-bg);
+  color: var(--button-primary-text);
+}
+
+.sample-subject-panel {
+  display: grid;
+  gap: 1rem;
+}
+
+.sample-subject-panel[hidden] {
+  display: none;
+}
+
+.sample-subject-panel .section-heading.compact {
+  margin-top: 0;
+}
+
+.sample-subject-panel h3 {
+  color: var(--pb-teal);
+  font-size: 1.45rem;
 }
 
 .sample-guide {
@@ -1119,7 +1176,7 @@ p {
 }
 
 .report-type-card h2,
-.field-note-card h2 {
+.sample-report-card h2 {
   font-size: 1.45rem;
 }
 
@@ -1188,7 +1245,7 @@ p {
   padding-inline: 0.9rem;
 }
 
-.field-note-card h2 a {
+.sample-report-card h2 a {
   color: var(--text-primary);
   text-decoration: none;
 }
@@ -1224,7 +1281,7 @@ p {
   }
 }
 
-.field-note .boundary-box {
+.sample-report .boundary-box {
   justify-self: center;
   max-width: 940px;
   width: 100%;
@@ -2033,7 +2090,7 @@ p {
   }
 
   .content-grid article,
-  .field-note-card,
+  .sample-report-card,
   .report-type-card,
   .article-flow article {
     padding: 1rem;
@@ -2069,6 +2126,16 @@ p {
 
   .chart-legend-groups {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .sample-subject-tabs {
+    display: flex;
+    width: 100%;
+  }
+
+  .sample-subject-tabs a {
+    flex: 1 1 0;
+    min-width: min(11rem, 100%);
   }
 
   .report-body h2 {

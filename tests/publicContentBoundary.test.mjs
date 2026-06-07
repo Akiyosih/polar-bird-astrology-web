@@ -87,7 +87,7 @@ function findWebpPrivacyMetadata(buffer) {
 function parseFrontmatter(markdown, slug) {
   const match = markdown.match(/^---\r?\n([\s\S]*?)\r?\n---(?:\r?\n|$)/);
   if (!match) {
-    throw new Error(`Field Note is missing frontmatter: ${slug}`);
+    throw new Error(`Sample report is missing frontmatter: ${slug}`);
   }
 
   const frontmatter = new Map();
@@ -98,7 +98,7 @@ function parseFrontmatter(markdown, slug) {
     }
     const [, key, value] = entry;
     if (frontmatter.has(key)) {
-      throw new Error(`Field Note has duplicate frontmatter key ${key}: ${slug}`);
+      throw new Error(`Sample report has duplicate frontmatter key ${key}: ${slug}`);
     }
     frontmatter.set(key, value.trim());
   }
@@ -108,11 +108,11 @@ function parseFrontmatter(markdown, slug) {
 function assertPublicAssetExists(publicUrl, slug, key) {
   const cleanPath = publicUrl.split("?")[0];
   if (!cleanPath.startsWith("/")) {
-    throw new Error(`Field Note ${slug} has non-root ${key}: ${publicUrl}`);
+    throw new Error(`Sample report ${slug} has non-root ${key}: ${publicUrl}`);
   }
   const assetPath = join(root, "public", cleanPath.slice(1));
   if (!existsSync(assetPath)) {
-    throw new Error(`Field Note ${slug} points ${key} to a missing asset: ${publicUrl}`);
+    throw new Error(`Sample report ${slug} points ${key} to a missing asset: ${publicUrl}`);
   }
 }
 
@@ -135,51 +135,51 @@ for (const assetPath of profileImagePaths) {
 }
 
 const expectedJapaneseReports = new Map([
-  ["core-natal-field-note", "natal"],
-  ["core-2026-solar-return-field-note", "solar-return"],
-  ["core-2026-new-moon-cycle-field-note", "new-moon"]
+  ["core-natal-sample-report", "natal"],
+  ["core-2026-solar-return-sample-report", "solar-return"],
+  ["core-2026-new-moon-cycle-sample-report", "new-moon"]
 ]);
 
 for (const [slug, reportType] of expectedJapaneseReports) {
-  const noteDir = join(root, "content/core-field-notes", slug);
-  const localeFiles = await readdir(noteDir);
+  const reportDir = join(root, "content/sample-reports", slug);
+  const localeFiles = await readdir(reportDir);
   if (!localeFiles.includes("ja.md")) {
-    throw new Error(`Missing Japanese Field Note locale file: ${slug}/ja.md`);
+    throw new Error(`Missing Japanese sample report locale file: ${slug}/ja.md`);
   }
 
-  const markdown = await readFile(join(noteDir, "ja.md"), "utf8");
+  const markdown = await readFile(join(reportDir, "ja.md"), "utf8");
   const frontmatter = parseFrontmatter(markdown, slug);
   if (frontmatter.get("reportType") !== reportType) {
-    throw new Error(`Japanese Field Note has wrong reportType: ${slug}`);
+    throw new Error(`Japanese sample report has wrong reportType: ${slug}`);
   }
 
   const pdfUrl = frontmatter.get("pdfUrl") || "";
   if (!pdfUrl.startsWith("/reports/core/")) {
-    throw new Error(`Japanese Field Note is missing PDF download URL: ${slug}`);
+    throw new Error(`Japanese sample report is missing PDF download URL: ${slug}`);
   }
   assertPublicAssetExists(pdfUrl, slug, "pdfUrl");
 
   const chartImage = frontmatter.get("chartImage") || "";
   if (!chartImage.startsWith("/reports/core/charts/")) {
-    throw new Error(`Japanese Field Note is missing chart image URL: ${slug}`);
+    throw new Error(`Japanese sample report is missing chart image URL: ${slug}`);
   }
   assertPublicAssetExists(chartImage, slug, "chartImage");
 
   const chartImageDark = frontmatter.get("chartImageDark") || "";
   if (!chartImageDark.startsWith("/reports/core/charts/")) {
-    throw new Error(`Japanese Field Note is missing dark chart image URL: ${slug}`);
+    throw new Error(`Japanese sample report is missing dark chart image URL: ${slug}`);
   }
   assertPublicAssetExists(chartImageDark, slug, "chartImageDark");
 
   const sectionCount = markdown.match(/^## /gm)?.length || 0;
   if (sectionCount < 3) {
-    throw new Error(`Japanese Field Note has too few rendered sections: ${slug}`);
+    throw new Error(`Japanese sample report has too few rendered sections: ${slug}`);
   }
 }
 
 const siteData = await readFile(join(root, "src/data/site.ts"), "utf8");
-if (siteData.includes("export const fieldNotes")) {
-  throw new Error("Field Note content should be sourced from content/, not duplicated in src/data/site.ts");
+if (siteData.includes("export const sampleReports")) {
+  throw new Error("Sample report content should be sourced from content/, not duplicated in src/data/site.ts");
 }
 
 for (const forbidden of ["src/pages/api", "functions"]) {

@@ -2,7 +2,7 @@
 import ReportTypeCard from "../../components/ReportTypeCard.astro";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import { homeCopy, reportTypes, uiCopy } from "../../data/site";
-import { getLatestFieldNoteByReportType } from "../../lib/fieldNotes";
+import { getLatestSampleReportByReportType } from "../../lib/sampleReports";
 import { isLang, languages, localizedPath } from "../../lib/i18n";
 
 export function getStaticPaths() {
@@ -28,7 +28,7 @@ const resolveLink = (href: string) => (/^https?:\/\//.test(href) ? href : locali
       <h1>{copy.title}</h1>
       {descriptionParagraphs.map((paragraph) => <p>{paragraph}</p>)}
       <div class="hero-actions">
-        <a class="button primary" href={localizedPath(lang, "core-field-notes")}>{ui.heroPrimary}</a>
+        <a class="button primary" href={localizedPath(lang, "sample-reports")}>{ui.heroPrimary}</a>
         <a class="button secondary" href={localizedPath(lang, "purchase")}>{ui.heroSecondary}</a>
       </div>
     </div>
@@ -50,7 +50,7 @@ const resolveLink = (href: string) => (/^https?:\/\//.test(href) ? href : locali
         <ReportTypeCard
           lang={lang}
           report={report}
-          note={getLatestFieldNoteByReportType(lang, report.key)}
+          sampleReport={getLatestSampleReportByReportType(lang, report.key)}
           readLabel={ui.readNoteLabel}
           focusLabel={ui.focusLabel}
           periodLabel={ui.periodLabel}

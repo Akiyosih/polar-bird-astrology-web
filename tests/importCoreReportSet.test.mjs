@@ -9,7 +9,7 @@ const repoRoot = process.cwd();
 
 const tempRoot = await mkdtemp(join(tmpdir(), "core-report-import-"));
 const sourceDir = join(tempRoot, "source");
-const contentDir = join(tempRoot, "content", "core-field-notes", "core-natal-field-note");
+const contentDir = join(tempRoot, "content", "sample-reports", "core-natal-sample-report");
 try {
   await mkdir(sourceDir, { recursive: true });
   await mkdir(contentDir, { recursive: true });
@@ -19,6 +19,8 @@ try {
     [
       "---",
       "title: Core 出生ホロスコープ分析",
+      "slug: core-natal-sample-report",
+      "subject: core",
       "reportType: natal",
       "summary: old summary",
       "pdfUrl: /reports/core/old.pdf",
@@ -83,6 +85,9 @@ try {
   }
   if (!markdown.includes("chartImageDark: /reports/core/charts/core-natal-chart-20990101-dark.png?v=20990101-000000")) {
     throw new Error("Imported markdown did not include auto-versioned chartImageDark.");
+  }
+  if (!markdown.includes("pdfUrl: /reports/core/core-natal-report-20990101.pdf")) {
+    throw new Error("Imported markdown did not include the sample-report PDF name.");
   }
 
   console.log("Core report import script test passed.");

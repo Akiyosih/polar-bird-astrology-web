@@ -1,19 +1,20 @@
 ---
 locale: en
-slug: core-2026-new-moon-cycle-field-note
+slug: core-2026-new-moon-cycle-sample-report
+subject: core
 reportType: new-moon
 title: Core Blockchain New Moon Cycle Report 2026.05.17
 eyebrow: New moon cycle report
 period: 2026.05.17 - 2026.06.15
-summary: A short public Field Note reading the 2026.05.17-2026.06.15 new moon cycle through Core Blockchain's explanation, visibility, community atmosphere, and lunar rhythm.
+summary: A short public sample report reading the 2026.05.17-2026.06.15 new moon cycle through Core Blockchain's explanation, visibility, community atmosphere, and lunar rhythm.
 chartImage: /reports/core/charts/core-new-moon-chart-20260605.png?v=zodiac-size-20260607
 chartAlt: Core Blockchain May 2026 new moon cycle horoscope chart
 coverImage: /images/watercolor/pdf-cover-background.png
 chartImageDark: /reports/core/charts/core-new-moon-chart-20260605-dark.png?v=zodiac-size-20260607
 ---
-# Core New Moon Cycle Field Note
+# Core New Moon Cycle Sample Report
 
-This Field Note reads the new moon cycle from May 17 to June 15, 2026 as symbolic timing for community observation.
+This sample report reads the new moon cycle from May 17 to June 15, 2026 as symbolic timing for community observation.
 
 It is unofficial, interpretive, and written for public reflection. It is not investment advice, official Core communication, or a product availability claim.
 
@@ -31,4 +32,4 @@ The useful question is not what event must happen. It is which words, examples, 
 
 ## What this note does not claim
 
-This Field Note does not predict Core's price, market cap, official roadmap, product availability, or investment return.
+This sample report does not predict Core's price, market cap, official roadmap, product availability, or investment return.

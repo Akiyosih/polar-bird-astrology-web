@@ -15,7 +15,7 @@ Use this before a public launch or meaningful public content update.
 ## Site
 
 - [ ] `/en`, `/ja`, and `/de` routes build.
-- [ ] `/en/core-field-notes`, `/ja/core-field-notes`, and `/de/core-field-notes` have the current Field Note entry.
+- [ ] `/en/sample-reports`, `/ja/sample-reports`, and `/de/sample-reports` have the current sample report entries.
 - [ ] `/en/purchase`, `/ja/purchase`, and `/de/purchase` clearly mark report purchase as in preparation.
 - [ ] `/en/reading-policy`, `/ja/reading-policy`, and `/de/reading-policy` explain the reading style, boundaries, and public repository link.
 

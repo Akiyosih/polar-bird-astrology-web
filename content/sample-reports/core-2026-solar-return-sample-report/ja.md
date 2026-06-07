@@ -1,6 +1,7 @@
 ---
 locale: ja
-slug: core-2026-solar-return-field-note
+slug: core-2026-solar-return-sample-report
+subject: core
 reportType: solar-return
 title: Core Blockchain 太陽回帰レポート 2026
 eyebrow: 太陽回帰レポート

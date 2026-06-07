@@ -3,9 +3,9 @@
 This repository is public. Keep it suitable for readers, contributors, and
 community members.
 
-## Public Field Notes
+## Public Sample Reports
 
-Field Notes may discuss symbolic timing, community mood, project rhythm, and
+Sample reports may discuss symbolic timing, community mood, project rhythm, and
 interpretive themes.
 
 They must not present astrology as:
