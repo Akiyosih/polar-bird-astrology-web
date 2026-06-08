@@ -101,7 +101,7 @@ reader-facing point.
 Before finalizing English website copy, run a calque / idiom sweep:
 
 - Do not translate `導線` mechanically as "path". Use the surface's actual job:
-  "Report Purchase", "Purchase status", "Purchases are being prepared", or
+  "Order", "Report ordering", "CorePay order flow in preparation", or
   another natural UI phrase.
 - Do not force every `星まわり` into "planetary patterns". Choose by surface:
   "charts", "astrology reports", "planetary placements", "planetary pattern",
@@ -128,6 +128,10 @@ when they make the copy feel administrative rather than readable.
 Use astrology terms that German readers can recognize, such as "Radix",
 "Solar Return", "Neumondzyklus", "Aszendent", and "Mondknoten", while keeping
 the sentence practical and readable.
+
+For report-ordering surfaces, prefer "Bestellung" and "bestellen" over
+"Reportkauf" when the workflow is an order with later delivery rather than
+instant purchase or access.
 
 ## Public Sync Checklist
 

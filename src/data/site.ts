@@ -235,13 +235,13 @@ export const navItems: Record<Lang, NavItem[]> = {
   ],
   ja: [
     { href: "sample-reports", label: "サンプルレポート" },
-    { href: "purchase", label: "レポート購入", badge: "soon" },
+    { href: "purchase", label: "レポート注文", badge: "soon" },
     { href: "reading-policy", label: "読み方と方針" },
     { href: "about", label: "書き手" }
   ],
   de: [
     { href: "sample-reports", label: "Beispielreports" },
-    { href: "purchase", label: "Reportkauf", badge: "soon" },
+    { href: "purchase", label: "Bestellen", badge: "soon" },
     { href: "reading-policy", label: "Leseweise" },
     { href: "about", label: "Autor" }
   ]
@@ -505,7 +505,7 @@ export const sampleSubjects: Record<Lang, SampleSubjectCopy[]> = {
 export const uiCopy: Record<Lang, UiCopy> = {
   en: {
     heroPrimary: "Read sample reports",
-    heroSecondary: "Purchase status",
+    heroSecondary: "Report ordering",
     reportHubEyebrow: "Currently published",
     reportHubTitle: "Three Views on Core Blockchain",
     reportHubDescription:
@@ -521,7 +521,7 @@ export const uiCopy: Record<Lang, UiCopy> = {
     sampleSubjectEyebrow: "Choose a sample subject",
     sampleSubjectTitle: "Core Blockchain or Derek Sample",
     readNoteLabel: "Read",
-    purchaseStatusLabel: "View purchase status",
+    purchaseStatusLabel: "View ordering details",
     sampleReportsBackLabel: "Back to sample reports",
     otherSamplesLabel: "Other sample reports",
     otherSamplesShortLabel: "Other samples",
@@ -541,13 +541,13 @@ export const uiCopy: Record<Lang, UiCopy> = {
     footerLinks: {
       sampleReports: "Sample Reports",
       readingPolicy: "How we read",
-      purchase: "Purchase status",
+      purchase: "Report ordering",
       about: "Writer"
     }
   },
   ja: {
     heroPrimary: "サンプルレポートを読む",
-    heroSecondary: "レポート購入",
+    heroSecondary: "レポート注文",
     reportHubEyebrow: "現在公開中",
     reportHubTitle: "Core Blockchainを読み解く三つの視点",
     reportHubDescription:
@@ -563,7 +563,7 @@ export const uiCopy: Record<Lang, UiCopy> = {
     sampleSubjectEyebrow: "サンプル対象を選ぶ",
     sampleSubjectTitle: "Core Blockchain / Derek Sample",
     readNoteLabel: "読む",
-    purchaseStatusLabel: "レポート購入状況を見る",
+    purchaseStatusLabel: "レポート注文へ",
     sampleReportsBackLabel: "サンプルレポートへ戻る",
     otherSamplesLabel: "他のサンプルレポート",
     otherSamplesShortLabel: "他のサンプル",
@@ -583,13 +583,13 @@ export const uiCopy: Record<Lang, UiCopy> = {
     footerLinks: {
       sampleReports: "サンプルレポート",
       readingPolicy: "読み方と方針",
-      purchase: "レポート購入",
+      purchase: "レポート注文",
       about: "書き手"
     }
   },
   de: {
     heroPrimary: "Beispielreports lesen",
-    heroSecondary: "Reportkauf",
+    heroSecondary: "Reportbestellung",
     reportHubEyebrow: "Derzeit veröffentlicht",
     reportHubTitle: "Drei Blickwinkel auf Core Blockchain",
     reportHubDescription:
@@ -605,7 +605,7 @@ export const uiCopy: Record<Lang, UiCopy> = {
     sampleSubjectEyebrow: "Beispiel wählen",
     sampleSubjectTitle: "Core Blockchain oder Derek Sample",
     readNoteLabel: "Lesen",
-    purchaseStatusLabel: "Status des Reportkaufs ansehen",
+    purchaseStatusLabel: "Informationen zur Bestellung",
     sampleReportsBackLabel: "Zurück zu den Beispielreports",
     otherSamplesLabel: "Weitere Beispielreports",
     otherSamplesShortLabel: "Weitere Beispiele",
@@ -625,7 +625,7 @@ export const uiCopy: Record<Lang, UiCopy> = {
     footerLinks: {
       sampleReports: "Beispielreports",
       readingPolicy: "Leseweise",
-      purchase: "Reportkauf",
+      purchase: "Reportbestellung",
       about: "Autor"
     }
   }
@@ -651,12 +651,12 @@ export const homeCopy: Record<Lang, PageCopy> = {
         link: { href: "reading-policy", label: "See how we read" }
       },
       {
-        heading: "CorePay report purchases",
+        heading: "Ordering reports with CorePay",
         body: [
-          "Polar Bird Astrology is preparing report purchases through CorePay, designed to be easy for the Core Blockchain community to try.",
+          "Polar Bird Astrology is preparing a report ordering and payment flow with CorePay, designed to be easy for the Core Blockchain community to try.",
           "For now, you can read the sample reports on Core Blockchain."
         ],
-        link: { href: "purchase", label: "Purchase status" }
+        link: { href: "purchase", label: "Report ordering" }
       }
     ]
   },
@@ -679,12 +679,12 @@ export const homeCopy: Record<Lang, PageCopy> = {
         link: { href: "reading-policy", label: "読み方と方針を見る" }
       },
       {
-        heading: "CorePayでの購入導線",
+        heading: "CorePayでの注文導線",
         body: [
-          "CorePayを使って、Core Blockchainコミュニティでも試しやすいレポート購入導線を準備しています。",
+          "CorePayを使って、Core Blockchainコミュニティでも試しやすいレポート注文導線を準備しています。",
           "今はCore Blockchainを題材にしたサンプルレポートを読めます。"
         ],
-        link: { href: "purchase", label: "レポート購入" }
+        link: { href: "purchase", label: "レポート注文" }
       }
     ]
   },
@@ -707,12 +707,12 @@ export const homeCopy: Record<Lang, PageCopy> = {
         link: { href: "reading-policy", label: "Leseweise ansehen" }
       },
       {
-        heading: "Reportkauf mit CorePay",
+        heading: "Reports mit CorePay bestellen",
         body: [
-          "Polar Bird Astrology bereitet einen Reportkauf mit CorePay vor. Er soll auch für die Community rund um Core Blockchain leicht zugänglich sein.",
+          "Polar Bird Astrology bereitet einen Bestell- und Zahlungsablauf mit CorePay vor. Er soll auch für die Community rund um Core Blockchain leicht zugänglich sein.",
           "Aktuell stehen die Beispielreports zu Core Blockchain bereit."
         ],
-        link: { href: "purchase", label: "Reportkauf" }
+        link: { href: "purchase", label: "Reportbestellung" }
       }
     ]
   }
@@ -721,21 +721,21 @@ export const homeCopy: Record<Lang, PageCopy> = {
 export const pages: Record<Lang, Record<PageKey, PageCopy>> = {
   en: {
     purchase: {
-      title: "Report Purchase",
-      eyebrow: "Purchases are being prepared",
+      title: "Report Ordering",
+      eyebrow: "CorePay order flow in preparation",
       description:
-        "Polar Bird Astrology is preparing online report purchases.",
+        "Polar Bird Astrology is preparing a way to order astrology reports online.",
       blocks: [
         {
-          heading: "CorePay report purchases",
+          heading: "Ordering reports with CorePay",
           body: [
-            "Polar Bird Astrology is preparing online purchase options for natal, solar return, and new moon cycle reports.",
-            "It is being designed around CorePay as an easy purchase experience for the Core Blockchain community.",
-            "As related Core Blockchain products are released, Polar Bird Astrology will expand the token options available for report purchases."
+            "Polar Bird Astrology is preparing a way to order natal, solar return, and new moon cycle reports online.",
+            "The ordering and payment flow is being designed with CorePay so the Core Blockchain community can try it easily.",
+            "When ordering opens, this page will list which tokens can be used for report payments."
           ]
         },
         {
-          heading: "Sample reports to read first",
+          heading: "Sample reports to read before ordering",
           body: [
             "The current public samples read Core Blockchain.",
             "They show how the same astrology structure can support personal self-understanding and observation of a business or community."
@@ -827,7 +827,7 @@ export const pages: Record<Lang, Record<PageKey, PageCopy>> = {
           body: [
             "I am Japanese and graduated from the University of Tokyo.",
             "I live in an old house in the mountains, close to seasonal change and the night sky.",
-            "Whether the subject is a person, business, or community, I read the chart naturally and put it into language the reader can use."
+            "Whether the subject is a person, a business, or a community, I read the chart on its own terms and put it into language the reader can use."
           ]
         },
         {
@@ -835,7 +835,7 @@ export const pages: Record<Lang, Record<PageKey, PageCopy>> = {
           body: [
             "I live with a cockatiel and cats.",
             "I am interested in cigars, whisky, and mountain life, and I hold a hunting license.",
-            "These personal backgrounds connect to a reading style that values nature, time, body awareness, and quiet observation."
+            "This way of living and these interests shape a reading style that values nature, time, body awareness, and quiet observation."
           ]
         },
         {
@@ -851,21 +851,21 @@ export const pages: Record<Lang, Record<PageKey, PageCopy>> = {
   },
   ja: {
     purchase: {
-      title: "レポート購入",
-      eyebrow: "CorePay導線を準備中",
+      title: "レポート注文",
+      eyebrow: "CorePayでの注文導線を準備中",
       description:
-        "Polar Bird Astrologyの占星術レポートを申し込める導線を準備しています。",
+        "Polar Bird Astrologyの占星術レポートを注文できる導線を準備しています。",
       blocks: [
         {
-          heading: "CorePayでの購入導線",
+          heading: "CorePayでの注文導線",
           body: [
-            "出生図、太陽回帰、新月サイクルのレポートを、Webから購入できる導線を準備しています。",
-            "CorePayを使い、Core Blockchainコミュニティでも試しやすい購入体験として設計しています。",
-            "Core Blockchain周辺のプロダクトリリースに応じて、レポート購入に使えるトークンを広げていきます。"
+            "出生図、太陽回帰、新月サイクルのレポートを、Webから注文できる導線を準備しています。",
+            "CorePayを使い、Core Blockchainコミュニティでも試しやすい注文・支払い体験として設計しています。",
+            "注文受付を開始したら、このページでレポート代金の支払いに使えるトークンを案内します。"
           ]
         },
         {
-          heading: "購入前に読めるレポート例",
+          heading: "注文前に読めるレポート例",
           body: [
             "現在はCore Blockchainを題材にしたサンプルレポートを公開しています。",
             "同じ占星術の構造で、人の自己理解にも、事業やコミュニティの流れの観察にも使えることを示すためのサンプルです。"
@@ -957,7 +957,7 @@ export const pages: Record<Lang, Record<PageKey, PageCopy>> = {
           body: [
             "日本人です。東京大学を卒業。",
             "山の古民家で暮らし、季節の変化や夜空を近くに感じながら、占星術レポートを書いています。",
-            "読む対象が人であっても、事業やコミュニティであっても、星まわりを自然に読み、読み手が扱える言葉へ落とし込みます。"
+            "人、事業、コミュニティのいずれであっても、星まわりを自然に読み、読み手が扱える言葉へ落とし込みます。"
           ]
         },
         {
@@ -965,7 +965,7 @@ export const pages: Record<Lang, Record<PageKey, PageCopy>> = {
           body: [
             "オカメインコと猫と暮らしています。",
             "葉巻、ウイスキー、山での暮らしに関心があり、狩猟免許も持っています。",
-            "こうした個人的な背景は、自然、時間、身体感覚、静かな観察を大切にする読み方につながっています。"
+            "こうした暮らしや関心は、自然、時間、身体感覚、静かな観察を大切にする読み方につながっています。"
           ]
         },
         {
@@ -981,21 +981,21 @@ export const pages: Record<Lang, Record<PageKey, PageCopy>> = {
   },
   de: {
     purchase: {
-      title: "Reportkauf",
+      title: "Reportbestellung",
       eyebrow: "CorePay-Bestellung in Vorbereitung",
       description:
-        "Polar Bird Astrology bereitet den Weg vor, über den astrologische Reports online bestellt werden können.",
+        "Polar Bird Astrology bereitet eine Möglichkeit vor, astrologische Reports online zu bestellen.",
       blocks: [
         {
-          heading: "Reportkauf mit CorePay",
+          heading: "Reports mit CorePay bestellen",
           body: [
-            "Polar Bird Astrology bereitet einen Online-Kauf für Radix-, Solar-Return- und Neumondzyklus-Reports vor.",
-            "Der Ablauf wird mit CorePay gestaltet und soll für die Community rund um Core Blockchain leicht zugänglich sein.",
-            "Wenn Produkte rund um Core Blockchain veröffentlicht werden, erweitert Polar Bird Astrology die Tokenoptionen für Reportkäufe."
+            "Polar Bird Astrology bereitet eine Möglichkeit vor, Radix-, Solar-Return- und Neumondzyklus-Reports online zu bestellen.",
+            "Der Bestell- und Zahlungsablauf wird mit CorePay gestaltet und soll für die Community rund um Core Blockchain leicht zugänglich sein.",
+            "Sobald Bestellungen möglich sind, steht auf dieser Seite, welche Token für die Bezahlung der Reports genutzt werden können."
           ]
         },
         {
-          heading: "Reportbeispiele vor dem Kauf",
+          heading: "Beispielreports vor der Bestellung",
           body: [
             "Derzeit veröffentlicht Polar Bird Astrology Beispielreports zu Core Blockchain.",
             "Sie zeigen, wie dieselbe astrologische Struktur persönliches Selbstverstehen und die Beobachtung eines Unternehmens oder einer Community unterstützen kann."
@@ -1088,7 +1088,7 @@ export const pages: Record<Lang, Record<PageKey, PageCopy>> = {
           body: [
             "Ich bin Japaner und Absolvent der University of Tokyo.",
             "Ich lebe in einem alten Haus in den Bergen und schreibe astrologische Reports nahe an Jahreszeiten und Nachthimmel.",
-            "Ob es um einen Menschen, ein Unternehmen oder eine Community geht: Ich deute die Konstellationen stimmig und bringe sie in Worte, mit denen der Leser arbeiten kann."
+            "Ob es um einen Menschen, ein Unternehmen oder eine Community geht: Ich lese, was sich aus den Konstellationen stimmig ergibt, und bringe es in Worte, mit denen der Leser arbeiten kann."
           ]
         },
         {
@@ -1096,7 +1096,7 @@ export const pages: Record<Lang, Record<PageKey, PageCopy>> = {
           body: [
             "Ich lebe mit einem Nymphensittich und Katzen.",
             "Ich interessiere mich für Zigarren, Whisky und das Leben in den Bergen und besitze auch einen Jagdschein.",
-            "Diese persönlichen Hintergründe prägen eine Leseweise, die Natur, Zeit, Körpergefühl und stille Beobachtung ernst nimmt."
+            "Diese Lebensweise und Interessen prägen eine Leseweise, die Natur, Zeit, Körpergefühl und stille Beobachtung ernst nimmt."
           ]
         },
         {
