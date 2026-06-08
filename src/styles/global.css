@@ -1070,6 +1070,15 @@ p {
 
 .sample-guide {
   margin-top: 2rem;
+  max-width: none;
+}
+
+.sample-guide article {
+  max-width: none;
+}
+
+.sample-guide article > p {
+  max-width: 880px;
 }
 
 .report-type-card {

@@ -973,12 +973,17 @@ export const pages: Record<Lang, Record<PageKey, PageCopy>> = {
           heading: "Interpretive boundary",
           body: [
             "Astrology reports work with themes that can support self-understanding, observation, and clarifying choices.",
-            "Medical and legal matters, investment decisions, price forecasts, guaranteed outcomes, and fact-checking that should come from official sources are outside the scope of an astrology report.",
-            "Polar Bird Astrology values transparency by making its reading assumptions and the publishable parts of its production process visible, so readers can approach the reports with confidence."
+            "Medical and legal matters, investment decisions, price forecasts, guaranteed outcomes, and fact-checking that should come from official sources are outside the scope of an astrology report."
           ]
+        },
+        {
+          heading: "Transparency",
+          body: [
+            "Polar Bird Astrology keeps its reading assumptions and the publishable parts of its production process visible wherever possible."
+          ],
+          link: { href: repoUrl, label: "View public repository" }
         }
-      ],
-      links: [{ href: repoUrl, label: "Public repository" }]
+      ]
     },
     about: {
       title: "About the Writer",
@@ -1102,12 +1107,17 @@ export const pages: Record<Lang, Record<PageKey, PageCopy>> = {
           heading: "解釈の境界",
           body: [
             "占星術レポートは、自己理解や観察、選択の整理に使えるテーマを扱います。",
-            "医療、法律、投資判断、価格予測、成果保証、公式情報の代替になる事実確認は、占星術レポートの対象外です。",
-            "Polar Bird Astrologyは、読み方の前提と公開できる制作過程を明らかにし、安心して読める透明性を大切にしています。"
+            "医療、法律、投資判断、価格予測、成果保証、公式情報の代替になる事実確認は、占星術レポートの対象外です。"
           ]
+        },
+        {
+          heading: "透明性について",
+          body: [
+            "Polar Bird Astrologyは、読み方の前提や公開できる制作過程を、できるだけ見える形で残しています。"
+          ],
+          link: { href: repoUrl, label: "公開リポジトリを見る" }
         }
-      ],
-      links: [{ href: repoUrl, label: "公開リポジトリ" }]
+      ]
     },
     about: {
       title: "書き手について",
@@ -1231,12 +1241,17 @@ export const pages: Record<Lang, Record<PageKey, PageCopy>> = {
           heading: "Deutungsgrenze",
           body: [
             "Astrologische Reports behandeln Themen, die Selbstverständnis, Beobachtung und das Ordnen von Entscheidungen unterstützen können.",
-            "Medizinische und rechtliche Fragen, Anlageentscheidungen, Preisprognosen, Erfolgsgarantien sowie Fakten, die aus offiziellen Quellen geprüft werden müssen, liegen außerhalb eines Astrologiereports.",
-            "Polar Bird Astrology legt Wert auf Transparenz. Das Projekt macht die Voraussetzungen der Leseweise und die öffentlich teilbaren Teile des Entstehungsprozesses sichtbar, damit Leserinnen und Leser die Reports mit einem sicheren Gefühl lesen können."
+            "Medizinische und rechtliche Fragen, Anlageentscheidungen, Preisprognosen, Erfolgsgarantien sowie Fakten, die aus offiziellen Quellen geprüft werden müssen, liegen außerhalb eines Astrologiereports."
           ]
+        },
+        {
+          heading: "Transparenz",
+          body: [
+            "Polar Bird Astrology macht die Voraussetzungen seiner Leseweise und die öffentlich teilbaren Teile des Entstehungsprozesses nach Möglichkeit sichtbar."
+          ],
+          link: { href: repoUrl, label: "Öffentliches Repository ansehen" }
         }
-      ],
-      links: [{ href: repoUrl, label: "Öffentliches Repository" }]
+      ]
     },
     about: {
       title: "Über den Autor",
