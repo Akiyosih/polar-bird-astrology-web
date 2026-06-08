@@ -103,7 +103,10 @@ export const repoUrl = "https://github.com/Akiyosih/polar-bird-astrology-web";
 export const corePayUrl = "https://corepay.money/";
 export const coreBlockchainUrl = "https://coreblockchain.net/";
 export const coreCatsUrl = "https://core-cats.pages.dev/";
-const coreBlockchainJa = "Core Blockchain";
+const coreBlockchainJa = "コアブロックチェーン";
+const coreBlockchainJaWithEnglish = "コアブロックチェーン（Core Blockchain）";
+const steveJobsJa = "スティーブ・ジョブズ";
+const leonardoDaVinciJa = "レオナルド・ダ・ヴィンチ";
 
 export const chartLegendGroups: Record<Lang, ChartLegendGroup[]> = {
   en: [
@@ -373,16 +376,16 @@ const steveJobsReportTypes: Record<Lang, ReportTypeCopy[]> = {
     {
       key: "natal",
       label: "出生図レポート",
-      title: "Steve Jobsの\n基本構造",
+      title: `${steveJobsJa}の\n基本構造`,
       summary:
-        "Steve Jobsの出生図から、長く続く基本構造、反応のリズム、ビジョンや選択の土台を読みます。",
+        `${steveJobsJa}の出生図から、長く続く基本構造、反応のリズム、ビジョンや選択の土台を読みます。`,
       focus: "基本構造、反応のリズム、選択の土台",
       emptyLabel: "準備中"
     },
     {
       key: "solar-return",
       label: "太陽回帰レポート",
-      title: "Steve Jobsの\n太陽回帰",
+      title: `${steveJobsJa}の\n太陽回帰`,
       summary:
         "太陽回帰図から、一年の舞台、表に出やすいテーマ、既存の性質の使われ方を読みます。",
       focus: "年間テーマ、表に出る舞台、焦点",
@@ -391,7 +394,7 @@ const steveJobsReportTypes: Record<Lang, ReportTypeCopy[]> = {
     {
       key: "new-moon",
       label: "新月サイクルレポート",
-      title: "Steve Jobsの\n新月サイクル",
+      title: `${steveJobsJa}の\n新月サイクル`,
       summary:
         "新月サイクルから、そのサイクルで動きやすいテーマ、日々の選択、観察点を読みます。",
       focus: "サイクルのテーマ、選択、観察点",
@@ -463,16 +466,16 @@ const leonardoDaVinciReportTypes: Record<Lang, ReportTypeCopy[]> = {
     {
       key: "natal",
       label: "出生図レポート",
-      title: "Leonardo da Vinciの\n基本構造",
+      title: `${leonardoDaVinciJa}の\n基本構造`,
       summary:
-        "Leonardo da Vinciの出生図から、長く続く基本構造、反応のリズム、知覚や制作の土台を読みます。",
+        `${leonardoDaVinciJa}の出生図から、長く続く基本構造、反応のリズム、知覚や制作の土台を読みます。`,
       focus: "基本構造、知覚、制作の土台",
       emptyLabel: "準備中"
     },
     {
       key: "solar-return",
       label: "太陽回帰レポート",
-      title: "Leonardo da Vinciの\n太陽回帰",
+      title: `${leonardoDaVinciJa}の\n太陽回帰`,
       summary:
         "太陽回帰図から、一年の舞台、表に出やすいテーマ、既存の性質の使われ方を読みます。",
       focus: "年間テーマ、表に出る舞台、焦点",
@@ -481,7 +484,7 @@ const leonardoDaVinciReportTypes: Record<Lang, ReportTypeCopy[]> = {
     {
       key: "new-moon",
       label: "新月サイクルレポート",
-      title: "Leonardo da Vinciの\n新月サイクル",
+      title: `${leonardoDaVinciJa}の\n新月サイクル`,
       summary:
         "新月サイクルから、そのサイクルで動きやすいテーマ、日々の選択、観察点を読みます。",
       focus: "サイクルのテーマ、選択、観察点",
@@ -558,33 +561,33 @@ export const sampleSubjects: Record<Lang, SampleSubjectCopy[]> = {
   ja: [
     {
       key: "core",
-      label: "Core Blockchain",
+      label: coreBlockchainJa,
       eyebrow: "事業・コミュニティのサンプル",
-      title: "Core Blockchain",
+      title: coreBlockchainJa,
       descriptionParagraphs: [
-        "Core Blockchainは、人ではない事業・公開エコシステム・コミュニティを占星術で読むサンプルです。",
+        `${coreBlockchainJa}は、人ではない事業・公開エコシステム・コミュニティを占星術で読むサンプルです。`,
         "長く続く基本構造、一年のテーマ、約1か月の新月サイクルを読むことができます。"
       ],
       reports: reportTypes.ja
     },
     {
       key: "steve-jobs",
-      label: "Steve Jobs",
+      label: steveJobsJa,
       eyebrow: "人物のサンプル",
-      title: "Steve Jobs",
+      title: steveJobsJa,
       descriptionParagraphs: [
-        "Steve Jobsは、広く知られている人物を占星術で読むサンプルです。",
+        `${steveJobsJa}は、広く知られている人物を占星術で読むサンプルです。`,
         "基本構造、一年のテーマ、約1か月の新月サイクルを通して、個人の読み方を確認できます。"
       ],
       reports: steveJobsReportTypes.ja
     },
     {
       key: "leonardo-da-vinci",
-      label: "Leonardo da Vinci",
+      label: leonardoDaVinciJa,
       eyebrow: "人物のサンプル",
-      title: "Leonardo da Vinci",
+      title: leonardoDaVinciJa,
       descriptionParagraphs: [
-        "Leonardo da Vinciは、時代を越えて知られる人物を占星術で読むサンプルです。",
+        `${leonardoDaVinciJa}は、時代を越えて知られる人物を占星術で読むサンプルです。`,
         "基本構造、一年のテーマ、約1か月の新月サイクルを通して、個人の読み方を確認できます。"
       ],
       reports: leonardoDaVinciReportTypes.ja
@@ -679,24 +682,24 @@ export const uiCopy: Record<Lang, UiCopy> = {
     heroPrimary: "サンプルレポートを読む",
     heroSecondary: "レポート注文",
     reportHubEyebrow: "現在公開中",
-    reportHubTitle: "Core Blockchainを読み解く三つの視点",
+    reportHubTitle: `${coreBlockchainJa}を読み解く三つの視点`,
     reportHubDescription:
-      "出生図はCore Blockchainの基本構造、太陽回帰は2026年の舞台、新月サイクルは公開中のサイクルを読みます。事業やコミュニティを読むレポート例として公開しています。",
+      `出生図は${coreBlockchainJa}の基本構造、太陽回帰は2026年の舞台、新月サイクルは公開中のサイクルを読みます。事業やコミュニティを読むレポート例として公開しています。`,
     reportHubDescriptionParagraphs: [
-      "出生図はCore Blockchainの基本構造、太陽回帰は2026年の舞台、新月サイクルは公開中のサイクルを読みます。",
+      `出生図は${coreBlockchainJa}の基本構造、太陽回帰は2026年の舞台、新月サイクルは公開中のサイクルを読みます。`,
       "事業やコミュニティを読むレポート例として公開しています。"
     ],
     homeRouteLabel: "主な導線",
     sampleReportsEyebrow: "公開サンプル",
     sampleReportsTitle: "サンプルレポート",
     sampleReportsDescription:
-      "Core Blockchain、Steve Jobs、Leonardo da Vinciをサンプル対象にしています。出生図、太陽回帰、新月サイクルの3種類のレポートを通して、対象ごとの読み方の違いを確認できます。",
+      `${coreBlockchainJaWithEnglish}、${steveJobsJa}、${leonardoDaVinciJa}をサンプル対象にしています。出生図、太陽回帰、新月サイクルの3種類のレポートを通して、対象ごとの読み方の違いを確認できます。`,
     sampleReportsDescriptionParagraphs: [
-      "Core Blockchain、Steve Jobs、Leonardo da Vinciをサンプル対象にしています。",
+      `${coreBlockchainJaWithEnglish}、${steveJobsJa}、${leonardoDaVinciJa}をサンプル対象にしています。`,
       "出生図、太陽回帰、新月サイクルの3種類のレポートを通して、対象ごとの読み方の違いを確認できます。"
     ],
     sampleSubjectEyebrow: "サンプル対象を選ぶ",
-    sampleSubjectTitle: "Core Blockchain / Steve Jobs / Leonardo da Vinci",
+    sampleSubjectTitle: `${coreBlockchainJa} / ${steveJobsJa} / ${leonardoDaVinciJa}`,
     readNoteLabel: "読む",
     purchaseStatusLabel: "レポート注文へ",
     sampleReportsBackLabel: "サンプルレポートへ戻る",
@@ -817,7 +820,7 @@ export const homeCopy: Record<Lang, PageCopy> = {
       {
         heading: "サンプルレポート",
         body: [
-          "Core Blockchain、Steve Jobs、Leonardo da Vinciそれぞれについて、出生図、太陽回帰、新月サイクルの3種類のサンプルレポートを公開しています。"
+          `${coreBlockchainJaWithEnglish}、${steveJobsJa}、${leonardoDaVinciJa}それぞれについて、出生図、太陽回帰、新月サイクルの3種類のサンプルレポートを公開しています。`
         ],
         link: { href: "sample-reports", label: "サンプルを見る" }
       },
@@ -825,7 +828,7 @@ export const homeCopy: Record<Lang, PageCopy> = {
         heading: "CorePayでのレポート注文",
         body: [
           "CorePayを使い、国境を越えた簡単なレポート注文・支払い導線を準備しています。",
-          "Core Blockchainの対応に合わせてさまざまなトークンで支払えるようになる予定です。"
+          `${coreBlockchainJa}の対応に合わせてさまざまなトークンで支払えるようになる予定です。`
         ],
         link: { href: "purchase", label: "注文について" }
       },
@@ -1046,20 +1049,20 @@ export const pages: Record<Lang, Record<PageKey, PageCopy>> = {
           heading: "CorePayでのレポート注文",
           body: [
             "CorePayを使い、国境を越えた簡単なレポート注文・支払い導線を準備しています。",
-            "Core Blockchainの対応に合わせてさまざまなトークンで支払えるようになる予定です。"
+            `${coreBlockchainJa}の対応に合わせてさまざまなトークンで支払えるようになる予定です。`
           ]
         },
         {
           heading: "注文前に読めるレポート例",
           body: [
-            "Core Blockchain、Steve Jobs、Leonardo da Vinciを題材にしたサンプルレポートを公開しています。",
+            `${coreBlockchainJa}、${steveJobsJa}、${leonardoDaVinciJa}を題材にしたサンプルレポートを公開しています。`,
             "個人の自己理解や贈りものとしても、事業やコミュニティの流れを観察する読み物としても使える形で整えています。"
           ]
         }
       ],
       links: [
         { href: corePayUrl, label: "CorePay公式サイトを見る" },
-        { href: coreBlockchainUrl, label: "Core Blockchain公式サイトを見る" }
+        { href: coreBlockchainUrl, label: `${coreBlockchainJa}公式サイトを見る` }
       ]
     },
     "reading-policy": {
@@ -1161,7 +1164,7 @@ export const pages: Record<Lang, Record<PageKey, PageCopy>> = {
         {
           heading: "公開している制作物",
           body: [
-            "Core Catsは、Core Blockchainコミュニティに向けて公開している別の制作物です。",
+            `Core Catsは、${coreBlockchainJa}のコミュニティに向けて公開している別の制作物です。`,
             "コミュニティに読みやすく、楽しめて、話題にできるものを届けたいという姿勢は共通しています。"
           ],
           link: { href: coreCatsUrl, label: "Core Catsを見る" }
