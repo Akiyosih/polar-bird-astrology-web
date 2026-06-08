@@ -963,18 +963,18 @@ export const pages: Record<Lang, Record<PageKey, PageCopy>> = {
           ]
         },
         {
-          heading: "People, businesses, and communities",
+          heading: "Individuals, businesses, and communities",
           body: [
-            "When Polar Bird Astrology reads a person, it translates the chart into feelings, relationships, work, and everyday life.",
-            "When it reads a business or community, it translates the same symbols into community atmosphere, participation, trust, public explanation, and operations."
+            "For an individual, Polar Bird Astrology translates the chart into feelings, relationships, work, and everyday life.",
+            "For a business or community, it translates the same symbols into community atmosphere, participation, trust, public explanation, and operations."
           ]
         },
         {
           heading: "Interpretive boundary",
           body: [
-            "When the chart supports a direct reading, Polar Bird Astrology writes in clear, affirmative language instead of leaving the point as symbol or metaphor only.",
-            "Official information, product facts, prices, investment decisions, and guaranteed outcomes remain outside the astrology report.",
-            "The public repository shows the website implementation, published reports, and the reading policy used for this site."
+            "Astrology reports work with themes that can support self-understanding, observation, and clarifying choices.",
+            "Medical and legal matters, investment decisions, price forecasts, guaranteed outcomes, and fact-checking that should come from official sources are outside the scope of an astrology report.",
+            "Polar Bird Astrology values transparency by making its reading assumptions and the publishable parts of its production process visible, so readers can approach the reports with confidence."
           ]
         }
       ],
@@ -1092,18 +1092,18 @@ export const pages: Record<Lang, Record<PageKey, PageCopy>> = {
           ]
         },
         {
-          heading: "人と事業・コミュニティ",
+          heading: "個人と事業・コミュニティ",
           body: [
-            "人を読むときは、感情、関係性、仕事、生活の場面へ翻訳します。",
+            "個人の星まわりを読むときは、感情、関係性、仕事、生活の場面へ翻訳します。",
             "事業やコミュニティを読むときは、同じ象徴を、コミュニティの空気、参加、信頼、説明、運用の言葉へ置き換えます。"
           ]
         },
         {
           heading: "解釈の境界",
           body: [
-            "占星術で自然に読めるところは、象徴や比喩だけで済ませず、分かりやすい言葉で肯定形に読みます。",
-            "公式情報、プロダクト事実、価格、投資判断、成果保証は、占星術レポートの対象外です。",
-            "公開リポジトリでは、Webサイトの実装、公開レポート、採用している読み方の方針を確認できます。"
+            "占星術レポートは、自己理解や観察、選択の整理に使えるテーマを扱います。",
+            "医療、法律、投資判断、価格予測、成果保証、公式情報の代替になる事実確認は、占星術レポートの対象外です。",
+            "Polar Bird Astrologyは、読み方の前提と公開できる制作過程を明らかにし、安心して読める透明性を大切にしています。"
           ]
         }
       ],
@@ -1221,19 +1221,18 @@ export const pages: Record<Lang, Record<PageKey, PageCopy>> = {
           ]
         },
         {
-          heading: "Menschen, Unternehmen und Communities",
+          heading: "Einzelpersonen, Unternehmen und Communities",
           body: [
-            "Wenn Polar Bird Astrology einen Menschen deutet, übersetzt es die Konstellationen in Gefühle, Beziehungen, Arbeit und Alltag.",
-            "Bei einem Unternehmen oder einer Community übersetzt Polar Bird Astrology dieselben Symbole in Begriffe eines öffentlichen Ökosystems.",
-            "Dann geht es um Community-Stimmung, Beteiligung, Vertrauen, öffentliche Erklärung und Betrieb."
+            "Bei einer Einzelperson übersetzt Polar Bird Astrology die Konstellationen in Gefühle, Beziehungen, Arbeit und Alltag.",
+            "Bei einem Unternehmen oder einer Community übersetzt Polar Bird Astrology dieselben Symbole in Begriffe wie Community-Stimmung, Beteiligung, Vertrauen, öffentliche Kommunikation und Betrieb."
           ]
         },
         {
           heading: "Deutungsgrenze",
           body: [
-            "Wenn ein Punkt aus dem Horoskop klar hervorgeht, schreibt Polar Bird Astrology ihn verständlich und affirmativ aus.",
-            "Offizielle Informationen, Produktfakten, Preise, Anlageentscheidungen und garantierte Ergebnisse bleiben außerhalb des Astrologiereports.",
-            "Das öffentliche Repository zeigt die Website-Implementierung, veröffentlichte Reports und die Leseweise, die diese Website verwendet."
+            "Astrologische Reports behandeln Themen, die Selbstverständnis, Beobachtung und das Ordnen von Entscheidungen unterstützen können.",
+            "Medizinische und rechtliche Fragen, Anlageentscheidungen, Preisprognosen, Erfolgsgarantien sowie Fakten, die aus offiziellen Quellen geprüft werden müssen, liegen außerhalb eines Astrologiereports.",
+            "Polar Bird Astrology legt Wert auf Transparenz. Das Projekt macht die Voraussetzungen der Leseweise und die öffentlich teilbaren Teile des Entstehungsprozesses sichtbar, damit Leserinnen und Leser die Reports mit einem sicheren Gefühl lesen können."
           ]
         }
       ],
