@@ -1,8 +1,6 @@
 ---
-import ReportTypeCard from "../../components/ReportTypeCard.astro";
 import BaseLayout from "../../layouts/BaseLayout.astro";
-import { homeCopy, reportTypes, uiCopy } from "../../data/site";
-import { getLatestSampleReportByReportType } from "../../lib/sampleReports";
+import { homeCopy, uiCopy } from "../../data/site";
 import { isLang, languages, localizedPath } from "../../lib/i18n";
 
 export function getStaticPaths() {
@@ -17,7 +15,6 @@ if (!isLang(lang)) {
 const copy = homeCopy[lang];
 const ui = uiCopy[lang];
 const descriptionParagraphs = copy.descriptionParagraphs ?? [copy.description];
-const reportHubDescriptionParagraphs = ui.reportHubDescriptionParagraphs ?? [ui.reportHubDescription];
 const resolveLink = (href: string) => (/^https?:\/\//.test(href) ? href : localizedPath(lang, href));
 ---
 
@@ -39,28 +36,8 @@ const resolveLink = (href: string) => (/^https?:\/\//.test(href) ? href : locali
     </div>
   </section>
 
-  <section class="report-hub" aria-labelledby="report-hub-title">
-    <div class="section-heading">
-      <p class="eyebrow">{ui.reportHubEyebrow}</p>
-      <h2 id="report-hub-title">{ui.reportHubTitle}</h2>
-      {reportHubDescriptionParagraphs.map((paragraph) => <p>{paragraph}</p>)}
-    </div>
-    <div class="report-grid">
-      {reportTypes[lang].map((report) => (
-        <ReportTypeCard
-          lang={lang}
-          report={report}
-          sampleReport={getLatestSampleReportByReportType(lang, report.key)}
-          readLabel={ui.readNoteLabel}
-          focusLabel={ui.focusLabel}
-          periodLabel={ui.periodLabel}
-        />
-      ))}
-    </div>
-  </section>
-
   {copy.blocks.length > 0 && (
-    <section class="content-grid">
+    <section class="content-grid home-action-grid" aria-label={ui.homeRouteLabel}>
       {copy.blocks.map((block) => (
         <article>
           <h2>{block.heading}</h2>

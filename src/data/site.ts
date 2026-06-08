@@ -42,6 +42,7 @@ type UiCopy = {
   reportHubTitle: string;
   reportHubDescription: string;
   reportHubDescriptionParagraphs?: string[];
+  homeRouteLabel: string;
   sampleReportsEyebrow: string;
   sampleReportsTitle: string;
   sampleReportsDescription: string;
@@ -514,6 +515,7 @@ export const uiCopy: Record<Lang, UiCopy> = {
       "The natal report reads Core Blockchain's basic structure. The solar return reads the annual stage for 2026. The new moon cycle report reads the currently published cycle.",
       "Polar Bird Astrology publishes the set as an example of reading a business or community."
     ],
+    homeRouteLabel: "Main routes",
     sampleReportsEyebrow: "Sample reports",
     sampleReportsTitle: "Sample Reports",
     sampleReportsDescription:
@@ -556,6 +558,7 @@ export const uiCopy: Record<Lang, UiCopy> = {
       "出生図はCore Blockchainの基本構造、太陽回帰は2026年の舞台、新月サイクルは公開中のサイクルを読みます。",
       "事業やコミュニティを読むレポート例として公開しています。"
     ],
+    homeRouteLabel: "主な導線",
     sampleReportsEyebrow: "サンプルレポート",
     sampleReportsTitle: "サンプルレポート",
     sampleReportsDescription:
@@ -598,6 +601,7 @@ export const uiCopy: Record<Lang, UiCopy> = {
       "Der Radix-Report beschreibt die Grundstruktur von Core Blockchain. Der Solar-Return-Report deutet den Jahresrahmen 2026. Der Report zum Neumondzyklus deutet den aktuell veröffentlichten Zyklus.",
       "Dieses Set zeigt, wie Polar Bird Astrology ein Unternehmen oder eine Community astrologisch deutet."
     ],
+    homeRouteLabel: "Hauptwege",
     sampleReportsEyebrow: "Beispielreports",
     sampleReportsTitle: "Beispielreports",
     sampleReportsDescription:
@@ -643,20 +647,26 @@ export const homeCopy: Record<Lang, PageCopy> = {
     ],
     blocks: [
       {
-        heading: "Report types",
+        heading: "Sample reports",
         body: [
-          "Natal reports read basic structure. Solar returns read the stage of the year. New moon cycle reports read the active themes in each cycle.",
-          "They are shaped for personal self-understanding and for observing the flow of a business or community."
+          "Core Blockchain, Steve Jobs, and Leonardo da Vinci are the planned sample subjects for the three report types."
         ],
-        link: { href: "reading-policy", label: "See how we read" }
+        link: { href: "sample-reports", label: "See samples" }
       },
       {
         heading: "Ordering reports with CorePay",
         body: [
-          "Polar Bird Astrology is preparing a report ordering and payment flow with CorePay, designed to be easy for the Core Blockchain community to try.",
-          "For now, you can read the sample reports on Core Blockchain."
+          "Polar Bird Astrology is preparing a simple cross-border report ordering and payment flow using CorePay.",
+          "In line with Core Blockchain support, the plan is to make payment possible with various tokens."
         ],
         link: { href: "purchase", label: "Report ordering" }
+      },
+      {
+        heading: "How we read",
+        body: [
+          "See how Polar Bird Astrology reads natal charts, solar returns, and new moon cycles."
+        ],
+        link: { href: "reading-policy", label: "See how we read" }
       }
     ]
   },
@@ -671,20 +681,26 @@ export const homeCopy: Record<Lang, PageCopy> = {
     ],
     blocks: [
       {
-        heading: "レポートの種類",
+        heading: "サンプルレポート",
         body: [
-          "出生図は基本構造、太陽回帰は一年の舞台、新月サイクルはそのサイクルで動きやすいテーマを読みます。",
-          "人の自己理解にも、事業やコミュニティの流れを観察する読み物にも使える形で整えています。"
+          "Core Blockchain、Steve Jobs、Leonardo da Vinciを題材に、3種類のレポートを公開する予定です。"
         ],
-        link: { href: "reading-policy", label: "読み方と方針を見る" }
+        link: { href: "sample-reports", label: "サンプルを見る" }
       },
       {
-        heading: "CorePayでの注文導線",
+        heading: "CorePayでのレポート注文",
         body: [
-          "CorePayを使って、Core Blockchainコミュニティでも試しやすいレポート注文導線を準備しています。",
-          "今はCore Blockchainを題材にしたサンプルレポートを読めます。"
+          "CorePayを使い、国境を越えた簡単なレポート注文・支払い導線を準備しています。",
+          "Core Blockchainの対応に合わせてさまざまなトークンで支払えるようになる予定です。"
         ],
-        link: { href: "purchase", label: "レポート注文" }
+        link: { href: "purchase", label: "注文について" }
+      },
+      {
+        heading: "読み方と方針",
+        body: [
+          "出生図、太陽回帰、新月サイクルをどのように読むかをまとめています。"
+        ],
+        link: { href: "reading-policy", label: "読み方を見る" }
       }
     ]
   },
@@ -699,22 +715,55 @@ export const homeCopy: Record<Lang, PageCopy> = {
     ],
     blocks: [
       {
-        heading: "Reportarten",
+        heading: "Beispielreports",
         body: [
-          "Der Radix-Report beschreibt die Grundstruktur. Der Solar-Return-Report deutet den Jahresrahmen. Der Report zum Neumondzyklus zeigt Themen, die in diesem Zyklus leichter in Bewegung kommen.",
-          "Die Reports unterstützen persönliches Selbstverstehen. Sie helfen auch dabei, den Fluss eines Unternehmens oder einer Community zu beobachten."
+          "Core Blockchain, Steve Jobs und Leonardo da Vinci sind als Beispielthemen für die drei Reportarten geplant."
         ],
-        link: { href: "reading-policy", label: "Leseweise ansehen" }
+        link: { href: "sample-reports", label: "Beispiele ansehen" }
       },
       {
         heading: "Reports mit CorePay bestellen",
         body: [
-          "Polar Bird Astrology bereitet einen Bestell- und Zahlungsablauf mit CorePay vor. Er soll auch für die Community rund um Core Blockchain leicht zugänglich sein.",
-          "Aktuell stehen die Beispielreports zu Core Blockchain bereit."
+          "Polar Bird Astrology bereitet mit CorePay einen einfachen grenzüberschreitenden Bestell- und Zahlungsablauf für Reports vor.",
+          "Entsprechend der Unterstützung durch Core Blockchain sollen künftig Zahlungen mit verschiedenen Token möglich werden."
         ],
         link: { href: "purchase", label: "Reportbestellung" }
+      },
+      {
+        heading: "Leseweise und Grundsätze",
+        body: [
+          "Hier steht, wie Polar Bird Astrology Radix, Solar Return und Neumondzyklen liest."
+        ],
+        link: { href: "reading-policy", label: "Leseweise ansehen" }
       }
     ]
+  }
+};
+
+export const reportTypeGuideCopy: Record<Lang, TextBlock> = {
+  en: {
+    heading: "Report types",
+    body: [
+      "Natal reports read basic structure. Solar returns read the stage of the year. New moon cycle reports read the active themes in each cycle.",
+      "The reports are shaped for personal self-understanding, as gifts, and as readings for observing the flow of a business or community."
+    ],
+    link: { href: "reading-policy", label: "See how we read" }
+  },
+  ja: {
+    heading: "レポートの種類",
+    body: [
+      "出生図は基本構造、太陽回帰は一年の舞台、新月サイクルはそのサイクルで動きやすいテーマを読みます。",
+      "個人の自己理解や贈りものとしても、事業やコミュニティの流れを観察する読み物としても使える形で整えています。"
+    ],
+    link: { href: "reading-policy", label: "読み方と方針を見る" }
+  },
+  de: {
+    heading: "Reportarten",
+    body: [
+      "Der Radix-Report beschreibt die Grundstruktur. Der Solar-Return-Report deutet den Jahresrahmen. Der Report zum Neumondzyklus zeigt Themen, die in diesem Zyklus leichter in Bewegung kommen.",
+      "Die Reports sind so gestaltet, dass sie persönliches Selbstverstehen unterstützen und auch als Geschenk funktionieren. Zugleich eignen sie sich als Lektüre, mit der sich der Fluss eines Unternehmens oder einer Community beobachten lässt."
+    ],
+    link: { href: "reading-policy", label: "Leseweise ansehen" }
   }
 };
 

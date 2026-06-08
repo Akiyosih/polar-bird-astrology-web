@@ -1,7 +1,7 @@
 ---
 import ReportTypeCard from "../../../components/ReportTypeCard.astro";
 import BaseLayout from "../../../layouts/BaseLayout.astro";
-import { homeCopy, sampleSubjects, uiCopy } from "../../../data/site";
+import { reportTypeGuideCopy, sampleSubjects, uiCopy } from "../../../data/site";
 import { getLatestSampleReportBySubjectAndReportType } from "../../../lib/sampleReports";
 import { isLang, languages, localizedPath } from "../../../lib/i18n";
 
@@ -16,7 +16,7 @@ if (!isLang(lang)) {
 
 const ui = uiCopy[lang];
 const subjects = sampleSubjects[lang];
-const reportTypeGuide = homeCopy[lang].blocks[0];
+const reportTypeGuide = reportTypeGuideCopy[lang];
 const resolveLink = (href: string) => (/^https?:\/\//.test(href) ? href : localizedPath(lang, href));
 ---
 

@@ -891,6 +891,11 @@ p {
   gap: 1.15rem;
 }
 
+.home-action-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin-top: 1.25rem;
+}
+
 .content-grid article,
 .sample-report-card,
 .report-type-card,
