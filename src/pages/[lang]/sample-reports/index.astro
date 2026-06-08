@@ -24,7 +24,7 @@ const resolveLink = (href: string) => (/^https?:\/\//.test(href) ? href : locali
   <section class="page-heading">
     <p class="eyebrow">{ui.sampleReportsEyebrow}</p>
     <h1>{ui.sampleReportsTitle}</h1>
-    <p>{ui.sampleReportsDescription}</p>
+    {(ui.sampleReportsDescriptionParagraphs ?? [ui.sampleReportsDescription]).map((paragraph) => <p>{paragraph}</p>)}
   </section>
 
   <section class="report-hub" aria-labelledby="report-hub-title">

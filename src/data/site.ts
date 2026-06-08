@@ -2,7 +2,7 @@ import type { Lang } from "../lib/i18n";
 
 export type PageKey = "purchase" | "reading-policy" | "about";
 export type ReportTypeKey = "natal" | "solar-return" | "new-moon";
-export type SampleSubjectKey = "core" | "derek-sample";
+export type SampleSubjectKey = "core" | "steve-jobs" | "leonardo-da-vinci";
 
 type TextBlock = {
   heading: string;
@@ -46,6 +46,7 @@ type UiCopy = {
   sampleReportsEyebrow: string;
   sampleReportsTitle: string;
   sampleReportsDescription: string;
+  sampleReportsDescriptionParagraphs?: string[];
   sampleSubjectEyebrow: string;
   sampleSubjectTitle: string;
   readNoteLabel: string;
@@ -338,33 +339,33 @@ export const reportTypes: Record<Lang, ReportTypeCopy[]> = {
   ]
 };
 
-const derekReportTypes: Record<Lang, ReportTypeCopy[]> = {
+const steveJobsReportTypes: Record<Lang, ReportTypeCopy[]> = {
   en: [
     {
       key: "natal",
       label: "Natal report",
-      title: "Derek Sample's\nBasic Structure",
+      title: "Steve Jobs:\nBasic Structure",
       summary:
-        "A fictional personal sample showing how a natal report can describe temperament, response patterns, and everyday decision themes.",
-      focus: "Temperament, response rhythm, self-understanding",
+        "The natal report reads enduring structure, response rhythm, and the foundations of vision and choice.",
+      focus: "Basic structure, response rhythm, choice",
       emptyLabel: "Coming soon"
     },
     {
       key: "solar-return",
       label: "Solar return report",
-      title: "Derek Sample's\n2026 Theme",
+      title: "Steve Jobs:\nSolar Return",
       summary:
-        "A fictional personal sample showing how a solar return report can frame the stage of a year, visible themes, and practical emphasis.",
-      focus: "Annual theme, practical emphasis, visible stage",
+        "The solar return report reads the stage of the year, visible themes, and the ways existing qualities can take form.",
+      focus: "Annual theme, visible stage, emphasis",
       emptyLabel: "Coming soon"
     },
     {
       key: "new-moon",
       label: "New moon cycle report",
-      title: "Derek Sample's\nNew Moon Cycle",
+      title: "Steve Jobs:\nNew Moon Cycle",
       summary:
-        "A fictional personal sample showing how a new moon cycle report can organize monthly rhythm, choices, and observation points.",
-      focus: "Monthly rhythm, choices, observation points",
+        "The new moon cycle report reads active themes, daily choices, and observation points within the cycle.",
+      focus: "Cycle theme, choices, observation points",
       emptyLabel: "Coming soon"
     }
   ],
@@ -372,28 +373,28 @@ const derekReportTypes: Record<Lang, ReportTypeCopy[]> = {
     {
       key: "natal",
       label: "出生図レポート",
-      title: "Derek Sampleの\n基本構造",
+      title: "Steve Jobsの\n基本構造",
       summary:
-        "架空の人物Derek Sampleを題材に、出生図レポートが気質、反応のパターン、日々の選択テーマをどう読むかを示します。",
-      focus: "気質、反応のリズム、自己理解",
+        "Steve Jobsの出生図から、長く続く基本構造、反応のリズム、ビジョンや選択の土台を読みます。",
+      focus: "基本構造、反応のリズム、選択の土台",
       emptyLabel: "準備中"
     },
     {
       key: "solar-return",
       label: "太陽回帰レポート",
-      title: "Derek Sampleの\n2026年のテーマ",
+      title: "Steve Jobsの\n太陽回帰",
       summary:
-        "架空の人物Derek Sampleを題材に、太陽回帰レポートが一年の舞台、表に出やすいテーマ、実践上の焦点をどう読むかを示します。",
-      focus: "年間テーマ、実践上の焦点、表に出る舞台",
+        "太陽回帰図から、一年の舞台、表に出やすいテーマ、既存の性質の使われ方を読みます。",
+      focus: "年間テーマ、表に出る舞台、焦点",
       emptyLabel: "準備中"
     },
     {
       key: "new-moon",
       label: "新月サイクルレポート",
-      title: "Derek Sampleの\n新月サイクル",
+      title: "Steve Jobsの\n新月サイクル",
       summary:
-        "架空の人物Derek Sampleを題材に、新月サイクルレポートが月ごとのリズム、選択、観察点をどう整理するかを示します。",
-      focus: "月ごとのリズム、選択、観察点",
+        "新月サイクルから、そのサイクルで動きやすいテーマ、日々の選択、観察点を読みます。",
+      focus: "サイクルのテーマ、選択、観察点",
       emptyLabel: "準備中"
     }
   ],
@@ -401,28 +402,118 @@ const derekReportTypes: Record<Lang, ReportTypeCopy[]> = {
     {
       key: "natal",
       label: "Radix-Report",
-      title: "Derek Sample:\nGrundstruktur",
+      title: "Steve Jobs:\nGrundstruktur",
       summary:
-        "Ein fiktives persönliches Beispiel dafür, wie ein Radix-Report Temperament, Reaktionsmuster und Themen für tägliche Entscheidungen beschreibt.",
-      focus: "Temperament, Reaktionsrhythmus, Selbstverständnis",
+        "Der Radix-Report beschreibt dauerhafte Grundstruktur, Reaktionsrhythmus und die Grundlagen von Vision und Entscheidung.",
+      focus: "Grundstruktur, Reaktionsrhythmus, Entscheidung",
       emptyLabel: "In Vorbereitung"
     },
     {
       key: "solar-return",
       label: "Solar-Return-Report",
-      title: "Derek Sample:\nThema 2026",
+      title: "Steve Jobs:\nSolar Return",
       summary:
-        "Ein fiktives persönliches Beispiel dafür, wie ein Solar-Return-Report den Jahresrahmen, sichtbare Themen und praktische Schwerpunkte ordnet.",
-      focus: "Jahresthema, praktischer Schwerpunkt, sichtbarer Rahmen",
+        "Der Solar-Return-Report deutet den Jahresrahmen, sichtbare Themen und die Art, wie vorhandene Qualitäten Form annehmen.",
+      focus: "Jahresthema, sichtbarer Rahmen, Schwerpunkt",
       emptyLabel: "In Vorbereitung"
     },
     {
       key: "new-moon",
       label: "Neumondzyklus-Report",
-      title: "Derek Sample:\nNeumondzyklus",
+      title: "Steve Jobs:\nNeumondzyklus",
       summary:
-        "Ein fiktives persönliches Beispiel dafür, wie ein Report zum Neumondzyklus Monatsrhythmus, Entscheidungen und Beobachtungspunkte ordnet.",
-      focus: "Monatsrhythmus, Entscheidungen, Beobachtungspunkte",
+        "Der Report zum Neumondzyklus zeigt aktive Themen, tägliche Entscheidungen und Beobachtungspunkte innerhalb des Zyklus.",
+      focus: "Zyklusthema, Entscheidungen, Beobachtungspunkte",
+      emptyLabel: "In Vorbereitung"
+    }
+  ]
+};
+
+const leonardoDaVinciReportTypes: Record<Lang, ReportTypeCopy[]> = {
+  en: [
+    {
+      key: "natal",
+      label: "Natal report",
+      title: "Leonardo da Vinci:\nBasic Structure",
+      summary:
+        "The natal report reads enduring structure, response rhythm, and the foundations of perception and craft.",
+      focus: "Basic structure, perception, craft",
+      emptyLabel: "Coming soon"
+    },
+    {
+      key: "solar-return",
+      label: "Solar return report",
+      title: "Leonardo da Vinci:\nSolar Return",
+      summary:
+        "The solar return report reads the stage of the year, visible themes, and the ways existing qualities can take form.",
+      focus: "Annual theme, visible stage, emphasis",
+      emptyLabel: "Coming soon"
+    },
+    {
+      key: "new-moon",
+      label: "New moon cycle report",
+      title: "Leonardo da Vinci:\nNew Moon Cycle",
+      summary:
+        "The new moon cycle report reads active themes, daily choices, and observation points within the cycle.",
+      focus: "Cycle theme, choices, observation points",
+      emptyLabel: "Coming soon"
+    }
+  ],
+  ja: [
+    {
+      key: "natal",
+      label: "出生図レポート",
+      title: "Leonardo da Vinciの\n基本構造",
+      summary:
+        "Leonardo da Vinciの出生図から、長く続く基本構造、反応のリズム、知覚や制作の土台を読みます。",
+      focus: "基本構造、知覚、制作の土台",
+      emptyLabel: "準備中"
+    },
+    {
+      key: "solar-return",
+      label: "太陽回帰レポート",
+      title: "Leonardo da Vinciの\n太陽回帰",
+      summary:
+        "太陽回帰図から、一年の舞台、表に出やすいテーマ、既存の性質の使われ方を読みます。",
+      focus: "年間テーマ、表に出る舞台、焦点",
+      emptyLabel: "準備中"
+    },
+    {
+      key: "new-moon",
+      label: "新月サイクルレポート",
+      title: "Leonardo da Vinciの\n新月サイクル",
+      summary:
+        "新月サイクルから、そのサイクルで動きやすいテーマ、日々の選択、観察点を読みます。",
+      focus: "サイクルのテーマ、選択、観察点",
+      emptyLabel: "準備中"
+    }
+  ],
+  de: [
+    {
+      key: "natal",
+      label: "Radix-Report",
+      title: "Leonardo da Vinci:\nGrundstruktur",
+      summary:
+        "Der Radix-Report beschreibt dauerhafte Grundstruktur, Reaktionsrhythmus und die Grundlagen von Wahrnehmung und Handwerk.",
+      focus: "Grundstruktur, Wahrnehmung, Handwerk",
+      emptyLabel: "In Vorbereitung"
+    },
+    {
+      key: "solar-return",
+      label: "Solar-Return-Report",
+      title: "Leonardo da Vinci:\nSolar Return",
+      summary:
+        "Der Solar-Return-Report deutet den Jahresrahmen, sichtbare Themen und die Art, wie vorhandene Qualitäten Form annehmen.",
+      focus: "Jahresthema, sichtbarer Rahmen, Schwerpunkt",
+      emptyLabel: "In Vorbereitung"
+    },
+    {
+      key: "new-moon",
+      label: "Neumondzyklus-Report",
+      title: "Leonardo da Vinci:\nNeumondzyklus",
+      summary:
+        "Der Report zum Neumondzyklus zeigt aktive Themen, tägliche Entscheidungen und Beobachtungspunkte innerhalb des Zyklus.",
+      focus: "Zyklusthema, Entscheidungen, Beobachtungspunkte",
       emptyLabel: "In Vorbereitung"
     }
   ]
@@ -442,15 +533,26 @@ export const sampleSubjects: Record<Lang, SampleSubjectCopy[]> = {
       reports: reportTypes.en
     },
     {
-      key: "derek-sample",
-      label: "Derek Sample",
-      eyebrow: "Fictional person sample",
-      title: "Derek Sample",
+      key: "steve-jobs",
+      label: "Steve Jobs",
+      eyebrow: "Public figure sample",
+      title: "Steve Jobs",
       descriptionParagraphs: [
-        "Derek Sample is a fictional person used as a sample for reading a person through astrology.",
-        "You can read the basic structure he was born with, his annual theme, and his roughly one-month new moon cycle."
+        "Steve Jobs is a sample for reading a widely known person through astrology.",
+        "The three reports show how personal structure, annual timing, and a short cycle can be read for a person."
       ],
-      reports: derekReportTypes.en
+      reports: steveJobsReportTypes.en
+    },
+    {
+      key: "leonardo-da-vinci",
+      label: "Leonardo da Vinci",
+      eyebrow: "Public figure sample",
+      title: "Leonardo da Vinci",
+      descriptionParagraphs: [
+        "Leonardo da Vinci is a sample for reading a widely known person across historical distance.",
+        "The three reports show how personal structure, annual timing, and a short cycle can be read for a person."
+      ],
+      reports: leonardoDaVinciReportTypes.en
     }
   ],
   ja: [
@@ -466,15 +568,26 @@ export const sampleSubjects: Record<Lang, SampleSubjectCopy[]> = {
       reports: reportTypes.ja
     },
     {
-      key: "derek-sample",
-      label: "Derek Sample",
-      eyebrow: "架空人物のサンプル",
-      title: "Derek Sample",
+      key: "steve-jobs",
+      label: "Steve Jobs",
+      eyebrow: "人物のサンプル",
+      title: "Steve Jobs",
       descriptionParagraphs: [
-        "Derek Sampleは、架空の人物を題材に、人間を占星術で読むサンプルです。",
-        "生まれ持った基本構造、一年のテーマ、約1か月の新月サイクルを読むことができます。"
+        "Steve Jobsは、広く知られている人物を占星術で読むサンプルです。",
+        "基本構造、一年のテーマ、約1か月の新月サイクルを通して、個人の読み方を確認できます。"
       ],
-      reports: derekReportTypes.ja
+      reports: steveJobsReportTypes.ja
+    },
+    {
+      key: "leonardo-da-vinci",
+      label: "Leonardo da Vinci",
+      eyebrow: "人物のサンプル",
+      title: "Leonardo da Vinci",
+      descriptionParagraphs: [
+        "Leonardo da Vinciは、時代を越えて知られる人物を占星術で読むサンプルです。",
+        "基本構造、一年のテーマ、約1か月の新月サイクルを通して、個人の読み方を確認できます。"
+      ],
+      reports: leonardoDaVinciReportTypes.ja
     }
   ],
   de: [
@@ -490,15 +603,26 @@ export const sampleSubjects: Record<Lang, SampleSubjectCopy[]> = {
       reports: reportTypes.de
     },
     {
-      key: "derek-sample",
-      label: "Derek Sample",
-      eyebrow: "Beispiel einer fiktiven Person",
-      title: "Derek Sample",
+      key: "steve-jobs",
+      label: "Steve Jobs",
+      eyebrow: "Beispiel einer Person",
+      title: "Steve Jobs",
       descriptionParagraphs: [
-        "Derek Sample ist eine fiktive Person und zeigt, wie ein Mensch astrologisch gedeutet werden kann.",
-        "Bei Derek Sample lassen sich die von Geburt an angelegte Grundstruktur, das Thema eines Jahres und ein rund einmonatiger Neumondzyklus lesen."
+        "Steve Jobs ist ein Beispiel dafür, wie sich eine weithin bekannte Person astrologisch lesen lässt.",
+        "Die drei Reports zeigen, wie Grundstruktur, Jahresthema und ein kurzer Zyklus für eine Person gelesen werden können."
       ],
-      reports: derekReportTypes.de
+      reports: steveJobsReportTypes.de
+    },
+    {
+      key: "leonardo-da-vinci",
+      label: "Leonardo da Vinci",
+      eyebrow: "Beispiel einer Person",
+      title: "Leonardo da Vinci",
+      descriptionParagraphs: [
+        "Leonardo da Vinci ist ein Beispiel dafür, wie sich eine weithin bekannte Person mit historischer Distanz astrologisch lesen lässt.",
+        "Die drei Reports zeigen, wie Grundstruktur, Jahresthema und ein kurzer Zyklus für eine Person gelesen werden können."
+      ],
+      reports: leonardoDaVinciReportTypes.de
     }
   ]
 };
@@ -516,12 +640,16 @@ export const uiCopy: Record<Lang, UiCopy> = {
       "Polar Bird Astrology publishes the set as an example of reading a business or community."
     ],
     homeRouteLabel: "Main routes",
-    sampleReportsEyebrow: "Sample reports",
+    sampleReportsEyebrow: "Published samples",
     sampleReportsTitle: "Sample Reports",
     sampleReportsDescription:
-      "Core Blockchain is the primary sample set. Derek Sample adds a fictional personal sample structure for natal, solar return, and new moon cycle reports.",
+      "Core Blockchain, Steve Jobs, and Leonardo da Vinci are the sample subjects. Across natal, solar return, and new moon cycle reports, you can compare how the reading changes from one subject to another.",
+    sampleReportsDescriptionParagraphs: [
+      "Core Blockchain, Steve Jobs, and Leonardo da Vinci are the sample subjects.",
+      "Across natal, solar return, and new moon cycle reports, you can compare how the reading changes from one subject to another."
+    ],
     sampleSubjectEyebrow: "Choose a sample subject",
-    sampleSubjectTitle: "Core Blockchain or Derek Sample",
+    sampleSubjectTitle: "Core Blockchain / Steve Jobs / Leonardo da Vinci",
     readNoteLabel: "Read",
     purchaseStatusLabel: "View ordering details",
     sampleReportsBackLabel: "Back to sample reports",
@@ -559,12 +687,16 @@ export const uiCopy: Record<Lang, UiCopy> = {
       "事業やコミュニティを読むレポート例として公開しています。"
     ],
     homeRouteLabel: "主な導線",
-    sampleReportsEyebrow: "サンプルレポート",
+    sampleReportsEyebrow: "公開サンプル",
     sampleReportsTitle: "サンプルレポート",
     sampleReportsDescription:
-      "Core Blockchainを前面のサンプルセットとして置き、Derek Sampleでは架空人物の出生図、太陽回帰、新月サイクルの見え方を確認できる形にしています。",
+      "Core Blockchain、Steve Jobs、Leonardo da Vinciをサンプル対象にしています。出生図、太陽回帰、新月サイクルの3種類のレポートを通して、対象ごとの読み方の違いを確認できます。",
+    sampleReportsDescriptionParagraphs: [
+      "Core Blockchain、Steve Jobs、Leonardo da Vinciをサンプル対象にしています。",
+      "出生図、太陽回帰、新月サイクルの3種類のレポートを通して、対象ごとの読み方の違いを確認できます。"
+    ],
     sampleSubjectEyebrow: "サンプル対象を選ぶ",
-    sampleSubjectTitle: "Core Blockchain / Derek Sample",
+    sampleSubjectTitle: "Core Blockchain / Steve Jobs / Leonardo da Vinci",
     readNoteLabel: "読む",
     purchaseStatusLabel: "レポート注文へ",
     sampleReportsBackLabel: "サンプルレポートへ戻る",
@@ -602,12 +734,16 @@ export const uiCopy: Record<Lang, UiCopy> = {
       "Dieses Set zeigt, wie Polar Bird Astrology ein Unternehmen oder eine Community astrologisch deutet."
     ],
     homeRouteLabel: "Hauptwege",
-    sampleReportsEyebrow: "Beispielreports",
+    sampleReportsEyebrow: "Veröffentlichte Beispiele",
     sampleReportsTitle: "Beispielreports",
     sampleReportsDescription:
-      "Core Blockchain steht als zentrales Beispielset im Vordergrund. Derek Sample ergänzt eine fiktive persönliche Struktur für Radix-, Solar-Return- und Neumondzyklus-Reports.",
+      "Core Blockchain, Steve Jobs und Leonardo da Vinci sind die Beispielthemen. An Radix-, Solar-Return- und Neumondzyklus-Reports lässt sich vergleichen, wie sich die Leseweise je nach Thema verändert.",
+    sampleReportsDescriptionParagraphs: [
+      "Core Blockchain, Steve Jobs und Leonardo da Vinci sind die Beispielthemen.",
+      "An Radix-, Solar-Return- und Neumondzyklus-Reports lässt sich vergleichen, wie sich die Leseweise je nach Thema verändert."
+    ],
     sampleSubjectEyebrow: "Beispiel wählen",
-    sampleSubjectTitle: "Core Blockchain oder Derek Sample",
+    sampleSubjectTitle: "Core Blockchain / Steve Jobs / Leonardo da Vinci",
     readNoteLabel: "Lesen",
     purchaseStatusLabel: "Informationen zur Bestellung",
     sampleReportsBackLabel: "Zurück zu den Beispielreports",
@@ -640,16 +776,15 @@ export const homeCopy: Record<Lang, PageCopy> = {
     title: "Polar Bird Astrology",
     eyebrow: "Astrology reports that read charts for timing and choice",
     description:
-      "Polar Bird Astrology combines natal charts, solar returns, and new moon cycles to read themes you can use for self-understanding, daily choices, and action planning. The current public samples read Core Blockchain.",
+      "Polar Bird Astrology reads natal charts, solar returns, and new moon cycles, then turns the patterns it finds into language for self-understanding, daily choices, and action planning.",
     descriptionParagraphs: [
-      "Polar Bird Astrology combines natal charts, solar returns, and new moon cycles to read themes you can use for self-understanding, daily choices, and action planning.",
-      "The current public samples read Core Blockchain."
+      "Polar Bird Astrology reads natal charts, solar returns, and new moon cycles, then turns the patterns it finds into language for self-understanding, daily choices, and action planning."
     ],
     blocks: [
       {
         heading: "Sample reports",
         body: [
-          "Core Blockchain, Steve Jobs, and Leonardo da Vinci are the planned sample subjects for the three report types."
+          "For Core Blockchain, Steve Jobs, and Leonardo da Vinci, Polar Bird Astrology publishes three sample reports for each subject: natal chart, solar return, and new moon cycle."
         ],
         link: { href: "sample-reports", label: "See samples" }
       },
@@ -657,7 +792,7 @@ export const homeCopy: Record<Lang, PageCopy> = {
         heading: "Ordering reports with CorePay",
         body: [
           "Polar Bird Astrology is preparing a simple cross-border report ordering and payment flow using CorePay.",
-          "In line with Core Blockchain support, the plan is to make payment possible with various tokens."
+          "As CorePay expands token support for the Core Blockchain ecosystem, the plan is to make payment possible with a range of tokens."
         ],
         link: { href: "purchase", label: "Report ordering" }
       },
@@ -674,16 +809,15 @@ export const homeCopy: Record<Lang, PageCopy> = {
     title: "Polar Bird Astrology",
     eyebrow: "星まわりを読む占星術レポート",
     description:
-      "出生図、太陽回帰、新月サイクルを組み合わせて、自己理解、日々の選択、行動計画に使えるテーマを読みます。現在はCore Blockchainのサンプルレポートを公開しています。",
+      "出生図、太陽回帰、新月サイクルから星まわりを読み、自己理解、日々の選択、行動計画に使える言葉へ落とし込みます。",
     descriptionParagraphs: [
-      "出生図、太陽回帰、新月サイクルを組み合わせて、自己理解、日々の選択、行動計画に使えるテーマを読みます。",
-      "現在はCore Blockchainのサンプルレポートを公開しています。"
+      "出生図、太陽回帰、新月サイクルから星まわりを読み、自己理解、日々の選択、行動計画に使える言葉へ落とし込みます。"
     ],
     blocks: [
       {
         heading: "サンプルレポート",
         body: [
-          "Core Blockchain、Steve Jobs、Leonardo da Vinciを題材に、3種類のレポートを公開する予定です。"
+          "Core Blockchain、Steve Jobs、Leonardo da Vinciそれぞれについて、出生図、太陽回帰、新月サイクルの3種類のサンプルレポートを公開しています。"
         ],
         link: { href: "sample-reports", label: "サンプルを見る" }
       },
@@ -708,16 +842,15 @@ export const homeCopy: Record<Lang, PageCopy> = {
     title: "Polar Bird Astrology",
     eyebrow: "Astrologische Reports, die Sternrhythmen lesen",
     description:
-      "Polar Bird Astrology verbindet Radix, Solar Return und Neumondzyklus. Daraus arbeitet Polar Bird Astrology Themen für Selbstverstehen, tägliche Entscheidungen und die Planung der nächsten Schritte heraus. Derzeit sind Beispielreports zu Core Blockchain veröffentlicht.",
+      "Polar Bird Astrology liest Radix, Solar Return und Neumondzyklen und formt die darin erkennbaren Muster zu Worten, die Selbstverstehen, tägliche Entscheidungen und die Planung nächster Schritte unterstützen.",
     descriptionParagraphs: [
-      "Polar Bird Astrology verbindet Radix, Solar Return und Neumondzyklus. Daraus arbeitet Polar Bird Astrology Themen für Selbstverstehen, tägliche Entscheidungen und die Planung der nächsten Schritte heraus.",
-      "Derzeit sind Beispielreports zu Core Blockchain veröffentlicht."
+      "Polar Bird Astrology liest Radix, Solar Return und Neumondzyklen und formt die darin erkennbaren Muster zu Worten, die Selbstverstehen, tägliche Entscheidungen und die Planung nächster Schritte unterstützen."
     ],
     blocks: [
       {
         heading: "Beispielreports",
         body: [
-          "Core Blockchain, Steve Jobs und Leonardo da Vinci sind als Beispielthemen für die drei Reportarten geplant."
+          "Zu Core Blockchain, Steve Jobs und Leonardo da Vinci veröffentlicht Polar Bird Astrology jeweils drei Beispielreports: Radix, Solar Return und Neumondzyklus."
         ],
         link: { href: "sample-reports", label: "Beispiele ansehen" }
       },
@@ -725,7 +858,7 @@ export const homeCopy: Record<Lang, PageCopy> = {
         heading: "Reports mit CorePay bestellen",
         body: [
           "Polar Bird Astrology bereitet mit CorePay einen einfachen grenzüberschreitenden Bestell- und Zahlungsablauf für Reports vor.",
-          "Entsprechend der Unterstützung durch Core Blockchain sollen künftig Zahlungen mit verschiedenen Token möglich werden."
+          "Mit der Token-Unterstützung von CorePay für das Core-Blockchain-Ökosystem sollen künftig Zahlungen mit verschiedenen Token möglich werden."
         ],
         link: { href: "purchase", label: "Reportbestellung" }
       },
@@ -778,16 +911,15 @@ export const pages: Record<Lang, Record<PageKey, PageCopy>> = {
         {
           heading: "Ordering reports with CorePay",
           body: [
-            "Polar Bird Astrology is preparing a way to order natal, solar return, and new moon cycle reports online.",
-            "The ordering and payment flow is being designed with CorePay so the Core Blockchain community can try it easily.",
-            "When ordering opens, this page will list which tokens can be used for report payments."
+            "Polar Bird Astrology is preparing a simple cross-border report ordering and payment flow using CorePay.",
+            "As CorePay expands token support for the Core Blockchain ecosystem, the plan is to make payment possible with a range of tokens."
           ]
         },
         {
           heading: "Sample reports to read before ordering",
           body: [
-            "The current public samples read Core Blockchain.",
-            "They show how the same astrology structure can support personal self-understanding and observation of a business or community."
+            "The sample reports cover Core Blockchain, Steve Jobs, and Leonardo da Vinci.",
+            "They are shaped for personal self-understanding, as gifts, and as readings for observing the flow of a business or community."
           ]
         }
       ],
@@ -906,18 +1038,17 @@ export const pages: Record<Lang, Record<PageKey, PageCopy>> = {
         "Polar Bird Astrologyの占星術レポートを注文できる導線を準備しています。",
       blocks: [
         {
-          heading: "CorePayでの注文導線",
+          heading: "CorePayでのレポート注文",
           body: [
-            "出生図、太陽回帰、新月サイクルのレポートを、Webから注文できる導線を準備しています。",
-            "CorePayを使い、Core Blockchainコミュニティでも試しやすい注文・支払い体験として設計しています。",
-            "注文受付を開始したら、このページでレポート代金の支払いに使えるトークンを案内します。"
+            "CorePayを使い、国境を越えた簡単なレポート注文・支払い導線を準備しています。",
+            "Core Blockchainの対応に合わせてさまざまなトークンで支払えるようになる予定です。"
           ]
         },
         {
           heading: "注文前に読めるレポート例",
           body: [
-            "現在はCore Blockchainを題材にしたサンプルレポートを公開しています。",
-            "同じ占星術の構造で、人の自己理解にも、事業やコミュニティの流れの観察にも使えることを示すためのサンプルです。"
+            "Core Blockchain、Steve Jobs、Leonardo da Vinciを題材にしたサンプルレポートを公開しています。",
+            "個人の自己理解や贈りものとしても、事業やコミュニティの流れを観察する読み物としても使える形で整えています。"
           ]
         }
       ],
@@ -1038,16 +1169,15 @@ export const pages: Record<Lang, Record<PageKey, PageCopy>> = {
         {
           heading: "Reports mit CorePay bestellen",
           body: [
-            "Polar Bird Astrology bereitet eine Möglichkeit vor, Radix-, Solar-Return- und Neumondzyklus-Reports online zu bestellen.",
-            "Der Bestell- und Zahlungsablauf wird mit CorePay gestaltet und soll für die Community rund um Core Blockchain leicht zugänglich sein.",
-            "Sobald Bestellungen möglich sind, steht auf dieser Seite, welche Token für die Bezahlung der Reports genutzt werden können."
+            "Polar Bird Astrology bereitet mit CorePay einen einfachen grenzüberschreitenden Bestell- und Zahlungsablauf für Reports vor.",
+            "Mit der Token-Unterstützung von CorePay für das Core-Blockchain-Ökosystem sollen künftig Zahlungen mit verschiedenen Token möglich werden."
           ]
         },
         {
           heading: "Beispielreports vor der Bestellung",
           body: [
-            "Derzeit veröffentlicht Polar Bird Astrology Beispielreports zu Core Blockchain.",
-            "Sie zeigen, wie dieselbe astrologische Struktur persönliches Selbstverstehen und die Beobachtung eines Unternehmens oder einer Community unterstützen kann."
+            "Die Beispielreports behandeln Core Blockchain, Steve Jobs und Leonardo da Vinci.",
+            "Sie sind so gestaltet, dass sie persönliches Selbstverstehen unterstützen und auch als Geschenk funktionieren. Zugleich eignen sie sich als Lektüre, mit der sich der Fluss eines Unternehmens oder einer Community beobachten lässt."
           ]
         }
       ],

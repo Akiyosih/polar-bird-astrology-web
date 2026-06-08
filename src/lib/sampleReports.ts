@@ -33,7 +33,7 @@ export type SampleReport = {
 };
 
 const reportTypeKeys = ["natal", "solar-return", "new-moon"] as const;
-const sampleSubjectKeys = ["core", "derek-sample"] as const;
+const sampleSubjectKeys = ["core", "steve-jobs", "leonardo-da-vinci"] as const;
 
 function isReportType(value: string | undefined): value is ReportTypeKey {
   return reportTypeKeys.includes(value as ReportTypeKey);

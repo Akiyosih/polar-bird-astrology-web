@@ -15,9 +15,9 @@ UI文言を整えるための公開可能な方針です。
 CTA では、その面に置ける最も強い明確な主張を書きます。読み方、採用している
 占星術スタイル、公開repoへの導線、解釈の境界は `読み方と方針` にまとめます。
 
-現在のサンプル対象は Core Blockchain です。ただし、語り手とブランドは
-Polar Bird Astrology です。Polar Bird Astrology は Core Blockchain 専用ブランドでは
-ありません。
+公開UIで扱うサンプル対象は、Core Blockchain、Steve Jobs、Leonardo da Vinci です。
+ただし、語り手とブランドは Polar Bird Astrology です。Polar Bird Astrology は
+Core Blockchain 専用ブランドではありません。
 
 ## 文体
 
