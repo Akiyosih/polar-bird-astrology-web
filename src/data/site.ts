@@ -982,7 +982,7 @@ export const pages: Record<Lang, Record<PageKey, PageCopy>> = {
         {
           heading: "Transparency",
           body: [
-            "Polar Bird Astrology keeps its reading assumptions and the publishable parts of its production process visible wherever possible."
+            "Polar Bird Astrology makes its reading assumptions and the publishable parts of its creation process available through the website and public repository."
           ],
           link: { href: repoUrl, label: "View public repository" }
         }
@@ -1116,7 +1116,7 @@ export const pages: Record<Lang, Record<PageKey, PageCopy>> = {
         {
           heading: "透明性について",
           body: [
-            "Polar Bird Astrologyは、読み方の前提や公開できる制作過程を、できるだけ見える形で残しています。"
+            "Polar Bird Astrologyは、読み方の前提や公開できる制作過程を、Webサイトと公開リポジトリで確認できる形にしています。"
           ],
           link: { href: repoUrl, label: "公開リポジトリを見る" }
         }
@@ -1250,7 +1250,7 @@ export const pages: Record<Lang, Record<PageKey, PageCopy>> = {
         {
           heading: "Transparenz",
           body: [
-            "Polar Bird Astrology macht die Voraussetzungen seiner Leseweise und die öffentlich teilbaren Teile des Entstehungsprozesses nach Möglichkeit sichtbar."
+            "Polar Bird Astrology macht die Grundlagen der Leseweise und die öffentlich teilbaren Teile des Entstehungsprozesses auf der Website und im öffentlichen Repository nachvollziehbar."
           ],
           link: { href: repoUrl, label: "Öffentliches Repository ansehen" }
         }
