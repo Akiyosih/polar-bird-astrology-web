@@ -29,23 +29,25 @@ const resolveLink = (href: string) => (/^https?:\/\//.test(href) ? href : locali
 
   <section class="report-hub" aria-labelledby="report-hub-title">
     <div class="sample-subject-switcher" data-sample-subject-switcher>
-      <div class="section-heading compact">
-        <h2 id="report-hub-title">{ui.sampleSubjectTitle}</h2>
-      </div>
-      <div class="sample-subject-tabs" role="tablist" aria-labelledby="report-hub-title">
-        {subjects.map((subject, index) => (
-          <a
-            class:list={{ active: index === 0 }}
-            href={`#sample-subject-${subject.key}`}
-            id={`sample-subject-tab-${subject.key}`}
-            role="tab"
-            aria-controls={`sample-subject-${subject.key}`}
-            aria-selected={index === 0 ? "true" : "false"}
-            data-sample-subject-tab={subject.key}
-          >
-            {subject.label}
-          </a>
-        ))}
+      <div class="sample-subject-control">
+        <div class="section-heading compact">
+          <h2 id="report-hub-title">{ui.sampleSubjectTitle}</h2>
+        </div>
+        <div class="sample-subject-tabs" role="tablist" aria-labelledby="report-hub-title">
+          {subjects.map((subject, index) => (
+            <a
+              class:list={{ active: index === 0 }}
+              href={`#sample-subject-${subject.key}`}
+              id={`sample-subject-tab-${subject.key}`}
+              role="tab"
+              aria-controls={`sample-subject-${subject.key}`}
+              aria-selected={index === 0 ? "true" : "false"}
+              data-sample-subject-tab={subject.key}
+            >
+              {subject.label}
+            </a>
+          ))}
+        </div>
       </div>
       {subjects.map((subject, index) => (
         <section
@@ -56,7 +58,7 @@ const resolveLink = (href: string) => (/^https?:\/\//.test(href) ? href : locali
           data-sample-subject-panel={subject.key}
           hidden={index !== 0}
         >
-          <div class="section-heading compact">
+          <div class="section-heading compact sample-subject-intro">
             <p class="eyebrow">{subject.eyebrow}</p>
             <h3>{subject.title}</h3>
             {subject.descriptionParagraphs.map((paragraph) => <p>{paragraph}</p>)}

@@ -1031,24 +1031,44 @@ p {
   gap: 1.2rem;
 }
 
+.sample-subject-control,
+.sample-subject-intro {
+  max-width: 620px;
+  width: 100%;
+}
+
+.sample-subject-control {
+  display: grid;
+  gap: 1rem;
+}
+
+.sample-subject-control .section-heading.compact {
+  margin: 0;
+}
+
 .sample-subject-tabs {
   align-items: center;
   background: var(--button-secondary-bg);
   border: 1px solid var(--button-secondary-border);
-  display: inline-flex;
+  display: flex;
   flex-wrap: wrap;
   gap: 0.25rem;
-  justify-self: start;
   padding: 0.25rem;
+  width: 100%;
 }
 
 .sample-subject-tabs a {
+  align-items: center;
   border: 1px solid transparent;
   color: var(--text-primary);
+  display: flex;
+  flex: 1 1 0;
   font-size: 0.92rem;
   font-weight: 700;
+  justify-content: center;
   line-height: var(--leading-ui);
   min-height: 2.55rem;
+  min-width: min(11rem, 100%);
   padding: 0.55rem 0.85rem;
   text-align: center;
   text-decoration: none;
@@ -1076,6 +1096,10 @@ p {
 
 .sample-subject-panel .section-heading.compact {
   margin-top: 0;
+}
+
+.sample-subject-intro {
+  margin-bottom: 0.25rem;
 }
 
 .sample-subject-panel h3 {
