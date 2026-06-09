@@ -897,6 +897,7 @@ p {
 }
 
 .home-action-grid .button {
+  align-self: start;
   min-inline-size: 9.5rem;
 }
 
