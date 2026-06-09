@@ -47,7 +47,6 @@ type UiCopy = {
   sampleReportsTitle: string;
   sampleReportsDescription: string;
   sampleReportsDescriptionParagraphs?: string[];
-  sampleSubjectEyebrow: string;
   sampleSubjectTitle: string;
   readNoteLabel: string;
   purchaseStatusLabel: string;
@@ -651,8 +650,7 @@ export const uiCopy: Record<Lang, UiCopy> = {
       "Core Blockchain, Steve Jobs, and Leonardo da Vinci are the sample subjects.",
       "Across natal, solar return, and new moon cycle reports, you can compare how the reading changes from one subject to another."
     ],
-    sampleSubjectEyebrow: "Choose a sample subject",
-    sampleSubjectTitle: "Core Blockchain / Steve Jobs / Leonardo da Vinci",
+    sampleSubjectTitle: "Choose a Sample Subject",
     readNoteLabel: "Read",
     purchaseStatusLabel: "View ordering details",
     sampleReportsBackLabel: "Back to sample reports",
@@ -698,8 +696,7 @@ export const uiCopy: Record<Lang, UiCopy> = {
       `${coreBlockchainJaWithEnglish}、${steveJobsJa}、${leonardoDaVinciJa}をサンプル対象にしています。`,
       "出生図、太陽回帰、新月サイクルの3種類のレポートを通して、対象ごとの読み方の違いを確認できます。"
     ],
-    sampleSubjectEyebrow: "サンプル対象を選ぶ",
-    sampleSubjectTitle: `${coreBlockchainJa} / ${steveJobsJa} / ${leonardoDaVinciJa}`,
+    sampleSubjectTitle: "サンプル対象を選ぶ",
     readNoteLabel: "読む",
     purchaseStatusLabel: "レポート注文へ",
     sampleReportsBackLabel: "サンプルレポートへ戻る",
@@ -745,8 +742,7 @@ export const uiCopy: Record<Lang, UiCopy> = {
       "Core Blockchain, Steve Jobs und Leonardo da Vinci sind die Beispielthemen.",
       "An Radix-, Solar-Return- und Neumondzyklus-Reports lässt sich vergleichen, wie sich die Leseweise je nach Thema verändert."
     ],
-    sampleSubjectEyebrow: "Beispiel wählen",
-    sampleSubjectTitle: "Core Blockchain / Steve Jobs / Leonardo da Vinci",
+    sampleSubjectTitle: "Beispielthema wählen",
     readNoteLabel: "Lesen",
     purchaseStatusLabel: "Informationen zur Bestellung",
     sampleReportsBackLabel: "Zurück zu den Beispielreports",
