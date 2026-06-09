@@ -41,7 +41,9 @@ const resolveLink = (href: string) => (/^https?:\/\//.test(href) ? href : locali
       {copy.blocks.map((block) => (
         <article>
           <h2>{block.heading}</h2>
-          {block.body.map((paragraph) => <p>{paragraph}</p>)}
+          <div class="home-action-card-body">
+            {block.body.map((paragraph) => <p>{paragraph}</p>)}
+          </div>
           {block.link && <a class="button secondary" href={resolveLink(block.link.href)}>{block.link.label}</a>}
         </article>
       ))}

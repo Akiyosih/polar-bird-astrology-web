@@ -896,8 +896,18 @@ p {
   margin-top: 1.25rem;
 }
 
-.home-action-grid .button {
+.home-action-grid article {
+  grid-template-rows: auto 1fr auto;
+}
+
+.home-action-card-body {
   align-self: start;
+  display: grid;
+  gap: 0.7rem;
+}
+
+.home-action-grid .button {
+  align-self: end;
   min-inline-size: 9.5rem;
 }
 
