@@ -113,6 +113,19 @@ Before finalizing English website copy, run a calque / idiom sweep:
 - Do not translate sensory phrases such as `心が洗われる感覚` or `身体感覚` word
   for word. Use natural English sensory or embodied language.
 
+Approved Japanese website copy is the semantic source of truth. Do not soften,
+reframe, or add operational qualifiers such as "small", "pilot", "limited",
+"manual delivery", or "not open yet" unless the Japanese source explicitly says
+so. If the Japanese source uses future-oriented preparation language such as
+`準備しています` or `予定です`, preserve that future-oriented meaning rather than
+replacing it with implementation details.
+
+For CorePay and report-ordering copy, preserve the intended CorePay ordering /
+payment context and the Core Blockchain community context from the Japanese
+source. Future-oriented wording is allowed when the source uses preparation or
+planned-language. The copy must not imply that ordering or payment can already
+be completed on the site unless the Japanese source explicitly says so.
+
 ## German Notes
 
 Use natural German, including normal German characters. Finished public copy
@@ -132,6 +145,13 @@ the sentence practical and readable.
 For report-ordering surfaces, prefer "Bestellung" and "bestellen" over
 "Reportkauf" when the workflow is an order with later delivery rather than
 instant purchase or access.
+
+For CorePay and report-ordering copy, preserve the approved Japanese source
+meaning. Do not add "klein", "Pilot", "begrenzt", "manuelle Lieferung", or
+similar operational qualifiers unless they are present in the Japanese source.
+If the Japanese source says the flow is being prepared or planned, keep the
+German copy future-oriented without implying that ordering or payment is already
+available on the site.
 
 ## Public Sync Checklist
 

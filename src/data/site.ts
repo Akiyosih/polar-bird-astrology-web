@@ -788,10 +788,10 @@ export const homeCopy: Record<Lang, PageCopy> = {
         link: { href: "sample-reports", label: "See samples" }
       },
       {
-        heading: "Small CorePay order pilot",
+        heading: "Ordering reports with CorePay",
         body: [
-          "Polar Bird Astrology is preparing a small CorePay-first order pilot for astrology reports.",
-          "Ordering is not open yet. The first pilot will stay small, with manual confirmation and delivery after payment confirmation."
+          "Polar Bird Astrology is preparing a simple cross-border report ordering and payment flow using CorePay.",
+          "As CorePay expands token support for the Core Blockchain ecosystem, the plan is to make payment possible with a range of tokens."
         ],
         link: { href: "purchase", label: "Report ordering" }
       },
@@ -821,10 +821,10 @@ export const homeCopy: Record<Lang, PageCopy> = {
         link: { href: "sample-reports", label: "サンプルを見る" }
       },
       {
-        heading: "CorePayでの小さな注文導線",
+        heading: "CorePayでのレポート注文",
         body: [
-          "CorePayを使った、占星術レポートの小さな注文導線を準備しています。",
-          "まだこのサイトで注文はできません。最初は小さなレポートから始め、確認と納品は手動で行います。"
+          "CorePayを使い、国境を越えた簡単なレポート注文・支払い導線を準備しています。",
+          `${coreBlockchainJa}の対応に合わせてさまざまなトークンで支払えるようになる予定です。`
         ],
         link: { href: "purchase", label: "注文について" }
       },
@@ -854,10 +854,10 @@ export const homeCopy: Record<Lang, PageCopy> = {
         link: { href: "sample-reports", label: "Beispiele ansehen" }
       },
       {
-        heading: "Kleiner CorePay-Bestellpilot",
+        heading: "Reports mit CorePay bestellen",
         body: [
-          "Polar Bird Astrology bereitet einen kleinen CorePay-first-Bestellpilot für astrologische Reports vor.",
-          "Die Bestellung ist noch nicht geöffnet. Der erste Pilot bleibt klein, mit manueller Bestätigung und Lieferung nach der Zahlungsbestätigung."
+          "Polar Bird Astrology bereitet mit CorePay einen einfachen grenzüberschreitenden Bestell- und Zahlungsablauf für Reports vor.",
+          "Mit der Token-Unterstützung von CorePay für das Core-Blockchain-Ökosystem sollen künftig Zahlungen mit verschiedenen Token möglich werden."
         ],
         link: { href: "purchase", label: "Reportbestellung" }
       },
@@ -903,15 +903,15 @@ export const pages: Record<Lang, Record<PageKey, PageCopy>> = {
   en: {
     purchase: {
       title: "Report Ordering",
-      eyebrow: "Small CorePay order pilot in preparation",
+      eyebrow: "CorePay order flow in preparation",
       description:
-        "Polar Bird Astrology is preparing a small online order flow for astrology reports.",
+        "Polar Bird Astrology is preparing a way to order astrology reports online.",
       blocks: [
         {
-          heading: "Small CorePay order pilot",
+          heading: "Ordering reports with CorePay",
           body: [
-            "A limited CorePay-first order pilot is being prepared for a compact astrology report.",
-            "Ordering is not open yet. The first pilot will stay small, with manual confirmation and delivery after payment confirmation."
+            "Polar Bird Astrology is preparing a simple cross-border report ordering and payment flow using CorePay.",
+            "As CorePay expands token support for the Core Blockchain ecosystem, the plan is to make payment possible with a range of tokens."
           ]
         },
         {
@@ -1037,15 +1037,15 @@ export const pages: Record<Lang, Record<PageKey, PageCopy>> = {
   ja: {
     purchase: {
       title: "レポート注文",
-      eyebrow: "CorePayでの小さな注文導線を準備中",
+      eyebrow: "CorePayでの注文導線を準備中",
       description:
-        "Polar Bird Astrologyの占星術レポートをオンラインで注文できる小さな導線を準備しています。",
+        "Polar Bird Astrologyの占星術レポートを注文できる導線を準備しています。",
       blocks: [
         {
-          heading: "CorePayでの小さな注文導線",
+          heading: "CorePayでのレポート注文",
           body: [
-            "CorePayを使った、占星術レポートの小さな注文導線を準備しています。",
-            "まだこのサイトで注文はできません。最初は小さなレポートから始め、確認と納品は手動で行います。"
+            "CorePayを使い、国境を越えた簡単なレポート注文・支払い導線を準備しています。",
+            `${coreBlockchainJaWithEnglish}の対応に合わせてさまざまなトークンで支払えるようになる予定です。`
           ]
         },
         {
@@ -1171,15 +1171,15 @@ export const pages: Record<Lang, Record<PageKey, PageCopy>> = {
   de: {
     purchase: {
       title: "Reportbestellung",
-      eyebrow: "Kleiner CorePay-Bestellpilot in Vorbereitung",
+      eyebrow: "CorePay-Bestellung in Vorbereitung",
       description:
-        "Polar Bird Astrology bereitet einen kleinen Online-Bestellablauf für astrologische Reports vor.",
+        "Polar Bird Astrology bereitet eine Möglichkeit vor, astrologische Reports online zu bestellen.",
       blocks: [
         {
-          heading: "Kleiner CorePay-Bestellpilot",
+          heading: "Reports mit CorePay bestellen",
           body: [
-            "Ein begrenzter CorePay-first-Bestellpilot für einen kompakten astrologischen Report ist in Vorbereitung.",
-            "Die Bestellung ist noch nicht geöffnet. Der erste Pilot bleibt klein, mit manueller Bestätigung und Lieferung nach der Zahlungsbestätigung."
+            "Polar Bird Astrology bereitet mit CorePay einen einfachen grenzüberschreitenden Bestell- und Zahlungsablauf für Reports vor.",
+            "Mit der Token-Unterstützung von CorePay für das Core-Blockchain-Ökosystem sollen künftig Zahlungen mit verschiedenen Token möglich werden."
           ]
         },
         {
