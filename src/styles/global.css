@@ -896,6 +896,10 @@ p {
   margin-top: 1.25rem;
 }
 
+.home-action-grid .button {
+  min-inline-size: 9.5rem;
+}
+
 .content-grid article,
 .sample-report-card,
 .report-type-card,
