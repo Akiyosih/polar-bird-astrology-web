@@ -19,7 +19,7 @@ claims.
 
 - A static Astro website.
 - Public sample reports in English, Japanese, and German.
-- Public-facing reading-policy and report-purchase preparation pages.
+- Public-facing approach and report-ordering preparation pages.
 - Public-safe Japanese homepage copy guidance.
 - Tests that prevent accidental private-data and unverified product claims.
 

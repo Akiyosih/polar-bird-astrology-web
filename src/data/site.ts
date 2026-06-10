@@ -1,6 +1,6 @@
 import type { Lang } from "../lib/i18n";
 
-export type PageKey = "purchase" | "reading-policy" | "about";
+export type PageKey = "order" | "approach" | "writer";
 export type ReportTypeKey = "natal" | "solar-return" | "new-moon";
 export type SampleSubjectKey = "core" | "steve-jobs" | "leonardo-da-vinci";
 
@@ -49,7 +49,7 @@ type UiCopy = {
   sampleReportsDescriptionParagraphs?: string[];
   sampleSubjectTitle: string;
   readNoteLabel: string;
-  purchaseStatusLabel: string;
+  orderStatusLabel: string;
   sampleReportsBackLabel: string;
   otherSamplesLabel: string;
   otherSamplesShortLabel: string;
@@ -63,9 +63,9 @@ type UiCopy = {
   footerNotice: string;
   footerLinks: {
     sampleReports: string;
-    readingPolicy: string;
-    purchase: string;
-    about: string;
+    approach: string;
+    order: string;
+    writer: string;
   };
 };
 
@@ -233,21 +233,21 @@ export const chartLegendGroups: Record<Lang, ChartLegendGroup[]> = {
 export const navItems: Record<Lang, NavItem[]> = {
   en: [
     { href: "sample-reports", label: "Samples" },
-    { href: "purchase", label: "Order", badge: "soon" },
-    { href: "reading-policy", label: "Approach" },
-    { href: "about", label: "Writer" }
+    { href: "order", label: "Order", badge: "soon" },
+    { href: "approach", label: "Approach" },
+    { href: "writer", label: "Writer" }
   ],
   ja: [
     { href: "sample-reports", label: "サンプルレポート" },
-    { href: "purchase", label: "レポート注文", badge: "soon" },
-    { href: "reading-policy", label: "読み方と方針" },
-    { href: "about", label: "書き手" }
+    { href: "order", label: "レポート注文", badge: "soon" },
+    { href: "approach", label: "読み方と方針" },
+    { href: "writer", label: "書き手" }
   ],
   de: [
     { href: "sample-reports", label: "Beispielreports" },
-    { href: "purchase", label: "Bestellen", badge: "soon" },
-    { href: "reading-policy", label: "Leseweise" },
-    { href: "about", label: "Autor" }
+    { href: "order", label: "Bestellen", badge: "soon" },
+    { href: "approach", label: "Leseweise" },
+    { href: "writer", label: "Autor" }
   ]
 };
 
@@ -652,7 +652,7 @@ export const uiCopy: Record<Lang, UiCopy> = {
     ],
     sampleSubjectTitle: "Choose a Sample Subject",
     readNoteLabel: "Read",
-    purchaseStatusLabel: "View ordering details",
+    orderStatusLabel: "View ordering details",
     sampleReportsBackLabel: "Back to sample reports",
     otherSamplesLabel: "Other sample reports",
     otherSamplesShortLabel: "Other samples",
@@ -671,9 +671,9 @@ export const uiCopy: Record<Lang, UiCopy> = {
       "Polar Bird Astrology publishes astrology reports that read natal charts, solar returns, and new moon cycles.",
     footerLinks: {
       sampleReports: "Sample Reports",
-      readingPolicy: "How we read",
-      purchase: "Report ordering",
-      about: "Writer"
+      approach: "How we read",
+      order: "Report ordering",
+      writer: "Writer"
     }
   },
   ja: {
@@ -698,7 +698,7 @@ export const uiCopy: Record<Lang, UiCopy> = {
     ],
     sampleSubjectTitle: "サンプル対象を選ぶ",
     readNoteLabel: "読む",
-    purchaseStatusLabel: "レポート注文へ",
+    orderStatusLabel: "レポート注文へ",
     sampleReportsBackLabel: "サンプルレポートへ戻る",
     otherSamplesLabel: "他のサンプルレポート",
     otherSamplesShortLabel: "他のサンプル",
@@ -717,9 +717,9 @@ export const uiCopy: Record<Lang, UiCopy> = {
       "Polar Bird Astrologyは、出生図・太陽回帰・新月サイクルを読む占星術レポートを公開しています。",
     footerLinks: {
       sampleReports: "サンプルレポート",
-      readingPolicy: "読み方と方針",
-      purchase: "レポート注文",
-      about: "書き手"
+      approach: "読み方と方針",
+      order: "レポート注文",
+      writer: "書き手"
     }
   },
   de: {
@@ -744,7 +744,7 @@ export const uiCopy: Record<Lang, UiCopy> = {
     ],
     sampleSubjectTitle: "Beispielthema wählen",
     readNoteLabel: "Lesen",
-    purchaseStatusLabel: "Informationen zur Bestellung",
+    orderStatusLabel: "Informationen zur Bestellung",
     sampleReportsBackLabel: "Zurück zu den Beispielreports",
     otherSamplesLabel: "Weitere Beispielreports",
     otherSamplesShortLabel: "Weitere Beispiele",
@@ -763,9 +763,9 @@ export const uiCopy: Record<Lang, UiCopy> = {
       "Polar Bird Astrology veröffentlicht astrologische Reports auf Basis von Radix, Solar Return und Neumondzyklus.",
     footerLinks: {
       sampleReports: "Beispielreports",
-      readingPolicy: "Leseweise",
-      purchase: "Reportbestellung",
-      about: "Autor"
+      approach: "Leseweise",
+      order: "Reportbestellung",
+      writer: "Autor"
     }
   }
 };
@@ -793,14 +793,14 @@ export const homeCopy: Record<Lang, PageCopy> = {
           "Polar Bird Astrology is preparing a simple cross-border report ordering and payment flow using CorePay.",
           "As CorePay expands token support for the Core Blockchain ecosystem, the plan is to make payment possible with a range of tokens."
         ],
-        link: { href: "purchase", label: "Report ordering" }
+        link: { href: "order", label: "Report ordering" }
       },
       {
         heading: "How we read",
         body: [
           "See how Polar Bird Astrology reads natal charts, solar returns, and new moon cycles."
         ],
-        link: { href: "reading-policy", label: "See how we read" }
+        link: { href: "approach", label: "See how we read" }
       }
     ]
   },
@@ -826,14 +826,14 @@ export const homeCopy: Record<Lang, PageCopy> = {
           "CorePayを使い、国境を越えた簡単なレポート注文・支払い導線を準備しています。",
           `${coreBlockchainJa}の対応に合わせてさまざまなトークンで支払えるようになる予定です。`
         ],
-        link: { href: "purchase", label: "注文について" }
+        link: { href: "order", label: "注文について" }
       },
       {
         heading: "読み方と方針",
         body: [
           "出生図、太陽回帰、新月サイクルをどのように読むかをまとめています。"
         ],
-        link: { href: "reading-policy", label: "読み方を見る" }
+        link: { href: "approach", label: "読み方を見る" }
       }
     ]
   },
@@ -859,14 +859,14 @@ export const homeCopy: Record<Lang, PageCopy> = {
           "Polar Bird Astrology bereitet mit CorePay einen einfachen grenzüberschreitenden Bestell- und Zahlungsablauf für Reports vor.",
           "Mit der Token-Unterstützung von CorePay für das Core-Blockchain-Ökosystem sollen künftig Zahlungen mit verschiedenen Token möglich werden."
         ],
-        link: { href: "purchase", label: "Reportbestellung" }
+        link: { href: "order", label: "Reportbestellung" }
       },
       {
         heading: "Leseweise und Grundsätze",
         body: [
           "Hier steht, wie Polar Bird Astrology Radix, Solar Return und Neumondzyklen liest."
         ],
-        link: { href: "reading-policy", label: "Leseweise ansehen" }
+        link: { href: "approach", label: "Leseweise ansehen" }
       }
     ]
   }
@@ -879,7 +879,7 @@ export const reportTypeGuideCopy: Record<Lang, TextBlock> = {
       "Natal reports read basic structure. Solar returns read the stage of the year. New moon cycle reports read the active themes in each cycle.",
       "The reports are shaped for personal self-understanding, as gifts, and as readings for observing the flow of a business or community."
     ],
-    link: { href: "reading-policy", label: "See how we read" }
+    link: { href: "approach", label: "See how we read" }
   },
   ja: {
     heading: "レポートの種類",
@@ -887,7 +887,7 @@ export const reportTypeGuideCopy: Record<Lang, TextBlock> = {
       "出生図は基本構造、太陽回帰は一年の舞台、新月サイクルはそのサイクルで動きやすいテーマを読みます。",
       "個人の自己理解や贈りものとしても、事業やコミュニティの流れを観察する読み物としても使える形で整えています。"
     ],
-    link: { href: "reading-policy", label: "読み方と方針を見る" }
+    link: { href: "approach", label: "読み方と方針を見る" }
   },
   de: {
     heading: "Reportarten",
@@ -895,7 +895,7 @@ export const reportTypeGuideCopy: Record<Lang, TextBlock> = {
       "Der Radix-Report beschreibt die Grundstruktur. Der Solar-Return-Report deutet den Jahresrahmen. Der Report zum Neumondzyklus zeigt Themen, die in diesem Zyklus leichter in Bewegung kommen.",
       "Die Reports sind so gestaltet, dass sie persönliches Selbstverstehen unterstützen und auch als Geschenk funktionieren. Zugleich eignen sie sich als Lektüre, mit der sich der Fluss eines Unternehmens oder einer Community beobachten lässt."
     ],
-    link: { href: "reading-policy", label: "Leseweise ansehen" }
+    link: { href: "approach", label: "Leseweise ansehen" }
   }
 };
 
@@ -954,7 +954,7 @@ export const paytoOrderPage: Record<Lang, PageCopy> = {
         heading: "確認と納品",
         body: [
           "同額の入金やトランザクションハッシュだけでは、注文者本人の支払いとして扱わない方針です。",
-          "PDFレポートの納品目安や購入後の質問範囲は、注文受付開始前にこのページで分かるようにします。"
+          "PDFレポートの納品目安や注文後の質問範囲は、注文受付開始前にこのページで分かるようにします。"
         ]
       }
     ],
@@ -994,7 +994,7 @@ export const paytoOrderPage: Record<Lang, PageCopy> = {
 
 export const pages: Record<Lang, Record<PageKey, PageCopy>> = {
   en: {
-    purchase: {
+    order: {
       title: "Report Ordering",
       eyebrow: "CorePay order flow in preparation",
       description:
@@ -1020,7 +1020,7 @@ export const pages: Record<Lang, Record<PageKey, PageCopy>> = {
         { href: coreBlockchainUrl, label: "Core Blockchain website" }
       ]
     },
-    "reading-policy": {
+    approach: {
       title: "How We Read",
       eyebrow: "Astrology style",
       description:
@@ -1077,7 +1077,7 @@ export const pages: Record<Lang, Record<PageKey, PageCopy>> = {
         }
       ]
     },
-    about: {
+    writer: {
       title: "About the Writer",
       eyebrow: "Writer of Polar Bird Astrology",
       description:
@@ -1128,7 +1128,7 @@ export const pages: Record<Lang, Record<PageKey, PageCopy>> = {
     }
   },
   ja: {
-    purchase: {
+    order: {
       title: "レポート注文",
       eyebrow: "CorePayでの注文導線を準備中",
       description:
@@ -1154,7 +1154,7 @@ export const pages: Record<Lang, Record<PageKey, PageCopy>> = {
         { href: coreBlockchainUrl, label: `${coreBlockchainJa}公式サイトを見る` }
       ]
     },
-    "reading-policy": {
+    approach: {
       title: "読み方と方針",
       eyebrow: "占星術の採用スタイル",
       description:
@@ -1211,7 +1211,7 @@ export const pages: Record<Lang, Record<PageKey, PageCopy>> = {
         }
       ]
     },
-    about: {
+    writer: {
       title: "書き手について",
       eyebrow: "Polar Bird Astrologyの書き手",
       description:
@@ -1262,7 +1262,7 @@ export const pages: Record<Lang, Record<PageKey, PageCopy>> = {
     }
   },
   de: {
-    purchase: {
+    order: {
       title: "Reportbestellung",
       eyebrow: "CorePay-Bestellung in Vorbereitung",
       description:
@@ -1288,7 +1288,7 @@ export const pages: Record<Lang, Record<PageKey, PageCopy>> = {
         { href: coreBlockchainUrl, label: "Website von Core Blockchain" }
       ]
     },
-    "reading-policy": {
+    approach: {
       title: "Leseweise und Grundsätze",
       eyebrow: "Astrologischer Stil",
       description:
@@ -1345,7 +1345,7 @@ export const pages: Record<Lang, Record<PageKey, PageCopy>> = {
         }
       ]
     },
-    about: {
+    writer: {
       title: "Über den Autor",
       eyebrow: "Autor von Polar Bird Astrology",
       description:

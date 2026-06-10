@@ -140,7 +140,7 @@ const titleHtml = escapeHtml(sampleReport.title).replace(/([^\s])レポート/g,
 
     <nav class="report-end-nav" aria-label={ui.otherSamplesLabel}>
       <div class="report-end-actions">
-        <a class="button primary" href={localizedPath(lang, "purchase")}>{ui.purchaseStatusLabel}</a>
+        <a class="button primary" href={localizedPath(lang, "order")}>{ui.orderStatusLabel}</a>
         <a class="button secondary" href={sampleReportsBackHref}>{ui.sampleReportsBackLabel}</a>
       </div>
       {otherReports.length > 0 && (

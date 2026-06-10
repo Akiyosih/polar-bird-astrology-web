@@ -17,8 +17,8 @@ Use this before a public launch or meaningful public content update.
 - [ ] `/en`, `/ja`, and `/de` routes build.
 - [ ] `/en/sample-reports`, `/ja/sample-reports`, and `/de/sample-reports` have Core Blockchain, Steve Jobs, and Leonardo da Vinci entries.
 - [ ] `npm run check:release-samples` passes after the full three-subject sample set is synced.
-- [ ] `/en/purchase`, `/ja/purchase`, and `/de/purchase` clearly mark report ordering as in preparation.
-- [ ] `/en/reading-policy`, `/ja/reading-policy`, and `/de/reading-policy` explain the reading style, boundaries, and public repository link.
+- [ ] `/en/order`, `/ja/order`, and `/de/order` clearly mark report ordering as in preparation.
+- [ ] `/en/approach`, `/ja/approach`, and `/de/approach` explain the reading style, boundaries, and public repository link.
 
 ## Core Report Updates
 

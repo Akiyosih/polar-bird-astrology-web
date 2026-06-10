@@ -3,10 +3,10 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
 import { pages, type PageKey } from "../../data/site";
 import { isLang, languages, localizedPath } from "../../lib/i18n";
 
-const pageKeys = ["purchase", "reading-policy", "about"] satisfies PageKey[];
+const pageKeys = ["order", "approach", "writer"] satisfies PageKey[];
 
 export function getStaticPaths() {
-  const staticPageKeys = ["purchase", "reading-policy", "about"] satisfies PageKey[];
+  const staticPageKeys = ["order", "approach", "writer"] satisfies PageKey[];
   return languages.flatMap((lang) => staticPageKeys.map((page) => ({ params: { lang, page } })));
 }
 
@@ -20,7 +20,7 @@ if (!isLang(lang) || !pageKeys.includes(page)) {
 const copy = pages[lang][page];
 const descriptionParagraphs = copy.descriptionParagraphs ?? [copy.description];
 const resolveLink = (href: string) => (/^https?:\/\//.test(href) ? href : localizedPath(lang, href));
-const robots = page === "about" ? "noindex, noimageindex" : undefined;
+const robots = page === "writer" ? "noindex, noimageindex" : undefined;
 ---
 
 <BaseLayout lang={lang} title={copy.title} description={copy.description} robots={robots}>
