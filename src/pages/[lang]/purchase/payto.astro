@@ -1,0 +1,45 @@
+---
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+import { paytoOrderPage } from "../../../data/site";
+import { isLang, languages, localizedPath } from "../../../lib/i18n";
+
+export function getStaticPaths() {
+  return languages.map((lang) => ({ params: { lang } }));
+}
+
+const lang = Astro.params.lang;
+
+if (!isLang(lang)) {
+  throw new Error(`Unsupported language: ${lang}`);
+}
+
+const copy = paytoOrderPage[lang];
+const descriptionParagraphs = copy.descriptionParagraphs ?? [copy.description];
+const resolveLink = (href: string) => (/^https?:\/\//.test(href) ? href : localizedPath(lang, href));
+---
+
+<BaseLayout lang={lang} title={copy.title} description={copy.description}>
+  <section class="page-heading">
+    <div class="page-heading-copy">
+      <p class="eyebrow">{copy.eyebrow}</p>
+      <h1>{copy.title}</h1>
+      {descriptionParagraphs.map((paragraph) => <p>{paragraph}</p>)}
+    </div>
+  </section>
+  <section class="article-flow">
+    {copy.blocks.map((block) => (
+      <article>
+        <h2>{block.heading}</h2>
+        {block.body.map((paragraph) => <p>{paragraph}</p>)}
+        {block.link && <a class="button secondary" href={resolveLink(block.link.href)}>{block.link.label}</a>}
+      </article>
+    ))}
+    {copy.links && copy.links.length > 0 && (
+      <nav class="page-links" aria-label="Related links">
+        {copy.links.map((link) => (
+          <a class="button secondary" href={resolveLink(link.href)}>{link.label}</a>
+        ))}
+      </nav>
+    )}
+  </section>
+</BaseLayout>

@@ -899,6 +899,99 @@ export const reportTypeGuideCopy: Record<Lang, TextBlock> = {
   }
 };
 
+export const paytoOrderPage: Record<Lang, PageCopy> = {
+  en: {
+    title: "PayTo Order Flow",
+    eyebrow: "PayTo order flow in preparation",
+    description:
+      "Polar Bird Astrology is preparing an order flow that combines Gmail-based order confirmation with individual PayTo payment links.",
+    blocks: [
+      {
+        heading: "Order code and Gmail confirmation",
+        body: [
+          "When this flow is ready to be shown, each order will use a private order code and continue in a Gmail thread.",
+          "Birth details, delivery email addresses, names, and Core IDs will not be entered on the public website."
+        ]
+      },
+      {
+        heading: "Individual PayTo link or QR",
+        body: [
+          "Payment is planned to use an individual PayTo link or QR for each order. Shared payment links and public QR examples will not be published here.",
+          "The PayTo link is intended to connect the report name and order code. After payment, the confirmation screen or transaction information will be checked in the same Gmail thread."
+        ]
+      },
+      {
+        heading: "Confirmation and delivery",
+        body: [
+          "A same-amount transfer or transaction hash alone will not be treated as proof of the order.",
+          "Delivery timing for the PDF report and the scope of any follow-up question will be made clear before ordering opens."
+        ]
+      }
+    ],
+    links: [{ href: "sample-reports", label: "Read sample reports" }]
+  },
+  ja: {
+    title: "PayTo注文導線の準備",
+    eyebrow: "PayToでの注文導線を準備中",
+    description:
+      "Polar Bird Astrologyの占星術レポートを、Gmailでの注文確認とPayToでの支払い案内を組み合わせて注文できる導線を準備しています。",
+    blocks: [
+      {
+        heading: "注文コードとGmail確認",
+        body: [
+          "実際に案内できる段階では、注文ごとに発行する個別の注文コードを使い、Gmailのスレッドで必要事項を確認する予定です。",
+          "公開サイトでは、出生情報、納品先メールアドレス、氏名、Core IDを入力させる形にはしません。"
+        ]
+      },
+      {
+        heading: "個別のPayToリンクまたはQR",
+        body: [
+          "支払いには、注文ごとに個別発行するPayToリンクまたはQRを案内する予定です。固定リンクや共通QRは公開しません。",
+          "PayToリンクには、レポート名と注文コードを紐づけ、支払い後の確認画面やトランザクション情報を同じGmailスレッドで照合する想定です。"
+        ]
+      },
+      {
+        heading: "確認と納品",
+        body: [
+          "同額の入金やトランザクションハッシュだけでは、注文者本人の支払いとして扱わない方針です。",
+          "PDFレポートの納品目安や購入後の質問範囲は、注文受付開始前にこのページで分かるようにします。"
+        ]
+      }
+    ],
+    links: [{ href: "sample-reports", label: "サンプルレポートを読む" }]
+  },
+  de: {
+    title: "PayTo-Bestellablauf",
+    eyebrow: "PayTo-Bestellung in Vorbereitung",
+    description:
+      "Polar Bird Astrology bereitet einen Bestellablauf vor, der Bestellbestätigung per Gmail mit individuellen PayTo-Zahlungslinks verbindet.",
+    blocks: [
+      {
+        heading: "Bestellcode und Bestätigung per Gmail",
+        body: [
+          "Wenn dieser Ablauf bereit ist, erhält jede Bestellung einen privaten Bestellcode und wird in einem Gmail-Thread weitergeführt.",
+          "Geburtsdaten, Liefer-E-Mail-Adressen, Namen und Core IDs werden nicht auf der öffentlichen Website eingegeben."
+        ]
+      },
+      {
+        heading: "Individueller PayTo-Link oder QR-Code",
+        body: [
+          "Die Zahlung soll für jede Bestellung über einen individuellen PayTo-Link oder QR-Code erfolgen. Gemeinsame Zahlungslinks und öffentliche QR-Beispiele werden hier nicht veröffentlicht.",
+          "Der PayTo-Link soll Reportname und Bestellcode verbinden. Nach der Zahlung werden Bestätigungsbildschirm oder Transaktionsinformationen im selben Gmail-Thread geprüft."
+        ]
+      },
+      {
+        heading: "Prüfung und Lieferung",
+        body: [
+          "Eine gleich hohe Zahlung oder ein Transaktionshash allein gilt nicht als Nachweis für die Bestellung.",
+          "Lieferzeit für den PDF-Report und Umfang einer möglichen Anschlussfrage werden vor Öffnung der Bestellung klar angegeben."
+        ]
+      }
+    ],
+    links: [{ href: "sample-reports", label: "Beispielreports lesen" }]
+  }
+};
+
 export const pages: Record<Lang, Record<PageKey, PageCopy>> = {
   en: {
     purchase: {
