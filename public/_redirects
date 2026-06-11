@@ -1,0 +1,12 @@
+# Force legacy public routes to miss current assets instead of serving stale edge HTML.
+/ja/reading-policy/ /__deleted__/reading-policy 200
+/en/reading-policy/ /__deleted__/reading-policy 200
+/de/reading-policy/ /__deleted__/reading-policy 200
+/ja/purchase/ /__deleted__/purchase 200
+/en/purchase/ /__deleted__/purchase 200
+/de/purchase/ /__deleted__/purchase 200
+/ja/about/ /__deleted__/about 200
+/en/about/ /__deleted__/about 200
+/de/about/ /__deleted__/about 200
+/ja/core-field-notes/ /__deleted__/core-field-notes 200
+/ja/core-field-notes/* /__deleted__/core-field-notes/:splat 200
