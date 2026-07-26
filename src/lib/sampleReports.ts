@@ -50,7 +50,8 @@ const rawModules = import.meta.glob("../../content/sample-reports/*/*.md", {
 }) as Record<string, string>;
 
 function parseFrontmatter(raw: string): { data: Record<string, string>; body: string } {
-  const match = raw.match(/^---\n([\s\S]*?)\n---\n([\s\S]*)$/);
+  const normalized = raw.replace(/\r\n?/g, "\n");
+  const match = normalized.match(/^---\n([\s\S]*?)\n---\n([\s\S]*)$/);
   if (!match) {
     throw new Error("Sample report content is missing frontmatter.");
   }
