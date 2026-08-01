@@ -1,0 +1,75 @@
+{
+  "version": 2,
+  "title": "Polar Bird Astrology X Header — Centered Seal and Original Polaris",
+  "generatedAt": "2026-08-01T12:41:05.022Z",
+  "composition": {
+    "canvas": {
+      "width": 1500,
+      "height": 500
+    },
+    "background": {
+      "scaledWidth": 2100,
+      "scaledHeight": 3150,
+      "cropLeft": 600,
+      "cropTop": 394,
+      "intent": "retain the source artwork's prominent star left of center while keeping the bright aurora visible"
+    },
+    "seal": {
+      "diameter": 300,
+      "left": 600,
+      "top": 100,
+      "centerX": 750,
+      "centerY": 250
+    }
+  },
+  "responsiveRationale": "The centered seal avoids the right-side mobile navigation controls shown over the X header. The source star is kept left of center, away from both the seal and the edge controls.",
+  "sources": [
+    {
+      "role": "background",
+      "repositoryPath": "public/images/watercolor/pdf-cover-background-1600.webp",
+      "sha256": "8310da2b1e8eb99c8f5ea10ef0e96c2199c2f18db5c7b60b85b8409d5b20cf82",
+      "dimensions": [
+        1600,
+        2400
+      ],
+      "treatment": "proportional resize and crop only; no color correction, filter, veil, gradient, or generated pixels"
+    },
+    {
+      "role": "seal",
+      "repositoryPath": "public/images/brand/polar-bird-seal-dark.webp",
+      "sha256": "2ac9da1b94b3a3ae20f4f332e9b1834f1b21f94949fba99e217b87fa96389146",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "treatment": "proportional resize to 300x300 and circular clipping only; no external ring or shadow"
+    }
+  ],
+  "outputs": [
+    {
+      "repositoryPath": "assets/social/x/header/polar-bird-core-cats-x-header-1500x500.png",
+      "sha256": "632d82484ddaa8e73b2d53899be81204e49dd133c1cb9d15165872b4e3811eb2",
+      "dimensions": [
+        1500,
+        500
+      ],
+      "format": "png"
+    },
+    {
+      "repositoryPath": "assets/social/x/header/polar-bird-core-cats-x-header-source.svg",
+      "sha256": "669ac6462ce4d962afffbb156bb0c3a8a387ddb3d4c10c725bed9efe5a283bd4",
+      "selfContained": true
+    }
+  ],
+  "excludedElements": [
+    "added text",
+    "added stars",
+    "lines",
+    "orbits",
+    "external rings",
+    "shadows",
+    "gradients",
+    "darkening overlays",
+    "AI-generated imagery"
+  ]
+}
