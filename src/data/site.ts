@@ -98,7 +98,7 @@ type SampleSubjectCopy = {
   reports: ReportTypeCopy[];
 };
 
-export const repoUrl = "https://github.com/Akiyosih/polar-bird-astrology-web";
+export const repoUrl = "https://github.com/CoreCats-CCAT/polar-bird-astrology-web";
 export const corePayUrl = "https://corepay.money/";
 export const coreBlockchainUrl = "https://coreblockchain.net/";
 export const coreCatsUrl = "https://core-cats.pages.dev/";
